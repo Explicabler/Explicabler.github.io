@@ -1,0 +1,1280 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Import Tool</title>
+<link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=VT323:wght@400&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #0d0d14; --surface: #16161f; --surface2: #1e1e2a;
+    --border: #2a2a3e; --accent: #6c63ff; --red: #ff4f4f;
+    --green: #42f55a; --yellow: #f5e642; --cyan: #42e8f5;
+    --text: #e0e0ff; --text-dim: #6060a0;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { background: var(--bg); color: var(--text); font-family: 'VT323', monospace; font-size: 18px; min-height: 100vh; }
+
+  /* LOGIN */
+  #loginScreen {
+    min-height: 100vh; display: flex; align-items: center;
+    justify-content: center; flex-direction: column; gap: 24px;
+  }
+  .login-box {
+    background: var(--surface); border: 2px solid var(--border);
+    border-radius: 12px; padding: 40px; width: 340px;
+    display: flex; flex-direction: column; gap: 16px; text-align: center;
+  }
+  .login-title { font-family: 'Press Start 2P', monospace; font-size: 11px; color: var(--accent); text-shadow: 0 0 14px var(--accent); line-height: 1.8; }
+  .login-input {
+    background: var(--surface2); border: 1px solid var(--border); border-radius: 8px;
+    color: var(--text); font-family: 'VT323', monospace; font-size: 20px;
+    padding: 10px 14px; outline: none; text-align: center; letter-spacing: 4px; width: 100%;
+    transition: border-color 0.2s;
+  }
+  .login-input:focus { border-color: var(--accent); }
+  .login-btn {
+    background: var(--accent); border: none; border-radius: 8px; color: #fff;
+    font-family: 'Press Start 2P', monospace; font-size: 9px; padding: 12px;
+    cursor: pointer; letter-spacing: 1px; transition: opacity 0.15s;
+  }
+  .login-btn:hover { opacity: 0.85; }
+  .login-error { color: var(--red); font-family: 'Press Start 2P', monospace; font-size: 8px; display: none; }
+  .login-error.show { display: block; }
+
+  /* MAIN */
+  #mainPanel { display: none; }
+  #mainPanel.show { display: block; }
+
+  nav {
+    background: var(--surface); border-bottom: 1px solid var(--border);
+    padding: 0 24px; height: 52px; display: flex; align-items: center;
+    justify-content: space-between; position: sticky; top: 0; z-index: 10;
+  }
+  .nav-logo { font-family: 'Press Start 2P', monospace; font-size: 10px; color: var(--accent); text-shadow: 0 0 12px var(--accent); }
+  .nav-btn {
+    background: var(--surface2); border: 1px solid var(--border); border-radius: 7px;
+    color: var(--text); font-family: 'Press Start 2P', monospace; font-size: 7px;
+    padding: 7px 12px; cursor: pointer; transition: all 0.15s; text-decoration: none;
+    display: inline-flex; align-items: center; gap: 6px;
+  }
+  .nav-btn:hover { border-color: var(--accent); color: var(--accent); }
+
+  .content { max-width: 800px; margin: 0 auto; padding: 32px 24px; }
+
+  .card {
+    background: var(--surface); border: 1px solid var(--border);
+    border-radius: 12px; overflow: hidden; margin-bottom: 24px;
+  }
+  .card-head {
+    background: var(--surface2); border-bottom: 1px solid var(--border);
+    padding: 14px 20px; font-family: 'Press Start 2P', monospace;
+    font-size: 9px; color: var(--text-dim); letter-spacing: 1px;
+    display: flex; align-items: center; gap: 10px;
+  }
+  .card-head .step {
+    background: var(--accent); color: #fff; font-size: 8px;
+    width: 24px; height: 24px; border-radius: 50%;
+    display: flex; align-items: center; justify-content: center; flex-shrink: 0;
+  }
+  .card-body { padding: 20px; display: flex; flex-direction: column; gap: 14px; }
+
+  label { font-family: 'Press Start 2P', monospace; font-size: 7px; color: var(--text-dim); letter-spacing: 1px; }
+
+  input[type=text], input[type=password] {
+    background: var(--surface2); border: 1px solid var(--border); border-radius: 8px;
+    color: var(--text); font-family: 'VT323', monospace; font-size: 18px;
+    padding: 10px 14px; outline: none; width: 100%; transition: border-color 0.2s;
+  }
+  input:focus { border-color: var(--accent); }
+
+  .hint { font-size: 14px; color: var(--text-dim); line-height: 1.6; }
+
+  .btn {
+    background: var(--accent); border: none; border-radius: 8px; color: #fff;
+    font-family: 'Press Start 2P', monospace; font-size: 9px; padding: 12px 20px;
+    cursor: pointer; letter-spacing: 1px; transition: opacity 0.15s; align-self: flex-start;
+  }
+  .btn:hover { opacity: 0.85; }
+  .btn:disabled { opacity: 0.4; cursor: not-allowed; }
+  .btn-red { background: var(--red); }
+
+  /* URL LIST */
+  #urlList { display: flex; flex-direction: column; gap: 8px; }
+
+  .url-item {
+    background: var(--surface2); border: 1px solid var(--border);
+    border-radius: 8px; padding: 12px 14px;
+    display: flex; align-items: center; gap: 12px;
+    animation: fadeIn 0.2s ease both;
+  }
+
+  @keyframes fadeIn { from { opacity:0; transform: translateY(4px); } to { opacity:1; transform:none; } }
+
+  .url-item input[type=checkbox] { width: 18px; height: 18px; accent-color: var(--accent); flex-shrink: 0; cursor: pointer; }
+
+  .url-info { flex: 1; min-width: 0; }
+  .url-address { font-size: 15px; color: var(--cyan); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+
+  .url-name-input {
+    background: var(--bg); border: 1px solid var(--border); border-radius: 6px;
+    color: var(--text); font-family: 'Press Start 2P', monospace; font-size: 7px;
+    padding: 5px 8px; outline: none; width: 100%; margin-top: 6px;
+    transition: border-color 0.2s;
+  }
+  .url-name-input:focus { border-color: var(--accent); }
+
+  .url-status {
+    font-family: 'Press Start 2P', monospace; font-size: 7px;
+    padding: 4px 8px; border-radius: 4px; flex-shrink: 0; white-space: nowrap;
+  }
+  .status-pending  { background: var(--surface); color: var(--text-dim); border: 1px solid var(--border); }
+  .status-loading  { background: rgba(108,99,255,0.2); color: var(--accent); border: 1px solid var(--accent); }
+  .status-done     { background: rgba(66,245,90,0.2); color: var(--green); border: 1px solid var(--green); }
+  .status-error    { background: rgba(255,79,79,0.2); color: var(--red); border: 1px solid var(--red); }
+
+  /* Progress */
+  #progressBar {
+    height: 6px; background: var(--surface2); border-radius: 3px;
+    overflow: hidden; display: none; margin-bottom: 16px;
+  }
+  #progressFill { height: 100%; background: var(--accent); width: 0%; transition: width 0.3s; border-radius: 3px; }
+
+  #summary {
+    background: rgba(66,245,90,0.1); border: 1px solid var(--green);
+    border-radius: 8px; padding: 16px; display: none;
+    font-family: 'Press Start 2P', monospace; font-size: 9px; color: var(--green);
+    line-height: 2.5; text-align: center;
+  }
+
+  .select-row { display: flex; gap: 8px; }
+  .small-btn {
+    background: var(--surface2); border: 1px solid var(--border); border-radius: 6px;
+    color: var(--text-dim); font-family: 'Press Start 2P', monospace; font-size: 7px;
+    padding: 6px 10px; cursor: pointer; transition: all 0.15s;
+  }
+  .small-btn:hover { border-color: var(--accent); color: var(--accent); }
+
+  .toast {
+    position: fixed; bottom: 28px; right: 28px; background: var(--surface);
+    border: 1px solid var(--accent); border-radius: 10px; padding: 12px 20px;
+    font-family: 'Press Start 2P', monospace; font-size: 8px; color: var(--accent);
+    transform: translateY(80px); opacity: 0; transition: all 0.3s; z-index: 999;
+  }
+  .toast.show { transform: translateY(0); opacity: 1; }
+  .toast.error { border-color: var(--red); color: var(--red); }
+
+  /* JSON IMPORT */
+  .json-search-row { display: flex; gap: 8px; flex-wrap: wrap; align-items: center; }
+  .json-search-row input[type=text] { flex: 1; min-width: 160px; }
+
+  .game-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+    gap: 10px;
+    max-height: 500px;
+    overflow-y: auto;
+    padding-right: 4px;
+  }
+  .game-grid::-webkit-scrollbar { width: 4px; }
+  .game-grid::-webkit-scrollbar-thumb { background: var(--border); border-radius: 2px; }
+
+  .game-tile {
+    background: var(--surface2); border: 1px solid var(--border);
+    border-radius: 10px; overflow: hidden; cursor: pointer;
+    transition: border-color 0.15s, transform 0.15s;
+    position: relative; animation: fadeIn 0.15s ease both;
+  }
+  .game-tile:hover { border-color: var(--accent); transform: translateY(-2px); }
+  .game-tile.selected { border-color: var(--green); background: rgba(66,245,90,0.07); }
+  .game-tile.selected .tile-check { opacity: 1; }
+
+  .tile-thumb {
+    width: 100%; aspect-ratio: 16/9; background: var(--bg);
+    overflow: hidden; position: relative;
+  }
+  .tile-thumb img { width: 100%; height: 100%; object-fit: cover; display: block; }
+
+  .tile-check {
+    position: absolute; top: 6px; right: 6px;
+    width: 22px; height: 22px; border-radius: 50%;
+    background: var(--green); color: #000;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 12px; font-weight: bold; opacity: 0;
+    transition: opacity 0.15s; z-index: 2;
+  }
+
+  .tile-info { padding: 8px 10px 10px; }
+  .tile-title {
+    font-family: 'Press Start 2P', monospace; font-size: 6px;
+    color: var(--text); line-height: 1.7;
+    white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+  }
+  .tile-genre {
+    font-family: 'Press Start 2P', monospace; font-size: 5px;
+    color: var(--accent); margin-top: 4px;
+  }
+
+  .json-progress-bar {
+    height: 6px; background: var(--surface2); border-radius: 3px;
+    overflow: hidden; display: none; margin-top: 8px;
+  }
+  .json-progress-fill { height: 100%; background: var(--green); width: 0%; transition: width 0.3s; border-radius: 3px; }
+
+  .json-summary {
+    background: rgba(66,245,90,0.1); border: 1px solid var(--green);
+    border-radius: 8px; padding: 16px; display: none;
+    font-family: 'Press Start 2P', monospace; font-size: 9px; color: var(--green);
+    line-height: 2.5; text-align: center; margin-top: 8px;
+  }
+
+  .genre-chips { display: flex; gap: 5px; flex-wrap: wrap; }
+  .genre-chip {
+    background: var(--surface2); border: 1px solid var(--border);
+    border-radius: 10px; color: var(--text-dim);
+    font-family: 'Press Start 2P', monospace; font-size: 6px;
+    padding: 4px 8px; cursor: pointer; transition: all 0.15s; white-space: nowrap;
+  }
+  .genre-chip:hover { border-color: var(--accent); color: var(--text); }
+  .genre-chip.active { background: var(--accent); border-color: var(--accent); color: #fff; }
+
+  .sel-count {
+    font-family: 'Press Start 2P', monospace; font-size: 7px; color: var(--green);
+  }
+</style>
+</head>
+<body>
+
+<!-- LOGIN -->
+<div id="loginScreen">
+  <div class="login-box">
+    <div class="login-title">📥 IMPORT<br>TOOL</div>
+    <div style="font-size:15px;color:var(--text-dim);">ENTER ADMIN PASSWORD</div>
+    <input class="login-input" type="password" id="passInput" placeholder="••••••••" />
+    <button class="login-btn" onclick="tryLogin()">▶ LOGIN</button>
+    <div class="login-error" id="loginError">✕ WRONG PASSWORD</div>
+  </div>
+</div>
+
+<!-- MAIN -->
+<div id="mainPanel">
+  <nav>
+    <div class="nav-logo">📥 IMPORT TOOL</div>
+    <div style="display:flex;gap:8px;">
+      <a href="admin.html" class="nav-btn">⚙ ADMIN</a>
+      <a href="index.html" class="nav-btn">🏠 SITE</a>
+    </div>
+  </nav>
+
+  <div class="content">
+
+    <!-- STEP 1 -->
+    <div class="card">
+      <div class="card-head">
+        <div class="step">1</div>
+        ENTER YOUR LOCAL GAMES FOLDER PATH
+      </div>
+      <div class="card-body">
+        <label>FOLDER PATH ON YOUR PC</label>
+        <input type="text" id="docUrl" placeholder="C:\\Users\\Dylan\\Documents\\Games" />
+        <div class="hint">
+          Enter the full path to the folder on your PC that contains your HTML game files.<br>e.g. <b style="color:var(--cyan)">C:\Users\Dylan\Documents\Games</b><br>The server will scan it and list every .html file it finds.
+        </div>
+        <button class="btn" onclick="fetchDoc()">🔍 SCAN FOLDER</button>
+      </div>
+    </div>
+
+    <!-- STEP 2 -->
+    <div class="card" id="step2Card" style="display:none;">
+      <div class="card-head">
+        <div class="step">2</div>
+        <span id="urlCountLabel">FOUND 0 FILES — PICK WHICH TO IMPORT</span>
+      </div>
+      <div class="card-body">
+        <div id="scannedPath" style="font-size:13px;color:var(--text-dim);margin-bottom:4px;"></div>
+        <div class="select-row">
+          <button class="small-btn" onclick="selectAll(true)">✔ SELECT ALL</button>
+          <button class="small-btn" onclick="selectAll(false)">✕ DESELECT ALL</button>
+        </div>
+        <div id="urlList"></div>
+        <div id="progressBar"><div id="progressFill"></div></div>
+        <div id="summary"></div>
+        <button class="btn" id="importBtn" onclick="importSelected()">📥 IMPORT SELECTED</button>
+      </div>
+    </div>
+
+    <!-- THUMBNAIL GENERATOR -->
+    <div class="card">
+      <div class="card-head">
+        <div class="step">🖼</div>
+        AUTO-GENERATE THUMBNAILS FROM WEB
+      </div>
+      <div class="card-body">
+        <div class="hint">Searches the web for an image for each local game by name, downloads it in your browser, and saves it to the server. Games must be imported first.<br><br>If a game image can't be found automatically, a <b style="color:var(--cyan)">📁 UPLOAD</b> button will appear so you can pick an image manually from your PC.</div>
+        <div id="thumbStatus" style="font-family:'Press Start 2P',monospace;font-size:7px;color:var(--text-dim);line-height:2.2;display:none;"></div>
+        <div id="thumbProgressBar" style="height:6px;background:var(--surface2);border-radius:3px;overflow:hidden;display:none;margin:4px 0;">
+          <div id="thumbProgressFill" style="height:100%;background:var(--cyan);width:0%;transition:width 0.3s;border-radius:3px;"></div>
+        </div>
+        <div id="thumbGrid" style="display:flex;flex-wrap:wrap;gap:8px;margin-top:4px;max-height:300px;overflow-y:auto;"></div>
+        <button class="btn" onclick="startThumbnails()">🖼 FIND IMAGES</button>
+      </div>
+    </div>
+
+    <!-- JSON GAME IMPORT -->
+    <div class="card">
+      <div class="card-head">
+        <div class="step">🗂</div>
+        IMPORT FROM GAMES.JSON
+      </div>
+      <div class="card-body">
+        <label>SELECT YOUR GAMES.JSON FILE</label>
+        <input type="file" id="jsonFileInput" accept=".json" style="background:var(--surface2);border:1px solid var(--border);border-radius:8px;color:var(--text);padding:10px 14px;width:100%;font-family:'VT323',monospace;font-size:17px;cursor:pointer;" />
+
+        <label style="margin-top:4px;">SELECT IMAGE FOLDER <span style="color:var(--text-dim);font-size:13px;">(OPTIONAL)</span></label>
+        <input type="file" id="imgFolderInput" webkitdirectory multiple accept="image/*" style="background:var(--surface2);border:1px solid var(--border);border-radius:8px;color:var(--text);padding:10px 14px;width:100%;font-family:'VT323',monospace;font-size:17px;cursor:pointer;" />
+        <div class="hint">Pick a folder of images — they'll be matched to games by filename. e.g. <b style="color:var(--cyan)">tb-world.jpg</b> or <b style="color:var(--cyan)">TB World.png</b> will match automatically.</div>
+        <div id="imgFolderStatus" style="font-family:'Press Start 2P',monospace;font-size:7px;color:var(--text-dim);display:none;"></div>
+
+        <button class="btn" onclick="loadJsonFile()">📂 LOAD FILE</button>
+      </div>
+    </div>
+
+    <!-- JSON PICKER (shown after load) -->
+    <div class="card" id="jsonPickerCard" style="display:none;">
+      <div class="card-head">
+        <div class="step">🎮</div>
+        <span id="jsonPickerLabel">SELECT GAMES TO IMPORT</span>
+      </div>
+      <div class="card-body">
+
+        <!-- Search + genre filter -->
+        <div class="json-search-row">
+          <input type="text" id="jsonSearch" placeholder="Search games..." oninput="clearTimeout(jsonSearchTimer);jsonSearchTimer=setTimeout(filterJsonGames,250)" />
+          <button class="small-btn" onclick="jsonSelectAll(true)">✔ ALL</button>
+          <button class="small-btn" onclick="jsonSelectAll(false)">✕ NONE</button>
+        </div>
+
+        <div class="genre-chips" id="genreChips"></div>
+        <div class="sel-count" id="jsonSelCount">0 SELECTED</div>
+
+        <div class="game-grid" id="jsonGameGrid"></div>
+
+        <div class="json-progress-bar" id="jsonProgressBar">
+          <div class="json-progress-fill" id="jsonProgressFill"></div>
+        </div>
+        <div class="json-summary" id="jsonSummary"></div>
+
+        <button class="btn" id="jsonImportBtn" onclick="importJsonGames()">📥 IMPORT SELECTED</button>
+      </div>
+    </div>
+
+    <!-- DANGER ZONE -->
+    <div class="card" style="border-color:rgba(255,79,79,0.4);">
+      <div class="card-head" style="background:rgba(255,79,79,0.08);border-color:rgba(255,79,79,0.3);color:var(--red);">
+        <span>⚠</span> DANGER ZONE
+      </div>
+      <div class="card-body">
+        <div style="font-family:'Press Start 2P',monospace;font-size:8px;color:var(--text);line-height:2;">REMOVE ALL IMPORTED GAMES</div>
+        <div class="hint">Permanently deletes every game folder from the server. This <b style="color:var(--red)">cannot be undone</b>. Restart the server afterwards to reflect changes.</div>
+
+        <div id="deleteConfirmBox" style="display:none;background:rgba(255,79,79,0.08);border:1px solid rgba(255,79,79,0.4);border-radius:8px;padding:16px;flex-direction:column;gap:12px;">
+          <div style="font-family:'Press Start 2P',monospace;font-size:8px;color:var(--red);line-height:2.2;">ARE YOU SURE?<br>THIS DELETES ALL GAME FOLDERS.</div>
+          <div style="display:flex;gap:8px;flex-wrap:wrap;">
+            <button class="btn btn-red" id="confirmDeleteBtn" onclick="deleteAllGames()">🗑 YES, DELETE ALL</button>
+            <button class="small-btn" onclick="cancelDelete()">✕ CANCEL</button>
+          </div>
+        </div>
+
+        <div id="deleteResult" style="display:none;font-family:'Press Start 2P',monospace;font-size:8px;padding:14px;border-radius:8px;line-height:2.2;"></div>
+
+        <button class="btn btn-red" id="deleteAllBtn" onclick="confirmDeleteAll()">🗑 REMOVE ALL GAMES</button>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<div class="toast" id="toast"></div>
+
+<script>
+let sessionPass = '';
+let foundFiles = [];
+
+// ===== AUTH =====
+function tryLogin() {
+  const val = document.getElementById('passInput').value;
+  fetch('/auth', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({ password: val })
+  }).then(res => {
+    if (res.status === 401) {
+      document.getElementById('loginError').classList.add('show');
+      document.getElementById('passInput').value = '';
+    } else {
+      sessionPass = val;
+      document.getElementById('loginScreen').style.display = 'none';
+      document.getElementById('mainPanel').classList.add('show');
+    }
+  }).catch(() => {
+    sessionPass = val;
+    document.getElementById('loginScreen').style.display = 'none';
+    document.getElementById('mainPanel').classList.add('show');
+  });
+}
+document.getElementById('passInput').addEventListener('keydown', e => { if (e.key === 'Enter') tryLogin(); });
+
+// ===== STEP 1: SCAN LOCAL FOLDER =====
+async function fetchDoc() {
+  const folderPath = document.getElementById('docUrl').value.trim();
+  if (!folderPath) { showToast('ENTER A FOLDER PATH!', true); return; }
+
+  const btn = document.querySelector('.btn');
+  btn.disabled = true;
+  btn.textContent = '⏳ SCANNING...';
+
+  try {
+    const res = await fetch('/scan-local', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ password: sessionPass, folderPath })
+    });
+
+    const data = await res.json();
+    if (!res.ok) { showToast('ERROR: ' + (data.error || 'Unknown'), true); return; }
+
+    foundFiles = data.files || [];
+
+    if (!foundFiles.length) {
+      showToast('NO HTML FILES FOUND IN THAT FOLDER!', true);
+      return;
+    }
+
+    buildFileList(foundFiles);
+    document.getElementById('step2Card').style.display = 'block';
+    document.getElementById('urlCountLabel').textContent =
+      'FOUND ' + foundFiles.length + ' FILE' + (foundFiles.length !== 1 ? 'S' : '') + ' — PICK WHICH TO IMPORT';
+    document.getElementById('scannedPath').textContent = '📁 ' + data.scannedPath;
+    document.getElementById('step2Card').scrollIntoView({ behavior: 'smooth' });
+    showToast('✔ FOUND ' + foundFiles.length + ' FILES!');
+
+  } catch(e) {
+    showToast('FAILED: ' + e.message, true);
+  } finally {
+    btn.disabled = false;
+    btn.textContent = '🔍 SCAN FOLDER';
+  }
+}
+
+// ===== BUILD FILE LIST =====
+function buildFileList(files) {
+  const list = document.getElementById('urlList');
+  list.innerHTML = '';
+
+  files.forEach((file, i) => {
+    const suggested = file.name
+      .replace(/\.html?$/i, '')
+      .replace(/[^a-zA-Z0-9]/g, '_')
+      .substring(0, 40);
+
+    const sizeKb = Math.round(file.size / 1024);
+
+    const item = document.createElement('div');
+    item.className = 'url-item';
+    item.innerHTML =
+      '<input type="checkbox" checked id="chk_' + i + '" />' +
+      '<div class="url-info">' +
+        '<div class="url-address">📄 ' + file.name + ' <span style="color:var(--text-dim);font-size:13px;">(' + sizeKb + ' KB)</span></div>' +
+        '<input class="url-name-input" id="name_' + i + '" value="' + suggested + '" placeholder="Folder name on server..." />' +
+      '</div>' +
+      '<div class="url-status status-pending" id="status_' + i + '">PENDING</div>';
+    list.appendChild(item);
+  });
+}
+
+function selectAll(val) {
+  foundFiles.forEach((_, i) => {
+    const chk = document.getElementById('chk_' + i);
+    if (chk) chk.checked = val;
+  });
+}
+
+// ===== STEP 2: IMPORT =====
+async function importSelected() {
+  const selected = foundFiles
+    .map((file, i) => ({
+      filePath: file.fullPath,
+      folderName: document.getElementById('name_' + i)?.value.trim() || 'game_' + i,
+      checked: document.getElementById('chk_' + i)?.checked,
+      index: i
+    }))
+    .filter(x => x.checked);
+
+  if (!selected.length) { showToast('SELECT AT LEAST ONE!', true); return; }
+
+  const btn = document.getElementById('importBtn');
+  btn.disabled = true;
+  btn.textContent = '⏳ IMPORTING...';
+
+  const progress = document.getElementById('progressBar');
+  const fill = document.getElementById('progressFill');
+  progress.style.display = 'block';
+  fill.style.width = '0%';
+
+  let done = 0, succeeded = 0, failed = 0;
+
+  for (const item of selected) {
+    const statusEl = document.getElementById('status_' + item.index);
+    if (statusEl) { statusEl.textContent = 'COPYING'; statusEl.className = 'url-status status-loading'; }
+
+    try {
+      const res = await fetch('/import-local', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ password: sessionPass, filePath: item.filePath, folderName: item.folderName })
+      });
+      const data = await res.json();
+
+      if (res.ok) {
+        if (statusEl) { statusEl.textContent = '✔ DONE'; statusEl.className = 'url-status status-done'; }
+        succeeded++;
+      } else {
+        if (statusEl) { statusEl.textContent = '✕ ' + (data.error || 'FAIL').substring(0, 16); statusEl.className = 'url-status status-error'; }
+        failed++;
+      }
+    } catch(e) {
+      if (statusEl) { statusEl.textContent = '✕ ERROR'; statusEl.className = 'url-status status-error'; }
+      failed++;
+    }
+
+    done++;
+    fill.style.width = Math.round((done / selected.length) * 100) + '%';
+  }
+
+  btn.disabled = false;
+  btn.textContent = '📥 IMPORT SELECTED';
+
+  const summary = document.getElementById('summary');
+  summary.style.display = 'block';
+  if (failed === 0) {
+    summary.innerHTML = '✔ IMPORT COMPLETE<br><br>' + succeeded + ' GAMES IMPORTED<br><br>RESTART YOUR SERVER TO SEE THEM';
+  } else {
+    summary.style.background = 'rgba(255,79,79,0.1)';
+    summary.style.borderColor = 'var(--red)';
+    summary.style.color = 'var(--text)';
+    summary.innerHTML = succeeded + ' IMPORTED &nbsp;·&nbsp; ' + failed + ' FAILED<br><br>RESTART SERVER TO SEE NEW ONES';
+  }
+  summary.scrollIntoView({ behavior: 'smooth' });
+}
+
+function confirmDeleteAll() {
+  document.getElementById('deleteAllBtn').style.display = 'none';
+  document.getElementById('deleteResult').style.display = 'none';
+  const box = document.getElementById('deleteConfirmBox');
+  box.style.display = 'flex';
+}
+
+function cancelDelete() {
+  document.getElementById('deleteConfirmBox').style.display = 'none';
+  document.getElementById('deleteAllBtn').style.display = 'inline-flex';
+}
+
+async function deleteAllGames() {
+  const confirmBtn = document.getElementById('confirmDeleteBtn');
+  confirmBtn.disabled = true;
+  confirmBtn.textContent = '⏳ DELETING...';
+
+  try {
+    const res = await fetch('/delete-all-games', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ password: sessionPass })
+    });
+    const data = await res.json();
+
+    document.getElementById('deleteConfirmBox').style.display = 'none';
+    const result = document.getElementById('deleteResult');
+    result.style.display = 'block';
+
+    if (res.ok) {
+      result.style.background = 'rgba(66,245,90,0.1)';
+      result.style.border = '1px solid var(--green)';
+      result.style.color = 'var(--green)';
+      result.innerHTML = '✔ DONE — ' + (data.deleted || 0) + ' FOLDER' + ((data.deleted !== 1) ? 'S' : '') + ' DELETED<br><br>RESTART SERVER TO REFLECT CHANGES';
+      showToast('✔ ALL GAMES DELETED');
+    } else {
+      result.style.background = 'rgba(255,79,79,0.1)';
+      result.style.border = '1px solid var(--red)';
+      result.style.color = 'var(--red)';
+      result.innerHTML = '✕ ERROR: ' + (data.error || 'UNKNOWN');
+      showToast('ERROR: ' + (data.error || 'UNKNOWN'), true);
+      document.getElementById('deleteAllBtn').style.display = 'inline-flex';
+    }
+  } catch(e) {
+    document.getElementById('deleteConfirmBox').style.display = 'none';
+    const result = document.getElementById('deleteResult');
+    result.style.display = 'block';
+    result.style.background = 'rgba(255,79,79,0.1)';
+    result.style.border = '1px solid var(--red)';
+    result.style.color = 'var(--red)';
+    result.innerHTML = '✕ FAILED: ' + e.message;
+    document.getElementById('deleteAllBtn').style.display = 'inline-flex';
+    showToast('FAILED: ' + e.message, true);
+  } finally {
+    confirmBtn.disabled = false;
+    confirmBtn.textContent = '🗑 YES, DELETE ALL';
+  }
+}
+
+// ===== JSON GAME IMPORT =====
+let jsonGames = [];
+let jsonFiltered = [];
+let jsonSelected = new Set();
+let activeGenre = 'all';
+
+// Genre → site type mapping
+const GENRE_TYPE_MAP = {
+  action: 'action', arcade: 'arcade', puzzle: 'puzzle', adventure: 'action',
+  sport: 'sport', sports: 'sport', running: 'platformer', platformer: 'platformer',
+  rpg: 'rpg', simulation: 'simulation', sim: 'simulation', skill: 'arcade',
+  brain: 'puzzle', logic: 'puzzle', chess: 'puzzle', board: 'puzzle',
+  racing: 'sport', race: 'sport', car: 'sport', girls: 'interactive',
+  kids: 'interactive', decoration: 'interactive', 'dress-up': 'interactive',
+  'make-up': 'interactive', merge: 'puzzle', multiplayer: 'arcade',
+};
+
+function guessType(genres) {
+  for (const g of genres) {
+    const t = GENRE_TYPE_MAP[g.toLowerCase()];
+    if (t) return t;
+  }
+  return 'interactive';
+}
+
+// Image folder matching
+let imageFileMap = {}; // slug/normalised-name → File object
+
+function normaliseForMatch(str) {
+  return str.toLowerCase().replace(/[^a-z0-9]/g, '');
+}
+
+document.getElementById('imgFolderInput').addEventListener('change', function() {
+  imageFileMap = {};
+  const files = Array.from(this.files);
+  files.forEach(f => {
+    // Key by filename without extension, normalised
+    const nameKey = normaliseForMatch(f.name.replace(/\.[^.]+$/, ''));
+    imageFileMap[nameKey] = f;
+  });
+  const status = document.getElementById('imgFolderStatus');
+  if (files.length) {
+    status.style.display = 'block';
+    status.textContent = '✔ ' + files.length + ' IMAGES LOADED';
+    status.style.color = 'var(--green)';
+  }
+});
+
+function findImageForGame(game) {
+  if (!Object.keys(imageFileMap).length) return null;
+
+  // Try slug first (most reliable)
+  if (game.slug) {
+    const slugKey = normaliseForMatch(game.slug);
+    if (imageFileMap[slugKey]) return imageFileMap[slugKey];
+  }
+
+  // Try title
+  const titleKey = normaliseForMatch(game.title);
+  if (imageFileMap[titleKey]) return imageFileMap[titleKey];
+
+  // Try partial match — find any image key that contains the slug/title words
+  const words = (game.slug || game.title).toLowerCase().split(/[-_\s]+/).filter(w => w.length > 2);
+  for (const [key, file] of Object.entries(imageFileMap)) {
+    if (words.every(w => key.includes(w))) return file;
+  }
+
+  return null;
+}
+
+function fileToBase64(file) {
+  return new Promise((resolve, reject) => {
+    const reader = new FileReader();
+    reader.onload = e => resolve(e.target.result); // data:image/...;base64,...
+    reader.onerror = reject;
+    reader.readAsDataURL(file);
+  });
+}
+
+function loadJsonFile() {
+  const file = document.getElementById('jsonFileInput').files[0];
+  if (!file) { showToast('SELECT A FILE FIRST!', true); return; }
+
+  const btn = document.querySelector('#jsonPickerCard').previousElementSibling.querySelector('.btn') ||
+              document.querySelectorAll('.btn')[0];
+
+  showToast('⏳ READING FILE...');
+
+  const reader = new FileReader();
+  reader.onload = e => {
+    try {
+      // Strip BOM if present
+      let text = e.target.result;
+      if (text.charCodeAt(0) === 0xFEFF) text = text.slice(1);
+      text = text.trim();
+
+      const json = JSON.parse(text);
+
+      let hits = [];
+      if (Array.isArray(json)) {
+        hits = json;
+      } else if (json.segments && json.segments[0] && json.segments[0].hits) {
+        hits = json.segments[0].hits;
+      } else if (json.hits) {
+        hits = json.hits;
+      } else {
+        showToast('UNRECOGNISED JSON FORMAT', true); return;
+      }
+
+      // Stamp index on each game for O(1) lookup — avoids slow indexOf
+      hits.forEach((g, i) => g._idx = i);
+
+      jsonGames = hits;
+      jsonSelected = new Set(hits.map((_, i) => i)); // select all by default
+      buildGenreChips(hits);
+      filterJsonGames();
+
+      document.getElementById('jsonPickerCard').style.display = 'block';
+      document.getElementById('jsonPickerCard').scrollIntoView({ behavior: 'smooth' });
+      updateJsonSelCount();
+      showToast('✔ LOADED ' + hits.length + ' GAMES');
+    } catch(err) {
+      showToast('PARSE ERROR: ' + err.message, true);
+    }
+  };
+  reader.readAsText(file, 'utf-8');
+}
+
+function buildGenreChips(games) {
+  const counts = {};
+  games.forEach(g => (g.genres || []).forEach(genre => {
+    const key = genre.toLowerCase();
+    counts[key] = (counts[key] || 0) + 1;
+  }));
+
+  // Top genres by count
+  const top = Object.entries(counts)
+    .filter(([, c]) => c >= 3)
+    .sort((a, b) => b[1] - a[1])
+    .slice(0, 12)
+    .map(([g]) => g);
+
+  const chips = document.getElementById('genreChips');
+  chips.innerHTML = '';
+
+  const allChip = document.createElement('button');
+  allChip.className = 'genre-chip active';
+  allChip.textContent = 'ALL (' + games.length + ')';
+  allChip.onclick = () => setGenre('all', allChip);
+  chips.appendChild(allChip);
+
+  top.forEach(genre => {
+    const chip = document.createElement('button');
+    chip.className = 'genre-chip';
+    chip.textContent = genre.toUpperCase() + ' (' + counts[genre] + ')';
+    chip.onclick = () => setGenre(genre, chip);
+    chips.appendChild(chip);
+  });
+}
+
+function setGenre(genre, el) {
+  activeGenre = genre;
+  document.querySelectorAll('.genre-chip').forEach(c => c.classList.remove('active'));
+  el.classList.add('active');
+  filterJsonGames();
+}
+
+const PAGE_SIZE = 48;
+let jsonPage = 0;
+let jsonSearchTimer = null;
+
+function filterJsonGames() {
+  const q = (document.getElementById('jsonSearch').value || '').toLowerCase();
+  jsonFiltered = jsonGames.filter(g => {
+    const matchGenre = activeGenre === 'all' || (g.genres || []).some(x => x.toLowerCase() === activeGenre);
+    const matchSearch = !q || g.title.toLowerCase().includes(q);
+    return matchGenre && matchSearch;
+  });
+
+  document.getElementById('jsonPickerLabel').textContent =
+    'SELECT GAMES — ' + jsonFiltered.length + ' SHOWN';
+
+  jsonPage = 0;
+  const grid = document.getElementById('jsonGameGrid');
+  grid.innerHTML = '';
+  renderJsonPage();
+}
+
+function renderJsonPage() {
+  const grid = document.getElementById('jsonGameGrid');
+  const start = jsonPage * PAGE_SIZE;
+  const slice = jsonFiltered.slice(start, start + PAGE_SIZE);
+
+  const frag = document.createDocumentFragment();
+  slice.forEach(g => {
+    const origIdx = g._idx;
+    const isSelected = jsonSelected.has(origIdx);
+    const img = (g.images && g.images[0]) ? g.images[0] : '';
+    const primaryGenre = (g.genres && g.genres[0]) ? g.genres[0].toUpperCase() : '';
+
+    const tile = document.createElement('div');
+    tile.className = 'game-tile' + (isSelected ? ' selected' : '');
+    tile.dataset.idx = origIdx;
+    tile.innerHTML =
+      '<div class="tile-thumb">' +
+        (img ? '<img data-src="' + img + '" loading="lazy" />' : '<span>🎮</span>') +
+        '<div class="tile-check">✓</div>' +
+      '</div>' +
+      '<div class="tile-info">' +
+        '<div class="tile-title">' + g.title + '</div>' +
+        '<div class="tile-genre">' + primaryGenre + '</div>' +
+      '</div>';
+
+    tile.addEventListener('click', () => {
+      toggleJsonGame(origIdx);
+      tile.classList.toggle('selected', jsonSelected.has(origIdx));
+    });
+    frag.appendChild(tile);
+  });
+  grid.appendChild(frag);
+
+  // Lazy load images with IntersectionObserver
+  grid.querySelectorAll('img[data-src]').forEach(img => {
+    imgObserver.observe(img);
+  });
+
+  // Show/hide load more button
+  let loadMoreBtn = document.getElementById('jsonLoadMore');
+  if (start + PAGE_SIZE < jsonFiltered.length) {
+    if (!loadMoreBtn) {
+      loadMoreBtn = document.createElement('button');
+      loadMoreBtn.id = 'jsonLoadMore';
+      loadMoreBtn.className = 'small-btn';
+      loadMoreBtn.style.cssText = 'width:100%;padding:10px;margin-top:4px;';
+      loadMoreBtn.onclick = () => { jsonPage++; renderJsonPage(); };
+      grid.after(loadMoreBtn);
+    }
+    loadMoreBtn.textContent = 'LOAD MORE (' + (jsonFiltered.length - start - PAGE_SIZE) + ' remaining)';
+  } else if (loadMoreBtn) {
+    loadMoreBtn.remove();
+  }
+}
+
+// IntersectionObserver for image lazy loading
+const imgObserver = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      const img = entry.target;
+      img.src = img.dataset.src;
+      img.removeAttribute('data-src');
+      imgObserver.unobserve(img);
+    }
+  });
+}, { rootMargin: '100px' });
+
+function toggleJsonGame(idx) {
+  if (jsonSelected.has(idx)) {
+    jsonSelected.delete(idx);
+  } else {
+    jsonSelected.add(idx);
+  }
+  updateJsonSelCount();
+}
+
+function jsonSelectAll(val) {
+  if (val) {
+    jsonFiltered.forEach(g => jsonSelected.add(g._idx));
+  } else {
+    jsonFiltered.forEach(g => jsonSelected.delete(g._idx));
+  }
+  // Re-render current pages only
+  document.querySelectorAll('.game-tile').forEach(tile => {
+    const idx = parseInt(tile.dataset.idx);
+    tile.classList.toggle('selected', jsonSelected.has(idx));
+  });
+  updateJsonSelCount();
+}
+
+function updateJsonSelCount() {
+  document.getElementById('jsonSelCount').textContent = jsonSelected.size + ' SELECTED';
+}
+
+async function importJsonGames() {
+  if (!jsonSelected.size) { showToast('SELECT AT LEAST ONE GAME!', true); return; }
+
+  const toImport = [...jsonSelected].map(i => jsonGames[i]);
+  const btn = document.getElementById('jsonImportBtn');
+  btn.disabled = true;
+  btn.textContent = '⏳ BUILDING LIST...';
+
+  const progressBar = document.getElementById('jsonProgressBar');
+  const progressFill = document.getElementById('jsonProgressFill');
+  const summary = document.getElementById('jsonSummary');
+  progressBar.style.display = 'block';
+  progressFill.style.width = '0%';
+  summary.style.display = 'none';
+
+  // Phase 1: match local images if folder was provided
+  let localMatched = 0;
+  const projects = await Promise.all(toImport.map(async g => {
+    let localImage = null;
+    const matchedFile = findImageForGame(g);
+    if (matchedFile) {
+      localImage = await fileToBase64(matchedFile);
+      localMatched++;
+    }
+
+    // Use local image → fall back to first CDN url from JSON
+    const cdnImage = (g.images && g.images[0]) ? g.images[0] : null;
+
+    return {
+      title: g.title.toUpperCase(),
+      type: guessType(g.genres || []),
+      engine: 'html',
+      icon: '🎮',
+      color: 'accent',
+      desc: (g.description || '').substring(0, 120).replace(/\n/g, ' '),
+      url: g.gameURL,
+      image: localImage || cdnImage,
+      imageIsLocal: !!localImage,
+      slug: g.slug || null,
+      external: true,
+    };
+  }));
+
+  progressFill.style.width = '50%';
+  btn.textContent = '📥 SAVING...';
+
+  try {
+    const r = await fetch('/import-json-games', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ password: sessionPass, projects })
+    });
+    const data = await r.json();
+    progressFill.style.width = '100%';
+
+    summary.style.display = 'block';
+    if (r.ok) {
+      summary.style.background = 'rgba(66,245,90,0.1)';
+      summary.style.borderColor = 'var(--green)';
+      summary.style.color = 'var(--green)';
+      const imgLine = localMatched > 0 ? '<br>' + localMatched + ' LOCAL IMAGES MATCHED' : '<br>IMAGES FROM GAME CDN';
+      summary.innerHTML = '✔ IMPORT COMPLETE<br><br>' + data.added + ' GAMES ADDED' + imgLine + '<br><br><a href="index.html" style="color:var(--cyan)">VIEW SITE →</a>';
+      showToast('✔ ' + data.added + ' GAMES IMPORTED!');
+    } else {
+      summary.style.background = 'rgba(255,79,79,0.1)';
+      summary.style.borderColor = 'var(--red)';
+      summary.style.color = 'var(--red)';
+      summary.innerHTML = '✕ ERROR: ' + (data.error || 'UNKNOWN');
+      showToast('ERROR: ' + (data.error || 'UNKNOWN'), true);
+    }
+    summary.scrollIntoView({ behavior: 'smooth' });
+  } catch(err) {
+    showToast('FAILED: ' + err.message, true);
+  } finally {
+    btn.disabled = false;
+    btn.textContent = '📥 IMPORT SELECTED';
+  }
+}
+
+// ===== THUMBNAIL GENERATOR =====
+
+// CORS proxies tried in order for fetching search results HTML
+const SEARCH_PROXIES = [
+  url => 'https://api.allorigins.win/get?url=' + encodeURIComponent(url),
+  url => 'https://corsproxy.io/?' + encodeURIComponent(url),
+  url => 'https://api.codetabs.com/v1/proxy?quest=' + encodeURIComponent(url),
+  url => 'https://thingproxy.freeboard.io/fetch/' + url,
+];
+
+// CORS proxies tried in order for fetching raw image bytes
+const IMG_PROXIES = [
+  url => 'https://api.allorigins.win/raw?url=' + encodeURIComponent(url),
+  url => 'https://corsproxy.io/?' + encodeURIComponent(url),
+  url => 'https://api.codetabs.com/v1/proxy?quest=' + encodeURIComponent(url),
+];
+
+async function startThumbnails() {
+  let projects;
+  try {
+    const r = await fetch('/projects.json?nocache=' + Date.now());
+    projects = await r.json();
+  } catch(e) { showToast('FAILED TO LOAD PROJECTS', true); return; }
+
+  const allLocal = projects.filter(p => !p.external);
+  if (!allLocal.length) { showToast('NO LOCAL GAMES FOUND!', true); return; }
+
+  const status = document.getElementById('thumbStatus');
+  const fill = document.getElementById('thumbProgressFill');
+  const grid = document.getElementById('thumbGrid');
+
+  status.style.display = 'block';
+  status.style.color = 'var(--text-dim)';
+  document.getElementById('thumbProgressBar').style.display = 'block';
+  grid.innerHTML = '';
+  fill.style.width = '0%';
+
+  let done = 0, saved = 0;
+  const BATCH = 4; // process 4 games at once
+
+  // Add placeholder cards immediately so UI fills up as results come in
+  const placeholders = {};
+  for (const project of allLocal) {
+    const ph = document.createElement('div');
+    ph.style.cssText = 'border-radius:6px;width:140px;flex-shrink:0;border:1px solid var(--border);background:var(--surface2);display:flex;align-items:center;justify-content:center;height:88px;';
+    ph.innerHTML = '<div style="font-family:\'Press Start 2P\',monospace;font-size:5px;color:var(--text-dim);text-align:center;padding:4px;line-height:1.8;">⏳<br>' + project.title.substring(0,14) + '</div>';
+    grid.appendChild(ph);
+    placeholders[project.url] = ph;
+  }
+
+  async function processOne(project) {
+    try {
+      const b64 = await searchAndFetchImage(project.title);
+      if (b64) {
+        const didSave = await saveThumbnailToServer(project, b64);
+        if (didSave) {
+          saved++;
+          // Replace placeholder with success thumb
+          const ph = placeholders[project.url];
+          ph.style.border = '1px solid var(--green)';
+          ph.style.overflow = 'hidden';
+          ph.style.position = 'relative';
+          ph.innerHTML = '<img src="' + b64 + '" style="width:140px;height:88px;object-fit:cover;display:block;"/>'
+            + '<div style="position:absolute;bottom:0;left:0;right:0;background:rgba(0,0,0,0.8);font-family:\'Press Start 2P\',monospace;font-size:5px;color:#fff;padding:3px 5px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;">✔ ' + project.title.substring(0,18) + '</div>';
+        } else { replaceWithFail(project); }
+      } else { replaceWithFail(project); }
+    } catch(e) { replaceWithFail(project); }
+
+    done++;
+    fill.style.width = (done / allLocal.length * 100) + '%';
+    status.textContent = '🔍 PROCESSING... (' + done + '/' + allLocal.length + ')';
+  }
+
+  function replaceWithFail(project) {
+    const ph = placeholders[project.url];
+    ph.style.border = '1px solid var(--red)';
+    ph.style.flexDirection = 'column';
+    ph.style.gap = '6px';
+    ph.style.padding = '6px';
+    const label = document.createElement('div');
+    label.style.cssText = 'font-family:\'Press Start 2P\',monospace;font-size:5px;color:var(--red);text-align:center;line-height:1.8;';
+    label.textContent = '✕ NOT FOUND\n' + project.title.substring(0,16);
+    const uploadBtn = document.createElement('label');
+    uploadBtn.style.cssText = 'background:var(--surface);border:1px solid var(--border);border-radius:4px;font-family:\'Press Start 2P\',monospace;font-size:5px;color:var(--cyan);padding:3px 6px;cursor:pointer;text-align:center;white-space:nowrap;';
+    uploadBtn.textContent = '📁 UPLOAD';
+    const fileIn = document.createElement('input');
+    fileIn.type = 'file'; fileIn.accept = 'image/*'; fileIn.style.display = 'none';
+    fileIn.onchange = async () => {
+      const file = fileIn.files[0]; if (!file) return;
+      uploadBtn.textContent = '⏳'; uploadBtn.style.color = 'var(--text-dim)';
+      try {
+        const b64 = await fileToBase64(file);
+        const didSave = await saveThumbnailToServer(project, b64);
+        if (didSave) {
+          ph.style.border = '1px solid var(--green)';
+          ph.style.overflow = 'hidden'; ph.style.position = 'relative';
+          ph.innerHTML = '<img src="' + b64 + '" style="width:140px;height:88px;object-fit:cover;display:block;"/>'
+            + '<div style="position:absolute;bottom:0;left:0;right:0;font-family:\'Press Start 2P\',monospace;font-size:5px;color:var(--green);text-align:center;padding:3px;">✔ SAVED</div>';
+          showToast('✔ IMAGE SAVED FOR ' + project.title.substring(0,12));
+        } else { uploadBtn.textContent = '✕ FAILED'; uploadBtn.style.color = 'var(--red)'; }
+      } catch(e) { uploadBtn.textContent = '✕ ERROR'; uploadBtn.style.color = 'var(--red)'; }
+    };
+    uploadBtn.appendChild(fileIn);
+    ph.innerHTML = '';
+    ph.appendChild(label);
+    ph.appendChild(uploadBtn);
+  }
+
+  // Run in batches of BATCH
+  for (let i = 0; i < allLocal.length; i += BATCH) {
+    const batch = allLocal.slice(i, i + BATCH);
+    await Promise.all(batch.map(p => processOne(p)));
+  }
+
+  status.textContent = '✔ DONE — ' + saved + '/' + allLocal.length + ' IMAGES SAVED';
+  status.style.color = saved > 0 ? 'var(--green)' : 'var(--red)';
+  showToast(saved > 0 ? ('✔ ' + saved + ' IMAGES SAVED!') : 'NO IMAGES FOUND — TRY MANUAL UPLOAD', saved === 0);
+}
+
+async function saveThumbnailToServer(project, b64) {
+  const slug = project.title.toLowerCase().replace(/[^a-z0-9]+/g, '-').substring(0, 50);
+  try {
+    const r = await fetch('/save-thumbnail', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ password: sessionPass, slug, imageData: b64 })
+    });
+    const d = await r.json();
+    if (!r.ok) return false;
+    await fetch('/update-project-image', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ password: sessionPass, url: project.url, image: d.image })
+    });
+    return true;
+  } catch(e) { return false; }
+}
+
+
+function fileToBase64(file) {
+  return new Promise((resolve, reject) => {
+    const reader = new FileReader();
+    reader.onload = e => {
+      // Convert to JPEG via canvas for consistent format + compression
+      const img = new Image();
+      img.onload = () => {
+        const canvas = document.createElement('canvas');
+        canvas.width = Math.min(img.naturalWidth, 800);
+        canvas.height = Math.round(canvas.width * img.naturalHeight / img.naturalWidth);
+        canvas.getContext('2d').drawImage(img, 0, 0, canvas.width, canvas.height);
+        resolve(canvas.toDataURL('image/jpeg', 0.85));
+      };
+      img.onerror = reject;
+      img.src = e.target.result;
+    };
+    reader.onerror = reject;
+    reader.readAsDataURL(file);
+  });
+}
+
+// ─── IMAGE SEARCH ────────────────────────────────────────────────────────────
+
+// Try multiple search strategies: DuckDuckGo JSON API, then Bing HTML scrape
+async function searchAndFetchImage(title) {
+  const query = title + ' game';
+
+  // Strategy 1: DuckDuckGo image search (returns clean JSON with image URLs)
+  const ddgUrl = 'https://duckduckgo.com/i.js?q=' + encodeURIComponent(query) + '&o=json&ia=images&iax=images';
+  for (const makeProxy of SEARCH_PROXIES) {
+    try {
+      const resp = await fetch(makeProxy(ddgUrl), { signal: AbortSignal.timeout(7000) });
+      if (!resp.ok) continue;
+      const text = await resp.text();
+      // allorigins wraps in {contents:...}, others return raw
+      const raw = (() => { try { const j = JSON.parse(text); return j.contents || text; } catch { return text; } })();
+      const data = (() => { try { return JSON.parse(raw); } catch { return null; } })();
+      const results = data && (data.results || data);
+      if (Array.isArray(results) && results.length) {
+        for (const r of results.slice(0, 6)) {
+          const imgUrl = r.image || r.thumbnail || r.url;
+          if (!imgUrl) continue;
+          const b64 = await fetchImageAsBase64(imgUrl);
+          if (b64) return b64;
+        }
+      }
+    } catch(e) { continue; }
+  }
+
+  // Strategy 2: Bing image search HTML scrape (extract murl values)
+  const bingUrl = 'https://www.bing.com/images/search?q=' + encodeURIComponent(query) + '&count=8&first=1&form=HDRSC2';
+  for (const makeProxy of SEARCH_PROXIES) {
+    try {
+      const resp = await fetch(makeProxy(bingUrl), { signal: AbortSignal.timeout(8000) });
+      if (!resp.ok) continue;
+      const text = await resp.text();
+      const raw = (() => { try { const j = JSON.parse(text); return j.contents || text; } catch { return text; } })();
+      if (raw.length < 500) continue;
+
+      // Two regex patterns — Bing changes its format occasionally
+      const patterns = [
+        /murl&quot;:&quot;(https?:\/\/[^&"]+?\.(?:jpg|jpeg|png|webp))&quot;/gi,
+        /"murl":"(https?:\/\/[^"]+?\.(?:jpg|jpeg|png|webp))"/gi,
+        /imgurl=(https?:\/\/[^&"]+?\.(?:jpg|jpeg|png|webp))/gi,
+      ];
+      const urls = [];
+      for (const pat of patterns) {
+        for (const m of [...raw.matchAll(pat)]) {
+          const u = decodeURIComponent(m[1].replace(/&amp;/g, '&'));
+          if (!urls.includes(u)) urls.push(u);
+        }
+        if (urls.length >= 5) break;
+      }
+
+      for (const imgUrl of urls.slice(0, 6)) {
+        const b64 = await fetchImageAsBase64(imgUrl);
+        if (b64) return b64;
+      }
+    } catch(e) { continue; }
+  }
+
+  return null;
+}
+
+// Fetch a remote image URL as base64 JPEG, trying each IMG_PROXY in order
+async function fetchImageAsBase64(imgUrl) {
+  for (const makeProxy of IMG_PROXIES) {
+    try {
+      const resp = await fetch(makeProxy(imgUrl), { signal: AbortSignal.timeout(8000) });
+      if (!resp.ok) continue;
+      const blob = await resp.blob();
+      if (!blob.type.startsWith('image/') || blob.size < 1000) continue;
+      const b64 = await blobToBase64JPEG(blob);
+      if (b64) return b64;
+    } catch(e) { continue; }
+  }
+  // Last resort: try loading via <img> + canvas (works if image has CORS headers)
+  return urlToBase64ViaImage(imgUrl);
+}
+
+function blobToBase64JPEG(blob) {
+  return new Promise(resolve => {
+    const url = URL.createObjectURL(blob);
+    const img = new Image();
+    img.onload = () => {
+      try {
+        URL.revokeObjectURL(url);
+        const canvas = document.createElement('canvas');
+        canvas.width = Math.min(img.naturalWidth || 400, 800);
+        canvas.height = img.naturalHeight
+          ? Math.round(canvas.width * img.naturalHeight / img.naturalWidth)
+          : Math.round(canvas.width * 9 / 16);
+        canvas.getContext('2d').drawImage(img, 0, 0, canvas.width, canvas.height);
+        resolve(canvas.toDataURL('image/jpeg', 0.85));
+      } catch(e) { resolve(null); }
+    };
+    img.onerror = () => { URL.revokeObjectURL(url); resolve(null); };
+    img.src = url;
+    setTimeout(() => { URL.revokeObjectURL(url); resolve(null); }, 10000);
+  });
+}
+
+function urlToBase64ViaImage(url) {
+  return new Promise(resolve => {
+    const img = new Image();
+    img.crossOrigin = 'anonymous';
+    img.onload = () => {
+      try {
+        const canvas = document.createElement('canvas');
+        canvas.width = Math.min(img.naturalWidth || 400, 800);
+        canvas.height = img.naturalHeight
+          ? Math.round(canvas.width * img.naturalHeight / img.naturalWidth)
+          : Math.round(canvas.width * 9 / 16);
+        canvas.getContext('2d').drawImage(img, 0, 0, canvas.width, canvas.height);
+        resolve(canvas.toDataURL('image/jpeg', 0.85));
+      } catch(e) { resolve(null); }
+    };
+    img.onerror = () => resolve(null);
+    img.src = url;
+    setTimeout(() => resolve(null), 8000);
+  });
+}
+
+function showToast(msg, isError = false) {
+  const t = document.getElementById('toast');
+  t.textContent = msg;
+  t.className = 'toast show' + (isError ? ' error' : '');
+  setTimeout(() => t.className = 'toast', 3000);
+}
+</script>
+</body>
+</html>
