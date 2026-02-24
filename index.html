@@ -562,8 +562,7 @@
       <div class="modal-head"><span class="modal-title">Submit a game</span><span class="modal-close" onclick="closeSubmissionModal()">✕</span></div>
       <div class="modal-body" style="gap:10px">
         <input id="subTitle" placeholder="Game title" style="height:34px;background:var(--surface2);border:1px solid var(--border);border-radius:8px;color:var(--text);padding:0 10px">
-        <input id="subUrl" placeholder="Game URL" style="height:34px;background:var(--surface2);border:1px solid var(--border);border-radius:8px;color:var(--text);padding:0 10px">
-        <textarea id="subNote" placeholder="Why should we add it?" style="min-height:80px;background:var(--surface2);border:1px solid var(--border);border-radius:8px;color:var(--text);padding:8px 10px"></textarea>
+        <textarea id="subNote" placeholder="Short description" style="min-height:90px;background:var(--surface2);border:1px solid var(--border);border-radius:8px;color:var(--text);padding:8px 10px"></textarea>
         <button class="mini-btn" onclick="submitSuggestion()">Send to moderation queue</button>
       </div>
     </div>
@@ -898,9 +897,7 @@ function resetBrowseState(){
 }
 
 fetch('/projects.json?nocache='+Date.now())
-  .then(r=>r.json()).then(d=>{
-    const approved=JSON.parse(localStorage.getItem('cshub_approved_submissions')||'[]');
-    PROJECTS=[...d,...approved];onLoaded()})
+  .then(r=>r.json()).then(d=>{PROJECTS=d;onLoaded()})
   .catch(()=>{PROJECTS=getDefaults();onLoaded()});
 
 function onLoaded(){
@@ -1323,10 +1320,10 @@ function openSubmissionModal(){document.getElementById('submissionOverlay').clas
 function closeSubmissionModal(){document.getElementById('submissionOverlay').classList.remove('open');}
 function submitSuggestion(){
   const title=document.getElementById('subTitle').value.trim();
-  const url=document.getElementById('subUrl').value.trim();
-  if(!title||!url){showToast('Title and URL required');return;}
+  const desc=document.getElementById('subNote').value.trim();
+  if(!title||!desc){showToast('Title and description required');return;}
   const queue=JSON.parse(localStorage.getItem('cshub_submissions')||'[]');
-  queue.unshift({id:Date.now(),title,url,note:document.getElementById('subNote').value.trim(),status:'pending',submittedAt:new Date().toISOString()});
+  queue.unshift({id:Date.now(),title,desc,status:'pending',submittedAt:new Date().toISOString()});
   localStorage.setItem('cshub_submissions',JSON.stringify(queue));
   closeSubmissionModal();
   showToast('Submitted for review');
