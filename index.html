@@ -433,6 +433,30 @@
     </div>
   </div>
 
+  <!-- WELCOME POPUP -->
+  <div class="modal-overlay" id="welcomeOverlay" style="z-index:1500">
+    <div class="modal" style="max-width:420px">
+      <div class="modal-head">
+        <span class="modal-title">👋 Welcome to CS Hub</span>
+      </div>
+      <div class="modal-body" style="gap:16px">
+        <div style="background:rgba(240,208,58,0.1);border:1px solid rgba(240,208,58,0.3);border-radius:10px;padding:14px 16px;display:flex;gap:12px;align-items:flex-start">
+          <span style="font-size:22px;flex-shrink:0">💻</span>
+          <div>
+            <div style="font-size:13px;font-weight:700;color:var(--text);margin-bottom:4px">On a Chromebook?</div>
+            <div style="font-size:12px;color:var(--text-2);line-height:1.6">Go to <strong style="color:var(--text)">Settings → Enable About:Blank</strong> to help bypass content filters and keep the site hidden.</div>
+          </div>
+        </div>
+        <div style="font-size:12px;color:var(--text-3);line-height:1.6;padding:0 2px">
+          You can find this option any time in <strong style="color:var(--text-2)">⚙️ Settings</strong> in the sidebar.
+        </div>
+        <button onclick="dismissWelcome()" style="width:100%;height:38px;background:var(--accent);border:none;border-radius:9px;color:#fff;font-family:'Inter',sans-serif;font-size:13px;font-weight:700;cursor:pointer;transition:background .15s" onmouseover="this.style.background='var(--accent-hover)'" onmouseout="this.style.background='var(--accent)'">
+          Got it, let's play! 🎮
+        </button>
+      </div>
+    </div>
+  </div>
+
   <!-- SEARCH PANEL -->
   <div class="search-panel-overlay" id="searchPanelOverlay">
     <div class="search-panel-backdrop" onclick="closeSearchPanel()"></div>
@@ -916,10 +940,24 @@ function showToast(msg){
 }
 
 // ══════════════════════════════════
+// WELCOME POPUP
+// ══════════════════════════════════
+function showWelcomeIfFirstVisit(){
+  if(!localStorage.getItem('cshub_visited')){
+    document.getElementById('welcomeOverlay').classList.add('open');
+  }
+}
+function dismissWelcome(){
+  localStorage.setItem('cshub_visited','1');
+  document.getElementById('welcomeOverlay').classList.remove('open');
+}
+
+// ══════════════════════════════════
 // INIT
 // ══════════════════════════════════
 loadCfg();
 applyAll();
+showWelcomeIfFirstVisit();
 </script>
 </body>
 </html>
