@@ -492,6 +492,7 @@
         </div>
 
         <input type="hidden" id="editingFolder" />
+        <input type="hidden" id="fProjectId" />
 
         <div class="form-row" id="editFields" style="display:none;flex-direction:column;gap:14px;">
 
@@ -554,6 +555,14 @@
             <input type="hidden" id="fColor" value="accent" />
           </div>
 
+          <div class="form-row">
+            <label>SEASON PICKS</label>
+            <div id="seasonGrid" style="display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px;"></div>
+            <div style="font-family:'Press Start 2P',monospace;font-size:7px;color:var(--text-dim);margin-top:6px;line-height:2;">
+              TICK SEASONS TO FEATURE THIS GAME IN THE HOMEPAGE SEASON COLLECTION.
+            </div>
+          </div>
+
           <button class="submit-btn" onclick="saveMeta()">✔ SAVE CHANGES</button>
           <button class="cancel-edit-btn show" onclick="cancelEdit()">✕ CANCEL</button>
         </div>
@@ -598,6 +607,32 @@ const COLORS = [
   { key: "pink",   hex: "#f542c8" },
   { key: "yellow", hex: "#f5e642" },
 ];
+const SEASON_DEFS = {
+  winter: { title: 'Winter Chill', desc: 'Cozy simulators & puzzle games' },
+  spring: { title: 'Spring Arcade', desc: 'Fast picks for short breaks' },
+  summer: { title: 'Summer Speed', desc: 'Action and racing heat' },
+  autumn: { title: 'Spooky Season', desc: 'Dark-themed thrill picks' },
+};
+function getSeasonCfg(){
+  try{
+    const raw=JSON.parse(localStorage.getItem('cshub_season_cfg')||'{}');
+    const out={};
+    Object.keys(SEASON_DEFS).forEach(key=>{
+      const item=raw[key]||{};
+      out[key]={
+        title:item.title||SEASON_DEFS[key].title,
+        desc:item.desc||SEASON_DEFS[key].desc,
+        ids:Array.isArray(item.ids)?item.ids.map(Number).filter(Number.isFinite):[]
+      };
+    });
+    return out;
+  }catch(e){
+    const out={};
+    Object.keys(SEASON_DEFS).forEach(key=>{out[key]={...SEASON_DEFS[key],ids:[]};});
+    return out;
+  }
+}
+function saveSeasonCfg(cfg){localStorage.setItem('cshub_season_cfg',JSON.stringify(cfg));}
 
 function tryLogin() {
   const val = document.getElementById("passInput").value;
@@ -671,6 +706,7 @@ async function renderAll() {
 
 function editProject(folder, p) {
   document.getElementById("editingFolder").value = folder;
+  document.getElementById("fProjectId").value = String(p.id || "");
   document.getElementById("formMode").textContent = "EDITING: " + folder.toUpperCase();
   document.getElementById("fTitle").value  = p.title;
   document.getElementById("fType").value   = p.type;
@@ -684,12 +720,14 @@ function editProject(folder, p) {
   document.getElementById("editFields").style.display = "flex";
   document.querySelector("#formBody > div").style.display = "none";
   buildPickers();
+  renderSeasonGrid(p.id);
   window.scrollTo({ top: 0, behavior: "smooth" });
 }
 
 function cancelEdit() {
   document.getElementById("editingFolder").value = "";
   document.getElementById("formMode").textContent = "SELECT A PROJECT TO EDIT";
+  document.getElementById("fProjectId").value = "";
   document.getElementById("editFields").style.display = "none";
   document.querySelector("#formBody > div").style.display = "block";
 }
@@ -706,6 +744,8 @@ async function saveMeta() {
     color:  document.getElementById("fColor").value,
     image:  document.getElementById("fImage").value.trim() || null,
   };
+  const projectId = Number(document.getElementById("fProjectId").value);
+  saveSeasonAssignments(projectId);
   const password = sessionStorage.getItem("adminPass");
   const res = await fetch('/save-meta', {
     method: 'POST',
@@ -744,6 +784,37 @@ function buildPickers() {
     colorGrid.appendChild(d);
   });
   renderModeration();
+}
+
+function renderSeasonGrid(projectId) {
+  const wrap = document.getElementById("seasonGrid");
+  const cfg = getSeasonCfg();
+  wrap.innerHTML = "";
+  const pid = Number(projectId);
+  Object.entries(SEASON_DEFS).forEach(([key, meta]) => {
+    const id = 'season-' + key;
+    const isChecked = cfg[key].ids.includes(pid);
+    const label = document.createElement('label');
+    label.setAttribute('for', id);
+    label.style.cssText = 'display:flex;gap:8px;align-items:flex-start;padding:8px;border:1px solid var(--border);border-radius:8px;background:var(--surface2);cursor:pointer;font-family:Inter,sans-serif;font-size:12px;color:var(--text-2);';
+    label.innerHTML = '<input type="checkbox" id="' + id + '" data-season="' + key + '" ' + (isChecked ? 'checked' : '') + ' style="margin-top:2px">' +
+      '<div><div style="font-weight:700;color:var(--text)">' + meta.title + '</div><div style="font-size:11px;color:var(--text-dim)">' + meta.desc + '</div></div>';
+    wrap.appendChild(label);
+  });
+}
+
+function saveSeasonAssignments(projectId){
+  const pid = Number(projectId);
+  if(!Number.isFinite(pid)) return;
+  const cfg = getSeasonCfg();
+  Object.keys(SEASON_DEFS).forEach(key => {
+    const box = document.querySelector('#season-' + key);
+    const ids = new Set(cfg[key].ids.map(Number).filter(Number.isFinite));
+    if(box && box.checked) ids.add(pid);
+    else ids.delete(pid);
+    cfg[key].ids = Array.from(ids);
+  });
+  saveSeasonCfg(cfg);
 }
 
 function previewImage(url) {

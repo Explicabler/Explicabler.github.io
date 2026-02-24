@@ -482,6 +482,7 @@
           </select>
           <select id="collectionSelect" onchange="setCollectionFilter()" style="height:28px;padding:0 8px;background:var(--surface2);border:1px solid var(--border);border-radius:7px;color:var(--text-2);font-size:11px;font-weight:600;cursor:pointer;outline:none">
             <option value="all">All collections</option>
+            <option value="season">Current season picks</option>
             <option value="quick">5-minute games</option>
             <option value="puzzle">Puzzle picks</option>
             <option value="classic">Classics</option>
@@ -839,6 +840,13 @@ function renderRecents(){
 // ══════════════════════════════════
 const TYPE_KEYS=['all','favourites','sport','simulation','interactive','puzzle','platformer','arcade','action','rpg'];
 const CAT_NAMES={all:'All Games',favourites:'Favourites',sport:'Sports',simulation:'Simulation',interactive:'Interactive',puzzle:'Puzzle',platformer:'Platformer',arcade:'Arcade',action:'Action',rpg:'RPG'};
+const SEASON_ORDER=['winter','spring','summer','autumn'];
+const DEFAULT_SEASON_CONFIG={
+  winter:{title:'Winter Chill',desc:'Cozy simulators & puzzle games',ids:[]},
+  spring:{title:'Spring Arcade',desc:'Fast picks for short breaks',ids:[]},
+  summer:{title:'Summer Speed',desc:'Action and racing heat',ids:[]},
+  autumn:{title:'Spooky Season',desc:'Dark-themed thrill picks',ids:[]}
+};
 
 function getDefaults(){return[
   {id:1,title:"Football Sim",type:"sport",engine:"html",icon:"⚽",color:"green",desc:"Interactive football simulation.",url:"/Football/index.html"},
@@ -848,6 +856,25 @@ function getDefaults(){return[
 ]}
 
 let PROJECTS=[],activeType='all',searchQuery='',currentProject=null,currentEngine='all',activeCollection='all';
+
+function getSeasonConfig(){
+  try{
+    const raw=JSON.parse(localStorage.getItem('cshub_season_cfg')||'{}');
+    const cfg={...DEFAULT_SEASON_CONFIG};
+    SEASON_ORDER.forEach(key=>{
+      const item=raw[key]||{};
+      cfg[key]={
+        title:item.title||DEFAULT_SEASON_CONFIG[key].title,
+        desc:item.desc||DEFAULT_SEASON_CONFIG[key].desc,
+        ids:Array.isArray(item.ids)?item.ids.map(Number).filter(Number.isFinite):[]
+      };
+    });
+    return cfg;
+  }catch(e){
+    return DEFAULT_SEASON_CONFIG;
+  }
+}
+function getCurrentSeasonKey(){return SEASON_ORDER[Math.floor(new Date().getMonth()/3)]||'winter'}
 
 function saveBrowseState(){
   localStorage.setItem('cshub_browse',JSON.stringify({type:activeType,sort:currentSort,query:searchQuery,engine:currentEngine,collection:activeCollection}));
@@ -859,7 +886,7 @@ function loadBrowseState(){
     if(TYPE_KEYS.includes(saved.type))activeType=saved.type;
     if(['default','az','za','popular','newest'].includes(saved.sort))currentSort=saved.sort;
     if(['all','html','unity'].includes(saved.engine))currentEngine=saved.engine;
-    if(['all','quick','puzzle','classic'].includes(saved.collection))activeCollection=saved.collection;
+    if(['all','season','quick','puzzle','classic'].includes(saved.collection))activeCollection=saved.collection;
     if(typeof saved.query==='string')searchQuery=saved.query.trim();
   }catch(e){}
 }
@@ -946,7 +973,7 @@ function renderGrid(items){
     const thumb=document.createElement('div');
     if(p.image){
       thumb.className='card-thumb';
-      const img=document.createElement('img');img.src=p.image;img.alt=p.title;img.loading='lazy';
+      const img=document.createElement('img');img.src=p.image;img.dataset.src=p.image;img.alt=p.title;img.loading='lazy';
       img.onerror=()=>{thumb.innerHTML='';thumb.className='card-thumb bg-'+(p.color||'accent');const fb=document.createElement('span');fb.className='thumb-fallback col-'+(p.color||'accent');fb.textContent=p.icon||'🎮';thumb.appendChild(fb);addOverlay(thumb);addFavBtn(thumb,p)};
       thumb.appendChild(img);lazyObserve(img);
     }else{
@@ -1007,6 +1034,10 @@ function levenshtein(a,b){
 }
 function collectionMatch(p){
   if(activeCollection==='all')return true;
+  if(activeCollection==='season'){
+    const current=getSeasonConfig()[getCurrentSeasonKey()]||{ids:[]};
+    return current.ids.includes(Number(p.id));
+  }
   if(activeCollection==='quick')return (p.desc||'').length<70;
   if(activeCollection==='puzzle')return p.type==='puzzle';
   if(activeCollection==='classic')return p.id<=40;
@@ -1300,8 +1331,9 @@ function initSidebar(){
 
 
 function lazyObserve(img){
+  if(!img.dataset.src)return;
   if(!('IntersectionObserver' in window)){img.src=img.dataset.src;return;}
-  if(!window._imgObs){window._imgObs=new IntersectionObserver(entries=>entries.forEach(en=>{if(en.isIntersecting){const el=en.target;el.src=el.dataset.src;window._imgObs.unobserve(el);}}),{rootMargin:'120px'});}
+  if(!window._imgObs){window._imgObs=new IntersectionObserver(entries=>entries.forEach(en=>{if(en.isIntersecting){const el=en.target;if(el.dataset.src)el.src=el.dataset.src;window._imgObs.unobserve(el);}}),{rootMargin:'120px'});}
   window._imgObs.observe(img);
 }
 function rateGame(id,vote){
@@ -1331,11 +1363,11 @@ function incPlay(id){const p=getPlays();p[id]=(p[id]||0)+1;localStorage.setItem(
 function incOpen(){const a=JSON.parse(localStorage.getItem('cshub_analytics')||'{"opens":0}');a.opens=(a.opens||0)+1;localStorage.setItem('cshub_analytics',JSON.stringify(a));}
 function renderSeasonSpotlight(){
   const el=document.getElementById('seasonSpotlight');
-  const m=new Date().getMonth();
-  const spots=[['Winter Chill','Cozy simulators & puzzle games'],['Spring Arcade','Fast picks for short breaks'],['Summer Speed','Action and racing heat'],['Spooky Season','Dark-themed thrill picks']];
-  const pick=spots[Math.floor(m/3)];
+  const season=getSeasonConfig()[getCurrentSeasonKey()]||DEFAULT_SEASON_CONFIG.winter;
+  const count=(season.ids||[]).length;
   el.style.display='flex';
-  el.innerHTML='<div><div style="font-size:12px;font-weight:700">🌟 '+pick[0]+'</div><div style="font-size:11px;color:var(--text-2)">'+pick[1]+'</div></div><div style="font-size:11px;color:var(--text-3)">Rotates by season</div>';
+  el.innerHTML='<div><div style="font-size:12px;font-weight:700">🌟 '+season.title+'</div><div style="font-size:11px;color:var(--text-2)">'+season.desc+'</div></div><div style="font-size:11px;color:var(--text-3)">'+count+' pick'+(count===1?'':'s')+'</div>';
+  el.onclick=()=>{activeCollection='season';document.getElementById('collectionSelect').value='season';filter();saveBrowseState();};
 }
 function openSubmissionModal(){document.getElementById('submissionOverlay').classList.add('open');}
 function closeSubmissionModal(){document.getElementById('submissionOverlay').classList.remove('open');}
