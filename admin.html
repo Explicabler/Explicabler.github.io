@@ -573,6 +573,14 @@
       </div>
       <div class="project-list" id="projectList"></div>
     </div>
+    <div class="list-panel" style="margin-top:14px">
+      <div class="list-header">
+        <span class="list-title">MODERATION QUEUE</span>
+        <span class="list-count" id="queueCount">0 PENDING</span>
+      </div>
+      <div class="project-list" id="moderationList"></div>
+    </div>
+
 
   </div>
 </div>
@@ -735,6 +743,7 @@ function buildPickers() {
     };
     colorGrid.appendChild(d);
   });
+  renderModeration();
 }
 
 function previewImage(url) {
@@ -744,6 +753,38 @@ function previewImage(url) {
   img.src = url;
   img.onload  = () => { preview.style.display = "block"; };
   img.onerror = () => { preview.style.display = "none"; };
+}
+
+
+function renderModeration(){
+  const list=document.getElementById("moderationList");
+  const queue=JSON.parse(localStorage.getItem("cshub_submissions")||"[]");
+  const pending=queue.filter(q=>q.status==="pending");
+  document.getElementById("queueCount").textContent=pending.length+" PENDING";
+  if(!pending.length){list.innerHTML='<div class="empty-list">NO PENDING SUBMISSIONS</div>';return;}
+  list.innerHTML='';
+  pending.forEach(item=>{
+    const row=document.createElement("div");
+    row.className="list-item";
+    row.innerHTML='<div class="list-thumb bg-accent">📥</div><div class="list-info"><div class="list-name">'+item.title+'</div><div class="list-meta">'+(item.desc||item.note||'No description')+'</div><input id="note-'+item.id+'" placeholder="moderator note" style="margin-top:6px;background:var(--surface);border:1px solid var(--border);color:var(--text);padding:4px 8px;border-radius:6px;width:100%"></div><div class="list-actions"><button class="act-btn edit" onclick="approveSubmission('+item.id+')">APPROVE</button><button class="act-btn del" onclick="rejectSubmission('+item.id+')">REJECT</button></div>';
+    list.appendChild(row);
+  });
+}
+function approveSubmission(id){
+  const queue=JSON.parse(localStorage.getItem("cshub_submissions")||"[]");
+  const item=queue.find(q=>q.id===id);if(!item)return;
+  const note=(document.getElementById('note-'+id)||{}).value||'';
+  item.status='approved';item.modNote=note;
+  localStorage.setItem("cshub_submissions",JSON.stringify(queue));
+  renderModeration();
+}
+function rejectSubmission(id){
+  const queue=JSON.parse(localStorage.getItem("cshub_submissions")||"[]");
+  const item=queue.find(q=>q.id===id);if(!item)return;
+  item.status='rejected';
+  item.modNote=(document.getElementById('note-'+id)||{}).value||'';
+  localStorage.setItem("cshub_submissions",JSON.stringify(queue));
+  renderModeration();
 }
 
 function showToast(msg, isError = false) {

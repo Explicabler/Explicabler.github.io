@@ -46,6 +46,15 @@ Edit `projects.json`. Each game looks like this:
 - **CrazyGames embed URLs**
 - Any game hosted on your own GitHub Pages repo
 
+
+## New tooling
+
+- `scripts/auto-metadata.mjs`: generate IDs, slugs, and default image paths from local game folder names.
+
+```bash
+node scripts/auto-metadata.mjs . > generated-metadata.json
+```
+
 ## Planning next improvements
 
 See `FEATURE_SUGGESTIONS.md` for a curated backlog of product ideas for discovery, UX, curation, performance, and moderation.
