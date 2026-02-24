@@ -25,9 +25,13 @@
   .logo-text{font-size:16px;font-weight:800;color:var(--text);letter-spacing:-0.5px}
   .nav-search{flex:1;max-width:400px;position:relative}
   .nav-search input{width:100%;height:36px;background:var(--surface2);border:1px solid var(--border);border-radius:20px;color:var(--text);font-family:'Inter',sans-serif;font-size:13px;padding:0 14px 0 38px;outline:none;transition:border-color .15s,background .15s}
+  .nav-search input.has-clear{padding-right:36px}
   .nav-search input:focus{border-color:var(--accent);background:var(--surface3)}
   .nav-search input::placeholder{color:var(--text-3)}
   .search-icon{position:absolute;left:12px;top:50%;transform:translateY(-50%);color:var(--text-3);pointer-events:none;display:flex}
+  .search-clear{position:absolute;right:8px;top:50%;transform:translateY(-50%);width:22px;height:22px;border:none;border-radius:50%;display:none;align-items:center;justify-content:center;background:var(--surface3);color:var(--text-3);font-size:15px;line-height:1;cursor:pointer;transition:all .12s}
+  .search-clear.show{display:flex}
+  .search-clear:hover{background:var(--accent-dim);color:var(--text)}
   .nav-right{margin-left:auto;display:flex;align-items:center;gap:8px}
   .nav-count{font-size:12px;font-weight:500;color:var(--text-3);white-space:nowrap}
 
@@ -100,6 +104,8 @@
   .empty-icon{font-size:40px;opacity:.4}
   .empty-title{font-size:15px;font-weight:700;color:var(--text-2)}
   .empty-sub{font-size:13px;color:var(--text-3)}
+  .empty-reset{margin-top:8px;height:32px;padding:0 12px;background:var(--surface2);border:1px solid var(--border);border-radius:8px;color:var(--text-2);font-family:'Inter',sans-serif;font-size:12px;font-weight:600;cursor:pointer;transition:all .12s}
+  .empty-reset:hover{border-color:var(--accent);color:var(--text);background:var(--accent-dim)}
 
   /* PLAY VIEW */
   #playView{display:none;flex:1;flex-direction:column;overflow:hidden}
@@ -401,6 +407,7 @@
         <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35"/></svg>
       </span>
       <input type="text" id="searchInput" placeholder="Search games..." autocomplete="off"/>
+      <button class="search-clear" id="searchClearBtn" onclick="clearSearch()" title="Clear search">×</button>
     </div>
     <div class="nav-right">
       <span class="nav-count" id="navCount"></span>
@@ -474,6 +481,7 @@
           <div class="empty-icon">🎮</div>
           <div class="empty-title">No games found</div>
           <div class="empty-sub">Try a different search or category</div>
+          <button class="empty-reset" onclick="resetBrowseState()">Reset filters</button>
         </div>
       </div>
 
@@ -793,6 +801,47 @@ function getDefaults(){return[
 
 let PROJECTS=[],activeType='all',searchQuery='',currentProject=null;
 
+function saveBrowseState(){
+  localStorage.setItem('cshub_browse',JSON.stringify({type:activeType,sort:currentSort,query:searchQuery}));
+}
+
+function loadBrowseState(){
+  try{
+    const saved=JSON.parse(localStorage.getItem('cshub_browse')||'{}');
+    if(TYPE_KEYS.includes(saved.type))activeType=saved.type;
+    if(['default','az','za'].includes(saved.sort))currentSort=saved.sort;
+    if(typeof saved.query==='string')searchQuery=saved.query.trim();
+  }catch(e){}
+}
+
+function syncSearchInputs(v){
+  const val=v??'';
+  document.getElementById('searchInput').value=val;
+  document.getElementById('spSearchInput').value=val;
+  const clearBtn=document.getElementById('searchClearBtn');
+  clearBtn.classList.toggle('show',!!val);
+  document.getElementById('searchInput').classList.toggle('has-clear',!!val);
+}
+
+function clearSearch(){
+  if(!searchQuery)return;
+  searchQuery='';
+  syncSearchInputs('');
+  spSearch('');
+  filter();
+  saveBrowseState();
+}
+
+function resetBrowseState(){
+  searchQuery='';
+  currentSort='default';
+  document.getElementById('sortSelect').value='default';
+  setType('all');
+  syncSearchInputs('');
+  spSearch('');
+  showToast('Filters reset');
+}
+
 fetch('/projects.json?nocache='+Date.now())
   .then(r=>r.json()).then(d=>{PROJECTS=d;onLoaded()})
   .catch(()=>{PROJECTS=getDefaults();onLoaded()});
@@ -802,7 +851,10 @@ function onLoaded(){
   document.getElementById('loadingState').classList.remove('show');
   document.getElementById('sectionHeader').style.display='flex';
   renderRecents();
-  renderGrid(PROJECTS);
+  document.getElementById('sortSelect').value=currentSort;
+  syncSearchInputs(searchQuery);
+  setType(activeType);
+  if(searchQuery)spSearch(searchQuery);
 }
 
 function updateCounts(){
@@ -888,6 +940,7 @@ function setType(type){
   document.querySelectorAll('.chip').forEach(b=>b.classList.toggle('active',b.dataset.type===type));
   document.querySelectorAll('.sb-item[data-type]').forEach(b=>b.classList.toggle('active',b.dataset.type===type));
   filter();
+  saveBrowseState();
 }
 
 function playRandom(){
@@ -919,8 +972,11 @@ document.querySelector('.filter-bar').addEventListener('click',e=>{const b=e.tar
 document.getElementById('searchInput').addEventListener('focus',()=>openSearchPanel());
 document.getElementById('searchInput').addEventListener('input',e=>{
   const val=e.target.value.trim();
-  document.getElementById('spSearchInput').value=val;
+  searchQuery=val;
+  syncSearchInputs(val);
   spSearch(val);
+  filter();
+  saveBrowseState();
   if(!document.getElementById('searchPanelOverlay').classList.contains('open'))openSearchPanel();
 });
 
@@ -998,10 +1054,11 @@ function spSearch(q){
 // Panel search input
 document.getElementById('spSearchInput').addEventListener('input',e=>{
   const v=e.target.value.trim();
-  document.getElementById('searchInput').value=v;
   searchQuery=v;
+  syncSearchInputs(v);
   spSearch(v);
   filter();
+  saveBrowseState();
 });
 
 // Panel category chips
@@ -1124,6 +1181,7 @@ let currentSort='default';
 function setSortAndRender(){
   currentSort=document.getElementById('sortSelect').value;
   filter();
+  saveBrowseState();
 }
 const _origFilter=filter;
 // Patch filter to apply sort
@@ -1153,6 +1211,7 @@ function initSidebar(){
 // INIT
 // ══════════════════════════════════
 loadCfg();
+loadBrowseState();
 applyAll();
 initSidebar();
 showWelcomeIfFirstVisit();
