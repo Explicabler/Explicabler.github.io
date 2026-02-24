@@ -210,6 +210,14 @@
   .recent-card-thumb img{width:100%;height:100%;object-fit:cover;display:block}
   .recent-card-name{font-size:10px;font-weight:600;color:var(--text);padding:4px 6px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
   .section-divider{height:1px;background:var(--border);margin:4px 0 12px}
+  .spotlight{display:flex;justify-content:space-between;gap:10px;background:linear-gradient(90deg,var(--accent-dim),transparent);border:1px solid var(--border);border-radius:10px;padding:10px 12px;margin-bottom:8px}
+  .mini-tools{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:10px}
+  .mini-btn{height:28px;padding:0 10px;border-radius:7px;border:1px solid var(--border);background:var(--surface2);color:var(--text-2);font-size:11px;font-weight:600;cursor:pointer}
+  .mini-btn:hover{border-color:var(--accent);color:var(--text)}
+  .rating-row{display:flex;align-items:center;justify-content:space-between;margin-top:7px;font-size:11px;color:var(--text-3)}
+  .rate-controls{display:flex;align-items:center;gap:6px}
+  .rate-btn{border:1px solid var(--border);background:var(--surface2);color:var(--text-2);border-radius:6px;padding:2px 7px;font-size:11px;cursor:pointer}
+  .rate-btn.active{border-color:var(--green);color:var(--green)}
 
   /* ─── RANDOM BTN ──────────────────────── */
   .random-btn{display:flex;align-items:center;gap:5px;height:32px;padding:0 11px;background:var(--surface2);border:1px solid var(--border);border-radius:8px;color:var(--text-2);font-family:'Inter',sans-serif;font-size:12px;font-weight:600;cursor:pointer;transition:all .15s;white-space:nowrap;flex-shrink:0}
@@ -465,6 +473,23 @@
           <div class="section-divider"></div>
         </div>
 
+        <div class="spotlight" id="seasonSpotlight" style="display:none"></div>
+        <div class="mini-tools">
+          <select id="engineSelect" onchange="setEngineFilter()" style="height:28px;padding:0 8px;background:var(--surface2);border:1px solid var(--border);border-radius:7px;color:var(--text-2);font-size:11px;font-weight:600;cursor:pointer;outline:none">
+            <option value="all">All engines</option>
+            <option value="html">HTML5</option>
+            <option value="unity">Unity</option>
+          </select>
+          <select id="collectionSelect" onchange="setCollectionFilter()" style="height:28px;padding:0 8px;background:var(--surface2);border:1px solid var(--border);border-radius:7px;color:var(--text-2);font-size:11px;font-weight:600;cursor:pointer;outline:none">
+            <option value="all">All collections</option>
+            <option value="quick">5-minute games</option>
+            <option value="puzzle">Puzzle picks</option>
+            <option value="classic">Classics</option>
+          </select>
+          <button class="mini-btn" onclick="openSubmissionModal()">➕ Suggest game</button>
+          <button class="mini-btn" onclick="openAnalyticsModal()">📊 Analytics</button>
+        </div>
+
         <div class="section-header" id="sectionHeader" style="display:none">
           <span class="section-title" id="sectionTitle">All Games</span>
           <div style="display:flex;align-items:center;gap:8px;margin-left:auto">
@@ -473,6 +498,8 @@
               <option value="default">Default</option>
               <option value="az">A → Z</option>
               <option value="za">Z → A</option>
+              <option value="popular">Most Played</option>
+              <option value="newest">Newest</option>
             </select>
           </div>
         </div>
@@ -520,11 +547,32 @@
             <iframe id="projectFrame" src="" allowfullscreen sandbox="allow-scripts allow-same-origin allow-forms allow-pointer-lock allow-modals allow-popups"></iframe>
           </div>
           <aside class="play-sidebar">
+            <div class="ps-head">Related Games</div>
+            <div class="ps-list" id="relatedList"></div>
             <div class="ps-head">Up Next</div>
             <div class="ps-list" id="sidebarList"></div>
           </aside>
         </div>
       </div>
+    </div>
+  </div>
+
+  <div class="modal-overlay" id="submissionOverlay" onclick="if(event.target===this)closeSubmissionModal()">
+    <div class="modal" style="max-width:500px">
+      <div class="modal-head"><span class="modal-title">Submit a game</span><span class="modal-close" onclick="closeSubmissionModal()">✕</span></div>
+      <div class="modal-body" style="gap:10px">
+        <input id="subTitle" placeholder="Game title" style="height:34px;background:var(--surface2);border:1px solid var(--border);border-radius:8px;color:var(--text);padding:0 10px">
+        <input id="subUrl" placeholder="Game URL" style="height:34px;background:var(--surface2);border:1px solid var(--border);border-radius:8px;color:var(--text);padding:0 10px">
+        <textarea id="subNote" placeholder="Why should we add it?" style="min-height:80px;background:var(--surface2);border:1px solid var(--border);border-radius:8px;color:var(--text);padding:8px 10px"></textarea>
+        <button class="mini-btn" onclick="submitSuggestion()">Send to moderation queue</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="modal-overlay" id="analyticsOverlay" onclick="if(event.target===this)closeAnalyticsModal()">
+    <div class="modal" style="max-width:500px">
+      <div class="modal-head"><span class="modal-title">Analytics snapshot</span><span class="modal-close" onclick="closeAnalyticsModal()">✕</span></div>
+      <div class="modal-body" id="analyticsBody"></div>
     </div>
   </div>
 
@@ -781,6 +829,7 @@ function renderRecents(){
     else thumb.textContent=p.icon||'🎮';
     const name=document.createElement('div');name.className='recent-card-name';name.textContent=p.title;
     card.appendChild(thumb);card.appendChild(name);
+    card.querySelectorAll('.rate-btn').forEach(btn=>btn.addEventListener('click',e=>{e.stopPropagation();rateGame(p.id,btn.dataset.v);}));
     card.addEventListener('click',()=>openProject(p));
     row.appendChild(card);
   });
@@ -799,17 +848,19 @@ function getDefaults(){return[
   {id:4,title:"World Box",type:"simulation",engine:"html",icon:"🌍",color:"pink",desc:"World-building sandbox.",url:"/worldbox/index.html"},
 ]}
 
-let PROJECTS=[],activeType='all',searchQuery='',currentProject=null;
+let PROJECTS=[],activeType='all',searchQuery='',currentProject=null,currentEngine='all',activeCollection='all';
 
 function saveBrowseState(){
-  localStorage.setItem('cshub_browse',JSON.stringify({type:activeType,sort:currentSort,query:searchQuery}));
+  localStorage.setItem('cshub_browse',JSON.stringify({type:activeType,sort:currentSort,query:searchQuery,engine:currentEngine,collection:activeCollection}));
 }
 
 function loadBrowseState(){
   try{
     const saved=JSON.parse(localStorage.getItem('cshub_browse')||'{}');
     if(TYPE_KEYS.includes(saved.type))activeType=saved.type;
-    if(['default','az','za'].includes(saved.sort))currentSort=saved.sort;
+    if(['default','az','za','popular','newest'].includes(saved.sort))currentSort=saved.sort;
+    if(['all','html','unity'].includes(saved.engine))currentEngine=saved.engine;
+    if(['all','quick','puzzle','classic'].includes(saved.collection))activeCollection=saved.collection;
     if(typeof saved.query==='string')searchQuery=saved.query.trim();
   }catch(e){}
 }
@@ -835,7 +886,11 @@ function clearSearch(){
 function resetBrowseState(){
   searchQuery='';
   currentSort='default';
+  currentEngine='all';
+  activeCollection='all';
   document.getElementById('sortSelect').value='default';
+  document.getElementById('engineSelect').value='all';
+  document.getElementById('collectionSelect').value='all';
   setType('all');
   syncSearchInputs('');
   spSearch('');
@@ -843,7 +898,9 @@ function resetBrowseState(){
 }
 
 fetch('/projects.json?nocache='+Date.now())
-  .then(r=>r.json()).then(d=>{PROJECTS=d;onLoaded()})
+  .then(r=>r.json()).then(d=>{
+    const approved=JSON.parse(localStorage.getItem('cshub_approved_submissions')||'[]');
+    PROJECTS=[...d,...approved];onLoaded()})
   .catch(()=>{PROJECTS=getDefaults();onLoaded()});
 
 function onLoaded(){
@@ -852,6 +909,9 @@ function onLoaded(){
   document.getElementById('sectionHeader').style.display='flex';
   renderRecents();
   document.getElementById('sortSelect').value=currentSort;
+  document.getElementById('engineSelect').value=currentEngine;
+  document.getElementById('collectionSelect').value=activeCollection;
+  renderSeasonSpotlight();
   syncSearchInputs(searchQuery);
   setType(activeType);
   if(searchQuery)spSearch(searchQuery);
@@ -889,9 +949,9 @@ function renderGrid(items){
     const thumb=document.createElement('div');
     if(p.image){
       thumb.className='card-thumb';
-      const img=document.createElement('img');img.src=p.image;img.alt=p.title;
+      const img=document.createElement('img');img.src=p.image;img.alt=p.title;img.loading='lazy';
       img.onerror=()=>{thumb.innerHTML='';thumb.className='card-thumb bg-'+(p.color||'accent');const fb=document.createElement('span');fb.className='thumb-fallback col-'+(p.color||'accent');fb.textContent=p.icon||'🎮';thumb.appendChild(fb);addOverlay(thumb);addFavBtn(thumb,p)};
-      thumb.appendChild(img);
+      thumb.appendChild(img);lazyObserve(img);
     }else{
       thumb.className='card-thumb bg-'+(p.color||'accent');
       const fb=document.createElement('span');fb.className='thumb-fallback col-'+(p.color||'accent');fb.textContent=p.icon||'🎮';thumb.appendChild(fb);
@@ -899,8 +959,11 @@ function renderGrid(items){
     addOverlay(thumb);addFavBtn(thumb,p);
     const badge=document.createElement('span');badge.className='card-badge '+(p.engine==='unity'?'badge-unity':'badge-html');badge.textContent=p.engine==='unity'?'Unity':'HTML5';thumb.appendChild(badge);
     const body=document.createElement('div');body.className='card-body';
-    body.innerHTML='<div class="card-title">'+esc(p.title)+'</div>'+(p.desc?'<div class="card-desc">'+esc(p.desc)+'</div>':'')+'<div class="card-meta"><span class="meta-tag type-tag">'+esc(p.type||'game')+'</span></div>';
+    const plays=getPlays();const ratings=getRatings();
+    const stat=ratings[p.id]||{up:0,down:0};
+    body.innerHTML='<div class="card-title">'+esc(p.title)+'</div>'+(p.desc?'<div class="card-desc">'+esc(p.desc)+'</div>':'')+'<div class="card-meta"><span class="meta-tag type-tag">'+esc(p.type||'game')+'</span></div>'+'<div class="rating-row"><span>▶ '+(plays[p.id]||0)+' plays</span><div class="rate-controls"><button class="rate-btn" data-v="up">👍 '+stat.up+'</button><button class="rate-btn" data-v="down">👎 '+stat.down+'</button></div></div>';
     card.appendChild(thumb);card.appendChild(body);
+    card.querySelectorAll('.rate-btn').forEach(btn=>btn.addEventListener('click',e=>{e.stopPropagation();rateGame(p.id,btn.dataset.v);}));
     card.addEventListener('click',()=>openProject(p));
     grid.appendChild(card);
   });
@@ -927,13 +990,46 @@ function addFavBtn(thumb,p){
 function addOverlay(t){const o=document.createElement('div');o.className='play-overlay';o.innerHTML='<div class="play-btn"><svg width="16" height="16" fill="#fff" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div>';t.appendChild(o)}
 function esc(s){return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;')}
 
+function fuzzyMatch(text,q){
+  text=(text||'').toLowerCase();q=(q||'').toLowerCase();
+  if(text.includes(q))return true;
+  let qi=0;
+  for(const ch of text){if(ch===q[qi])qi++;if(qi===q.length)return true;}
+  return q.length>2 && levenshtein(text.slice(0,Math.max(text.length,q.length)),q)<=2;
+}
+function levenshtein(a,b){
+  const m=Array.from({length:b.length+1},(_,i)=>[i]);
+  for(let j=0;j<=a.length;j++)m[0][j]=j;
+  for(let i=1;i<=b.length;i++)for(let j=1;j<=a.length;j++)m[i][j]=b[i-1]===a[j-1]?m[i-1][j-1]:1+Math.min(m[i-1][j],m[i][j-1],m[i-1][j-1]);
+  return m[b.length][a.length];
+}
+function collectionMatch(p){
+  if(activeCollection==='all')return true;
+  if(activeCollection==='quick')return (p.desc||'').length<70;
+  if(activeCollection==='puzzle')return p.type==='puzzle';
+  if(activeCollection==='classic')return p.id<=40;
+  return true;
+}
+function getPlays(){try{return JSON.parse(localStorage.getItem('cshub_plays')||'{}')}catch(e){return {}}}
+function getRatings(){try{return JSON.parse(localStorage.getItem('cshub_ratings')||'{}')}catch(e){return {}}}
+function setEngineFilter(){currentEngine=document.getElementById('engineSelect').value;filter();saveBrowseState();}
+function setCollectionFilter(){activeCollection=document.getElementById('collectionSelect').value;filter();saveBrowseState();}
+
 function filter(){
   let f=PROJECTS;
   if(activeType==='favourites'){const ids=getFavs();f=ids.map(id=>PROJECTS.find(p=>p.id===id)).filter(Boolean)}
   else if(activeType!=='all')f=f.filter(p=>p.type===activeType);
-  if(searchQuery){const q=searchQuery.toLowerCase();f=f.filter(p=>p.title.toLowerCase().includes(q)||(p.type||'').includes(q)||(p.desc&&p.desc.toLowerCase().includes(q)))}
+  if(currentEngine!=='all')f=f.filter(p=>(p.engine||'html')===currentEngine);
+  f=f.filter(collectionMatch);
+  if(searchQuery){const q=searchQuery.toLowerCase();f=f.filter(p=>fuzzyMatch(p.title,q)||fuzzyMatch(p.type||'',q)||fuzzyMatch(p.desc||'',q));}
+  const plays=getPlays();
+  if(currentSort==='az')f=[...f].sort((a,b)=>a.title.localeCompare(b.title));
+  else if(currentSort==='za')f=[...f].sort((a,b)=>b.title.localeCompare(a.title));
+  else if(currentSort==='popular')f=[...f].sort((a,b)=>(plays[b.id]||0)-(plays[a.id]||0));
+  else if(currentSort==='newest')f=[...f].sort((a,b)=>b.id-a.id);
   renderGrid(f);
 }
+
 
 function setType(type){
   activeType=type;
@@ -1027,7 +1123,7 @@ function spSearch(q){
   if(!q){dflt.style.display='';res.style.display='none';return}
   dflt.style.display='none';res.style.display='';
   const ql=q.toLowerCase();
-  let matches=PROJECTS.filter(p=>p.title.toLowerCase().includes(ql)||(p.type||'').includes(ql)||(p.desc&&p.desc.toLowerCase().includes(ql)));
+  let matches=PROJECTS.filter(p=>fuzzyMatch(p.title,ql)||fuzzyMatch(p.type||'',ql)||fuzzyMatch(p.desc||'',ql));
   label.textContent=matches.length+' result'+(matches.length!==1?'s':'');
   list.innerHTML='';
   if(!matches.length){list.innerHTML='<div class="sp-no-results">No games found for "'+esc(q)+'"</div>';return}
@@ -1038,7 +1134,7 @@ function spSearch(q){
       thumb.className='sp-result-thumb';
       const img=document.createElement('img');img.src=p.image;
       img.onerror=()=>{thumb.className='sp-result-thumb bg-'+(p.color||'accent');thumb.innerHTML='<span style="font-size:18px">'+(p.icon||'🎮')+'</span>'};
-      thumb.appendChild(img);
+      thumb.appendChild(img);lazyObserve(img);
     }else{
       thumb.className='sp-result-thumb bg-'+(p.color||'accent');
       thumb.innerHTML='<span style="font-size:18px">'+(p.icon||'🎮')+'</span>';
@@ -1077,6 +1173,7 @@ document.getElementById('spCategoryChips').addEventListener('click',e=>{
 // PLAY
 // ══════════════════════════════════
 function openProject(project){
+  incPlay(project.id);
   if(cfg.blankTab){openInBlank(project.url);return}
   currentProject=project;
   addRecent(project.id);
@@ -1086,6 +1183,7 @@ function openProject(project){
   document.getElementById('playView').classList.add('show');
   document.getElementById('playName').textContent=project.title;
   document.getElementById('playType').textContent=project.type||'game';
+  renderRelated(project);
   // Update fav button state
   const pfb=document.getElementById('playFavBtn');
   pfb.classList.toggle('faved',isFav(project.id));
@@ -1183,17 +1281,7 @@ function setSortAndRender(){
   filter();
   saveBrowseState();
 }
-const _origFilter=filter;
-// Patch filter to apply sort
-function filter(){
-  let f=PROJECTS;
-  if(activeType==='favourites'){const ids=getFavs();f=ids.map(id=>PROJECTS.find(p=>p.id===id)).filter(Boolean)}
-  else if(activeType!=='all')f=f.filter(p=>p.type===activeType);
-  if(searchQuery){const q=searchQuery.toLowerCase();f=f.filter(p=>p.title.toLowerCase().includes(q)||(p.type||'').includes(q)||(p.desc&&p.desc.toLowerCase().includes(q)))}
-  if(currentSort==='az')f=[...f].sort((a,b)=>a.title.localeCompare(b.title));
-  else if(currentSort==='za')f=[...f].sort((a,b)=>b.title.localeCompare(a.title));
-  renderGrid(f);
-}
+
 
 // ══════════════════════════════════
 // SIDEBAR TOGGLE
@@ -1207,9 +1295,60 @@ function initSidebar(){
   if(localStorage.getItem('cshub_sb')==='0')document.querySelector('.sidebar').classList.add('collapsed');
 }
 
+
+function lazyObserve(img){
+  if(!('IntersectionObserver' in window)){img.src=img.dataset.src;return;}
+  if(!window._imgObs){window._imgObs=new IntersectionObserver(entries=>entries.forEach(en=>{if(en.isIntersecting){const el=en.target;el.src=el.dataset.src;window._imgObs.unobserve(el);}}),{rootMargin:'120px'});}
+  window._imgObs.observe(img);
+}
+function rateGame(id,vote){
+  const ratings=getRatings();
+  if(!ratings[id])ratings[id]={up:0,down:0};
+  ratings[id][vote]++;
+  localStorage.setItem('cshub_ratings',JSON.stringify(ratings));
+  showToast('Thanks for rating');
+  filter();
+}
+function incPlay(id){const p=getPlays();p[id]=(p[id]||0)+1;localStorage.setItem('cshub_plays',JSON.stringify(p));}
+function incOpen(){const a=JSON.parse(localStorage.getItem('cshub_analytics')||'{"opens":0}');a.opens=(a.opens||0)+1;localStorage.setItem('cshub_analytics',JSON.stringify(a));}
+function renderSeasonSpotlight(){
+  const el=document.getElementById('seasonSpotlight');
+  const m=new Date().getMonth();
+  const spots=[['Winter Chill','Cozy simulators & puzzle games'],['Spring Arcade','Fast picks for short breaks'],['Summer Speed','Action and racing heat'],['Spooky Season','Dark-themed thrill picks']];
+  const pick=spots[Math.floor(m/3)];
+  el.style.display='flex';
+  el.innerHTML='<div><div style="font-size:12px;font-weight:700">🌟 '+pick[0]+'</div><div style="font-size:11px;color:var(--text-2)">'+pick[1]+'</div></div><div style="font-size:11px;color:var(--text-3)">Rotates by season</div>';
+}
+function openSubmissionModal(){document.getElementById('submissionOverlay').classList.add('open');}
+function closeSubmissionModal(){document.getElementById('submissionOverlay').classList.remove('open');}
+function submitSuggestion(){
+  const title=document.getElementById('subTitle').value.trim();
+  const url=document.getElementById('subUrl').value.trim();
+  if(!title||!url){showToast('Title and URL required');return;}
+  const queue=JSON.parse(localStorage.getItem('cshub_submissions')||'[]');
+  queue.unshift({id:Date.now(),title,url,note:document.getElementById('subNote').value.trim(),status:'pending',submittedAt:new Date().toISOString()});
+  localStorage.setItem('cshub_submissions',JSON.stringify(queue));
+  closeSubmissionModal();
+  showToast('Submitted for review');
+}
+function openAnalyticsModal(){
+  const plays=getPlays(),ratings=getRatings();
+  const top=[...PROJECTS].sort((a,b)=>(plays[b.id]||0)-(plays[a.id]||0)).slice(0,5);
+  const totalRatings=Object.values(ratings).reduce((n,r)=>n+(r.up||0)+(r.down||0),0);
+  document.getElementById('analyticsBody').innerHTML='<div style="font-size:12px">Total launches: <b>'+Object.values(plays).reduce((a,b)=>a+b,0)+'</b></div><div style="font-size:12px">Ratings submitted: <b>'+totalRatings+'</b></div><div style="font-size:12px">Session opens: <b>'+JSON.parse(localStorage.getItem('cshub_analytics')||'{"opens":0}').opens+'</b></div><div style="margin-top:8px;font-size:11px;color:var(--text-2)">'+top.map(t=>'• '+esc(t.title)+' ('+(plays[t.id]||0)+')').join('<br>')+'</div>';
+  document.getElementById('analyticsOverlay').classList.add('open');
+}
+function closeAnalyticsModal(){document.getElementById('analyticsOverlay').classList.remove('open');}
+function renderRelated(project){
+  const rel=PROJECTS.filter(p=>p.id!==project.id&&(p.type===project.type||p.engine===project.engine)).slice(0,6);
+  const list=document.getElementById('relatedList');list.innerHTML='';
+  rel.forEach(p=>{const item=document.createElement('div');item.className='ps-card';item.innerHTML='<div class="ps-info"><div class="ps-title">'+esc(p.title)+'</div><div class="ps-type">'+esc(p.type||'game')+'</div></div>';item.onclick=()=>openProject(p);list.appendChild(item);});
+}
+
 // ══════════════════════════════════
 // INIT
 // ══════════════════════════════════
+incOpen();
 loadCfg();
 loadBrowseState();
 applyAll();
