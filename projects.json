@@ -22,28 +22,6 @@
     "image": "/game-images/1v1-lol.jpg"
   },
   {
-    "id": 3,
-    "title": "Minecraft 1.5",
-    "type": "simulation",
-    "engine": "html",
-    "icon": "🌍",
-    "color": "yellow",
-    "desc": "Classic Minecraft browser edition.",
-    "url": "/1_5/index.html",
-    "image": "/game-images/1-5.jpg"
-  },
-  {
-    "id": 4,
-    "title": "Minecraft 1.8",
-    "type": "simulation",
-    "engine": "html",
-    "icon": "🌍",
-    "color": "yellow",
-    "desc": "Minecraft 1.8 browser edition.",
-    "url": "/1_8/index.html",
-    "image": "/game-images/1-8.jpg"
-  },
-  {
     "id": 5,
     "title": "2 Player Football",
     "type": "sport",
