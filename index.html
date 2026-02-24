@@ -545,7 +545,7 @@
               <div class="loader-label">Loading game...</div>
             </div>
             <div class="panic-hint">Press Esc to go back</div>
-            <iframe id="projectFrame" src="" allowfullscreen sandbox="allow-scripts allow-same-origin allow-forms allow-pointer-lock allow-modals allow-popups"></iframe>
+            <iframe id="projectFrame" src="" allowfullscreen sandbox="allow-scripts allow-same-origin allow-forms allow-pointer-lock allow-modals"></iframe>
           </div>
           <aside class="play-sidebar">
             <div class="ps-head">Related Games</div>
@@ -986,7 +986,7 @@ function renderGrid(items){
     const body=document.createElement('div');body.className='card-body';
     const plays=getPlays();const ratings=getRatings();const userRatings=getUserRatings();
     const stat=ratings[p.id]||{up:0,down:0};
-    body.innerHTML='<div class="card-title">'+esc(p.title)+'</div>'+(p.desc?'<div class="card-desc">'+esc(p.desc)+'</div>':'')+'<div class="card-meta"><span class="meta-tag type-tag">'+esc(p.type||'game')+'</span></div>'+'<div class="rating-row"><span>▶ '+(plays[p.id]||0)+' plays</span><div class="rate-controls"><button class="rate-btn" data-v="up">👍 '+stat.up+'</button><button class="rate-btn" data-v="down">👎 '+stat.down+'</button></div></div>';
+    body.innerHTML='<div class="card-title">'+esc(p.title)+'</div>'+(p.desc?'<div class="card-desc">'+esc(p.desc)+'</div>':'')+'<div class="card-meta"><span class="meta-tag type-tag">'+esc(p.type||'game')+'</span></div>'+'<div class="rating-row"><span class="plays">▶ '+(plays[p.id]||0)+' plays</span><div class="rate-controls"><button class="rate-btn" data-v="up">👍 '+stat.up+'</button><button class="rate-btn" data-v="down">👎 '+stat.down+'</button></div></div>';
     card.appendChild(thumb);card.appendChild(body);
     const currentVote=userRatings[p.id];
     if(currentVote){
@@ -996,6 +996,15 @@ function renderGrid(items){
     card.querySelectorAll('.rate-btn').forEach(btn=>btn.addEventListener('click',e=>{e.stopPropagation();rateGame(p.id,btn.dataset.v);}));
     card.addEventListener('click',()=>openProject(p));
     grid.appendChild(card);
+
+    ensureProjectStatsLoaded(p.id).then(()=>{
+      const playsEl=card.querySelector('.plays');
+      const upBtn=card.querySelector('.rate-btn[data-v="up"]');
+      const downBtn=card.querySelector('.rate-btn[data-v="down"]');
+      if(playsEl)playsEl.textContent='▶ '+(globalPlays[p.id]||0)+' plays';
+      if(upBtn)upBtn.textContent='👍 '+(globalRatings[p.id]?.up||0);
+      if(downBtn)downBtn.textContent='👎 '+(globalRatings[p.id]?.down||0);
+    });
   });
   applyCompact();
 }
@@ -1044,9 +1053,40 @@ function collectionMatch(p){
   if(activeCollection==='classic')return p.id<=40;
   return true;
 }
-function getPlays(){try{return JSON.parse(localStorage.getItem('cshub_plays')||'{}')}catch(e){return {}}}
-function getRatings(){try{return JSON.parse(localStorage.getItem('cshub_ratings')||'{}')}catch(e){return {}}}
+const STATS_NS='cshub-global-v1';
+const globalPlays={};
+const globalRatings={};
+
+function getPlays(){return globalPlays}
+function getRatings(){return globalRatings}
 function getUserRatings(){try{return JSON.parse(localStorage.getItem('cshub_user_ratings')||'{}')}catch(e){return {}}}
+
+async function countApiGet(key){
+  try{
+    const r=await fetch('https://api.countapi.xyz/get/'+STATS_NS+'/'+key);
+    const d=await r.json();
+    return typeof d.value==='number'?d.value:0;
+  }catch(e){return 0;}
+}
+
+async function countApiUpdate(key,amount){
+  try{
+    const r=await fetch('https://api.countapi.xyz/update/'+STATS_NS+'/'+key+'?amount='+amount);
+    const d=await r.json();
+    return typeof d.value==='number'?d.value:0;
+  }catch(e){return 0;}
+}
+
+async function ensureProjectStatsLoaded(id){
+  if(globalPlays[id]!==undefined&&globalRatings[id])return;
+  const [plays,up,down]=await Promise.all([
+    globalPlays[id]!==undefined?Promise.resolve(globalPlays[id]):countApiGet('plays-'+id),
+    globalRatings[id]?.up!==undefined?Promise.resolve(globalRatings[id].up):countApiGet('rating-up-'+id),
+    globalRatings[id]?.down!==undefined?Promise.resolve(globalRatings[id].down):countApiGet('rating-down-'+id)
+  ]);
+  globalPlays[id]=plays;
+  globalRatings[id]={up,down};
+}
 function setEngineFilter(){currentEngine=document.getElementById('engineSelect').value;filter();saveBrowseState();}
 function setCollectionFilter(){activeCollection=document.getElementById('collectionSelect').value;filter();saveBrowseState();}
 
@@ -1337,7 +1377,7 @@ function lazyObserve(img){
   if(!window._imgObs){window._imgObs=new IntersectionObserver(entries=>entries.forEach(en=>{if(en.isIntersecting){const el=en.target;if(el.dataset.src)el.src=el.dataset.src;window._imgObs.unobserve(el);}}),{rootMargin:'120px'});}
   window._imgObs.observe(img);
 }
-function rateGame(id,vote){
+async function rateGame(id,vote){
   const ratings=getRatings();
   const userRatings=getUserRatings();
   if(!ratings[id])ratings[id]={up:0,down:0};
@@ -1345,22 +1385,24 @@ function rateGame(id,vote){
 
   if(previousVote===vote){
     ratings[id][vote]=Math.max(0,(ratings[id][vote]||0)-1);
+    await countApiUpdate('rating-'+vote+'-'+id,-1);
     delete userRatings[id];
     showToast('Rating removed');
   }else{
     if(previousVote){
       ratings[id][previousVote]=Math.max(0,(ratings[id][previousVote]||0)-1);
+      await countApiUpdate('rating-'+previousVote+'-'+id,-1);
     }
     ratings[id][vote]=(ratings[id][vote]||0)+1;
+    await countApiUpdate('rating-'+vote+'-'+id,1);
     userRatings[id]=vote;
     showToast(previousVote?'Rating updated':'Thanks for rating');
   }
 
-  localStorage.setItem('cshub_ratings',JSON.stringify(ratings));
   localStorage.setItem('cshub_user_ratings',JSON.stringify(userRatings));
   filter();
 }
-function incPlay(id){const p=getPlays();p[id]=(p[id]||0)+1;localStorage.setItem('cshub_plays',JSON.stringify(p));}
+async function incPlay(id){const p=getPlays();p[id]=(p[id]||0)+1;await countApiUpdate('plays-'+id,1);}
 function incOpen(){const a=JSON.parse(localStorage.getItem('cshub_analytics')||'{"opens":0}');a.opens=(a.opens||0)+1;localStorage.setItem('cshub_analytics',JSON.stringify(a));}
 function renderSeasonSpotlight(){
   const el=document.getElementById('seasonSpotlight');
