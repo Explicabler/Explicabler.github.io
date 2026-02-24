@@ -1,6 +1,6 @@
 (function(){
   const COUNT_API_NAMESPACE='cshub-global-v1';
-  const DEFAULT_REMOTE_BASE='https://cshub-backend.onrender.com';
+  const DEFAULT_REMOTE_BASE='https://explicabler-github-io.onrender.com';
 
   function normalizeBase(url){
     if(!url) return '';
