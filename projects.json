@@ -1,957 +1,2103 @@
 [
   {
+    "id": 1,
+    "title": "1 on 1 Soccer",
+    "type": "sport",
+    "engine": "html",
+    "icon": "⚽",
+    "color": "green",
+    "desc": "Classic 1v1 soccer showdown.",
     "url": "/1on1soccer/index.html",
-    "image": "/game-images/1on1soccer.jpg",
-    "_imageOverride": true
+    "image": "/game-images/1on1soccer.jpg"
   },
   {
+    "id": 2,
+    "title": "1v1.LOL",
+    "type": "action",
+    "engine": "html",
+    "icon": "🚀",
+    "color": "orange",
+    "desc": "Build and shoot in this 1v1 battle game.",
     "url": "/1v1_lol/index.html",
-    "image": "/game-images/1v1-lol.jpg",
-    "_imageOverride": true
+    "image": "/game-images/1v1-lol.jpg"
   },
   {
+    "id": 3,
+    "title": "Minecraft 1.5",
+    "type": "simulation",
+    "engine": "html",
+    "icon": "🌍",
+    "color": "yellow",
+    "desc": "Classic Minecraft browser edition.",
     "url": "/1_5/index.html",
-    "image": "/game-images/1-5.jpg",
-    "_imageOverride": true
+    "image": "/game-images/1-5.jpg"
   },
   {
+    "id": 4,
+    "title": "Minecraft 1.8",
+    "type": "simulation",
+    "engine": "html",
+    "icon": "🌍",
+    "color": "yellow",
+    "desc": "Minecraft 1.8 browser edition.",
     "url": "/1_8/index.html",
-    "image": "/game-images/1-8.jpg",
-    "_imageOverride": true
+    "image": "/game-images/1-8.jpg"
   },
   {
+    "id": 5,
+    "title": "2 Player Football",
+    "type": "sport",
+    "engine": "html",
+    "icon": "⚽",
+    "color": "green",
+    "desc": "Local 2-player football game.",
     "url": "/2%20Player%20football/index.html",
-    "image": "/game-images/2-player-football.jpg",
-    "_imageOverride": true
+    "image": "/game-images/2-player-football.jpg"
   },
   {
+    "id": 6,
+    "title": "2048",
+    "type": "puzzle",
+    "engine": "html",
+    "icon": "🧩",
+    "color": "accent",
+    "desc": "Slide tiles to reach 2048.",
     "url": "/2048/index.html",
-    "image": "/game-images/2048.jpg",
-    "_imageOverride": true
+    "image": "/game-images/2048.jpg"
   },
   {
+    "id": 7,
+    "title": "Agario Lite",
+    "type": "action",
+    "engine": "html",
+    "icon": "🚀",
+    "color": "orange",
+    "desc": "Eat smaller cells to grow bigger.",
     "url": "/agariolite/index.html",
-    "image": "/game-images/agariolite.jpg",
-    "_imageOverride": true
+    "image": "/game-images/agariolite.jpg"
   },
   {
+    "id": 8,
+    "title": "Age of War",
+    "type": "simulation",
+    "engine": "html",
+    "icon": "🌍",
+    "color": "yellow",
+    "desc": "Evolve through ages and destroy the enemy base.",
     "url": "/ageofwar/index.html",
-    "image": "/game-images/ageofwar.jpg",
-    "_imageOverride": true
+    "image": "/game-images/ageofwar.jpg"
   },
   {
+    "id": 9,
+    "title": "Ages of Conflict",
+    "type": "simulation",
+    "engine": "html",
+    "icon": "🌍",
+    "color": "yellow",
+    "desc": "Strategy war game across the ages.",
     "url": "/agesofconflict/index.html",
-    "image": "/game-images/agesofconflict.jpg",
-    "_imageOverride": true
+    "image": "/game-images/agesofconflict.jpg"
   },
   {
+    "id": 10,
+    "title": "Minecraft Alpha",
+    "type": "simulation",
+    "engine": "html",
+    "icon": "🌍",
+    "color": "yellow",
+    "desc": "Early Minecraft alpha in the browser.",
     "url": "/Alpha_1_2_6/index.html",
-    "image": "/game-images/alpha-1-2-6.jpg",
-    "_imageOverride": true
+    "image": "/game-images/alpha-1-2-6.jpg"
   },
   {
+    "id": 11,
+    "title": "Among Us",
+    "type": "action",
+    "engine": "html",
+    "icon": "🚀",
+    "color": "orange",
+    "desc": "Find the impostor among the crew.",
     "url": "/amongus/index.html",
-    "image": "/game-images/amongus.jpg",
-    "_imageOverride": true
+    "image": "/game-images/amongus.jpg"
   },
   {
+    "id": 12,
+    "title": "Angry Birds Showdown",
+    "type": "arcade",
+    "engine": "html",
+    "icon": "🕹️",
+    "color": "cyan",
+    "desc": "Angry Birds competitive showdown.",
     "url": "/angrybirdsshowdown/index.html",
-    "image": "/game-images/angrybirdsshowdown.jpg",
-    "_imageOverride": true
+    "image": "/game-images/angrybirdsshowdown.jpg"
   },
   {
+    "id": 13,
+    "title": "Angry Birds Space",
+    "type": "arcade",
+    "engine": "html",
+    "icon": "🕹️",
+    "color": "cyan",
+    "desc": "Angry Birds in zero gravity.",
     "url": "/angrybirdsspace/index.html",
-    "image": "/game-images/angrybirdsspace.jpg",
-    "_imageOverride": true
+    "image": "/game-images/angrybirdsspace.jpg"
   },
   {
+    "id": 14,
+    "title": "Awesome Tanks",
+    "type": "action",
+    "engine": "html",
+    "icon": "🚀",
+    "color": "orange",
+    "desc": "Drive a tank and blow up enemies.",
     "url": "/awesometanks/index.html",
-    "image": "/game-images/awesometanks.jpg",
-    "_imageOverride": true
+    "image": "/game-images/awesometanks.jpg"
   },
   {
+    "id": 15,
+    "title": "Awesome Tanks 2",
+    "type": "action",
+    "engine": "html",
+    "icon": "🚀",
+    "color": "orange",
+    "desc": "More tanks, more destruction.",
     "url": "/awesometanks2/index.html",
-    "image": "/game-images/awesometanks2.jpg",
-    "_imageOverride": true
+    "image": "/game-images/awesometanks2.jpg"
   },
   {
+    "id": 16,
+    "title": "Bacon May Die",
+    "type": "action",
+    "engine": "html",
+    "icon": "🚀",
+    "color": "orange",
+    "desc": "Bacon fights off waves of enemies.",
     "url": "/baconmaydie/index.html",
-    "image": "/game-images/baconmaydie.jpg",
-    "_imageOverride": true
+    "image": "/game-images/baconmaydie.jpg"
   },
   {
+    "id": 17,
+    "title": "Bad Ice Cream 2",
+    "type": "arcade",
+    "engine": "html",
+    "icon": "🕹️",
+    "color": "cyan",
+    "desc": "Freeze enemies and collect fruit.",
     "url": "/badicecream2/index.html",
-    "image": "/game-images/badicecream2.jpg",
-    "_imageOverride": true
+    "image": "/game-images/badicecream2.jpg"
   },
   {
+    "id": 18,
+    "title": "Bad Ice Cream 3",
+    "type": "arcade",
+    "engine": "html",
+    "icon": "🕹️",
+    "color": "cyan",
+    "desc": "Third instalment of Bad Ice Cream.",
     "url": "/badicecream3/index.html",
-    "image": "/game-images/badicecream3.jpg",
-    "_imageOverride": true
+    "image": "/game-images/badicecream3.jpg"
   },
   {
+    "id": 19,
+    "title": "Bad Piggies",
+    "type": "puzzle",
+    "engine": "html",
+    "icon": "🧩",
+    "color": "accent",
+    "desc": "Build contraptions to help the pigs.",
     "url": "/badpiggies/index.html",
-    "image": "/game-images/badpiggies.jpg",
-    "_imageOverride": true
+    "image": "/game-images/badpiggies.jpg"
   },
   {
+    "id": 20,
+    "title": "Basket Random",
+    "type": "sport",
+    "engine": "html",
+    "icon": "⚽",
+    "color": "green",
+    "desc": "Wacky random basketball game.",
     "url": "/Basket%20Random/index.html",
-    "image": "/game-images/basket-random.jpg",
-    "_imageOverride": true
+    "image": "/game-images/basket-random.jpg"
   },
   {
+    "id": 21,
+    "title": "Basketball Legends",
+    "type": "sport",
+    "engine": "html",
+    "icon": "⚽",
+    "color": "green",
+    "desc": "Play as basketball legends.",
     "url": "/Basketball%20Legends/index.html",
-    "image": "/game-images/basketball-legends.jpg",
-    "_imageOverride": true
+    "image": "/game-images/basketball-legends.jpg"
   },
   {
+    "id": 22,
+    "title": "Basketball Legends",
+    "type": "sport",
+    "engine": "html",
+    "icon": "⚽",
+    "color": "green",
+    "desc": "Play as basketball legends.",
     "url": "/basketballlegends/index.html",
-    "image": "/game-images/basketballlegends.jpg",
-    "_imageOverride": true
+    "image": "/game-images/basketballlegends.jpg"
   },
   {
+    "id": 23,
+    "title": "Basket Random",
+    "type": "sport",
+    "engine": "html",
+    "icon": "⚽",
+    "color": "green",
+    "desc": "Wacky random basketball game.",
     "url": "/basketrandom/index.html",
-    "image": "/game-images/basketrandom.jpg",
-    "_imageOverride": true
+    "image": "/game-images/basketrandom.jpg"
   },
   {
+    "id": 24,
+    "title": "Minecraft Beta",
+    "type": "simulation",
+    "engine": "html",
+    "icon": "🌍",
+    "color": "yellow",
+    "desc": "Minecraft beta in the browser.",
     "url": "/Beta_1_3/index.html",
-    "image": "/game-images/beta-1-3.jpg",
-    "_imageOverride": true
+    "image": "/game-images/beta-1-3.jpg"
   },
   {
+    "id": 25,
+    "title": "Bit Planes",
+    "type": "arcade",
+    "engine": "html",
+    "icon": "🕹️",
+    "color": "cyan",
+    "desc": "Fly pixel planes in this arcade shooter.",
     "url": "/Bit%20Planes/index.html",
-    "image": "/game-images/bit-planes.jpg",
-    "_imageOverride": true
+    "image": "/game-images/bit-planes.jpg"
   },
   {
+    "id": 26,
+    "title": "Bit Planes",
+    "type": "arcade",
+    "engine": "html",
+    "icon": "🕹️",
+    "color": "cyan",
+    "desc": "Fly pixel planes in this arcade shooter.",
     "url": "/bitplanes/index.html",
-    "image": "/game-images/bitplanes.jpg",
-    "_imageOverride": true
+    "image": "/game-images/bitplanes.jpg"
   },
   {
+    "id": 27,
+    "title": "Bloons TD 5",
+    "type": "simulation",
+    "engine": "html",
+    "icon": "🌍",
+    "color": "yellow",
+    "desc": "Pop bloons before they escape.",
     "url": "/Bloons%20TD%205/index.html",
-    "image": "/game-images/bloons-td-5.jpg",
-    "_imageOverride": true
+    "image": "/game-images/bloons-td-5.jpg"
   },
   {
+    "id": 28,
+    "title": "Bloons TD",
+    "type": "simulation",
+    "engine": "html",
+    "icon": "🌍",
+    "color": "yellow",
+    "desc": "Tower defence with balloons.",
     "url": "/bloonsTD/index.html",
-    "image": "/game-images/bloonstd.jpg",
-    "_imageOverride": true
+    "image": "/game-images/bloonstd.jpg"
   },
   {
+    "id": 29,
+    "title": "Bloons TD 3",
+    "type": "simulation",
+    "engine": "html",
+    "icon": "🌍",
+    "color": "yellow",
+    "desc": "Third Bloons Tower Defence game.",
     "url": "/bloonsTD3/index.html",
-    "image": "/game-images/bloonstd3.jpg",
-    "_imageOverride": true
+    "image": "/game-images/bloonstd3.jpg"
   },
   {
+    "id": 30,
+    "title": "Bloons TD 4",
+    "type": "simulation",
+    "engine": "html",
+    "icon": "🌍",
+    "color": "yellow",
+    "desc": "Fourth Bloons Tower Defence game.",
     "url": "/bloonsTD4/index.html",
-    "image": "/game-images/bloonstd4.jpg",
-    "_imageOverride": true
+    "image": "/game-images/bloonstd4.jpg"
   },
   {
+    "id": 31,
+    "title": "Bloxorz",
+    "type": "puzzle",
+    "engine": "html",
+    "icon": "🧩",
+    "color": "accent",
+    "desc": "Roll the block into the hole.",
     "url": "/bloxorz/index.html",
-    "image": "/game-images/bloxorz.jpg",
-    "_imageOverride": true
+    "image": "/game-images/bloxorz.jpg"
   },
   {
+    "id": 32,
+    "title": "Bob the Robber",
+    "type": "platformer",
+    "engine": "html",
+    "icon": "🏃",
+    "color": "pink",
+    "desc": "Sneak past guards and steal the loot.",
     "url": "/bobtherobber/index.html",
-    "image": "/game-images/bobtherobber.jpg",
-    "_imageOverride": true
+    "image": "/game-images/bobtherobber.jpg"
   },
   {
+    "id": 33,
+    "title": "Bob the Robber 2",
+    "type": "platformer",
+    "engine": "html",
+    "icon": "🏃",
+    "color": "pink",
+    "desc": "More heists for Bob the Robber.",
     "url": "/bobtherobber2/index.html",
-    "image": "/game-images/bobtherobber2.jpg",
-    "_imageOverride": true
+    "image": "/game-images/bobtherobber2.jpg"
   },
   {
+    "id": 34,
+    "title": "Bowmasters",
+    "type": "action",
+    "engine": "html",
+    "icon": "🚀",
+    "color": "orange",
+    "desc": "Compete in archery duels.",
     "url": "/bowmasters/index.html",
-    "image": "/game-images/bowmasters.jpg",
-    "_imageOverride": true
+    "image": "/game-images/bowmasters.jpg"
   },
   {
+    "id": 35,
+    "title": "Boxing Random",
+    "type": "sport",
+    "engine": "html",
+    "icon": "⚽",
+    "color": "green",
+    "desc": "Wacky physics boxing game.",
     "url": "/boxingrandom/index.html",
-    "image": "/game-images/boxingrandom.jpg",
-    "_imageOverride": true
+    "image": "/game-images/boxingrandom.jpg"
   },
   {
+    "id": 36,
+    "title": "Bubble Shooter",
+    "type": "puzzle",
+    "engine": "html",
+    "icon": "🧩",
+    "color": "accent",
+    "desc": "Match and pop coloured bubbles.",
     "url": "/bubbleshooter/index.html",
-    "image": "/game-images/bubbleshooter.jpg",
-    "_imageOverride": true
+    "image": "/game-images/bubbleshooter.jpg"
   },
   {
+    "id": 37,
+    "title": "Budget Minecraft",
+    "type": "simulation",
+    "engine": "html",
+    "icon": "🌍",
+    "color": "yellow",
+    "desc": "A budget version of Minecraft.",
     "url": "/Budget%20Minecraft/index.html",
-    "image": "/game-images/budget-minecraft.jpg",
-    "_imageOverride": true
+    "image": "/game-images/budget-minecraft.jpg"
   },
   {
+    "id": 38,
+    "title": "Candy Crush",
+    "type": "puzzle",
+    "engine": "html",
+    "icon": "🧩",
+    "color": "accent",
+    "desc": "Match sweet candies to clear the board.",
     "url": "/candycrush/index.html",
-    "image": "/game-images/candycrush.jpg",
-    "_imageOverride": true
+    "image": "/game-images/candycrush.jpg"
   },
   {
+    "id": 39,
+    "title": "Car Drawing",
+    "type": "puzzle",
+    "engine": "html",
+    "icon": "🧩",
+    "color": "accent",
+    "desc": "Draw a car and race it.",
     "url": "/cardrawing/index.html",
-    "image": "/game-images/cardrawing.jpg",
-    "_imageOverride": true
+    "image": "/game-images/cardrawing.jpg"
   },
   {
+    "id": 40,
+    "title": "Clash of Vikings",
+    "type": "simulation",
+    "engine": "html",
+    "icon": "🌍",
+    "color": "yellow",
+    "desc": "Build a viking empire and conquer.",
     "url": "/clashofvikings/index.html",
-    "image": "/game-images/clashofvikings.jpg",
-    "_imageOverride": true
+    "image": "/game-images/clashofvikings.jpg"
   },
   {
+    "id": 41,
+    "title": "Cleanup.io",
+    "type": "action",
+    "engine": "html",
+    "icon": "🚀",
+    "color": "orange",
+    "desc": "Clean up the arena to grow bigger.",
     "url": "/cleanupio/index.html",
-    "image": "/game-images/cleanupio.jpg",
-    "_imageOverride": true
+    "image": "/game-images/cleanupio.jpg"
   },
   {
+    "id": 42,
+    "title": "Cluster Rush",
+    "type": "platformer",
+    "engine": "html",
+    "icon": "🏃",
+    "color": "pink",
+    "desc": "Leap across speeding trucks.",
     "url": "/clusterrush/index.html",
-    "image": "/game-images/clusterrush.jpg",
-    "_imageOverride": true
+    "image": "/game-images/clusterrush.jpg"
   },
   {
+    "id": 43,
+    "title": "Cookie Clicker",
+    "type": "simulation",
+    "engine": "html",
+    "icon": "🌍",
+    "color": "yellow",
+    "desc": "Click cookies to build a cookie empire.",
     "url": "/cookieclicker/index.html",
-    "image": "/game-images/cookieclicker.jpg",
-    "_imageOverride": true
+    "image": "/game-images/cookieclicker.jpg"
   },
   {
+    "id": 44,
+    "title": "Crazy Crash Landing",
+    "type": "arcade",
+    "engine": "html",
+    "icon": "🕹️",
+    "color": "cyan",
+    "desc": "Land the plane without crashing.",
     "url": "/crazycrashlanding/index.html",
-    "image": "/game-images/crazycrashlanding.jpg",
-    "_imageOverride": true
+    "image": "/game-images/crazycrashlanding.jpg"
   },
   {
+    "id": 45,
+    "title": "Crazy Motorcycle",
+    "type": "arcade",
+    "engine": "html",
+    "icon": "🕹️",
+    "color": "cyan",
+    "desc": "Ride your motorcycle at crazy speeds.",
     "url": "/crazymotorcycle/index.html",
-    "image": "/game-images/crazymotorcycle.jpg",
-    "_imageOverride": true
+    "image": "/game-images/crazymotorcycle.jpg"
   },
   {
+    "id": 46,
+    "title": "Crossy Road",
+    "type": "arcade",
+    "engine": "html",
+    "icon": "🕹️",
+    "color": "cyan",
+    "desc": "Cross roads and rivers without dying.",
     "url": "/crossyroad/index.html",
-    "image": "/game-images/crossyroad.jpg",
-    "_imageOverride": true
+    "image": "/game-images/crossyroad.jpg"
   },
   {
+    "id": 47,
+    "title": "Dadish",
+    "type": "platformer",
+    "engine": "html",
+    "icon": "🏃",
+    "color": "pink",
+    "desc": "Help Dad Radish rescue his kids.",
     "url": "/dadish/index.html",
-    "image": "/game-images/dadish.jpg",
-    "_imageOverride": true
+    "image": "/game-images/dadish.jpg"
   },
   {
+    "id": 48,
+    "title": "Dadish 2",
+    "type": "platformer",
+    "engine": "html",
+    "icon": "🏃",
+    "color": "pink",
+    "desc": "More Dadish adventures.",
     "url": "/dadish2/index.html",
-    "image": "/game-images/dadish2.jpg",
-    "_imageOverride": true
+    "image": "/game-images/dadish2.jpg"
   },
   {
+    "id": 49,
+    "title": "Death Run 3D",
+    "type": "arcade",
+    "engine": "html",
+    "icon": "🕹️",
+    "color": "cyan",
+    "desc": "Dodge obstacles at high speed.",
     "url": "/deathrun3D/index.html",
-    "image": "/game-images/deathrun3d.jpg",
-    "_imageOverride": true
+    "image": "/game-images/deathrun3d.jpg"
   },
   {
+    "id": 50,
+    "title": "Demolition Derby",
+    "type": "action",
+    "engine": "html",
+    "icon": "🚀",
+    "color": "orange",
+    "desc": "Smash cars in demolition derby racing.",
     "url": "/demolitionderbycrashracing/index.html",
-    "image": "/game-images/demolitionderbycrashracing.jpg",
-    "_imageOverride": true
+    "image": "/game-images/demolitionderbycrashracing.jpg"
   },
   {
+    "id": 51,
+    "title": "Doodle Jump",
+    "type": "arcade",
+    "engine": "html",
+    "icon": "🕹️",
+    "color": "cyan",
+    "desc": "Jump higher and higher without falling.",
     "url": "/doodlejump/index.html",
-    "image": "/game-images/doodlejump.jpg",
-    "_imageOverride": true
+    "image": "/game-images/doodlejump.jpg"
   },
   {
+    "id": 52,
+    "title": "Dreadhead Parkour",
+    "type": "platformer",
+    "engine": "html",
+    "icon": "🏃",
+    "color": "pink",
+    "desc": "Perform parkour tricks.",
     "url": "/dreadheadparkour/index.html",
-    "image": "/game-images/dreadheadparkour.jpg",
-    "_imageOverride": true
+    "image": "/game-images/dreadheadparkour.jpg"
   },
   {
+    "id": 53,
+    "title": "Drive Mad",
+    "type": "arcade",
+    "engine": "html",
+    "icon": "🕹️",
+    "color": "cyan",
+    "desc": "Drive vehicles through crazy obstacle courses.",
     "url": "/Drive%20Mad/index.html",
-    "image": "/game-images/drive-mad.jpg",
-    "_imageOverride": true
+    "image": "/game-images/drive-mad.jpg"
   },
   {
+    "id": 54,
+    "title": "Drive Mad",
+    "type": "arcade",
+    "engine": "html",
+    "icon": "🕹️",
+    "color": "cyan",
+    "desc": "Drive vehicles through crazy obstacle courses.",
     "url": "/drivemad/index.html",
-    "image": "/game-images/drivemad.jpg",
-    "_imageOverride": true
+    "image": "/game-images/drivemad.jpg"
   },
   {
+    "id": 55,
+    "title": "Duck Life",
+    "type": "simulation",
+    "engine": "html",
+    "icon": "🌍",
+    "color": "yellow",
+    "desc": "Train your duck to become a champion.",
     "url": "/ducklife/index.html",
-    "image": "/game-images/ducklife.jpg",
-    "_imageOverride": true
+    "image": "/game-images/ducklife.jpg"
   },
   {
+    "id": 56,
+    "title": "Duck Life 2",
+    "type": "simulation",
+    "engine": "html",
+    "icon": "🌍",
+    "color": "yellow",
+    "desc": "More duck training and racing.",
     "url": "/ducklife2/index.html",
-    "image": "/game-images/ducklife2.jpg",
-    "_imageOverride": true
+    "image": "/game-images/ducklife2.jpg"
   },
   {
+    "id": 57,
+    "title": "Duck Life 3",
+    "type": "simulation",
+    "engine": "html",
+    "icon": "🌍",
+    "color": "yellow",
+    "desc": "Third instalment of Duck Life.",
     "url": "/ducklife3/index.html",
-    "image": "/game-images/ducklife3.jpg",
-    "_imageOverride": true
+    "image": "/game-images/ducklife3.jpg"
   },
   {
+    "id": 58,
+    "title": "Duck Life 5",
+    "type": "simulation",
+    "engine": "html",
+    "icon": "🌍",
+    "color": "yellow",
+    "desc": "Duck Life world adventure.",
     "url": "/ducklife5/index.html",
-    "image": "/game-images/ducklife5.jpg",
-    "_imageOverride": true
+    "image": "/game-images/ducklife5.jpg"
   },
   {
+    "id": 59,
+    "title": "Earn to Die",
+    "type": "action",
+    "engine": "html",
+    "icon": "🚀",
+    "color": "orange",
+    "desc": "Drive through zombie hordes.",
     "url": "/earntodie/index.html",
-    "image": "/game-images/earntodie.jpg",
-    "_imageOverride": true
+    "image": "/game-images/earntodie.jpg"
   },
   {
+    "id": 60,
+    "title": "Eggy Car",
+    "type": "arcade",
+    "engine": "html",
+    "icon": "🕹️",
+    "color": "cyan",
+    "desc": "Balance an egg on top of your car.",
     "url": "/eggycar/index.html",
-    "image": "/game-images/eggycar.jpg",
-    "_imageOverride": true
+    "image": "/game-images/eggycar.jpg"
   },
   {
+    "id": 61,
+    "title": "Elastic Face",
+    "type": "arcade",
+    "engine": "html",
+    "icon": "🕹️",
+    "color": "cyan",
+    "desc": "Stretch your face to block objects.",
     "url": "/elasticface/index.html",
-    "image": "/game-images/elasticface.jpg",
-    "_imageOverride": true
+    "image": "/game-images/elasticface.jpg"
   },
   {
+    "id": 62,
+    "title": "Elements",
+    "type": "interactive",
+    "engine": "html",
+    "icon": "🔬",
+    "color": "cyan",
+    "desc": "Explore the periodic table interactively.",
     "url": "/Elements/index.html",
-    "image": "/game-images/elements.jpg",
-    "_imageOverride": true
+    "image": "/game-images/elements.jpg"
   },
   {
+    "id": 63,
+    "title": "Escape Road 2",
+    "type": "action",
+    "engine": "html",
+    "icon": "🚀",
+    "color": "orange",
+    "desc": "Escape from the police at high speed.",
     "url": "/escaperoad2/index.html",
-    "image": "/game-images/escaperoad2.jpg",
-    "_imageOverride": true
+    "image": "/game-images/escaperoad2.jpg"
   },
   {
+    "id": 64,
+    "title": "Escaping the Prison",
+    "type": "platformer",
+    "engine": "html",
+    "icon": "🏃",
+    "color": "pink",
+    "desc": "Use gadgets to escape from prison.",
     "url": "/escapingtheprison/index.html",
-    "image": "/game-images/escapingtheprison.jpg",
-    "_imageOverride": true
+    "image": "/game-images/escapingtheprison.jpg"
   },
   {
+    "id": 65,
+    "title": "Evil Glitch",
+    "type": "platformer",
+    "engine": "html",
+    "icon": "🏃",
+    "color": "pink",
+    "desc": "Navigate a glitchy platformer world.",
     "url": "/evilglitch/index.html",
-    "image": "/game-images/evilglitch.jpg",
-    "_imageOverride": true
+    "image": "/game-images/evilglitch.jpg"
   },
   {
+    "id": 66,
+    "title": "Fireboy and Watergirl",
+    "type": "puzzle",
+    "engine": "html",
+    "icon": "🧩",
+    "color": "accent",
+    "desc": "Co-op puzzle platformer duo.",
     "url": "/fireboyandwatergirl/index.html",
-    "image": "/game-images/fireboyandwatergirl.jpg",
-    "_imageOverride": true
+    "image": "/game-images/fireboyandwatergirl.jpg"
   },
   {
+    "id": 67,
+    "title": "Fancy Pants Adventure",
+    "type": "platformer",
+    "engine": "html",
+    "icon": "🏃",
+    "color": "pink",
+    "desc": "Run and flip in this stylish platformer.",
     "url": "/fancypantsadventure/index.html",
-    "image": "/game-images/fancypantsadventure.jpg",
-    "_imageOverride": true
+    "image": "/game-images/fancypantsadventure.jpg"
   },
   {
+    "id": 68,
+    "title": "Flood Runner 3",
+    "type": "arcade",
+    "engine": "html",
+    "icon": "🕹️",
+    "color": "cyan",
+    "desc": "Run from the rising flood.",
     "url": "/floodrunner3/index.html",
-    "image": "/game-images/floodrunner3.jpg",
-    "_imageOverride": true
+    "image": "/game-images/floodrunner3.jpg"
   },
   {
+    "id": 69,
+    "title": "Fireboy and Watergirl",
+    "type": "puzzle",
+    "engine": "html",
+    "icon": "🧩",
+    "color": "accent",
+    "desc": "Co-op puzzle platformer duo.",
     "url": "/fireboyandwatergirl3/index.html",
-    "image": "/game-images/fireboyandwatergirl3.jpg",
-    "_imageOverride": true
+    "image": "/game-images/fireboyandwatergirl3.jpg"
   },
   {
+    "id": 70,
+    "title": "Flood Runner 2",
+    "type": "arcade",
+    "engine": "html",
+    "icon": "🕹️",
+    "color": "cyan",
+    "desc": "Run from the rising flood in this sequel.",
     "url": "/floodrunner2/index.html",
-    "image": "/game-images/floodrunner2.jpg",
-    "_imageOverride": true
+    "image": "/game-images/floodrunner2.jpg"
   },
   {
+    "id": 71,
+    "title": "Flappy Bird",
+    "type": "arcade",
+    "engine": "html",
+    "icon": "🕹️",
+    "color": "cyan",
+    "desc": "Tap to keep the bird flying through pipes.",
     "url": "/flappybird/index.html",
-    "image": "/game-images/flappybird.jpg",
-    "_imageOverride": true
+    "image": "/game-images/flappybird.jpg"
   },
   {
+    "id": 72,
+    "title": "FNAF 4",
+    "type": "action",
+    "engine": "html",
+    "icon": "🚀",
+    "color": "orange",
+    "desc": "Survive the night in Five Nights at Freddy's 4.",
     "url": "/fnaf4/index.html",
-    "image": "/game-images/fnaf4.jpg",
-    "_imageOverride": true
+    "image": "/game-images/fnaf4.jpg"
   },
   {
+    "id": 73,
+    "title": "Football Legends",
+    "type": "sport",
+    "engine": "html",
+    "icon": "⚽",
+    "color": "green",
+    "desc": "Play as football legends.",
     "url": "/footballlegends/index.html",
-    "image": "/game-images/footballlegends.jpg",
-    "_imageOverride": true
+    "image": "/game-images/footballlegends.jpg"
   },
   {
+    "id": 74,
+    "title": "Football Bros",
+    "type": "sport",
+    "engine": "html",
+    "icon": "⚽",
+    "color": "green",
+    "desc": "Team up and score goals.",
     "url": "/footballbros/index.html",
-    "image": "/game-images/footballbros.jpg",
-    "_imageOverride": true
+    "image": "/game-images/footballbros.jpg"
   },
   {
+    "id": 75,
+    "title": "Funny Battle",
+    "type": "action",
+    "engine": "html",
+    "icon": "🚀",
+    "color": "orange",
+    "desc": "Hilarious battle game with ragdoll physics.",
     "url": "/funnybattle/index.html",
-    "image": "/game-images/funnybattle.jpg",
-    "_imageOverride": true
+    "image": "/game-images/funnybattle.jpg"
   },
   {
+    "id": 76,
+    "title": "Get on Top",
+    "type": "sport",
+    "engine": "html",
+    "icon": "⚽",
+    "color": "green",
+    "desc": "Push your opponent's head to the ground.",
     "url": "/getontop/index.html",
-    "image": "/game-images/getontop.jpg",
-    "_imageOverride": true
+    "image": "/game-images/getontop.jpg"
   },
   {
+    "id": 77,
+    "title": "Funny Battle 2",
+    "type": "action",
+    "engine": "html",
+    "icon": "🚀",
+    "color": "orange",
+    "desc": "More chaotic ragdoll battle fun.",
     "url": "/funnybattle2/index.html",
-    "image": "/game-images/funnybattle2.jpg",
-    "_imageOverride": true
+    "image": "/game-images/funnybattle2.jpg"
   },
   {
+    "id": 78,
+    "title": "Funny Shooter 2",
+    "type": "action",
+    "engine": "html",
+    "icon": "🚀",
+    "color": "orange",
+    "desc": "Shoot waves of funny enemies.",
     "url": "/funnyshooter2/index.html",
-    "image": "/game-images/funnyshooter2.jpg",
-    "_imageOverride": true
+    "image": "/game-images/funnyshooter2.jpg"
   },
   {
+    "id": 79,
+    "title": "Geometry Vibes",
+    "type": "platformer",
+    "engine": "html",
+    "icon": "🏃",
+    "color": "pink",
+    "desc": "Rhythm-based geometry platformer.",
     "url": "/geometryvibes/index.html",
-    "image": "/game-images/geometryvibes.jpg",
-    "_imageOverride": true
+    "image": "/game-images/geometryvibes.jpg"
   },
   {
+    "id": 80,
+    "title": "Google Baseball",
+    "type": "sport",
+    "engine": "html",
+    "icon": "⚽",
+    "color": "green",
+    "desc": "Google's interactive baseball doodle.",
     "url": "/googlebaseball/index.html",
-    "image": "/game-images/googlebaseball.jpg",
-    "_imageOverride": true
+    "image": "/game-images/googlebaseball.jpg"
   },
   {
+    "id": 81,
+    "title": "Granny 2",
+    "type": "action",
+    "engine": "html",
+    "icon": "🚀",
+    "color": "orange",
+    "desc": "Escape from Granny's house — again.",
     "url": "/granny2/index.html",
-    "image": "/game-images/granny2.jpg",
-    "_imageOverride": true
+    "image": "/game-images/granny2.jpg"
   },
   {
+    "id": 82,
+    "title": "Google Dino",
+    "type": "arcade",
+    "engine": "html",
+    "icon": "🕹️",
+    "color": "cyan",
+    "desc": "The classic Chrome offline dinosaur game.",
     "url": "/googledino/index.html",
-    "image": "/game-images/googledino.jpg",
-    "_imageOverride": true
+    "image": "/game-images/googledino.jpg"
   },
   {
+    "id": 83,
+    "title": "Granny",
+    "type": "action",
+    "engine": "html",
+    "icon": "🚀",
+    "color": "orange",
+    "desc": "Escape from Granny's creepy house.",
     "url": "/granny/index.html",
-    "image": "/game-images/granny.jpg",
-    "_imageOverride": true
+    "image": "/game-images/granny.jpg"
   },
   {
+    "id": 84,
+    "title": "Hole.io",
+    "type": "action",
+    "engine": "html",
+    "icon": "🚀",
+    "color": "orange",
+    "desc": "Swallow everything in the city with your hole.",
     "url": "/holeio/index.html",
-    "image": "/game-images/holeio.jpg",
-    "_imageOverride": true
+    "image": "/game-images/holeio.jpg"
   },
   {
+    "id": 85,
+    "title": "Helix Jump",
+    "type": "arcade",
+    "engine": "html",
+    "icon": "🕹️",
+    "color": "cyan",
+    "desc": "Bounce the ball down the helix tower.",
     "url": "/helixjump/index.html",
-    "image": "/game-images/helixjump.jpg",
-    "_imageOverride": true
+    "image": "/game-images/helixjump.jpg"
   },
   {
+    "id": 86,
+    "title": "Highway Traffic",
+    "type": "arcade",
+    "engine": "html",
+    "icon": "🕹️",
+    "color": "cyan",
+    "desc": "Weave through highway traffic.",
     "url": "/highwaytraffic/index.html",
-    "image": "/game-images/highwaytraffic.jpg",
-    "_imageOverride": true
+    "image": "/game-images/highwaytraffic.jpg"
   },
   {
+    "id": 87,
+    "title": "Idle Breakout",
+    "type": "simulation",
+    "engine": "html",
+    "icon": "🌍",
+    "color": "yellow",
+    "desc": "Idle breakout brick-busting game.",
     "url": "/idlebreakout/index.html",
-    "image": "/game-images/idlebreakout.jpg",
-    "_imageOverride": true
+    "image": "/game-images/idlebreakout.jpg"
   },
   {
+    "id": 88,
+    "title": "Minecraft Indev",
+    "type": "simulation",
+    "engine": "html",
+    "icon": "🌍",
+    "color": "yellow",
+    "desc": "Early Minecraft indev build in browser.",
     "url": "/Indev/index.html",
-    "image": "/game-images/indev.jpg",
-    "_imageOverride": true
+    "image": "/game-images/indev.jpg"
   },
   {
+    "id": 89,
+    "title": "Jumping Shell",
+    "type": "platformer",
+    "engine": "html",
+    "icon": "🏃",
+    "color": "pink",
+    "desc": "Jump your way through shell obstacles.",
     "url": "/jumpingshell/index.html",
-    "image": "/game-images/jumpingshell.jpg",
-    "_imageOverride": true
+    "image": "/game-images/jumpingshell.jpg"
   },
   {
+    "id": 90,
+    "title": "Johnny Trigger",
+    "type": "action",
+    "engine": "html",
+    "icon": "🚀",
+    "color": "orange",
+    "desc": "Shoot enemies with perfect timing.",
     "url": "/johnnytrigger/index.html",
-    "image": "/game-images/johnnytrigger.jpg",
-    "_imageOverride": true
+    "image": "/game-images/johnnytrigger.jpg"
   },
   {
+    "id": 91,
+    "title": "Iron Snout",
+    "type": "action",
+    "engine": "html",
+    "icon": "🚀",
+    "color": "orange",
+    "desc": "Fight wolves as a karate pig.",
     "url": "/ironsnout/index.html",
-    "image": "/game-images/ironsnout.jpg",
-    "_imageOverride": true
+    "image": "/game-images/ironsnout.jpg"
   },
   {
+    "id": 92,
+    "title": "Kart Bros",
+    "type": "arcade",
+    "engine": "html",
+    "icon": "🕹️",
+    "color": "cyan",
+    "desc": "Race karts with your bro.",
     "url": "/kartbros/index.html",
-    "image": "/game-images/kartbros.jpg",
-    "_imageOverride": true
+    "image": "/game-images/kartbros.jpg"
   },
   {
+    "id": 93,
+    "title": "Karate Bros",
+    "type": "action",
+    "engine": "html",
+    "icon": "🚀",
+    "color": "orange",
+    "desc": "Beat up enemies with karate moves.",
     "url": "/karatebros/index.html",
-    "image": "/game-images/karatebros.jpg",
-    "_imageOverride": true
+    "image": "/game-images/karatebros.jpg"
   },
   {
+    "id": 94,
+    "title": "Learn to Fly 3",
+    "type": "arcade",
+    "engine": "html",
+    "icon": "🕹️",
+    "color": "cyan",
+    "desc": "Help the penguin fly using rockets.",
     "url": "/Learn%20to%20Fly%203/index.html",
-    "image": "/game-images/learn-to-fly-3.jpg",
-    "_imageOverride": true
+    "image": "/game-images/learn-to-fly-3.jpg"
   },
   {
+    "id": 95,
+    "title": "Learn to Fly Idle",
+    "type": "simulation",
+    "engine": "html",
+    "icon": "🌍",
+    "color": "yellow",
+    "desc": "Idle version of Learn to Fly.",
     "url": "/learntoflyidle/index.html",
-    "image": "/game-images/learntoflyidle.jpg",
-    "_imageOverride": true
+    "image": "/game-images/learntoflyidle.jpg"
   },
   {
+    "id": 96,
+    "title": "Mini Metro",
+    "type": "puzzle",
+    "engine": "html",
+    "icon": "🧩",
+    "color": "accent",
+    "desc": "Design an efficient subway network.",
     "url": "/mini_metro/index.html",
-    "image": "/game-images/mini-metro.jpg",
-    "_imageOverride": true
+    "image": "/game-images/mini-metro.jpg"
   },
   {
+    "id": 97,
+    "title": "Melon Playground",
+    "type": "simulation",
+    "engine": "html",
+    "icon": "🌍",
+    "color": "yellow",
+    "desc": "Ragdoll physics sandbox game.",
     "url": "/melonplayground/index.html",
-    "image": "/game-images/melonplayground.jpg",
-    "_imageOverride": true
+    "image": "/game-images/melonplayground.jpg"
   },
   {
+    "id": 98,
+    "title": "Merge Round Racers",
+    "type": "simulation",
+    "engine": "html",
+    "icon": "🌍",
+    "color": "yellow",
+    "desc": "Merge cars to build faster racers.",
     "url": "/mergeroundracers/index.html",
-    "image": "/game-images/mergeroundracers.jpg",
-    "_imageOverride": true
+    "image": "/game-images/mergeroundracers.jpg"
   },
   {
+    "id": 99,
+    "title": "Madalin Stunt Cars 2",
+    "type": "arcade",
+    "engine": "html",
+    "icon": "🕹️",
+    "color": "cyan",
+    "desc": "Perform insane stunts in supercars.",
     "url": "/madalinstuntcars2/index.html",
-    "image": "/game-images/madalinstuntcars2.jpg",
-    "_imageOverride": true
+    "image": "/game-images/madalinstuntcars2.jpg"
   },
   {
+    "id": 100,
+    "title": "Monster Tracks",
+    "type": "arcade",
+    "engine": "html",
+    "icon": "🕹️",
+    "color": "cyan",
+    "desc": "Drive monster trucks over obstacles.",
     "url": "/monstertracks/index.html",
-    "image": "/game-images/monstertracks.jpg",
-    "_imageOverride": true
+    "image": "/game-images/monstertracks.jpg"
   },
   {
+    "id": 101,
+    "title": "Moto X3M 2",
+    "type": "arcade",
+    "engine": "html",
+    "icon": "🕹️",
+    "color": "cyan",
+    "desc": "More extreme motorbike tracks.",
     "url": "/motox3m2/index.html",
-    "image": "/game-images/motox3m2.jpg",
-    "_imageOverride": true
+    "image": "/game-images/motox3m2.jpg"
   },
   {
+    "id": 102,
+    "title": "Monkey Mart",
+    "type": "simulation",
+    "engine": "html",
+    "icon": "🌍",
+    "color": "yellow",
+    "desc": "Run a supermarket as a monkey.",
     "url": "/monkeymart/index.html",
-    "image": "/game-images/monkeymart.jpg",
-    "_imageOverride": true
+    "image": "/game-images/monkeymart.jpg"
   },
   {
+    "id": 103,
+    "title": "Moto X3M 3",
+    "type": "arcade",
+    "engine": "html",
+    "icon": "🕹️",
+    "color": "cyan",
+    "desc": "Third instalment of Moto X3M.",
     "url": "/motox3m3/index.html",
-    "image": "/game-images/motox3m3.jpg",
-    "_imageOverride": true
+    "image": "/game-images/motox3m3.jpg"
   },
   {
+    "id": 104,
+    "title": "Opposite Day",
+    "type": "platformer",
+    "engine": "html",
+    "icon": "🏃",
+    "color": "pink",
+    "desc": "Everything works in reverse.",
     "url": "/oppositeday/index.html",
-    "image": "/game-images/oppositeday.jpg",
-    "_imageOverride": true
+    "image": "/game-images/oppositeday.jpg"
   },
   {
+    "id": 105,
+    "title": "Noob Miner",
+    "type": "simulation",
+    "engine": "html",
+    "icon": "🌍",
+    "color": "yellow",
+    "desc": "Mine resources and upgrade your gear.",
     "url": "/noobminer/index.html",
-    "image": "/game-images/noobminer.jpg",
-    "_imageOverride": true
+    "image": "/game-images/noobminer.jpg"
   },
   {
+    "id": 106,
+    "title": "Moto X3M",
+    "type": "arcade",
+    "engine": "html",
+    "icon": "🕹️",
+    "color": "cyan",
+    "desc": "Ride your bike through extreme tracks.",
     "url": "/motox3mwinter/index.html",
-    "image": "/game-images/motox3mwinter.jpg",
-    "_imageOverride": true
+    "image": "/game-images/motox3mwinter.jpg"
   },
   {
+    "id": 107,
+    "title": "Moto X3M",
+    "type": "arcade",
+    "engine": "html",
+    "icon": "🕹️",
+    "color": "cyan",
+    "desc": "Ride your bike through extreme tracks.",
     "url": "/motox3mspookyland/index.html",
-    "image": "/game-images/motox3mspookyland.jpg",
-    "_imageOverride": true
+    "image": "/game-images/motox3mspookyland.jpg"
   },
   {
+    "id": 108,
+    "title": "OvO",
+    "type": "platformer",
+    "engine": "html",
+    "icon": "🏃",
+    "color": "pink",
+    "desc": "Fast-paced parkour platformer.",
     "url": "/ovo/index.html",
-    "image": "/game-images/ovo.jpg",
-    "_imageOverride": true
+    "image": "/game-images/ovo.jpg"
   },
   {
+    "id": 109,
+    "title": "Pac-Man",
+    "type": "arcade",
+    "engine": "html",
+    "icon": "🕹️",
+    "color": "cyan",
+    "desc": "Eat dots and avoid ghosts.",
     "url": "/pacman/index.html",
-    "image": "/game-images/pacman.jpg",
-    "_imageOverride": true
+    "image": "/game-images/pacman.jpg"
   },
   {
+    "id": 110,
+    "title": "OvO",
+    "type": "platformer",
+    "engine": "html",
+    "icon": "🏃",
+    "color": "pink",
+    "desc": "Fast-paced parkour platformer.",
     "url": "/ovo2/index.html",
-    "image": "/game-images/ovo2.jpg",
-    "_imageOverride": true
+    "image": "/game-images/ovo2.jpg"
   },
   {
+    "id": 111,
+    "title": "Papa's Hot Doggeria",
+    "type": "simulation",
+    "engine": "html",
+    "icon": "🌍",
+    "color": "yellow",
+    "desc": "Serve hot dogs to customers.",
     "url": "/papashotdoggeria/index.html",
-    "image": "/game-images/papashotdoggeria.jpg",
-    "_imageOverride": true
+    "image": "/game-images/papashotdoggeria.jpg"
   },
   {
+    "id": 112,
+    "title": "Papa's Pastaria",
+    "type": "simulation",
+    "engine": "html",
+    "icon": "🌍",
+    "color": "yellow",
+    "desc": "Cook and serve pasta dishes.",
     "url": "/papaspastaria/index.html",
-    "image": "/game-images/papaspastaria.jpg",
-    "_imageOverride": true
+    "image": "/game-images/papaspastaria.jpg"
   },
   {
+    "id": 113,
+    "title": "Papa's Sushiria",
+    "type": "simulation",
+    "engine": "html",
+    "icon": "🌍",
+    "color": "yellow",
+    "desc": "Roll sushi for customers.",
     "url": "/papassushiria/index.html",
-    "image": "/game-images/papassushiria.jpg",
-    "_imageOverride": true
+    "image": "/game-images/papassushiria.jpg"
   },
   {
+    "id": 114,
+    "title": "Paper Minecraft",
+    "type": "simulation",
+    "engine": "html",
+    "icon": "🌍",
+    "color": "yellow",
+    "desc": "2D Minecraft in the browser.",
     "url": "/PaperMinecraft1_15_1/index.html",
-    "image": "/game-images/paperminecraft1-15-1.jpg",
-    "_imageOverride": true
+    "image": "/game-images/paperminecraft1-15-1.jpg"
   },
   {
+    "id": 115,
+    "title": "Paper.io 2",
+    "type": "action",
+    "engine": "html",
+    "icon": "🚀",
+    "color": "orange",
+    "desc": "Claim territory with your paper trail.",
     "url": "/paperio2/index.html",
-    "image": "/game-images/paperio2.jpg",
-    "_imageOverride": true
+    "image": "/game-images/paperio2.jpg"
   },
   {
+    "id": 116,
+    "title": "Parking Fury 2",
+    "type": "puzzle",
+    "engine": "html",
+    "icon": "🧩",
+    "color": "accent",
+    "desc": "Park cars without crashing.",
     "url": "/parkingfury2/index.html",
-    "image": "/game-images/parkingfury2.jpg",
-    "_imageOverride": true
+    "image": "/game-images/parkingfury2.jpg"
   },
   {
+    "id": 117,
+    "title": "Papa's Tacomia",
+    "type": "simulation",
+    "engine": "html",
+    "icon": "🌍",
+    "color": "yellow",
+    "desc": "Roll and serve tacos.",
     "url": "/papastacomia/index.html",
-    "image": "/game-images/papastacomia.jpg",
-    "_imageOverride": true
+    "image": "/game-images/papastacomia.jpg"
   },
   {
+    "id": 118,
+    "title": "Parking Fury 3",
+    "type": "puzzle",
+    "engine": "html",
+    "icon": "🧩",
+    "color": "accent",
+    "desc": "Night time parking challenge.",
     "url": "/parkingfury3/index.html",
-    "image": "/game-images/parkingfury3.jpg",
-    "_imageOverride": true
+    "image": "/game-images/parkingfury3.jpg"
   },
   {
+    "id": 119,
+    "title": "Ping Pong Chaos",
+    "type": "sport",
+    "engine": "html",
+    "icon": "⚽",
+    "color": "green",
+    "desc": "Chaotic table tennis battle.",
     "url": "/pingpongchaos/index.html",
-    "image": "/game-images/pingpongchaos.jpg",
-    "_imageOverride": true
+    "image": "/game-images/pingpongchaos.jpg"
   },
   {
+    "id": 120,
+    "title": "Pet Rock Simulator",
+    "type": "simulation",
+    "engine": "html",
+    "icon": "🌍",
+    "color": "yellow",
+    "desc": "Simulate having a pet rock.",
     "url": "/Pet_Rock_Simulator_1_4_1_SMALLER/index.html",
-    "image": "/game-images/pet-rock-simulator-1-4-1-smaller.jpg",
-    "_imageOverride": true
+    "image": "/game-images/pet-rock-simulator-1-4-1-smaller.jpg"
   },
   {
+    "id": 121,
+    "title": "Pico's School",
+    "type": "action",
+    "engine": "html",
+    "icon": "🚀",
+    "color": "orange",
+    "desc": "Pico fights his way through school.",
     "url": "/picosschool/index.html",
-    "image": "/game-images/picosschool.jpg",
-    "_imageOverride": true
+    "image": "/game-images/picosschool.jpg"
   },
   {
+    "id": 122,
+    "title": "Plants vs Zombies",
+    "type": "simulation",
+    "engine": "html",
+    "icon": "🌍",
+    "color": "yellow",
+    "desc": "Defend your garden from zombies.",
     "url": "/plantsvszombies/index.html",
-    "image": "/game-images/plantsvszombies.jpg",
-    "_imageOverride": true
+    "image": "/game-images/plantsvszombies.jpg"
   },
   {
+    "id": 123,
+    "title": "Poor Bunny",
+    "type": "platformer",
+    "engine": "html",
+    "icon": "🏃",
+    "color": "pink",
+    "desc": "Help the bunny survive deadly traps.",
     "url": "/poorbunny/index.html",
-    "image": "/game-images/poorbunny.jpg",
-    "_imageOverride": true
+    "image": "/game-images/poorbunny.jpg"
   },
   {
+    "id": 124,
+    "title": "Pixel Speedrun",
+    "type": "platformer",
+    "engine": "html",
+    "icon": "🏃",
+    "color": "pink",
+    "desc": "Speed through pixel art levels.",
     "url": "/pixelspeedrun/index.html",
-    "image": "/game-images/pixelspeedrun.jpg",
-    "_imageOverride": true
+    "image": "/game-images/pixelspeedrun.jpg"
   },
   {
+    "id": 125,
+    "title": "Plonky",
+    "type": "puzzle",
+    "engine": "html",
+    "icon": "🧩",
+    "color": "accent",
+    "desc": "Drop pieces to solve puzzles.",
     "url": "/plonky/index.html",
-    "image": "/game-images/plonky.jpg",
-    "_imageOverride": true
+    "image": "/game-images/plonky.jpg"
   },
   {
+    "id": 126,
+    "title": "Red Ball 4",
+    "type": "platformer",
+    "engine": "html",
+    "icon": "🏃",
+    "color": "pink",
+    "desc": "Roll the red ball to the goal.",
     "url": "/redball4vol1/index.html",
-    "image": "/game-images/redball4vol1.jpg",
-    "_imageOverride": true
+    "image": "/game-images/redball4vol1.jpg"
   },
   {
+    "id": 127,
+    "title": "Ragdoll Soccer",
+    "type": "sport",
+    "engine": "html",
+    "icon": "⚽",
+    "color": "green",
+    "desc": "Physics-based ragdoll soccer.",
     "url": "/ragdollsoccer/index.html",
-    "image": "/game-images/ragdollsoccer.jpg",
-    "_imageOverride": true
+    "image": "/game-images/ragdollsoccer.jpg"
   },
   {
+    "id": 128,
+    "title": "Pou",
+    "type": "simulation",
+    "engine": "html",
+    "icon": "🌍",
+    "color": "yellow",
+    "desc": "Take care of your virtual alien pet Pou.",
     "url": "/pou/index.html",
-    "image": "/game-images/pou.jpg",
-    "_imageOverride": true
+    "image": "/game-images/pou.jpg"
   },
   {
+    "id": 129,
+    "title": "Retro Highway",
+    "type": "arcade",
+    "engine": "html",
+    "icon": "🕹️",
+    "color": "cyan",
+    "desc": "Ride a motorbike on a retro highway.",
     "url": "/retrohighway/index.html",
-    "image": "/game-images/retrohighway.jpg",
-    "_imageOverride": true
+    "image": "/game-images/retrohighway.jpg"
   },
   {
+    "id": 130,
+    "title": "Riddle School 3",
+    "type": "platformer",
+    "engine": "html",
+    "icon": "🏃",
+    "color": "pink",
+    "desc": "Escape from school once more.",
     "url": "/riddleschool3/index.html",
-    "image": "/game-images/riddleschool3.jpg",
-    "_imageOverride": true
+    "image": "/game-images/riddleschool3.jpg"
   },
   {
+    "id": 131,
+    "title": "Riddle School 2",
+    "type": "platformer",
+    "engine": "html",
+    "icon": "🏃",
+    "color": "pink",
+    "desc": "Second Riddle School escape.",
     "url": "/riddleschool2/index.html",
-    "image": "/game-images/riddleschool2.jpg",
-    "_imageOverride": true
+    "image": "/game-images/riddleschool2.jpg"
   },
   {
+    "id": 132,
+    "title": "Riddle Transfer",
+    "type": "platformer",
+    "engine": "html",
+    "icon": "🏃",
+    "color": "pink",
+    "desc": "Escape from a secret facility.",
     "url": "/riddletransfer/index.html",
-    "image": "/game-images/riddletransfer.jpg",
-    "_imageOverride": true
+    "image": "/game-images/riddletransfer.jpg"
   },
   {
+    "id": 133,
+    "title": "Rooftop Snipers",
+    "type": "action",
+    "engine": "html",
+    "icon": "🚀",
+    "color": "orange",
+    "desc": "Shoot your opponent off the rooftop.",
     "url": "/rooftopsnipers/index.html",
-    "image": "/game-images/rooftopsnipers.jpg",
-    "_imageOverride": true
+    "image": "/game-images/rooftopsnipers.jpg"
   },
   {
+    "id": 134,
+    "title": "Run",
+    "type": "arcade",
+    "engine": "html",
+    "icon": "🕹️",
+    "color": "cyan",
+    "desc": "Run through tunnels in space.",
     "url": "/run/index.html",
-    "image": "/game-images/run.jpg",
-    "_imageOverride": true
+    "image": "/game-images/run.jpg"
   },
   {
+    "id": 135,
+    "title": "Short Life",
+    "type": "platformer",
+    "engine": "html",
+    "icon": "🏃",
+    "color": "pink",
+    "desc": "Navigate deadly traps and survive.",
     "url": "/shortlife/index.html",
-    "image": "/game-images/shortlife.jpg",
-    "_imageOverride": true
+    "image": "/game-images/shortlife.jpg"
   },
   {
+    "id": 136,
+    "title": "Sand Game",
+    "type": "simulation",
+    "engine": "html",
+    "icon": "🌍",
+    "color": "yellow",
+    "desc": "Play with falling sand physics.",
     "url": "/sandgame/index.html",
-    "image": "/game-images/sandgame.jpg",
-    "_imageOverride": true
+    "image": "/game-images/sandgame.jpg"
   },
   {
+    "id": 137,
+    "title": "Slope",
+    "type": "arcade",
+    "engine": "html",
+    "icon": "🕹️",
+    "color": "cyan",
+    "desc": "Roll a ball down an endless slope.",
     "url": "/slope/index.html",
-    "image": "/game-images/slope.jpg",
-    "_imageOverride": true
+    "image": "/game-images/slope.jpg"
   },
   {
+    "id": 138,
+    "title": "Slow Roads",
+    "type": "simulation",
+    "engine": "html",
+    "icon": "🌍",
+    "color": "yellow",
+    "desc": "Drive peacefully through scenic roads.",
     "url": "/slowroads/index.html",
-    "image": "/game-images/slowroads.jpg",
-    "_imageOverride": true
+    "image": "/game-images/slowroads.jpg"
   },
   {
+    "id": 139,
+    "title": "Slope 3",
+    "type": "arcade",
+    "engine": "html",
+    "icon": "🕹️",
+    "color": "cyan",
+    "desc": "Third instalment of Slope.",
     "url": "/slope3/index.html",
-    "image": "/game-images/slope3.jpg",
-    "_imageOverride": true
+    "image": "/game-images/slope3.jpg"
   },
   {
+    "id": 140,
+    "title": "Super Mario 64",
+    "type": "platformer",
+    "engine": "html",
+    "icon": "🏃",
+    "color": "pink",
+    "desc": "Super Mario 64 in the browser.",
     "url": "/sm64/index.html",
-    "image": "/game-images/sm64.jpg",
-    "_imageOverride": true
+    "image": "/game-images/sm64.jpg"
   },
   {
+    "id": 141,
+    "title": "Slope 2 Player",
+    "type": "arcade",
+    "engine": "html",
+    "icon": "🕹️",
+    "color": "cyan",
+    "desc": "Compete in Slope with 2 players.",
     "url": "/slope2player/index.html",
-    "image": "/game-images/slope2player.jpg",
-    "_imageOverride": true
+    "image": "/game-images/slope2player.jpg"
   },
   {
+    "id": 142,
+    "title": "Spacebar Clicker",
+    "type": "arcade",
+    "engine": "html",
+    "icon": "🕹️",
+    "color": "cyan",
+    "desc": "Click the spacebar as fast as possible.",
     "url": "/spacebarclicker/index.html",
-    "image": "/game-images/spacebarclicker.jpg",
-    "_imageOverride": true
+    "image": "/game-images/spacebarclicker.jpg"
   },
   {
+    "id": 143,
+    "title": "Soccer Random",
+    "type": "sport",
+    "engine": "html",
+    "icon": "⚽",
+    "color": "green",
+    "desc": "Wacky physics soccer game.",
     "url": "/soccerrandom/index.html",
-    "image": "/game-images/soccerrandom.jpg",
-    "_imageOverride": true
+    "image": "/game-images/soccerrandom.jpg"
   },
   {
+    "id": 144,
+    "title": "Snow Rider 3D",
+    "type": "arcade",
+    "engine": "html",
+    "icon": "🕹️",
+    "color": "cyan",
+    "desc": "Sled down snowy slopes.",
     "url": "/snowrider/index.html",
-    "image": "/game-images/snowrider.jpg",
-    "_imageOverride": true
+    "image": "/game-images/snowrider.jpg"
   },
   {
+    "id": 145,
+    "title": "Soccer Bros",
+    "type": "sport",
+    "engine": "html",
+    "icon": "⚽",
+    "color": "green",
+    "desc": "Team up and score goals.",
     "url": "/soccerbros/index.html",
-    "image": "/game-images/soccerbros.jpg",
-    "_imageOverride": true
+    "image": "/game-images/soccerbros.jpg"
   },
   {
+    "id": 146,
+    "title": "Speed Stars",
+    "type": "sport",
+    "engine": "html",
+    "icon": "⚽",
+    "color": "green",
+    "desc": "Sprint to become the fastest runner.",
     "url": "/speedstars/index.html",
-    "image": "/game-images/speedstars.jpg",
-    "_imageOverride": true
+    "image": "/game-images/speedstars.jpg"
   },
   {
+    "id": 147,
+    "title": "Space Waves",
+    "type": "arcade",
+    "engine": "html",
+    "icon": "🕹️",
+    "color": "cyan",
+    "desc": "Navigate waves in space.",
     "url": "/spacewaves/index.html",
-    "image": "/game-images/spacewaves.jpg",
-    "_imageOverride": true
+    "image": "/game-images/spacewaves.jpg"
   },
   {
+    "id": 148,
+    "title": "Stack",
+    "type": "arcade",
+    "engine": "html",
+    "icon": "🕹️",
+    "color": "cyan",
+    "desc": "Stack blocks as high as possible.",
     "url": "/stack/index.html",
-    "image": "/game-images/stack.jpg",
-    "_imageOverride": true
+    "image": "/game-images/stack.jpg"
   },
   {
+    "id": 149,
+    "title": "Stacktris",
+    "type": "puzzle",
+    "engine": "html",
+    "icon": "🧩",
+    "color": "accent",
+    "desc": "Tetris meets block stacking.",
     "url": "/stacktris/index.html",
-    "image": "/game-images/stacktris.jpg",
-    "_imageOverride": true
+    "image": "/game-images/stacktris.jpg"
   },
   {
+    "id": 150,
+    "title": "Stick Fighter",
+    "type": "action",
+    "engine": "html",
+    "icon": "🚀",
+    "color": "orange",
+    "desc": "Fight as a stick figure warrior.",
     "url": "/stickfighter/index.html",
-    "image": "/game-images/stickfighter.jpg",
-    "_imageOverride": true
+    "image": "/game-images/stickfighter.jpg"
   },
   {
+    "id": 151,
+    "title": "State.io",
+    "type": "simulation",
+    "engine": "html",
+    "icon": "🌍",
+    "color": "yellow",
+    "desc": "Conquer states in this strategy game.",
     "url": "/stateio/index.html",
-    "image": "/game-images/stateio.jpg",
-    "_imageOverride": true
+    "image": "/game-images/stateio.jpg"
   },
   {
+    "id": 152,
+    "title": "Stick Archers Battle",
+    "type": "action",
+    "engine": "html",
+    "icon": "🚀",
+    "color": "orange",
+    "desc": "Archer battle between stick figures.",
     "url": "/stickarchersbattle/index.html",
-    "image": "/game-images/stickarchersbattle.jpg",
-    "_imageOverride": true
+    "image": "/game-images/stickarchersbattle.jpg"
   },
   {
+    "id": 153,
+    "title": "Stickman Hook",
+    "type": "platformer",
+    "engine": "html",
+    "icon": "🏃",
+    "color": "pink",
+    "desc": "Swing like Spider-Man as a stickman.",
     "url": "/stickmanhook/index.html",
-    "image": "/game-images/stickmanhook.jpg",
-    "_imageOverride": true
+    "image": "/game-images/stickmanhook.jpg"
   },
   {
+    "id": 154,
+    "title": "Subway Surfers",
+    "type": "arcade",
+    "engine": "html",
+    "icon": "🕹️",
+    "color": "cyan",
+    "desc": "Surf the subway in Havana.",
     "url": "/subwaysurfershavana/index.html",
-    "image": "/game-images/subwaysurfershavana.jpg",
-    "_imageOverride": true
+    "image": "/game-images/subwaysurfershavana.jpg"
   },
   {
+    "id": 155,
+    "title": "Tag",
+    "type": "action",
+    "engine": "html",
+    "icon": "🚀",
+    "color": "orange",
+    "desc": "Classic game of tag.",
     "url": "/tag/index.html",
-    "image": "/game-images/tag.jpg",
-    "_imageOverride": true
+    "image": "/game-images/tag.jpg"
   },
   {
+    "id": 156,
+    "title": "Tap Road",
+    "type": "arcade",
+    "engine": "html",
+    "icon": "🕹️",
+    "color": "cyan",
+    "desc": "Tap to stay on the road.",
     "url": "/taproad/index.html",
-    "image": "/game-images/taproad.jpg",
-    "_imageOverride": true
+    "image": "/game-images/taproad.jpg"
   },
   {
+    "id": 157,
+    "title": "Super Star Car",
+    "type": "arcade",
+    "engine": "html",
+    "icon": "🕹️",
+    "color": "cyan",
+    "desc": "Race a superstar car on the track.",
     "url": "/superstarcar/index.html",
-    "image": "/game-images/superstarcar.jpg",
-    "_imageOverride": true
+    "image": "/game-images/superstarcar.jpg"
   },
   {
+    "id": 158,
+    "title": "Temple Run 2",
+    "type": "arcade",
+    "engine": "html",
+    "icon": "🕹️",
+    "color": "cyan",
+    "desc": "Run from the demon monkey.",
     "url": "/templerun2/index.html",
-    "image": "/game-images/templerun2.jpg",
-    "_imageOverride": true
+    "image": "/game-images/templerun2.jpg"
   },
   {
+    "id": 159,
+    "title": "The Impossible Quiz",
+    "type": "puzzle",
+    "engine": "html",
+    "icon": "🧩",
+    "color": "accent",
+    "desc": "Answer the world's most impossible quiz.",
     "url": "/theimpossiblequiz/index.html",
-    "image": "/game-images/theimpossiblequiz.jpg",
-    "_imageOverride": true
+    "image": "/game-images/theimpossiblequiz.jpg"
   },
   {
+    "id": 160,
+    "title": "Territorial.io",
+    "type": "simulation",
+    "engine": "html",
+    "icon": "🌍",
+    "color": "yellow",
+    "desc": "Conquer territory in this strategy game.",
     "url": "/territorialio/index.html",
-    "image": "/game-images/territorialio.jpg",
-    "_imageOverride": true
+    "image": "/game-images/territorialio.jpg"
   },
   {
+    "id": 161,
+    "title": "Temple of Boom",
+    "type": "action",
+    "engine": "html",
+    "icon": "🚀",
+    "color": "orange",
+    "desc": "Shoot your way through the temple.",
     "url": "/templeofboom/index.html",
-    "image": "/game-images/templeofboom.jpg",
-    "_imageOverride": true
+    "image": "/game-images/templeofboom.jpg"
   },
   {
+    "id": 162,
+    "title": "This is the Only Level Too",
+    "type": "puzzle",
+    "engine": "html",
+    "icon": "🧩",
+    "color": "accent",
+    "desc": "One level, many ways to play.",
     "url": "/thisistheonlyleveltoo/index.html",
-    "image": "/game-images/thisistheonlyleveltoo.jpg",
-    "_imageOverride": true
+    "image": "/game-images/thisistheonlyleveltoo.jpg"
   },
   {
+    "id": 163,
+    "title": "They Are Coming",
+    "type": "action",
+    "engine": "html",
+    "icon": "🚀",
+    "color": "orange",
+    "desc": "Defend against waves of enemies.",
     "url": "/theyarecoming/index.html",
-    "image": "/game-images/theyarecoming.jpg",
-    "_imageOverride": true
+    "image": "/game-images/theyarecoming.jpg"
   },
   {
+    "id": 164,
+    "title": "Time Shooter 3",
+    "type": "action",
+    "engine": "html",
+    "icon": "🚀",
+    "color": "orange",
+    "desc": "Time moves when you move.",
     "url": "/timeshooter3/index.html",
-    "image": "/game-images/timeshooter3.jpg",
-    "_imageOverride": true
+    "image": "/game-images/timeshooter3.jpg"
   },
   {
+    "id": 165,
+    "title": "There is no Game",
+    "type": "puzzle",
+    "engine": "html",
+    "icon": "🧩",
+    "color": "accent",
+    "desc": "A game that says it's not a game.",
     "url": "/thereisnog/index.html",
-    "image": "/game-images/thereisnog.jpg",
-    "_imageOverride": true
+    "image": "/game-images/thereisnog.jpg"
   },
   {
+    "id": 166,
+    "title": "Tube Jumpers",
+    "type": "arcade",
+    "engine": "html",
+    "icon": "🕹️",
+    "color": "cyan",
+    "desc": "Jump between floating tubes.",
     "url": "/tubejumpers/index.html",
-    "image": "/game-images/tubejumpers.jpg",
-    "_imageOverride": true
+    "image": "/game-images/tubejumpers.jpg"
   },
   {
+    "id": 167,
+    "title": "Tiny Fishing",
+    "type": "arcade",
+    "engine": "html",
+    "icon": "🕹️",
+    "color": "cyan",
+    "desc": "Cast your line and catch fish.",
     "url": "/tinyfishing/index.html",
-    "image": "/game-images/tinyfishing.jpg",
-    "_imageOverride": true
+    "image": "/game-images/tinyfishing.jpg"
   },
   {
+    "id": 168,
+    "title": "Trap the Cat",
+    "type": "puzzle",
+    "engine": "html",
+    "icon": "🧩",
+    "color": "accent",
+    "desc": "Surround the cat with circles.",
     "url": "/trapthecat/index.html",
-    "image": "/game-images/trapthecat.jpg",
-    "_imageOverride": true
+    "image": "/game-images/trapthecat.jpg"
   },
   {
+    "id": 169,
+    "title": "Trivia Crack",
+    "type": "interactive",
+    "engine": "html",
+    "icon": "🔬",
+    "color": "cyan",
+    "desc": "Answer trivia questions to win.",
     "url": "/triviacrack/index.html",
-    "image": "/game-images/triviacrack.jpg",
-    "_imageOverride": true
+    "image": "/game-images/triviacrack.jpg"
   },
   {
+    "id": 170,
+    "title": "Vex 4",
+    "type": "platformer",
+    "engine": "html",
+    "icon": "🏃",
+    "color": "pink",
+    "desc": "Navigate deadly obstacle courses.",
     "url": "/vex4/index.html",
-    "image": "/game-images/vex4.jpg",
-    "_imageOverride": true
+    "image": "/game-images/vex4.jpg"
   },
   {
+    "id": 171,
+    "title": "Tunnel Rush",
+    "type": "arcade",
+    "engine": "html",
+    "icon": "🕹️",
+    "color": "cyan",
+    "desc": "Dodge obstacles in a fast tunnel.",
     "url": "/tunnelrush/index.html",
-    "image": "/game-images/tunnelrush.jpg",
-    "_imageOverride": true
+    "image": "/game-images/tunnelrush.jpg"
   },
   {
+    "id": 172,
+    "title": "Undertale",
+    "type": "rpg",
+    "engine": "html",
+    "icon": "⚔️",
+    "color": "accent",
+    "desc": "A game where you don't have to fight.",
     "url": "/UNDERTALE/index.html",
-    "image": "/game-images/undertale.jpg",
-    "_imageOverride": true
+    "image": "/game-images/undertale.jpg"
   },
   {
+    "id": 173,
+    "title": "Unicycle Hero",
+    "type": "arcade",
+    "engine": "html",
+    "icon": "🕹️",
+    "color": "cyan",
+    "desc": "Balance on a unicycle.",
     "url": "/unicyclehero/index.html",
-    "image": "/game-images/unicyclehero.jpg",
-    "_imageOverride": true
+    "image": "/game-images/unicyclehero.jpg"
   },
   {
+    "id": 174,
+    "title": "Vex 8",
+    "type": "platformer",
+    "engine": "html",
+    "icon": "🏃",
+    "color": "pink",
+    "desc": "Eighth instalment of the Vex series.",
     "url": "/vex8/index.html",
-    "image": "/game-images/vex8.jpg",
-    "_imageOverride": true
+    "image": "/game-images/vex8.jpg"
   },
   {
+    "id": 175,
+    "title": "Vex 7",
+    "type": "platformer",
+    "engine": "html",
+    "icon": "🏃",
+    "color": "pink",
+    "desc": "Seventh instalment of the Vex series.",
     "url": "/vex7/index.html",
-    "image": "/game-images/vex7.jpg",
-    "_imageOverride": true
+    "image": "/game-images/vex7.jpg"
   },
   {
+    "id": 176,
+    "title": "Vex 5",
+    "type": "platformer",
+    "engine": "html",
+    "icon": "🏃",
+    "color": "pink",
+    "desc": "Navigate deadly Vex obstacle courses.",
     "url": "/vex5/index.html",
-    "image": "/game-images/vex5.jpg",
-    "_imageOverride": true
+    "image": "/game-images/vex5.jpg"
   },
   {
+    "id": 177,
+    "title": "Vex 6",
+    "type": "platformer",
+    "engine": "html",
+    "icon": "🏃",
+    "color": "pink",
+    "desc": "Sixth instalment of the Vex series.",
     "url": "/vex6/index.html",
-    "image": "/game-images/vex6.jpg",
-    "_imageOverride": true
+    "image": "/game-images/vex6.jpg"
   },
   {
+    "id": 178,
+    "title": "Volley Random",
+    "type": "sport",
+    "engine": "html",
+    "icon": "⚽",
+    "color": "green",
+    "desc": "Wacky physics volleyball game.",
     "url": "/volleyrandom/index.html",
-    "image": "/game-images/volleyrandom.jpg",
-    "_imageOverride": true
+    "image": "/game-images/volleyrandom.jpg"
   },
   {
+    "id": 179,
+    "title": "Wheelie Bike",
+    "type": "arcade",
+    "engine": "html",
+    "icon": "🕹️",
+    "color": "cyan",
+    "desc": "Do wheelies without falling over.",
     "url": "/wheeliebike/index.html",
-    "image": "/game-images/wheeliebike.jpg",
-    "_imageOverride": true
+    "image": "/game-images/wheeliebike.jpg"
   },
   {
+    "id": 180,
+    "title": "Vexx 3M 2",
+    "type": "arcade",
+    "engine": "html",
+    "icon": "🕹️",
+    "color": "cyan",
+    "desc": "Motorbike extreme racing sequel.",
     "url": "/vexx3m2/index.html",
-    "image": "/game-images/vexx3m2.jpg",
-    "_imageOverride": true
+    "image": "/game-images/vexx3m2.jpg"
   },
   {
+    "id": 181,
+    "title": "Vexx 3M",
+    "type": "arcade",
+    "engine": "html",
+    "icon": "🕹️",
+    "color": "cyan",
+    "desc": "Motorbike extreme racing.",
     "url": "/vexx3m/index.html",
-    "image": "/game-images/vexx3m.jpg",
-    "_imageOverride": true
+    "image": "/game-images/vexx3m.jpg"
   },
   {
+    "id": 182,
+    "title": "Wheely 5",
+    "type": "puzzle",
+    "engine": "html",
+    "icon": "🧩",
+    "color": "accent",
+    "desc": "Help Wheely the car solve puzzles.",
     "url": "/wheely5/index.html",
-    "image": "/game-images/wheely5.jpg",
-    "_imageOverride": true
+    "image": "/game-images/wheely5.jpg"
   },
   {
+    "id": 183,
+    "title": "Wheely",
+    "type": "puzzle",
+    "engine": "html",
+    "icon": "🧩",
+    "color": "accent",
+    "desc": "Help Wheely the car solve puzzles.",
     "url": "/wheely/index.html",
-    "image": "/game-images/wheely.jpg",
-    "_imageOverride": true
+    "image": "/game-images/wheely.jpg"
   },
   {
+    "id": 184,
+    "title": "Wheely 4",
+    "type": "puzzle",
+    "engine": "html",
+    "icon": "🧩",
+    "color": "accent",
+    "desc": "Fourth Wheely puzzle adventure.",
     "url": "/wheely4/index.html",
-    "image": "/game-images/wheely4.jpg",
-    "_imageOverride": true
+    "image": "/game-images/wheely4.jpg"
   },
   {
+    "id": 185,
+    "title": "Wheely 6",
+    "type": "puzzle",
+    "engine": "html",
+    "icon": "🧩",
+    "color": "accent",
+    "desc": "Sixth Wheely puzzle adventure.",
     "url": "/wheely6/index.html",
-    "image": "/game-images/wheely6.jpg",
-    "_imageOverride": true
+    "image": "/game-images/wheely6.jpg"
   },
   {
+    "id": 186,
+    "title": "Wordle Unlimited",
+    "type": "puzzle",
+    "engine": "html",
+    "icon": "🧩",
+    "color": "accent",
+    "desc": "Guess the word in unlimited Wordle.",
     "url": "/wordleunlimited/index.html",
-    "image": "/game-images/wordleunlimited.jpg",
-    "_imageOverride": true
+    "image": "/game-images/wordleunlimited.jpg"
   },
   {
+    "id": 187,
+    "title": "World Box",
+    "type": "simulation",
+    "engine": "html",
+    "icon": "🌍",
+    "color": "yellow",
+    "desc": "God simulator sandbox game.",
     "url": "/worldbox/index.html",
-    "image": "/game-images/worldbox.jpg",
-    "_imageOverride": true
+    "image": "/game-images/worldbox.jpg"
   },
   {
+    "id": 188,
+    "title": "World's Hardest Game",
+    "type": "arcade",
+    "engine": "html",
+    "icon": "🕹️",
+    "color": "cyan",
+    "desc": "The world's hardest game — seriously.",
     "url": "/worldshardestgame/index.html",
-    "image": "/game-images/worldshardestgame.jpg",
-    "_imageOverride": true
+    "image": "/game-images/worldshardestgame.jpg"
   },
   {
+    "id": 189,
+    "title": "Wheely 8",
+    "type": "puzzle",
+    "engine": "html",
+    "icon": "🧩",
+    "color": "accent",
+    "desc": "Eighth Wheely puzzle adventure.",
     "url": "/wheely8/index.html",
-    "image": "/game-images/wheely8.jpg",
-    "_imageOverride": true
+    "image": "/game-images/wheely8.jpg"
   },
   {
+    "id": 190,
+    "title": "Zombie Rush",
+    "type": "action",
+    "engine": "html",
+    "icon": "🚀",
+    "color": "orange",
+    "desc": "Survive endless zombie waves.",
     "url": "/zombierush/index.html",
-    "image": "/game-images/zombierush.jpg",
-    "_imageOverride": true
+    "image": "/game-images/zombierush.jpg"
   },
   {
+    "id": 191,
+    "title": "World's Hardest Game 3",
+    "type": "arcade",
+    "engine": "html",
+    "icon": "🕹️",
+    "color": "cyan",
+    "desc": "Third installment of the hardest game.",
     "url": "/worldshardestgame3/index.html",
-    "image": "/game-images/worldshardestgame3.jpg",
-    "_imageOverride": true
+    "image": "/game-images/worldshardestgame3.jpg"
   }
 ]
