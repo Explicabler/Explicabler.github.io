@@ -697,6 +697,7 @@
 </div>
 <div class="toast" id="toast"></div>
 
+<script src="js/backend.js"></script>
 <script>
 // ══════════════════════════════════
 // THEMES
@@ -1053,7 +1054,6 @@ function collectionMatch(p){
   if(activeCollection==='classic')return p.id<=40;
   return true;
 }
-const STATS_NS='cshub-global-v1';
 const globalPlays={};
 const globalRatings={};
 
@@ -1062,19 +1062,11 @@ function getRatings(){return globalRatings}
 function getUserRatings(){try{return JSON.parse(localStorage.getItem('cshub_user_ratings')||'{}')}catch(e){return {}}}
 
 async function countApiGet(key){
-  try{
-    const r=await fetch('https://api.countapi.xyz/get/'+STATS_NS+'/'+key);
-    const d=await r.json();
-    return typeof d.value==='number'?d.value:0;
-  }catch(e){return 0;}
+  return window.CSHubBackend.getStat(key);
 }
 
 async function countApiUpdate(key,amount){
-  try{
-    const r=await fetch('https://api.countapi.xyz/update/'+STATS_NS+'/'+key+'?amount='+amount);
-    const d=await r.json();
-    return typeof d.value==='number'?d.value:0;
-  }catch(e){return 0;}
+  return window.CSHubBackend.updateStat(key,amount);
 }
 
 async function ensureProjectStatsLoaded(id){
@@ -1414,15 +1406,24 @@ function renderSeasonSpotlight(){
 }
 function openSubmissionModal(){document.getElementById('submissionOverlay').classList.add('open');}
 function closeSubmissionModal(){document.getElementById('submissionOverlay').classList.remove('open');}
-function submitSuggestion(){
+async function submitSuggestion(){
   const title=document.getElementById('subTitle').value.trim();
   const desc=document.getElementById('subNote').value.trim();
   if(!title||!desc){showToast('Title and description required');return;}
-  const queue=JSON.parse(localStorage.getItem('cshub_submissions')||'[]');
-  queue.unshift({id:Date.now(),title,desc,status:'pending',submittedAt:new Date().toISOString()});
-  localStorage.setItem('cshub_submissions',JSON.stringify(queue));
+
+  const payload={title,desc,submittedAt:new Date().toISOString()};
+  const submitted=await window.CSHubBackend.submitSuggestion(payload);
+
+  if(!submitted){
+    const queue=JSON.parse(localStorage.getItem('cshub_submissions')||'[]');
+    queue.unshift({id:Date.now(),title,desc,status:'pending',submittedAt:payload.submittedAt});
+    localStorage.setItem('cshub_submissions',JSON.stringify(queue));
+    showToast('Saved locally (backend unavailable)');
+  }else{
+    showToast('Submitted for review');
+  }
+
   closeSubmissionModal();
-  showToast('Submitted for review');
 }
 function openAnalyticsModal(){
   const plays=getPlays(),ratings=getRatings();
