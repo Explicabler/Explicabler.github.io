@@ -1,0 +1,9 @@
+{
+  "title": "1ON1SOCCER",
+  "type": "sport",
+  "engine": "html",
+  "desc": "1on1soccer — click to open.",
+  "icon": "⚽",
+  "color": "green",
+  "image": "/game-images/1on1soccer.jpg"
+}

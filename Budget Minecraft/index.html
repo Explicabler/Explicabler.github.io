@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Mine Game</title>
+    <link rel="stylesheet" href="style.css" />
+
+    <script type="importmap">
+      {
+        "imports": {
+          "three": "https://unpkg.com/three@0.160.0/build/three.module.js"
+        }
+      }
+    </script>
+  </head>
+  <body>
+    <div id="main-menu" role="dialog" aria-modal="true" aria-labelledby="menu-title">
+      <div class="menu-card">
+        <h1 id="menu-title">Mine Game</h1>
+        <p>Pick a level name and world seed to begin.</p>
+        <label for="level-name">Level name</label>
+        <input id="level-name" type="text" placeholder="My Island" maxlength="40" />
+
+        <label for="seed-input">World seed</label>
+        <input id="seed-input" type="text" inputmode="numeric" placeholder="Random or custom" />
+
+        <div class="menu-actions">
+          <button id="start-game" type="button">Start Game</button>
+          <button id="load-game" type="button" disabled>Load Game</button>
+        </div>
+      </div>
+    </div>
+    <div id="hud">
+      <h1>Mine Game</h1>
+      <p>WASD to move • Space to jump • Shift to sprint • Drag to look</p>
+    </div>
+    <div id="crosshair" aria-hidden="true"></div>
+    <canvas id="game" aria-label="Mine Game Canvas"></canvas>
+
+    <script type="module" src="game.js?v=chunk-streaming-fix"></script>
+  </body>
+</html>
