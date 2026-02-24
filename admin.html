@@ -699,9 +699,44 @@ async function renderAll() {
       '</div>' +
       '<div class="list-actions">' +
         '<button class="act-btn edit" onclick=\'editProject("' + folder + '", ' + pJson + ')\'>✏ EDIT</button>' +
+        '<button class="act-btn del" onclick=\'removeProject("' + folder + '")\'>🗑 REMOVE</button>' +
       '</div>';
     list.appendChild(item);
   });
+}
+
+async function removeProject(folder) {
+  if (!folder) { return; }
+
+  const sure = confirm('REMOVE "' + folder + '"?\n\nTHIS DELETES THE FOLDER FROM SERVER.');
+  if (!sure) { return; }
+
+  const finalSure = confirm('FINAL CONFIRM:\nDELETE "' + folder + '" PERMANENTLY?');
+  if (!finalSure) { return; }
+
+  try {
+    const password = sessionStorage.getItem("adminPass");
+    const res = await fetch('/delete-project', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ password, folder })
+    });
+
+    const data = await res.json().catch(() => ({}));
+    if (!res.ok) {
+      showToast('REMOVE FAILED: ' + (data.error || 'UNKNOWN'), true);
+      return;
+    }
+
+    if (document.getElementById("editingFolder").value === folder) {
+      cancelEdit();
+    }
+
+    showToast('✔ REMOVED: ' + folder.toUpperCase());
+    await renderAll();
+  } catch (err) {
+    showToast('REMOVE FAILED: ' + err.message, true);
+  }
 }
 
 function editProject(folder, p) {
