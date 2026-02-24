@@ -180,6 +180,58 @@
   .toast{position:fixed;bottom:24px;left:50%;transform:translateX(-50%) translateY(60px);background:var(--surface2);border:1px solid var(--border);border-radius:10px;padding:10px 18px;font-size:13px;font-weight:500;color:var(--text);z-index:2000;transition:transform .3s,opacity .3s;opacity:0;white-space:nowrap;box-shadow:0 8px 24px rgba(0,0,0,.4)}
   .toast.show{transform:translateX(-50%) translateY(0);opacity:1}
 
+  /* ─── FAV BUTTON ──────────────────────── */
+  .fav-btn{position:absolute;top:7px;right:7px;z-index:4;width:26px;height:26px;border-radius:50%;background:rgba(0,0,0,.5);border:none;display:flex;align-items:center;justify-content:center;cursor:pointer;opacity:0;transition:opacity .15s,transform .15s;backdrop-filter:blur(4px)}
+  .fav-btn svg{transition:all .15s}
+  .game-card:hover .fav-btn{opacity:1}
+  .fav-btn.faved{opacity:1}
+  .fav-btn.faved svg{fill:#f05656;stroke:#f05656}
+  .fav-btn:hover{transform:scale(1.2)}
+
+  /* ─── RECENTLY PLAYED ─────────────────── */
+  .recents-section{display:none;flex-direction:column;gap:8px;padding-bottom:4px}
+  .recents-section.show{display:flex}
+  .recents-label{display:flex;align-items:center;justify-content:space-between}
+  .recents-title{font-size:11px;font-weight:700;color:var(--text-3);letter-spacing:.8px;text-transform:uppercase}
+  .recents-clear{font-size:10px;font-weight:600;color:var(--text-3);cursor:pointer;padding:2px 6px;border-radius:4px;transition:all .12s}
+  .recents-clear:hover{color:var(--red);background:rgba(240,86,86,.1)}
+  .recents-row{display:flex;gap:8px;overflow-x:auto;padding-bottom:4px}
+  .recents-row::-webkit-scrollbar{height:3px}
+  .recents-row::-webkit-scrollbar-thumb{background:var(--border);border-radius:2px}
+  .recent-card{flex-shrink:0;width:100px;border-radius:8px;overflow:hidden;cursor:pointer;border:1px solid var(--border);background:var(--surface2);transition:transform .12s,border-color .12s}
+  .recent-card:hover{transform:translateY(-2px);border-color:var(--accent)}
+  .recent-card-thumb{width:100%;aspect-ratio:16/9;background:var(--surface3);display:flex;align-items:center;justify-content:center;font-size:22px;overflow:hidden}
+  .recent-card-thumb img{width:100%;height:100%;object-fit:cover;display:block}
+  .recent-card-name{font-size:10px;font-weight:600;color:var(--text);padding:4px 6px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+  .section-divider{height:1px;background:var(--border);margin:4px 0 12px}
+
+  /* ─── RANDOM BTN ──────────────────────── */
+  .random-btn{display:flex;align-items:center;gap:5px;height:32px;padding:0 11px;background:var(--surface2);border:1px solid var(--border);border-radius:8px;color:var(--text-2);font-family:'Inter',sans-serif;font-size:12px;font-weight:600;cursor:pointer;transition:all .15s;white-space:nowrap;flex-shrink:0}
+  .random-btn:hover{border-color:var(--yellow);color:var(--yellow);background:rgba(240,208,58,.08)}
+  .random-btn:active{transform:scale(.95)}
+
+  /* ─── SCROLL TO TOP ───────────────────── */
+  .scroll-top{position:fixed;bottom:24px;right:24px;width:38px;height:38px;background:var(--accent);border:none;border-radius:50%;display:flex;align-items:center;justify-content:center;color:#fff;cursor:pointer;z-index:400;opacity:0;transform:translateY(12px) scale(.8);transition:all .2s;pointer-events:none;box-shadow:0 4px 16px rgba(124,106,247,.5)}
+  .scroll-top.show{opacity:1;transform:none;pointer-events:all}
+  .scroll-top:hover{background:var(--accent-hover);transform:translateY(-2px)!important}
+
+  /* ─── PLAY BAR FAVOURITE ──────────────── */
+  .play-fav-btn{display:flex;align-items:center;gap:5px;background:var(--surface2);border:1px solid var(--border);border-radius:7px;color:var(--text-2);font-family:'Inter',sans-serif;font-size:11px;font-weight:600;padding:5px 10px;cursor:pointer;transition:all .12s;white-space:nowrap;height:32px}
+  .play-fav-btn:hover{border-color:#f05656;color:#f05656}
+  .play-fav-btn.faved{border-color:#f05656;color:#f05656;background:rgba(240,86,86,.1)}
+  .play-fav-btn.faved svg{fill:#f05656}
+
+  /* SIDEBAR COLLAPSED */
+  .sidebar.collapsed{width:0;padding:0;overflow:hidden;border:none}
+  #sidebarToggle:hover{border-color:var(--accent);color:var(--text)}
+
+  /* SORT SELECT */
+  #sortSelect option{background:var(--surface2);color:var(--text)}
+  #sortSelect:hover{border-color:var(--accent)}
+
+  /* PANIC HINT */
+  .panic-hint{position:absolute;bottom:8px;left:50%;transform:translateX(-50%);font-size:10px;color:var(--text-3);white-space:nowrap;pointer-events:none;opacity:.5}
+
   /* RESPONSIVE */
   /* ─── SEARCH PANEL ───────────────────── */
   .search-panel-overlay{
@@ -337,6 +389,9 @@
 <div class="app">
 
   <nav>
+    <button id="sidebarToggle" onclick="toggleSidebar()" title="Toggle sidebar" style="width:32px;height:32px;display:flex;align-items:center;justify-content:center;background:var(--surface2);border:1px solid var(--border);border-radius:7px;color:var(--text-2);cursor:pointer;transition:all .12s;flex-shrink:0">
+      <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+    </button>
     <a class="nav-logo" href="#">
       <div class="logo-icon">🎮</div>
       <span class="logo-text">CS Hub</span>
@@ -349,6 +404,9 @@
     </div>
     <div class="nav-right">
       <span class="nav-count" id="navCount"></span>
+      <button class="random-btn" onclick="playRandom()" title="Random game (R)">
+        🎲 <span class="hide-sm">Random</span>
+      </button>
     </div>
   </nav>
 
@@ -356,6 +414,7 @@
     <aside class="sidebar">
       <div class="sb-label">Browse</div>
       <div class="sb-item active" data-type="all"><span class="sb-icon">🏠</span><span class="sb-name">All Games</span><span class="sb-badge" id="count-all">0</span></div>
+      <div class="sb-item" data-type="favourites"><span class="sb-icon">❤️</span><span class="sb-name">Favourites</span><span class="sb-badge" id="count-favourites">0</span></div>
       <div class="sb-divider"></div>
       <div class="sb-label">Categories</div>
       <div class="sb-item" data-type="sport"><span class="sb-icon">⚽</span><span class="sb-name">Sports</span><span class="sb-badge" id="count-sport">0</span></div>
@@ -388,9 +447,27 @@
           <div class="spinner"></div>
           <div class="loading-label">Loading games...</div>
         </div>
+
+        <!-- RECENTLY PLAYED -->
+        <div class="recents-section" id="recentsSection">
+          <div class="recents-label">
+            <span class="recents-title">Recently Played</span>
+            <span class="recents-clear" onclick="clearRecents()">Clear</span>
+          </div>
+          <div class="recents-row" id="recentsRow"></div>
+          <div class="section-divider"></div>
+        </div>
+
         <div class="section-header" id="sectionHeader" style="display:none">
           <span class="section-title" id="sectionTitle">All Games</span>
-          <span class="section-count" id="sectionCount"></span>
+          <div style="display:flex;align-items:center;gap:8px;margin-left:auto">
+            <span class="section-count" id="sectionCount"></span>
+            <select id="sortSelect" onchange="setSortAndRender()" style="height:26px;padding:0 8px;background:var(--surface2);border:1px solid var(--border);border-radius:6px;color:var(--text-2);font-family:'Inter',sans-serif;font-size:11px;font-weight:600;cursor:pointer;outline:none">
+              <option value="default">Default</option>
+              <option value="az">A → Z</option>
+              <option value="za">Z → A</option>
+            </select>
+          </div>
         </div>
         <div class="game-grid" id="gameGrid"></div>
         <div class="empty-state" id="emptyState">
@@ -400,6 +477,11 @@
         </div>
       </div>
 
+      <!-- SCROLL TO TOP -->
+      <button class="scroll-top" id="scrollTopBtn" onclick="scrollToTop()" title="Back to top">
+        <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M18 15l-6-6-6 6"/></svg>
+      </button>
+
       <div id="playView">
         <div class="play-bar">
           <button class="back-btn" onclick="goHome()">
@@ -408,6 +490,10 @@
           <span class="play-title" id="playName"></span>
           <span class="play-type-badge" id="playType"></span>
           <div class="play-bar-right">
+            <button class="play-fav-btn" id="playFavBtn" onclick="togglePlayFav()">
+              <svg width="12" height="12" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z"/></svg>
+              Favourite
+            </button>
             <button class="blank-btn" onclick="openInBlank()">
               <svg width="11" height="11" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>Blank Tab
             </button>
@@ -422,6 +508,7 @@
               <div class="spinner"></div>
               <div class="loader-label">Loading game...</div>
             </div>
+            <div class="panic-hint">Press Esc to go back</div>
             <iframe id="projectFrame" src="" allowfullscreen sandbox="allow-scripts allow-same-origin allow-forms allow-pointer-lock allow-modals allow-popups"></iframe>
           </div>
           <aside class="play-sidebar">
@@ -657,10 +744,45 @@ function closeSettings(){document.getElementById('settingsOverlay').classList.re
 function onOverlayClick(e){if(e.target===e.currentTarget)closeSettings()}
 
 // ══════════════════════════════════
+// FAVOURITES & RECENTS
+// ══════════════════════════════════
+function getFavs(){try{return JSON.parse(localStorage.getItem('cshub_favs')||'[]')}catch(e){return[]}}
+function saveFavs(f){localStorage.setItem('cshub_favs',JSON.stringify(f))}
+function isFav(id){return getFavs().includes(id)}
+function toggleFav(id){
+  let f=getFavs();
+  if(f.includes(id))f=f.filter(x=>x!==id);else f.unshift(id);
+  saveFavs(f);return f.includes(id);
+}
+function getRecents(){try{return JSON.parse(localStorage.getItem('cshub_recents')||'[]')}catch(e){return[]}}
+function addRecent(id){
+  let r=getRecents().filter(x=>x!==id);r.unshift(id);r=r.slice(0,10);
+  localStorage.setItem('cshub_recents',JSON.stringify(r));
+}
+function clearRecents(){localStorage.removeItem('cshub_recents');renderRecents();showToast('Recently played cleared')}
+function renderRecents(){
+  const row=document.getElementById('recentsRow'),section=document.getElementById('recentsSection');
+  if(!row)return;
+  const ids=getRecents(),games=ids.map(id=>PROJECTS.find(p=>p.id===id)).filter(Boolean);
+  section.classList.toggle('show',games.length>0);
+  row.innerHTML='';
+  games.forEach(p=>{
+    const card=document.createElement('div');card.className='recent-card';
+    const thumb=document.createElement('div');thumb.className='recent-card-thumb';
+    if(p.image){const img=document.createElement('img');img.src=p.image;img.onerror=()=>{thumb.textContent=p.icon||'🎮'};thumb.appendChild(img)}
+    else thumb.textContent=p.icon||'🎮';
+    const name=document.createElement('div');name.className='recent-card-name';name.textContent=p.title;
+    card.appendChild(thumb);card.appendChild(name);
+    card.addEventListener('click',()=>openProject(p));
+    row.appendChild(card);
+  });
+}
+
+// ══════════════════════════════════
 // PROJECTS
 // ══════════════════════════════════
-const TYPE_KEYS=['all','sport','simulation','interactive','puzzle','platformer','arcade','action','rpg'];
-const CAT_NAMES={all:'All Games',sport:'Sports',simulation:'Simulation',interactive:'Interactive',puzzle:'Puzzle',platformer:'Platformer',arcade:'Arcade',action:'Action',rpg:'RPG'};
+const TYPE_KEYS=['all','favourites','sport','simulation','interactive','puzzle','platformer','arcade','action','rpg'];
+const CAT_NAMES={all:'All Games',favourites:'Favourites',sport:'Sports',simulation:'Simulation',interactive:'Interactive',puzzle:'Puzzle',platformer:'Platformer',arcade:'Arcade',action:'Action',rpg:'RPG'};
 
 function getDefaults(){return[
   {id:1,title:"Football Sim",type:"sport",engine:"html",icon:"⚽",color:"green",desc:"Interactive football simulation.",url:"/Football/index.html"},
@@ -669,7 +791,7 @@ function getDefaults(){return[
   {id:4,title:"World Box",type:"simulation",engine:"html",icon:"🌍",color:"pink",desc:"World-building sandbox.",url:"/worldbox/index.html"},
 ]}
 
-let PROJECTS=[],activeType='all',searchQuery='';
+let PROJECTS=[],activeType='all',searchQuery='',currentProject=null;
 
 fetch('/projects.json?nocache='+Date.now())
   .then(r=>r.json()).then(d=>{PROJECTS=d;onLoaded()})
@@ -679,12 +801,17 @@ function onLoaded(){
   updateCounts();
   document.getElementById('loadingState').classList.remove('show');
   document.getElementById('sectionHeader').style.display='flex';
+  renderRecents();
   renderGrid(PROJECTS);
 }
 
 function updateCounts(){
+  const favIds=getFavs();
   TYPE_KEYS.forEach(type=>{
-    const n=type==='all'?PROJECTS.length:PROJECTS.filter(p=>p.type===type).length;
+    let n;
+    if(type==='all')n=PROJECTS.length;
+    else if(type==='favourites')n=favIds.filter(id=>PROJECTS.find(p=>p.id===id)).length;
+    else n=PROJECTS.filter(p=>p.type===type).length;
     const s=document.getElementById('count-'+type),f=document.getElementById('fc-'+type);
     if(s)s.textContent=n;if(f)f.textContent=n;
   });
@@ -692,45 +819,35 @@ function updateCounts(){
 }
 
 function renderGrid(items){
-  const grid=document.getElementById('gameGrid');
-  const empty=document.getElementById('emptyState');
+  const grid=document.getElementById('gameGrid'),empty=document.getElementById('emptyState');
   grid.innerHTML='';
-  if(!items.length){empty.classList.add('show');return}
+  if(!items.length){
+    empty.classList.add('show');
+    if(activeType==='favourites'){document.querySelector('.empty-icon').textContent='❤️';document.querySelector('.empty-title').textContent='No favourites yet';document.querySelector('.empty-sub').textContent='Heart a game to save it here'}
+    else{document.querySelector('.empty-icon').textContent='🎮';document.querySelector('.empty-title').textContent='No games found';document.querySelector('.empty-sub').textContent='Try a different search or category'}
+    return;
+  }
   empty.classList.remove('show');
   document.getElementById('sectionTitle').textContent=searchQuery?'Search Results':(CAT_NAMES[activeType]||activeType);
   document.getElementById('sectionCount').textContent=items.length+' game'+(items.length!==1?'s':'');
 
   items.forEach((p,i)=>{
     const card=document.createElement('div');
-    card.className='game-card';
-    card.style.animationDelay=Math.min(i*30,300)+'ms';
-
+    card.className='game-card';card.style.animationDelay=Math.min(i*30,300)+'ms';
     const thumb=document.createElement('div');
     if(p.image){
       thumb.className='card-thumb';
-      const img=document.createElement('img');
-      img.src=p.image;img.alt=p.title;
-      img.onerror=()=>{
-        thumb.innerHTML='';thumb.className='card-thumb bg-'+p.color;
-        const fb=document.createElement('span');fb.className='thumb-fallback col-'+p.color;fb.textContent=p.icon;
-        thumb.appendChild(fb);addOverlay(thumb);
-      };
+      const img=document.createElement('img');img.src=p.image;img.alt=p.title;
+      img.onerror=()=>{thumb.innerHTML='';thumb.className='card-thumb bg-'+(p.color||'accent');const fb=document.createElement('span');fb.className='thumb-fallback col-'+(p.color||'accent');fb.textContent=p.icon||'🎮';thumb.appendChild(fb);addOverlay(thumb);addFavBtn(thumb,p)};
       thumb.appendChild(img);
     }else{
-      thumb.className='card-thumb bg-'+p.color;
-      const fb=document.createElement('span');fb.className='thumb-fallback col-'+p.color;fb.textContent=p.icon;
-      thumb.appendChild(fb);
+      thumb.className='card-thumb bg-'+(p.color||'accent');
+      const fb=document.createElement('span');fb.className='thumb-fallback col-'+(p.color||'accent');fb.textContent=p.icon||'🎮';thumb.appendChild(fb);
     }
-    addOverlay(thumb);
-    const badge=document.createElement('span');
-    badge.className='card-badge '+(p.engine==='unity'?'badge-unity':'badge-html');
-    badge.textContent=p.engine==='unity'?'Unity':'HTML5';
-    thumb.appendChild(badge);
-
-    const body=document.createElement('div');
-    body.className='card-body';
-    body.innerHTML='<div class="card-title">'+esc(p.title)+'</div>'+(p.desc?'<div class="card-desc">'+esc(p.desc)+'</div>':'')+'<div class="card-meta"><span class="meta-tag type-tag">'+esc(p.type)+'</span></div>';
-
+    addOverlay(thumb);addFavBtn(thumb,p);
+    const badge=document.createElement('span');badge.className='card-badge '+(p.engine==='unity'?'badge-unity':'badge-html');badge.textContent=p.engine==='unity'?'Unity':'HTML5';thumb.appendChild(badge);
+    const body=document.createElement('div');body.className='card-body';
+    body.innerHTML='<div class="card-title">'+esc(p.title)+'</div>'+(p.desc?'<div class="card-desc">'+esc(p.desc)+'</div>':'')+'<div class="card-meta"><span class="meta-tag type-tag">'+esc(p.type||'game')+'</span></div>';
     card.appendChild(thumb);card.appendChild(body);
     card.addEventListener('click',()=>openProject(p));
     grid.appendChild(card);
@@ -738,18 +855,31 @@ function renderGrid(items){
   applyCompact();
 }
 
-function addOverlay(t){
-  const o=document.createElement('div');o.className='play-overlay';
-  o.innerHTML='<div class="play-btn"><svg width="16" height="16" fill="#fff" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div>';
-  t.appendChild(o);
+function addFavBtn(thumb,p){
+  const btn=document.createElement('button');
+  btn.className='fav-btn'+(isFav(p.id)?' faved':'');
+  btn.title=isFav(p.id)?'Remove from favourites':'Add to favourites';
+  btn.innerHTML='<svg width="13" height="13" fill="none" stroke="#fff" stroke-width="2" viewBox="0 0 24 24"><path d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z"/></svg>';
+  btn.addEventListener('click',e=>{
+    e.stopPropagation();
+    const faved=toggleFav(p.id);
+    btn.classList.toggle('faved',faved);
+    btn.title=faved?'Remove from favourites':'Add to favourites';
+    updateCounts();
+    showToast(faved?'❤️ Added to favourites':'Removed from favourites');
+    if(activeType==='favourites')filter();
+  });
+  thumb.appendChild(btn);
 }
 
+function addOverlay(t){const o=document.createElement('div');o.className='play-overlay';o.innerHTML='<div class="play-btn"><svg width="16" height="16" fill="#fff" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div>';t.appendChild(o)}
 function esc(s){return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;')}
 
 function filter(){
   let f=PROJECTS;
-  if(activeType!=='all')f=f.filter(p=>p.type===activeType);
-  if(searchQuery){const q=searchQuery.toLowerCase();f=f.filter(p=>p.title.toLowerCase().includes(q)||p.type.includes(q)||(p.desc&&p.desc.toLowerCase().includes(q)))}
+  if(activeType==='favourites'){const ids=getFavs();f=ids.map(id=>PROJECTS.find(p=>p.id===id)).filter(Boolean)}
+  else if(activeType!=='all')f=f.filter(p=>p.type===activeType);
+  if(searchQuery){const q=searchQuery.toLowerCase();f=f.filter(p=>p.title.toLowerCase().includes(q)||(p.type||'').includes(q)||(p.desc&&p.desc.toLowerCase().includes(q)))}
   renderGrid(f);
 }
 
@@ -760,17 +890,38 @@ function setType(type){
   filter();
 }
 
+function playRandom(){
+  if(!PROJECTS.length)return;
+  const p=PROJECTS[Math.floor(Math.random()*PROJECTS.length)];
+  openProject(p);showToast('🎲 '+p.title);
+}
+
+const homeView=document.getElementById('homeView');
+const scrollBtn=document.getElementById('scrollTopBtn');
+homeView.addEventListener('scroll',()=>{scrollBtn.classList.toggle('show',homeView.scrollTop>300)});
+function scrollToTop(){homeView.scrollTo({top:0,behavior:'smooth'})}
+
+document.addEventListener('keydown',e=>{
+  const typing=document.activeElement.tagName==='INPUT'||document.activeElement.tagName==='TEXTAREA';
+  if(e.key==='/'&&!typing){e.preventDefault();openSearchPanel()}
+  if(e.key==='r'&&!typing&&!e.ctrlKey&&!e.metaKey)playRandom();
+  if(e.key==='Escape'){
+    closeSettings();
+    closeSearchPanel();
+    // Panic key: escape from game back to home
+    if(document.getElementById('playView').classList.contains('show'))goHome();
+  }
+});
+
 document.querySelector('.sidebar').addEventListener('click',e=>{const b=e.target.closest('.sb-item[data-type]');if(b)setType(b.dataset.type)});
 document.querySelector('.filter-bar').addEventListener('click',e=>{const b=e.target.closest('.chip');if(b)setType(b.dataset.type)});
 
-// Nav search bar opens panel
 document.getElementById('searchInput').addEventListener('focus',()=>openSearchPanel());
 document.getElementById('searchInput').addEventListener('input',e=>{
-  // Mirror typing into panel search
   const val=e.target.value.trim();
   document.getElementById('spSearchInput').value=val;
   spSearch(val);
-  if(!document.getElementById('searchPanelOverlay').classList.contains('open')) openSearchPanel();
+  if(!document.getElementById('searchPanelOverlay').classList.contains('open'))openSearchPanel();
 });
 
 // ══════════════════════════════════
@@ -863,22 +1014,24 @@ document.getElementById('spCategoryChips').addEventListener('click',e=>{
   closeSearchPanel();
 });
 
-document.addEventListener('keydown',e=>{
-  if(e.key==='Escape'){
-    closeSettings();
-    closeSearchPanel();
-  }
-});
+
 
 // ══════════════════════════════════
 // PLAY
 // ══════════════════════════════════
 function openProject(project){
-  if(cfg.blankTab){openInBlank();return}
+  if(cfg.blankTab){openInBlank(project.url);return}
+  currentProject=project;
+  addRecent(project.id);
+  renderRecents();
+  document.title=project.title+' — CS Hub';
   document.getElementById('homeView').style.display='none';
   document.getElementById('playView').classList.add('show');
   document.getElementById('playName').textContent=project.title;
-  document.getElementById('playType').textContent=project.type;
+  document.getElementById('playType').textContent=project.type||'game';
+  // Update fav button state
+  const pfb=document.getElementById('playFavBtn');
+  pfb.classList.toggle('faved',isFav(project.id));
   const loader=document.getElementById('iframeLoader');
   loader.classList.remove('hidden');
   const frame=document.getElementById('projectFrame');
@@ -895,24 +1048,35 @@ function openProject(project){
     if(p.image){
       psThumb.className='ps-thumb';
       const img=document.createElement('img');img.src=p.image;
-      img.onerror=()=>{psThumb.className='ps-thumb bg-'+p.color;psThumb.innerHTML='<span class="col-'+p.color+'">'+p.icon+'</span>'};
+      img.onerror=()=>{psThumb.className='ps-thumb bg-'+(p.color||'accent');psThumb.innerHTML='<span class="col-'+(p.color||'accent')+'">'+(p.icon||'🎮')+'</span>'};
       psThumb.appendChild(img);
     }else{
-      psThumb.className='ps-thumb bg-'+p.color;
-      psThumb.innerHTML='<span class="col-'+p.color+'">'+p.icon+'</span>';
+      psThumb.className='ps-thumb bg-'+(p.color||'accent');
+      psThumb.innerHTML='<span class="col-'+(p.color||'accent')+'">'+(p.icon||'🎮')+'</span>';
     }
     const info=document.createElement('div');info.className='ps-info';
-    info.innerHTML='<div class="ps-title">'+esc(p.title)+'</div><div class="ps-type">'+p.type+'</div>'+(isNow?'<div class="ps-now">▶ Playing</div>':'');
+    info.innerHTML='<div class="ps-title">'+esc(p.title)+'</div><div class="ps-type">'+(p.type||'game')+'</div>'+(isNow?'<div class="ps-now">▶ Playing</div>':'');
     item.appendChild(psThumb);item.appendChild(info);
     if(!isNow)item.addEventListener('click',()=>openProject(p));
     list.appendChild(item);
   });
 }
 
+function togglePlayFav(){
+  if(!currentProject)return;
+  const faved=toggleFav(currentProject.id);
+  const btn=document.getElementById('playFavBtn');
+  btn.classList.toggle('faved',faved);
+  updateCounts();
+  showToast(faved?'❤️ Added to favourites':'Removed from favourites');
+}
+
 function goHome(){
   document.getElementById('projectFrame').src='';
   document.getElementById('playView').classList.remove('show');
   document.getElementById('homeView').style.display='flex';
+  document.title='CS Hub';
+  currentProject=null;
 }
 
 document.getElementById('fsBtn').addEventListener('click',()=>{
@@ -921,10 +1085,11 @@ document.getElementById('fsBtn').addEventListener('click',()=>{
   else if(f.webkitRequestFullscreen)f.webkitRequestFullscreen();
 });
 
-function openInBlank(){
+function openInBlank(gameUrl){
   const w=window.open('about:blank','_blank');
   w.document.open();
-  w.document.write('<!DOCTYPE html><html><head><style>*{margin:0;padding:0}iframe{border:none;width:100vw;height:100vh;display:block}</style></head><body><iframe src="'+window.location.href+'" sandbox="allow-scripts allow-same-origin allow-forms allow-pointer-lock allow-modals"></iframe></body></html>');
+  const src=gameUrl??(currentProject?currentProject.url:window.location.href);
+  w.document.write('<!DOCTYPE html><html><head><style>*{margin:0;padding:0}iframe{border:none;width:100vw;height:100vh;display:block}</style></head><body><iframe src="'+src+'" sandbox="allow-scripts allow-same-origin allow-forms allow-pointer-lock allow-modals"></iframe></body></html>');
   w.document.close();
 }
 
@@ -953,10 +1118,43 @@ function dismissWelcome(){
 }
 
 // ══════════════════════════════════
+// SORT
+// ══════════════════════════════════
+let currentSort='default';
+function setSortAndRender(){
+  currentSort=document.getElementById('sortSelect').value;
+  filter();
+}
+const _origFilter=filter;
+// Patch filter to apply sort
+function filter(){
+  let f=PROJECTS;
+  if(activeType==='favourites'){const ids=getFavs();f=ids.map(id=>PROJECTS.find(p=>p.id===id)).filter(Boolean)}
+  else if(activeType!=='all')f=f.filter(p=>p.type===activeType);
+  if(searchQuery){const q=searchQuery.toLowerCase();f=f.filter(p=>p.title.toLowerCase().includes(q)||(p.type||'').includes(q)||(p.desc&&p.desc.toLowerCase().includes(q)))}
+  if(currentSort==='az')f=[...f].sort((a,b)=>a.title.localeCompare(b.title));
+  else if(currentSort==='za')f=[...f].sort((a,b)=>b.title.localeCompare(a.title));
+  renderGrid(f);
+}
+
+// ══════════════════════════════════
+// SIDEBAR TOGGLE
+// ══════════════════════════════════
+function toggleSidebar(){
+  const sb=document.querySelector('.sidebar');
+  sb.classList.toggle('collapsed');
+  localStorage.setItem('cshub_sb',sb.classList.contains('collapsed')?'0':'1');
+}
+function initSidebar(){
+  if(localStorage.getItem('cshub_sb')==='0')document.querySelector('.sidebar').classList.add('collapsed');
+}
+
+// ══════════════════════════════════
 // INIT
 // ══════════════════════════════════
 loadCfg();
 applyAll();
+initSidebar();
 showWelcomeIfFirstVisit();
 </script>
 </body>
