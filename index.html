@@ -180,8 +180,157 @@
   .toast{position:fixed;bottom:24px;left:50%;transform:translateX(-50%) translateY(60px);background:var(--surface2);border:1px solid var(--border);border-radius:10px;padding:10px 18px;font-size:13px;font-weight:500;color:var(--text);z-index:2000;transition:transform .3s,opacity .3s;opacity:0;white-space:nowrap;box-shadow:0 8px 24px rgba(0,0,0,.4)}
   .toast.show{transform:translateX(-50%) translateY(0);opacity:1}
 
+  /* RESPONSIVE */
+  /* ─── SEARCH PANEL ───────────────────── */
+  .search-panel-overlay{
+    position:fixed;inset:0;z-index:500;
+    pointer-events:none;
+  }
+  .search-panel-overlay.open{pointer-events:all}
+
+  .search-panel-backdrop{
+    position:absolute;inset:0;
+    background:rgba(0,0,0,0);
+    transition:background .25s;
+  }
+  .search-panel-overlay.open .search-panel-backdrop{
+    background:rgba(0,0,0,.5);
+    backdrop-filter:blur(2px);
+  }
+
+  .search-panel{
+    position:absolute;
+    top:0;right:0;bottom:0;
+    width:340px;max-width:90vw;
+    background:var(--surface);
+    border-left:1px solid var(--border);
+    display:flex;flex-direction:column;
+    transform:translateX(100%);
+    transition:transform .28s cubic-bezier(.4,0,.2,1);
+    box-shadow:-8px 0 32px rgba(0,0,0,.4);
+    overflow:hidden;
+  }
+  .search-panel-overlay.open .search-panel{
+    transform:translateX(0);
+  }
+
+  .sp-head{
+    display:flex;align-items:center;gap:10px;
+    padding:14px 16px 12px;
+    border-bottom:1px solid var(--border);
+    flex-shrink:0;
+    background:var(--surface);
+  }
+  .sp-back{
+    width:30px;height:30px;
+    display:flex;align-items:center;justify-content:center;
+    background:var(--surface2);border:1px solid var(--border);
+    border-radius:7px;color:var(--text-2);
+    cursor:pointer;transition:all .12s;flex-shrink:0;
+  }
+  .sp-back:hover{border-color:var(--accent);color:var(--text)}
+  .sp-search-wrap{flex:1;position:relative}
+  .sp-search-wrap input{
+    width:100%;height:36px;
+    background:var(--surface2);
+    border:1px solid var(--accent);
+    border-radius:20px;
+    color:var(--text);
+    font-family:'Inter',sans-serif;font-size:13px;
+    padding:0 14px 0 36px;
+    outline:none;
+  }
+  .sp-search-wrap input::placeholder{color:var(--text-3)}
+  .sp-search-icon{
+    position:absolute;left:11px;top:50%;
+    transform:translateY(-50%);
+    color:var(--text-3);pointer-events:none;display:flex;
+  }
+
+  .sp-body{
+    flex:1;overflow-y:auto;
+    padding:16px;
+    display:flex;flex-direction:column;gap:18px;
+  }
+  .sp-body::-webkit-scrollbar{width:4px}
+  .sp-body::-webkit-scrollbar-thumb{background:var(--border);border-radius:2px}
+
+  .sp-section-title{
+    font-size:11px;font-weight:700;
+    color:var(--text-3);letter-spacing:.8px;
+    text-transform:uppercase;margin-bottom:8px;
+  }
+
+  .sp-chips{display:flex;flex-wrap:wrap;gap:6px}
+  .sp-chip{
+    display:flex;align-items:center;gap:5px;
+    height:30px;padding:0 12px;
+    border-radius:15px;
+    border:1px solid var(--border);
+    background:var(--surface2);
+    color:var(--text-2);
+    font-family:'Inter',sans-serif;font-size:12px;font-weight:600;
+    cursor:pointer;white-space:nowrap;
+    transition:all .12s;
+  }
+  .sp-chip:hover{border-color:var(--accent);color:var(--text);background:var(--accent-dim)}
+  .sp-chip.active{background:var(--accent);border-color:var(--accent);color:#fff}
+
+  /* Top games grid in panel */
+  .sp-game-grid{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:8px;
+  }
+  .sp-game-card{
+    border-radius:8px;overflow:hidden;
+    cursor:pointer;
+    border:1px solid var(--border);
+    background:var(--surface2);
+    transition:transform .12s,border-color .12s;
+    aspect-ratio:1;
+    position:relative;
+  }
+  .sp-game-card:hover{transform:translateY(-2px);border-color:var(--accent)}
+  .sp-game-card img{width:100%;height:100%;object-fit:cover;display:block}
+  .sp-game-card .sp-thumb-fallback{
+    width:100%;height:100%;
+    display:flex;align-items:center;justify-content:center;
+    font-size:28px;
+  }
+  .sp-game-name{
+    position:absolute;bottom:0;left:0;right:0;
+    background:linear-gradient(transparent,rgba(0,0,0,.75));
+    color:#fff;font-size:9px;font-weight:700;
+    padding:12px 5px 4px;
+    white-space:nowrap;overflow:hidden;text-overflow:ellipsis;
+    text-align:center;
+  }
+
+  /* Search results list in panel */
+  .sp-results{display:flex;flex-direction:column;gap:4px}
+  .sp-result-item{
+    display:flex;align-items:center;gap:10px;
+    padding:8px 10px;border-radius:8px;
+    cursor:pointer;border:1px solid transparent;
+    transition:all .12s;
+  }
+  .sp-result-item:hover{background:var(--surface2);border-color:var(--border)}
+  .sp-result-thumb{
+    width:44px;height:33px;border-radius:5px;
+    overflow:hidden;background:var(--surface2);
+    display:flex;align-items:center;justify-content:center;
+    font-size:18px;flex-shrink:0;
+  }
+  .sp-result-thumb img{width:100%;height:100%;object-fit:cover;display:block}
+  .sp-result-info{min-width:0;flex:1}
+  .sp-result-title{font-size:13px;font-weight:600;color:var(--text);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+  .sp-result-type{font-size:10px;color:var(--text-3);text-transform:capitalize;margin-top:1px}
+  .sp-no-results{text-align:center;padding:24px;color:var(--text-3);font-size:13px}
+
   @media(max-width:800px){.sidebar{display:none}.play-sidebar{display:none}.game-grid{grid-template-columns:repeat(auto-fill,minmax(140px,1fr));gap:9px}}
   @media(max-width:500px){#homeView{padding:12px}.game-grid{grid-template-columns:repeat(auto-fill,minmax(120px,1fr));gap:8px}}
+  @media(max-width:500px){.search-panel{width:100vw;max-width:100vw}}
 </style>
 </head>
 <body>
@@ -284,6 +433,48 @@
     </div>
   </div>
 
+  <!-- SEARCH PANEL -->
+  <div class="search-panel-overlay" id="searchPanelOverlay">
+    <div class="search-panel-backdrop" onclick="closeSearchPanel()"></div>
+    <div class="search-panel">
+      <div class="sp-head">
+        <div class="sp-back" onclick="closeSearchPanel()">
+          <svg width="13" height="13" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M19 12H5M12 5l-7 7 7 7"/></svg>
+        </div>
+        <div class="sp-search-wrap">
+          <span class="sp-search-icon">
+            <svg width="13" height="13" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35"/></svg>
+          </span>
+          <input type="text" id="spSearchInput" placeholder="What are you playing today?" autocomplete="off"/>
+        </div>
+      </div>
+      <div class="sp-body">
+        <div id="spDefault">
+          <div class="sp-section-title">Categories</div>
+          <div class="sp-chips" id="spCategoryChips">
+            <div class="sp-chip active" data-type="all">🏠 All</div>
+            <div class="sp-chip" data-type="sport">⚽ Sports</div>
+            <div class="sp-chip" data-type="arcade">🕹️ Arcade</div>
+            <div class="sp-chip" data-type="action">🚀 Action</div>
+            <div class="sp-chip" data-type="puzzle">🧩 Puzzle</div>
+            <div class="sp-chip" data-type="platformer">🏃 Platformer</div>
+            <div class="sp-chip" data-type="simulation">🌍 Simulation</div>
+            <div class="sp-chip" data-type="interactive">🔬 Interactive</div>
+            <div class="sp-chip" data-type="rpg">⚔️ RPG</div>
+          </div>
+          <div style="margin-top:4px">
+            <div class="sp-section-title">Top Games</div>
+            <div class="sp-game-grid" id="spTopGames"></div>
+          </div>
+        </div>
+        <div id="spResults" style="display:none">
+          <div class="sp-section-title" id="spResultsLabel">Results</div>
+          <div class="sp-results" id="spResultsList"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
   <!-- SETTINGS MODAL -->
   <div class="modal-overlay" id="settingsOverlay" onclick="onOverlayClick(event)">
     <div class="modal">
@@ -292,6 +483,7 @@
         <span class="modal-close" onclick="closeSettings()">✕</span>
       </div>
       <div class="modal-body">
+
         <div class="settings-section">
           <div class="settings-section-title">General</div>
           <div class="setting-row">
@@ -316,10 +508,12 @@
             <label class="toggle"><input type="checkbox" id="togCompact" onchange="setSetting('compact',this.checked)"><span class="toggle-track"></span></label>
           </div>
         </div>
+
         <div class="settings-section">
           <div class="settings-section-title">Theme</div>
           <div class="theme-grid" id="themeGrid"></div>
         </div>
+
         <div class="settings-section">
           <div class="settings-section-title">Data</div>
           <button class="danger-btn" onclick="clearSettings()">
@@ -327,6 +521,7 @@
             <div><div>Clear Saved Settings</div><div class="danger-btn-sub">Resets all preferences and theme to defaults</div></div>
           </button>
         </div>
+
       </div>
     </div>
   </div>
@@ -354,61 +549,107 @@ const THEMES=[
 // ══════════════════════════════════
 const DEFAULTS={theme:'dark',blankTab:false,autoBlank:false,compact:false};
 let cfg={...DEFAULTS};
+
 function loadCfg(){try{cfg={...DEFAULTS,...JSON.parse(localStorage.getItem('cshub_cfg')||'{}')}}catch(e){cfg={...DEFAULTS}}}
 function saveCfg(){localStorage.setItem('cshub_cfg',JSON.stringify(cfg))}
-function setSetting(key,val){cfg[key]=val;saveCfg();if(key==='compact')applyCompact()}
+
+function setSetting(key,val){
+  cfg[key]=val; saveCfg();
+  if(key==='compact') applyCompact();
+}
+
 function applyTheme(id){
   const t=THEMES.find(x=>x.id===id)||THEMES[0];
-  for(const[k,v]of Object.entries(t.vars))document.documentElement.style.setProperty(k,v);
-  cfg.theme=id;saveCfg();
+  for(const[k,v]of Object.entries(t.vars)) document.documentElement.style.setProperty(k,v);
+  cfg.theme=id; saveCfg();
   document.querySelectorAll('.theme-card').forEach(c=>c.classList.toggle('active',c.dataset.id===id));
 }
-function applyCompact(){document.getElementById('gameGrid').classList.toggle('compact',cfg.compact)}
+
+function applyCompact(){
+  document.getElementById('gameGrid').classList.toggle('compact',cfg.compact);
+}
+
 function applyAll(){
-  applyTheme(cfg.theme);applyCompact();
+  applyTheme(cfg.theme);
+  applyCompact();
   document.getElementById('togBlank').checked=cfg.blankTab;
   document.getElementById('togAutoBlank').checked=cfg.autoBlank;
   document.getElementById('togCompact').checked=cfg.compact;
-  if(cfg.autoBlank&&!sessionStorage.getItem('blanked')){sessionStorage.setItem('blanked','1');openInBlank()}
+  if(cfg.autoBlank&&!sessionStorage.getItem('blanked')){
+    sessionStorage.setItem('blanked','1');
+    openInBlank();
+  }
 }
+
 function clearSettings(){
-  if(!confirm('Reset all settings to default?'))return;
-  localStorage.removeItem('cshub_cfg');cfg={...DEFAULTS};applyAll();buildThemeGrid();showToast('Settings cleared');
+  if(!confirm('Reset all settings to default?')) return;
+  localStorage.removeItem('cshub_cfg');
+  cfg={...DEFAULTS};
+  applyAll();
+  buildThemeGrid();
+  showToast('Settings cleared');
 }
+
+// ══════════════════════════════════
+// SETTINGS MODAL
+// ══════════════════════════════════
 function buildThemeGrid(){
-  const grid=document.getElementById('themeGrid');grid.innerHTML='';
+  const grid=document.getElementById('themeGrid');
+  grid.innerHTML='';
   THEMES.forEach(t=>{
     const card=document.createElement('div');
     card.className='theme-card'+(cfg.theme===t.id?' active':'');
-    card.dataset.id=t.id;card.onclick=()=>applyTheme(t.id);
-    const preview=document.createElement('div');preview.className='theme-preview';preview.style.background=t.vars['--bg'];
+    card.dataset.id=t.id;
+    card.onclick=()=>applyTheme(t.id);
+
+    const preview=document.createElement('div');
+    preview.className='theme-preview';
+    preview.style.background=t.vars['--bg'];
     const heights=[65,40,52];
-    t.colors.forEach((col,i)=>{const bar=document.createElement('div');bar.className='tp-bar';bar.style.cssText=`background:${col};height:${heights[i]}%`;preview.appendChild(bar)});
-    const chk=document.createElement('div');chk.className='theme-check';chk.textContent='✓';preview.appendChild(chk);
-    const name=document.createElement('div');name.className='theme-name';
+    t.colors.forEach((col,i)=>{
+      const bar=document.createElement('div');
+      bar.className='tp-bar';
+      bar.style.cssText=`background:${col};height:${heights[i]}%`;
+      preview.appendChild(bar);
+    });
+    const chk=document.createElement('div');
+    chk.className='theme-check';
+    chk.textContent='✓';
+    preview.appendChild(chk);
+
+    const name=document.createElement('div');
+    name.className='theme-name';
     name.style.cssText=`background:${t.vars['--surface2']};color:${t.vars['--text']};border-color:${t.vars['--border']}`;
     name.textContent=t.name;
-    card.appendChild(preview);card.appendChild(name);grid.appendChild(card);
+
+    card.appendChild(preview);
+    card.appendChild(name);
+    grid.appendChild(card);
   });
 }
+
 function openSettings(){buildThemeGrid();document.getElementById('settingsOverlay').classList.add('open')}
 function closeSettings(){document.getElementById('settingsOverlay').classList.remove('open')}
 function onOverlayClick(e){if(e.target===e.currentTarget)closeSettings()}
-document.addEventListener('keydown',e=>{if(e.key==='Escape')closeSettings()});
 
 // ══════════════════════════════════
-// PROJECTS — loads from static projects.json
+// PROJECTS
 // ══════════════════════════════════
 const TYPE_KEYS=['all','sport','simulation','interactive','puzzle','platformer','arcade','action','rpg'];
 const CAT_NAMES={all:'All Games',sport:'Sports',simulation:'Simulation',interactive:'Interactive',puzzle:'Puzzle',platformer:'Platformer',arcade:'Arcade',action:'Action',rpg:'RPG'};
+
+function getDefaults(){return[
+  {id:1,title:"Football Sim",type:"sport",engine:"html",icon:"⚽",color:"green",desc:"Interactive football simulation.",url:"/Football/index.html"},
+  {id:2,title:"Elements",type:"interactive",engine:"html",icon:"🔬",color:"cyan",desc:"Explore the periodic table.",url:"/Elements/index.html"},
+  {id:3,title:"Mine World",type:"simulation",engine:"html",icon:"⛏️",color:"orange",desc:"Sandbox mining simulation.",url:"/Mine/index.html"},
+  {id:4,title:"World Box",type:"simulation",engine:"html",icon:"🌍",color:"pink",desc:"World-building sandbox.",url:"/worldbox/index.html"},
+]}
+
 let PROJECTS=[],activeType='all',searchQuery='';
 
-// Resolve projects.json relative to this file — works on GitHub Pages in any repo
-const BASE=document.currentScript?document.currentScript.src.replace(/[^/]*$/,''):(location.href.replace(/[^/]*$/,''));
-fetch(BASE+'projects.json?nocache='+Date.now())
-  .then(r=>{if(!r.ok)throw new Error('not found');return r.json()})
-  .then(d=>{PROJECTS=d;onLoaded()})
-  .catch(()=>{PROJECTS=[];onLoaded()});
+fetch('/projects.json?nocache='+Date.now())
+  .then(r=>r.json()).then(d=>{PROJECTS=d;onLoaded()})
+  .catch(()=>{PROJECTS=getDefaults();onLoaded()});
 
 function onLoaded(){
   updateCounts();
@@ -416,6 +657,7 @@ function onLoaded(){
   document.getElementById('sectionHeader').style.display='flex';
   renderGrid(PROJECTS);
 }
+
 function updateCounts(){
   TYPE_KEYS.forEach(type=>{
     const n=type==='all'?PROJECTS.length:PROJECTS.filter(p=>p.type===type).length;
@@ -424,53 +666,185 @@ function updateCounts(){
   });
   document.getElementById('navCount').textContent=PROJECTS.length+' games';
 }
+
 function renderGrid(items){
-  const grid=document.getElementById('gameGrid'),empty=document.getElementById('emptyState');
+  const grid=document.getElementById('gameGrid');
+  const empty=document.getElementById('emptyState');
   grid.innerHTML='';
   if(!items.length){empty.classList.add('show');return}
   empty.classList.remove('show');
   document.getElementById('sectionTitle').textContent=searchQuery?'Search Results':(CAT_NAMES[activeType]||activeType);
   document.getElementById('sectionCount').textContent=items.length+' game'+(items.length!==1?'s':'');
+
   items.forEach((p,i)=>{
     const card=document.createElement('div');
-    card.className='game-card';card.style.animationDelay=Math.min(i*30,300)+'ms';
+    card.className='game-card';
+    card.style.animationDelay=Math.min(i*30,300)+'ms';
+
     const thumb=document.createElement('div');
     if(p.image){
       thumb.className='card-thumb';
-      const img=document.createElement('img');img.src=p.image;img.alt=p.title;
-      img.onerror=()=>{thumb.innerHTML='';thumb.className='card-thumb bg-'+(p.color||'accent');const fb=document.createElement('span');fb.className='thumb-fallback col-'+(p.color||'accent');fb.textContent=p.icon||'🎮';thumb.appendChild(fb);addOverlay(thumb)};
+      const img=document.createElement('img');
+      img.src=p.image;img.alt=p.title;
+      img.onerror=()=>{
+        thumb.innerHTML='';thumb.className='card-thumb bg-'+p.color;
+        const fb=document.createElement('span');fb.className='thumb-fallback col-'+p.color;fb.textContent=p.icon;
+        thumb.appendChild(fb);addOverlay(thumb);
+      };
       thumb.appendChild(img);
     }else{
-      thumb.className='card-thumb bg-'+(p.color||'accent');
-      const fb=document.createElement('span');fb.className='thumb-fallback col-'+(p.color||'accent');fb.textContent=p.icon||'🎮';thumb.appendChild(fb);
+      thumb.className='card-thumb bg-'+p.color;
+      const fb=document.createElement('span');fb.className='thumb-fallback col-'+p.color;fb.textContent=p.icon;
+      thumb.appendChild(fb);
     }
     addOverlay(thumb);
-    const badge=document.createElement('span');badge.className='card-badge '+(p.engine==='unity'?'badge-unity':'badge-html');badge.textContent=p.engine==='unity'?'Unity':'HTML5';thumb.appendChild(badge);
-    const body=document.createElement('div');body.className='card-body';
-    body.innerHTML='<div class="card-title">'+esc(p.title)+'</div>'+(p.desc?'<div class="card-desc">'+esc(p.desc)+'</div>':'')+'<div class="card-meta"><span class="meta-tag type-tag">'+esc(p.type||'game')+'</span></div>';
+    const badge=document.createElement('span');
+    badge.className='card-badge '+(p.engine==='unity'?'badge-unity':'badge-html');
+    badge.textContent=p.engine==='unity'?'Unity':'HTML5';
+    thumb.appendChild(badge);
+
+    const body=document.createElement('div');
+    body.className='card-body';
+    body.innerHTML='<div class="card-title">'+esc(p.title)+'</div>'+(p.desc?'<div class="card-desc">'+esc(p.desc)+'</div>':'')+'<div class="card-meta"><span class="meta-tag type-tag">'+esc(p.type)+'</span></div>';
+
     card.appendChild(thumb);card.appendChild(body);
     card.addEventListener('click',()=>openProject(p));
     grid.appendChild(card);
   });
   applyCompact();
 }
-function addOverlay(t){const o=document.createElement('div');o.className='play-overlay';o.innerHTML='<div class="play-btn"><svg width="16" height="16" fill="#fff" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div>';t.appendChild(o)}
+
+function addOverlay(t){
+  const o=document.createElement('div');o.className='play-overlay';
+  o.innerHTML='<div class="play-btn"><svg width="16" height="16" fill="#fff" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div>';
+  t.appendChild(o);
+}
+
 function esc(s){return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;')}
+
 function filter(){
   let f=PROJECTS;
   if(activeType!=='all')f=f.filter(p=>p.type===activeType);
-  if(searchQuery){const q=searchQuery.toLowerCase();f=f.filter(p=>p.title.toLowerCase().includes(q)||((p.type||'').includes(q))||(p.desc&&p.desc.toLowerCase().includes(q)))}
+  if(searchQuery){const q=searchQuery.toLowerCase();f=f.filter(p=>p.title.toLowerCase().includes(q)||p.type.includes(q)||(p.desc&&p.desc.toLowerCase().includes(q)))}
   renderGrid(f);
 }
+
 function setType(type){
   activeType=type;
   document.querySelectorAll('.chip').forEach(b=>b.classList.toggle('active',b.dataset.type===type));
   document.querySelectorAll('.sb-item[data-type]').forEach(b=>b.classList.toggle('active',b.dataset.type===type));
   filter();
 }
+
 document.querySelector('.sidebar').addEventListener('click',e=>{const b=e.target.closest('.sb-item[data-type]');if(b)setType(b.dataset.type)});
 document.querySelector('.filter-bar').addEventListener('click',e=>{const b=e.target.closest('.chip');if(b)setType(b.dataset.type)});
-document.getElementById('searchInput').addEventListener('input',e=>{searchQuery=e.target.value.trim();filter()});
+
+// Nav search bar opens panel
+document.getElementById('searchInput').addEventListener('focus',()=>openSearchPanel());
+document.getElementById('searchInput').addEventListener('input',e=>{
+  // Mirror typing into panel search
+  const val=e.target.value.trim();
+  document.getElementById('spSearchInput').value=val;
+  spSearch(val);
+  if(!document.getElementById('searchPanelOverlay').classList.contains('open')) openSearchPanel();
+});
+
+// ══════════════════════════════════
+// SEARCH PANEL
+// ══════════════════════════════════
+function openSearchPanel(){
+  const overlay=document.getElementById('searchPanelOverlay');
+  overlay.classList.add('open');
+  setTimeout(()=>document.getElementById('spSearchInput').focus(),50);
+  buildSpTopGames();
+  // Sync chip state
+  document.querySelectorAll('.sp-chip').forEach(c=>c.classList.toggle('active',c.dataset.type===activeType));
+}
+
+function closeSearchPanel(){
+  document.getElementById('searchPanelOverlay').classList.remove('open');
+  document.getElementById('searchInput').blur();
+}
+
+function buildSpTopGames(){
+  const grid=document.getElementById('spTopGames');
+  if(grid.children.length>0)return; // already built
+  // Pick first 9 games that have images, else any 9
+  const pool=[...PROJECTS].filter(p=>p.image).slice(0,9);
+  if(pool.length<9)[...PROJECTS].slice(0,9-pool.length).forEach(p=>{if(!pool.find(x=>x.id===p.id))pool.push(p)});
+  pool.slice(0,9).forEach(p=>{
+    const card=document.createElement('div');
+    card.className='sp-game-card';
+    if(p.image){
+      const img=document.createElement('img');img.src=p.image;img.alt=p.title;
+      img.onerror=()=>{card.innerHTML='';const fb=document.createElement('div');fb.className='sp-thumb-fallback bg-'+(p.color||'accent');fb.textContent=p.icon||'🎮';card.appendChild(fb);const nm=document.createElement('div');nm.className='sp-game-name';nm.textContent=p.title;card.appendChild(nm)};
+      card.appendChild(img);
+    }else{
+      const fb=document.createElement('div');fb.className='sp-thumb-fallback bg-'+(p.color||'accent');fb.textContent=p.icon||'🎮';card.appendChild(fb);
+    }
+    const nm=document.createElement('div');nm.className='sp-game-name';nm.textContent=p.title;card.appendChild(nm);
+    card.addEventListener('click',()=>{closeSearchPanel();openProject(p)});
+    grid.appendChild(card);
+  });
+}
+
+function spSearch(q){
+  const dflt=document.getElementById('spDefault');
+  const res=document.getElementById('spResults');
+  const list=document.getElementById('spResultsList');
+  const label=document.getElementById('spResultsLabel');
+  if(!q){dflt.style.display='';res.style.display='none';return}
+  dflt.style.display='none';res.style.display='';
+  const ql=q.toLowerCase();
+  let matches=PROJECTS.filter(p=>p.title.toLowerCase().includes(ql)||(p.type||'').includes(ql)||(p.desc&&p.desc.toLowerCase().includes(ql)));
+  label.textContent=matches.length+' result'+(matches.length!==1?'s':'');
+  list.innerHTML='';
+  if(!matches.length){list.innerHTML='<div class="sp-no-results">No games found for "'+esc(q)+'"</div>';return}
+  matches.slice(0,30).forEach(p=>{
+    const item=document.createElement('div');item.className='sp-result-item';
+    const thumb=document.createElement('div');
+    if(p.image){
+      thumb.className='sp-result-thumb';
+      const img=document.createElement('img');img.src=p.image;
+      img.onerror=()=>{thumb.className='sp-result-thumb bg-'+(p.color||'accent');thumb.innerHTML='<span style="font-size:18px">'+(p.icon||'🎮')+'</span>'};
+      thumb.appendChild(img);
+    }else{
+      thumb.className='sp-result-thumb bg-'+(p.color||'accent');
+      thumb.innerHTML='<span style="font-size:18px">'+(p.icon||'🎮')+'</span>';
+    }
+    const info=document.createElement('div');info.className='sp-result-info';
+    info.innerHTML='<div class="sp-result-title">'+esc(p.title)+'</div><div class="sp-result-type">'+(p.type||'game')+'</div>';
+    item.appendChild(thumb);item.appendChild(info);
+    item.addEventListener('click',()=>{closeSearchPanel();openProject(p)});
+    list.appendChild(item);
+  });
+}
+
+// Panel search input
+document.getElementById('spSearchInput').addEventListener('input',e=>{
+  const v=e.target.value.trim();
+  document.getElementById('searchInput').value=v;
+  searchQuery=v;
+  spSearch(v);
+  filter();
+});
+
+// Panel category chips
+document.getElementById('spCategoryChips').addEventListener('click',e=>{
+  const chip=e.target.closest('.sp-chip');
+  if(!chip)return;
+  const type=chip.dataset.type;
+  setType(type);
+  document.querySelectorAll('.sp-chip').forEach(c=>c.classList.toggle('active',c.dataset.type===type));
+  closeSearchPanel();
+});
+
+document.addEventListener('keydown',e=>{
+  if(e.key==='Escape'){
+    closeSettings();
+    closeSearchPanel();
+  }
+});
 
 // ══════════════════════════════════
 // PLAY
@@ -480,33 +854,72 @@ function openProject(project){
   document.getElementById('homeView').style.display='none';
   document.getElementById('playView').classList.add('show');
   document.getElementById('playName').textContent=project.title;
-  document.getElementById('playType').textContent=project.type||'game';
-  const loader=document.getElementById('iframeLoader');loader.classList.remove('hidden');
-  const frame=document.getElementById('projectFrame');frame.onload=()=>loader.classList.add('hidden');frame.src=project.url;
-  const list=document.getElementById('sidebarList');list.innerHTML='';
+  document.getElementById('playType').textContent=project.type;
+  const loader=document.getElementById('iframeLoader');
+  loader.classList.remove('hidden');
+  const frame=document.getElementById('projectFrame');
+  frame.onload=()=>loader.classList.add('hidden');
+  frame.src=project.url;
+
+  const list=document.getElementById('sidebarList');
+  list.innerHTML='';
   PROJECTS.forEach(p=>{
     const isNow=p.id===project.id;
-    const item=document.createElement('div');item.className='ps-card'+(isNow?' active':'');
+    const item=document.createElement('div');
+    item.className='ps-card'+(isNow?' active':'');
     const psThumb=document.createElement('div');
-    if(p.image){psThumb.className='ps-thumb';const img=document.createElement('img');img.src=p.image;img.onerror=()=>{psThumb.className='ps-thumb bg-'+(p.color||'accent');psThumb.innerHTML='<span class="col-'+(p.color||'accent')+'">'+(p.icon||'🎮')+'</span>'};psThumb.appendChild(img)}
-    else{psThumb.className='ps-thumb bg-'+(p.color||'accent');psThumb.innerHTML='<span class="col-'+(p.color||'accent')+'">'+(p.icon||'🎮')+'</span>'}
+    if(p.image){
+      psThumb.className='ps-thumb';
+      const img=document.createElement('img');img.src=p.image;
+      img.onerror=()=>{psThumb.className='ps-thumb bg-'+p.color;psThumb.innerHTML='<span class="col-'+p.color+'">'+p.icon+'</span>'};
+      psThumb.appendChild(img);
+    }else{
+      psThumb.className='ps-thumb bg-'+p.color;
+      psThumb.innerHTML='<span class="col-'+p.color+'">'+p.icon+'</span>';
+    }
     const info=document.createElement('div');info.className='ps-info';
-    info.innerHTML='<div class="ps-title">'+esc(p.title)+'</div><div class="ps-type">'+(p.type||'game')+'</div>'+(isNow?'<div class="ps-now">▶ Playing</div>':'');
+    info.innerHTML='<div class="ps-title">'+esc(p.title)+'</div><div class="ps-type">'+p.type+'</div>'+(isNow?'<div class="ps-now">▶ Playing</div>':'');
     item.appendChild(psThumb);item.appendChild(info);
     if(!isNow)item.addEventListener('click',()=>openProject(p));
     list.appendChild(item);
   });
 }
-function goHome(){document.getElementById('projectFrame').src='';document.getElementById('playView').classList.remove('show');document.getElementById('homeView').style.display='flex'}
-document.getElementById('fsBtn').addEventListener('click',()=>{const f=document.getElementById('projectFrame');if(f.requestFullscreen)f.requestFullscreen();else if(f.webkitRequestFullscreen)f.webkitRequestFullscreen()});
-function openInBlank(){const w=window.open('about:blank','_blank');w.document.open();w.document.write('<!DOCTYPE html><html><head><style>*{margin:0;padding:0}iframe{border:none;width:100vw;height:100vh;display:block}</style></head><body><iframe src="'+window.location.href+'" sandbox="allow-scripts allow-same-origin allow-forms allow-pointer-lock allow-modals"></iframe></body></html>');w.document.close()}
+
+function goHome(){
+  document.getElementById('projectFrame').src='';
+  document.getElementById('playView').classList.remove('show');
+  document.getElementById('homeView').style.display='flex';
+}
+
+document.getElementById('fsBtn').addEventListener('click',()=>{
+  const f=document.getElementById('projectFrame');
+  if(f.requestFullscreen)f.requestFullscreen();
+  else if(f.webkitRequestFullscreen)f.webkitRequestFullscreen();
+});
+
+function openInBlank(){
+  const w=window.open('about:blank','_blank');
+  w.document.open();
+  w.document.write('<!DOCTYPE html><html><head><style>*{margin:0;padding:0}iframe{border:none;width:100vw;height:100vh;display:block}</style></head><body><iframe src="'+window.location.href+'" sandbox="allow-scripts allow-same-origin allow-forms allow-pointer-lock allow-modals"></iframe></body></html>');
+  w.document.close();
+}
 
 // ══════════════════════════════════
-// TOAST + INIT
+// TOAST
 // ══════════════════════════════════
 let toastTimer;
-function showToast(msg){const t=document.getElementById('toast');t.textContent=msg;t.classList.add('show');clearTimeout(toastTimer);toastTimer=setTimeout(()=>t.classList.remove('show'),2500)}
-loadCfg();applyAll();
+function showToast(msg){
+  const t=document.getElementById('toast');
+  t.textContent=msg;t.classList.add('show');
+  clearTimeout(toastTimer);
+  toastTimer=setTimeout(()=>t.classList.remove('show'),2500);
+}
+
+// ══════════════════════════════════
+// INIT
+// ══════════════════════════════════
+loadCfg();
+applyAll();
 </script>
 </body>
 </html>
