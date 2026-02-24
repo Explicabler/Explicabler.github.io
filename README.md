@@ -45,3 +45,7 @@ Edit `projects.json`. Each game looks like this:
 - **Scratch** projects: `https://scratch.mit.edu/projects/PROJECT_ID/embed`
 - **CrazyGames embed URLs**
 - Any game hosted on your own GitHub Pages repo
+
+## Planning next improvements
+
+See `FEATURE_SUGGESTIONS.md` for a curated backlog of product ideas for discovery, UX, curation, performance, and moderation.
