@@ -487,7 +487,7 @@
             <option value="puzzle">Puzzle picks</option>
             <option value="classic">Classics</option>
           </select>
-          <button class="mini-btn" onclick="openSubmissionModal()">➕ Suggest game</button>
+          <button class="mini-btn" onclick="openSuggestionIssue()">➕ Suggestion/Issue</button>
           <button class="mini-btn" onclick="openAnalyticsModal()">📊 Analytics</button>
         </div>
 
@@ -499,7 +499,6 @@
               <option value="default">Default</option>
               <option value="az">A → Z</option>
               <option value="za">Z → A</option>
-              <option value="popular">Most Played</option>
               <option value="newest">Newest</option>
             </select>
           </div>
@@ -554,17 +553,6 @@
             <div class="ps-list" id="sidebarList"></div>
           </aside>
         </div>
-      </div>
-    </div>
-  </div>
-
-  <div class="modal-overlay" id="submissionOverlay" onclick="if(event.target===this)closeSubmissionModal()">
-    <div class="modal" style="max-width:500px">
-      <div class="modal-head"><span class="modal-title">Submit a game</span><span class="modal-close" onclick="closeSubmissionModal()">✕</span></div>
-      <div class="modal-body" style="gap:10px">
-        <input id="subTitle" placeholder="Game title" style="height:34px;background:var(--surface2);border:1px solid var(--border);border-radius:8px;color:var(--text);padding:0 10px">
-        <textarea id="subNote" placeholder="Short description" style="min-height:90px;background:var(--surface2);border:1px solid var(--border);border-radius:8px;color:var(--text);padding:8px 10px"></textarea>
-        <button class="mini-btn" onclick="submitSuggestion()">Send to moderation queue</button>
       </div>
     </div>
   </div>
@@ -831,7 +819,6 @@ function renderRecents(){
     else thumb.textContent=p.icon||'🎮';
     const name=document.createElement('div');name.className='recent-card-name';name.textContent=p.title;
     card.appendChild(thumb);card.appendChild(name);
-    card.querySelectorAll('.rate-btn').forEach(btn=>btn.addEventListener('click',e=>{e.stopPropagation();rateGame(p.id,btn.dataset.v);}));
     card.addEventListener('click',()=>openProject(p));
     row.appendChild(card);
   });
@@ -886,7 +873,7 @@ function loadBrowseState(){
   try{
     const saved=JSON.parse(localStorage.getItem('cshub_browse')||'{}');
     if(TYPE_KEYS.includes(saved.type))activeType=saved.type;
-    if(['default','az','za','popular','newest'].includes(saved.sort))currentSort=saved.sort;
+    if(['default','az','za','newest'].includes(saved.sort))currentSort=saved.sort;
     if(['all','html','unity'].includes(saved.engine))currentEngine=saved.engine;
     if(['all','season','quick','puzzle','classic'].includes(saved.collection))activeCollection=saved.collection;
     if(typeof saved.query==='string')searchQuery=saved.query.trim();
@@ -985,27 +972,10 @@ function renderGrid(items){
     addOverlay(thumb);addFavBtn(thumb,p);
     const badge=document.createElement('span');badge.className='card-badge '+(p.engine==='unity'?'badge-unity':'badge-html');badge.textContent=p.engine==='unity'?'Unity':'HTML5';thumb.appendChild(badge);
     const body=document.createElement('div');body.className='card-body';
-    const plays=getPlays();const ratings=getRatings();const userRatings=getUserRatings();
-    const stat=ratings[p.id]||{up:0,down:0};
-    body.innerHTML='<div class="card-title">'+esc(p.title)+'</div>'+(p.desc?'<div class="card-desc">'+esc(p.desc)+'</div>':'')+'<div class="card-meta"><span class="meta-tag type-tag">'+esc(p.type||'game')+'</span></div>'+'<div class="rating-row"><span class="plays">▶ '+(plays[p.id]||0)+' plays</span><div class="rate-controls"><button class="rate-btn" data-v="up">👍 '+stat.up+'</button><button class="rate-btn" data-v="down">👎 '+stat.down+'</button></div></div>';
+    body.innerHTML='<div class="card-title">'+esc(p.title)+'</div>'+(p.desc?'<div class="card-desc">'+esc(p.desc)+'</div>':'')+'<div class="card-meta"><span class="meta-tag type-tag">'+esc(p.type||'game')+'</span></div>';
     card.appendChild(thumb);card.appendChild(body);
-    const currentVote=userRatings[p.id];
-    if(currentVote){
-      const activeBtn=card.querySelector('.rate-btn[data-v="'+currentVote+'"]');
-      if(activeBtn)activeBtn.classList.add('active');
-    }
-    card.querySelectorAll('.rate-btn').forEach(btn=>btn.addEventListener('click',e=>{e.stopPropagation();rateGame(p.id,btn.dataset.v);}));
     card.addEventListener('click',()=>openProject(p));
     grid.appendChild(card);
-
-    ensureProjectStatsLoaded(p.id).then(()=>{
-      const playsEl=card.querySelector('.plays');
-      const upBtn=card.querySelector('.rate-btn[data-v="up"]');
-      const downBtn=card.querySelector('.rate-btn[data-v="down"]');
-      if(playsEl)playsEl.textContent='▶ '+(globalPlays[p.id]||0)+' plays';
-      if(upBtn)upBtn.textContent='👍 '+(globalRatings[p.id]?.up||0);
-      if(downBtn)downBtn.textContent='👎 '+(globalRatings[p.id]?.down||0);
-    });
   });
   applyCompact();
 }
@@ -1089,10 +1059,8 @@ function filter(){
   if(currentEngine!=='all')f=f.filter(p=>(p.engine||'html')===currentEngine);
   f=f.filter(collectionMatch);
   if(searchQuery){const q=searchQuery.toLowerCase();f=f.filter(p=>fuzzyMatch(p.title,q)||fuzzyMatch(p.type||'',q)||fuzzyMatch(p.desc||'',q));}
-  const plays=getPlays();
   if(currentSort==='az')f=[...f].sort((a,b)=>a.title.localeCompare(b.title));
   else if(currentSort==='za')f=[...f].sort((a,b)=>b.title.localeCompare(a.title));
-  else if(currentSort==='popular')f=[...f].sort((a,b)=>(plays[b.id]||0)-(plays[a.id]||0));
   else if(currentSort==='newest')f=[...f].sort((a,b)=>b.id-a.id);
   renderGrid(f);
 }
@@ -1404,32 +1372,14 @@ function renderSeasonSpotlight(){
   el.innerHTML='<div><div style="font-size:12px;font-weight:700">🌟 '+season.title+'</div><div style="font-size:11px;color:var(--text-2)">'+season.desc+'</div></div><div style="font-size:11px;color:var(--text-3)">'+count+' pick'+(count===1?'':'s')+'</div>';
   el.onclick=()=>{activeCollection='season';document.getElementById('collectionSelect').value='season';filter();saveBrowseState();};
 }
-function openSubmissionModal(){document.getElementById('submissionOverlay').classList.add('open');}
-function closeSubmissionModal(){document.getElementById('submissionOverlay').classList.remove('open');}
-async function submitSuggestion(){
-  const title=document.getElementById('subTitle').value.trim();
-  const desc=document.getElementById('subNote').value.trim();
-  if(!title||!desc){showToast('Title and description required');return;}
-
-  const payload={title,desc,submittedAt:new Date().toISOString()};
-  const submitted=await window.CSHubBackend.submitSuggestion(payload);
-
-  if(!submitted){
-    const queue=JSON.parse(localStorage.getItem('cshub_submissions')||'[]');
-    queue.unshift({id:Date.now(),title,desc,status:'pending',submittedAt:payload.submittedAt});
-    localStorage.setItem('cshub_submissions',JSON.stringify(queue));
-    showToast('Saved locally (backend unavailable)');
-  }else{
-    showToast('Submitted for review');
-  }
-
-  closeSubmissionModal();
+function openSuggestionIssue(){
+  window.open('https://github.com/Explicabler/Explicabler.github.io/issues','_blank','noopener');
+  showToast('Redirecting to Suggestion/Issue tracker');
 }
 function openAnalyticsModal(){
-  const plays=getPlays(),ratings=getRatings();
-  const top=[...PROJECTS].sort((a,b)=>(plays[b.id]||0)-(plays[a.id]||0)).slice(0,5);
-  const totalRatings=Object.values(ratings).reduce((n,r)=>n+(r.up||0)+(r.down||0),0);
-  document.getElementById('analyticsBody').innerHTML='<div style="font-size:12px">Total launches: <b>'+Object.values(plays).reduce((a,b)=>a+b,0)+'</b></div><div style="font-size:12px">Ratings submitted: <b>'+totalRatings+'</b></div><div style="font-size:12px">Session opens: <b>'+JSON.parse(localStorage.getItem('cshub_analytics')||'{"opens":0}').opens+'</b></div><div style="margin-top:8px;font-size:11px;color:var(--text-2)">'+top.map(t=>'• '+esc(t.title)+' ('+(plays[t.id]||0)+')').join('<br>')+'</div>';
+  const opens=JSON.parse(localStorage.getItem('cshub_analytics')||'{"opens":0}').opens;
+  const recentTitles=getRecents().map(id=>PROJECTS.find(p=>p.id===id)?.title).filter(Boolean).slice(0,5);
+  document.getElementById('analyticsBody').innerHTML='<div style="font-size:12px">Session opens: <b>'+opens+'</b></div><div style="margin-top:8px;font-size:11px;color:var(--text-2)">'+(recentTitles.length?recentTitles.map(t=>'• '+esc(t)).join('<br>'):'No recently played games yet.')+'</div>';
   document.getElementById('analyticsOverlay').classList.add('open');
 }
 function closeAnalyticsModal(){document.getElementById('analyticsOverlay').classList.remove('open');}
