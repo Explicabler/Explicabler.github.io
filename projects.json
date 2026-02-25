@@ -2077,5 +2077,16 @@
     "desc": "Third installment of the hardest game.",
     "url": "/worldshardestgame3/index.html",
     "image": "/game-images/worldshardestgame3.jpg"
+  },
+  {
+    "id": 192,
+    "title": "Race Survival Arena King",
+    "type": "arcade",
+    "engine": "html",
+    "icon": "🕹️",
+    "color": "cyan",
+    "desc": "Racing and Drifting",
+    "url": ""/Race Survival Arena King/index.html"",
+    "image": "/game-images/RaceSurvivalArenaKing.jpeg"
   }
 ]
