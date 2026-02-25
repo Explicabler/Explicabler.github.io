@@ -2088,5 +2088,27 @@
     "desc": "Racing and Drifting",
     "url": "/Race Survival Arena King/index.html",
     "image": "/game-images/RaceSurvivalArenaKing.jpeg"
+  },
+  {
+    "id": 193,
+    "title": "GTA",
+    "type": "arcade",
+    "engine": "html",
+    "icon": "🕹️",
+    "color": "cyan",
+    "desc": "Racing and Drifting",
+    "url": "/GBA/index.html",
+    "image": "/game-images/GBA.jpeg"
+  },
+  {
+    "id": 194,
+    "title": "Deadly Descent",
+    "type": "arcade",
+    "engine": "html",
+    "icon": "🕹️",
+    "color": "cyan",
+    "desc": "Racing and Drifting",
+    "url": "/Deadly Descent/index.html",
+    "image": "/game-images/Deadly Descent.jpeg"
   }
 ]
