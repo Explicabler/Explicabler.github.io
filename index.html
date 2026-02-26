@@ -23,15 +23,8 @@
   .nav-logo{display:flex;align-items:center;gap:8px;text-decoration:none;flex-shrink:0}
   .logo-icon{width:32px;height:32px;background:var(--accent);border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:17px}
   .logo-text{font-size:16px;font-weight:800;color:var(--text);letter-spacing:-0.5px}
-  .nav-search{flex:1;max-width:400px;position:relative}
-  .nav-search input{width:100%;height:36px;background:var(--surface2);border:1px solid var(--border);border-radius:20px;color:var(--text);font-family:'Inter',sans-serif;font-size:13px;padding:0 14px 0 38px;outline:none;transition:border-color .15s,background .15s}
-  .nav-search input.has-clear{padding-right:36px}
-  .nav-search input:focus{border-color:var(--accent);background:var(--surface3)}
-  .nav-search input::placeholder{color:var(--text-3)}
-  .search-icon{position:absolute;left:12px;top:50%;transform:translateY(-50%);color:var(--text-3);pointer-events:none;display:flex}
-  .search-clear{position:absolute;right:8px;top:50%;transform:translateY(-50%);width:22px;height:22px;border:none;border-radius:50%;display:none;align-items:center;justify-content:center;background:var(--surface3);color:var(--text-3);font-size:15px;line-height:1;cursor:pointer;transition:all .12s}
-  .search-clear.show{display:flex}
-  .search-clear:hover{background:var(--accent-dim);color:var(--text)}
+  .nav-search-btn{flex:1;max-width:360px;height:36px;display:flex;align-items:center;gap:8px;background:var(--surface2);border:1px solid var(--border);border-radius:20px;color:var(--text-3);font-family:'Inter',sans-serif;font-size:13px;padding:0 12px 0 14px;cursor:pointer;transition:border-color .15s,background .15s;text-align:left}
+  .nav-search-btn:hover{border-color:var(--accent);background:var(--surface3);color:var(--text-2)}
   .nav-right{margin-left:auto;display:flex;align-items:center;gap:8px}
   .nav-count{font-size:12px;font-weight:500;color:var(--text-3);white-space:nowrap}
 
@@ -246,6 +239,28 @@
   /* PANIC HINT */
   .panic-hint{position:absolute;bottom:8px;left:50%;transform:translateX(-50%);font-size:10px;color:var(--text-3);white-space:nowrap;pointer-events:none;opacity:.5}
 
+  /* ─── PLAY TIMER ──────────────────────── */
+  .play-timer{font-size:11px;font-weight:700;color:var(--text-3);font-variant-numeric:tabular-nums;letter-spacing:.5px;padding:4px 8px;background:var(--surface2);border:1px solid var(--border);border-radius:6px;white-space:nowrap}
+
+  /* ─── HOTKEY BADGE ────────────────────── */
+  .kbd{display:inline-flex;align-items:center;justify-content:min-content;min-width:18px;height:18px;padding:0 4px;background:var(--surface3);border:1px solid var(--border);border-radius:4px;font-size:9px;font-weight:700;color:var(--text-3);font-family:'Inter',sans-serif;letter-spacing:.2px}
+
+  /* ─── HOTKEYS MODAL ───────────────────── */
+  .hk-grid{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+  .hk-row{display:flex;align-items:center;gap:8px;padding:8px 10px;background:var(--surface2);border:1px solid var(--border);border-radius:8px}
+  .hk-desc{font-size:12px;font-weight:500;color:var(--text-2)}
+  .hk-keys{margin-left:auto;display:flex;gap:4px;align-items:center}
+
+  /* ─── NOW PLAYING DOT ─────────────────── */
+  .now-playing-dot{width:7px;height:7px;border-radius:50%;background:var(--green);animation:pulse-dot 1.5s ease-in-out infinite;flex-shrink:0}
+  @keyframes pulse-dot{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.4;transform:scale(.7)}}
+
+  /* ─── PROGRESS BAR (iframe loading) ──── */
+  .iframe-progress{position:absolute;top:0;left:0;right:0;height:2px;background:var(--accent);z-index:20;transform-origin:left;transform:scaleX(0);transition:transform .4s ease;border-radius:0 2px 2px 0}
+  .iframe-progress.running{animation:progress-run 2.5s ease-in-out forwards}
+  @keyframes progress-run{0%{transform:scaleX(0)}60%{transform:scaleX(.8)}100%{transform:scaleX(.95)}}
+  .iframe-progress.done{transform:scaleX(1);transition:transform .15s ease,opacity .3s ease .2s;opacity:0}
+
   /* RESPONSIVE */
   /* ─── SEARCH PANEL ───────────────────── */
   .search-panel-overlay{
@@ -410,17 +425,20 @@
       <div class="logo-icon">🎮</div>
       <span class="logo-text">CS Hub</span>
     </a>
-    <div class="nav-search">
-      <span class="search-icon">
-        <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35"/></svg>
-      </span>
-      <input type="text" id="searchInput" placeholder="Search games..." autocomplete="off"/>
-      <button class="search-clear" id="searchClearBtn" onclick="clearSearch()" title="Clear search">×</button>
-    </div>
+    <button class="nav-search-btn" onclick="openSearchPanel()" title="Search games (/)">
+      <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35"/></svg>
+      <span>Search games...</span>
+      <span class="kbd" style="margin-left:auto">/</span>
+    </button>
+    <!-- hidden input kept for state sync -->
+    <input type="text" id="searchInput" style="display:none" autocomplete="off"/>
     <div class="nav-right">
       <span class="nav-count" id="navCount"></span>
       <button class="random-btn" onclick="playRandom()" title="Random game (R)">
         🎲 <span class="hide-sm">Random</span>
+      </button>
+      <button class="random-btn" onclick="openHotkeys()" title="Keyboard shortcuts">
+        ⌨️
       </button>
     </div>
   </nav>
@@ -522,9 +540,11 @@
           <button class="back-btn" onclick="goHome()">
             <svg width="12" height="12" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M19 12H5M12 5l-7 7 7 7"/></svg>Back
           </button>
+          <div class="now-playing-dot"></div>
           <span class="play-title" id="playName"></span>
           <span class="play-type-badge" id="playType"></span>
           <div class="play-bar-right">
+            <span class="play-timer" id="playTimer">0:00</span>
             <button class="play-fav-btn" id="playFavBtn" onclick="togglePlayFav()">
               <svg width="12" height="12" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z"/></svg>
               Favourite
@@ -532,7 +552,7 @@
             <button class="blank-btn" onclick="openInBlank()">
               <svg width="11" height="11" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>Blank Tab
             </button>
-            <button class="icon-btn" id="fsBtn" title="Fullscreen">
+            <button class="icon-btn" id="fsBtn" title="Fullscreen (F)">
               <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M8 3H5a2 2 0 00-2 2v3m18 0V5a2 2 0 00-2-2h-3m0 18h3a2 2 0 002-2v-3M3 16v3a2 2 0 002 2h3"/></svg>
             </button>
           </div>
@@ -543,8 +563,9 @@
               <div class="spinner"></div>
               <div class="loader-label">Loading game...</div>
             </div>
-            <div class="panic-hint">Press Esc to go back</div>
-            <iframe id="projectFrame" src="" allowfullscreen sandbox="allow-scripts allow-same-origin allow-forms allow-pointer-lock allow-modals"></iframe>
+            <div class="iframe-progress" id="iframeProgress"></div>
+            <div class="panic-hint">Press Esc to go back · F to fullscreen</div>
+            <iframe id="projectFrame" src="" allowfullscreen allow="pointer-lock *; fullscreen *" sandbox="allow-scripts allow-same-origin allow-forms allow-pointer-lock allow-modals allow-popups allow-downloads allow-top-navigation-by-user-activation"></iframe>
           </div>
           <aside class="play-sidebar">
             <div class="ps-head">Related Games</div>
@@ -552,6 +573,24 @@
             <div class="ps-head">Up Next</div>
             <div class="ps-list" id="sidebarList"></div>
           </aside>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- HOTKEYS MODAL -->
+  <div class="modal-overlay" id="hotkeysOverlay" onclick="if(event.target===this)closeHotkeys()">
+    <div class="modal" style="max-width:440px">
+      <div class="modal-head">
+        <span class="modal-title">⌨️ Keyboard Shortcuts</span>
+        <span class="modal-close" onclick="closeHotkeys()">✕</span>
+      </div>
+      <div class="modal-body" style="gap:10px">
+        <div class="hk-grid">
+          <div class="hk-row"><span class="hk-desc">Search games</span><span class="hk-keys"><span class="kbd">/</span></span></div>
+          <div class="hk-row"><span class="hk-desc">Random game</span><span class="hk-keys"><span class="kbd">R</span></span></div>
+          <div class="hk-row"><span class="hk-desc">Fullscreen game</span><span class="hk-keys"><span class="kbd">F</span></span></div>
+          <div class="hk-row"><span class="hk-desc">Exit / Go back</span><span class="hk-keys"><span class="kbd">Esc</span></span></div>
         </div>
       </div>
     </div>
@@ -884,9 +923,9 @@ function syncSearchInputs(v){
   const val=v??'';
   document.getElementById('searchInput').value=val;
   document.getElementById('spSearchInput').value=val;
-  const clearBtn=document.getElementById('searchClearBtn');
-  clearBtn.classList.toggle('show',!!val);
-  document.getElementById('searchInput').classList.toggle('has-clear',!!val);
+  const btn=document.querySelector('.nav-search-btn span:first-of-type');
+  if(btn)btn.textContent=val?val:'Search games...';
+  if(btn)btn.style.color=val?'var(--text)':'';
 }
 
 function clearSearch(){
@@ -1001,17 +1040,15 @@ function addOverlay(t){const o=document.createElement('div');o.className='play-o
 function esc(s){return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;')}
 
 function fuzzyMatch(text,q){
-  text=(text||'').toLowerCase();q=(q||'').toLowerCase();
+  text=(text||'').toLowerCase();
+  q=(q||'').toLowerCase().trim();
+  if(!q)return true;
+  // Direct substring match
   if(text.includes(q))return true;
-  let qi=0;
-  for(const ch of text){if(ch===q[qi])qi++;if(qi===q.length)return true;}
-  return q.length>2 && levenshtein(text.slice(0,Math.max(text.length,q.length)),q)<=2;
-}
-function levenshtein(a,b){
-  const m=Array.from({length:b.length+1},(_,i)=>[i]);
-  for(let j=0;j<=a.length;j++)m[0][j]=j;
-  for(let i=1;i<=b.length;i++)for(let j=1;j<=a.length;j++)m[i][j]=b[i-1]===a[j-1]?m[i-1][j-1]:1+Math.min(m[i-1][j],m[i][j-1],m[i-1][j-1]);
-  return m[b.length][a.length];
+  // Multi-word: every word in query must appear somewhere in text
+  const words=q.split(/\s+/).filter(Boolean);
+  if(words.length>1)return words.every(w=>text.includes(w));
+  return false;
 }
 function collectionMatch(p){
   if(activeCollection==='all')return true;
@@ -1089,9 +1126,17 @@ document.addEventListener('keydown',e=>{
   const typing=document.activeElement.tagName==='INPUT'||document.activeElement.tagName==='TEXTAREA';
   if(e.key==='/'&&!typing){e.preventDefault();openSearchPanel()}
   if(e.key==='r'&&!typing&&!e.ctrlKey&&!e.metaKey)playRandom();
+  if((e.key==='?'||e.key==='h')&&!typing)openHotkeys();
+  if(e.key==='f'&&!typing&&document.getElementById('playView').classList.contains('show')){
+    e.preventDefault();
+    const f=document.getElementById('projectFrame');
+    if(f.requestFullscreen)f.requestFullscreen();
+    else if(f.webkitRequestFullscreen)f.webkitRequestFullscreen();
+  }
   if(e.key==='Escape'){
     closeSettings();
     closeSearchPanel();
+    closeHotkeys();
     // Panic key: escape from game back to home
     if(document.getElementById('playView').classList.contains('show'))goHome();
   }
@@ -1100,10 +1145,9 @@ document.addEventListener('keydown',e=>{
 document.querySelector('.sidebar').addEventListener('click',e=>{const b=e.target.closest('.sb-item[data-type]');if(b)setType(b.dataset.type)});
 document.querySelector('.filter-bar').addEventListener('click',e=>{const b=e.target.closest('.chip');if(b)setType(b.dataset.type)});
 
-document.getElementById('searchInput').addEventListener('focus',()=>openSearchPanel());
 document.getElementById('searchInput').addEventListener('input',e=>{
-  const val=e.target.value.trim();
-  searchQuery=val;
+  const val=e.target.value;
+  searchQuery=val.trim();
   syncSearchInputs(val);
   spSearch(val);
   filter();
@@ -1184,8 +1228,8 @@ function spSearch(q){
 
 // Panel search input
 document.getElementById('spSearchInput').addEventListener('input',e=>{
-  const v=e.target.value.trim();
-  searchQuery=v;
+  const v=e.target.value;
+  searchQuery=v.trim();
   syncSearchInputs(v);
   spSearch(v);
   filter();
@@ -1224,8 +1268,15 @@ function openProject(project){
   pfb.classList.toggle('faved',isFav(project.id));
   const loader=document.getElementById('iframeLoader');
   loader.classList.remove('hidden');
+  const prog=document.getElementById('iframeProgress');
+  prog.className='iframe-progress running';
   const frame=document.getElementById('projectFrame');
-  frame.onload=()=>loader.classList.add('hidden');
+  frame.onload=()=>{
+    loader.classList.add('hidden');
+    prog.className='iframe-progress done';
+    setTimeout(()=>prog.className='iframe-progress',600);
+    frame.focus();
+  };
   frame.src=project.url;
 
   const list=document.getElementById('sidebarList');
@@ -1250,6 +1301,7 @@ function openProject(project){
     if(!isNow)item.addEventListener('click',()=>openProject(p));
     list.appendChild(item);
   });
+  startPlayTimer();
 }
 
 function togglePlayFav(){
@@ -1262,6 +1314,7 @@ function togglePlayFav(){
 }
 
 function goHome(){
+  stopPlayTimer();
   document.getElementById('projectFrame').src='';
   document.getElementById('playView').classList.remove('show');
   document.getElementById('homeView').style.display='flex';
@@ -1275,6 +1328,11 @@ document.getElementById('fsBtn').addEventListener('click',()=>{
   else if(f.webkitRequestFullscreen)f.webkitRequestFullscreen();
 });
 
+// Focus iframe on click so keyboard/mouse controls reach the game
+document.querySelector('.iframe-col').addEventListener('click',()=>{
+  document.getElementById('projectFrame').focus();
+});
+
 function openInBlank(gameUrl){
   const w=window.open('about:blank','_blank');
   w.document.open();
@@ -1282,6 +1340,34 @@ function openInBlank(gameUrl){
   w.document.write('<!DOCTYPE html><html><head><style>*{margin:0;padding:0}iframe{border:none;width:100vw;height:100vh;display:block}</style></head><body><iframe src="'+src+'" sandbox="allow-scripts allow-same-origin allow-forms allow-pointer-lock allow-modals"></iframe></body></html>');
   w.document.close();
 }
+
+// ══════════════════════════════════
+// PLAY TIMER
+// ══════════════════════════════════
+let playTimerInterval=null;
+let playStartTime=0;
+function startPlayTimer(){
+  stopPlayTimer();
+  playStartTime=Date.now();
+  const el=document.getElementById('playTimer');
+  el.textContent='0:00';
+  playTimerInterval=setInterval(()=>{
+    const secs=Math.floor((Date.now()-playStartTime)/1000);
+    const m=Math.floor(secs/60);
+    const s=secs%60;
+    el.textContent=m+':'+(s<10?'0':'')+s;
+  },1000);
+}
+function stopPlayTimer(){
+  clearInterval(playTimerInterval);
+  playTimerInterval=null;
+}
+
+// ══════════════════════════════════
+// HOTKEYS MODAL
+// ══════════════════════════════════
+function openHotkeys(){document.getElementById('hotkeysOverlay').classList.add('open')}
+function closeHotkeys(){document.getElementById('hotkeysOverlay').classList.remove('open')}
 
 // ══════════════════════════════════
 // TOAST
@@ -1378,8 +1464,20 @@ function openSuggestionIssue(){
 }
 function openAnalyticsModal(){
   const opens=JSON.parse(localStorage.getItem('cshub_analytics')||'{"opens":0}').opens;
-  const recentTitles=getRecents().map(id=>PROJECTS.find(p=>p.id===id)?.title).filter(Boolean).slice(0,5);
-  document.getElementById('analyticsBody').innerHTML='<div style="font-size:12px">Session opens: <b>'+opens+'</b></div><div style="margin-top:8px;font-size:11px;color:var(--text-2)">'+(recentTitles.length?recentTitles.map(t=>'• '+esc(t)).join('<br>'):'No recently played games yet.')+'</div>';
+  const recentIds=getRecents();
+  const recentTitles=recentIds.map(id=>PROJECTS.find(p=>p.id===id)?.title).filter(Boolean).slice(0,5);
+  const favCount=getFavs().filter(id=>PROJECTS.find(p=>p.id===id)).length;
+  const playedCount=recentIds.length;
+  document.getElementById('analyticsBody').innerHTML=
+    '<div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:8px;margin-bottom:16px">'+
+    '<div style="background:var(--surface2);border:1px solid var(--border);border-radius:10px;padding:12px;text-align:center"><div style="font-size:22px;font-weight:800;color:var(--accent)">'+opens+'</div><div style="font-size:10px;color:var(--text-3);margin-top:2px;font-weight:600">SESSIONS</div></div>'+
+    '<div style="background:var(--surface2);border:1px solid var(--border);border-radius:10px;padding:12px;text-align:center"><div style="font-size:22px;font-weight:800;color:var(--green)">'+playedCount+'</div><div style="font-size:10px;color:var(--text-3);margin-top:2px;font-weight:600">PLAYED</div></div>'+
+    '<div style="background:var(--surface2);border:1px solid var(--border);border-radius:10px;padding:12px;text-align:center"><div style="font-size:22px;font-weight:800;color:var(--red)">'+favCount+'</div><div style="font-size:10px;color:var(--text-3);margin-top:2px;font-weight:600">FAVOURITES</div></div>'+
+    '</div>'+
+    '<div style="font-size:11px;font-weight:700;color:var(--text-3);letter-spacing:.8px;text-transform:uppercase;margin-bottom:8px">Recently Played</div>'+
+    '<div style="display:flex;flex-direction:column;gap:4px">'+
+    (recentTitles.length?recentTitles.map((t,i)=>'<div style="display:flex;align-items:center;gap:8px;padding:7px 10px;background:var(--surface2);border:1px solid var(--border);border-radius:8px"><span style="font-size:10px;font-weight:700;color:var(--text-3);width:14px">'+(i+1)+'</span><span style="font-size:12px;font-weight:600;color:var(--text)">'+esc(t)+'</span></div>').join(''):'<div style="text-align:center;padding:16px;color:var(--text-3);font-size:12px">No games played yet</div>')+
+    '</div>';
   document.getElementById('analyticsOverlay').classList.add('open');
 }
 function closeAnalyticsModal(){document.getElementById('analyticsOverlay').classList.remove('open');}
