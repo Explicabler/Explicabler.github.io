@@ -129,9 +129,9 @@
   .play-body{display:flex;flex:1;overflow:hidden}
   .iframe-col{flex:1;display:flex;flex-direction:column;background:#000;min-width:0;position:relative}
   .iframe-loader{position:absolute;inset:0;background:#000;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:14px;z-index:10;transition:opacity .3s}
-  .iframe-loader.hidden{opacity:0;pointer-events:none}
+  .iframe-loader.hidden{opacity:0;pointer-events:none;visibility:hidden;display:none}
   .loader-label{font-size:12px;color:var(--text-3);font-weight:500}
-  .iframe-col iframe{flex:1;width:100%;border:none}
+  .iframe-col iframe{flex:1;width:100%;border:none;pointer-events:auto;display:block}
   .play-sidebar{width:200px;background:var(--surface);border-left:1px solid var(--border);overflow-y:auto;flex-shrink:0;display:flex;flex-direction:column}
   .play-sidebar::-webkit-scrollbar{width:3px}
   .play-sidebar::-webkit-scrollbar-thumb{background:var(--border)}
@@ -612,7 +612,7 @@
             </div>
             <div class="iframe-progress" id="iframeProgress"></div>
             <div class="panic-hint">Press Esc to go back · F to fullscreen</div>
-            <iframe id="projectFrame" src="" allowfullscreen allow="pointer-lock *; fullscreen *; autoplay *; clipboard-read *; clipboard-write *; storage-access" sandbox="allow-scripts allow-same-origin allow-forms allow-pointer-lock allow-modals allow-popups allow-downloads allow-top-navigation-by-user-activation allow-popups-to-escape-sandbox allow-presentation"></iframe>
+            <iframe id="projectFrame" src="" allowfullscreen tabindex="0" allow="pointer-lock *; fullscreen *; autoplay *; clipboard-read *; clipboard-write *; storage-access" sandbox="allow-scripts allow-same-origin allow-forms allow-pointer-lock allow-modals allow-popups allow-downloads allow-top-navigation-by-user-activation allow-popups-to-escape-sandbox allow-presentation"></iframe>
           </div>
           <aside class="play-sidebar">
             <div class="ps-head">Related Games</div>
@@ -1475,7 +1475,10 @@ function openProject(project){
   prog.className='iframe-progress running';
   const frame=document.getElementById('projectFrame');
   frame.onload=()=>{
-    loader.classList.add('hidden');
+    loader.style.opacity='0';
+    loader.style.pointerEvents='none';
+    loader.style.visibility='hidden';
+    setTimeout(()=>{loader.classList.add('hidden');loader.style.opacity='';loader.style.pointerEvents='';loader.style.visibility='';},350);
     prog.className='iframe-progress done';
     setTimeout(()=>prog.className='iframe-progress',600);
     frame.focus();
