@@ -17,7 +17,7 @@
     "engine": "html",
     "icon": "🚀",
     "color": "orange",
-    "desc": "Build and shoot in this 1v1 battle game.",
+    "desc": "Build and aim in this 1v1 match game.",
     "url": "/1v1_lol/index.html",
     "image": "/game-images/1v1-lol.jpg"
   },
@@ -61,7 +61,7 @@
     "engine": "html",
     "icon": "🌍",
     "color": "yellow",
-    "desc": "Evolve through ages and destroy the enemy base.",
+    "desc": "Evolve through ages and clear the opponent base.",
     "url": "/ageofwar/index.html",
     "image": "/game-images/ageofwar.jpg"
   },
@@ -72,7 +72,7 @@
     "engine": "html",
     "icon": "🌍",
     "color": "yellow",
-    "desc": "Strategy war game across the ages.",
+    "desc": "Strategy game across the ages.",
     "url": "/agesofconflict/index.html",
     "image": "/game-images/agesofconflict.jpg"
   },
@@ -94,7 +94,7 @@
     "engine": "html",
     "icon": "🚀",
     "color": "orange",
-    "desc": "Find the impostor among the crew.",
+    "desc": "Find the secret player among the crew.",
     "url": "/amongus/index.html",
     "image": "/game-images/amongus.jpg"
   },
@@ -127,7 +127,7 @@
     "engine": "html",
     "icon": "🚀",
     "color": "orange",
-    "desc": "Drive a tank and blow up enemies.",
+    "desc": "Drive a tank and clear out opponents.",
     "url": "/awesometanks/index.html",
     "image": "/game-images/awesometanks.jpg"
   },
@@ -138,7 +138,7 @@
     "engine": "html",
     "icon": "🚀",
     "color": "orange",
-    "desc": "More tanks, more destruction.",
+    "desc": "More tanks, more action.",
     "url": "/awesometanks2/index.html",
     "image": "/game-images/awesometanks2.jpg"
   },
@@ -149,7 +149,7 @@
     "engine": "html",
     "icon": "🚀",
     "color": "orange",
-    "desc": "Bacon fights off waves of enemies.",
+    "desc": "Bacon fends off waves of opponents.",
     "url": "/baconmaydie/index.html",
     "image": "/game-images/baconmaydie.jpg"
   },
@@ -160,7 +160,7 @@
     "engine": "html",
     "icon": "🕹️",
     "color": "cyan",
-    "desc": "Freeze enemies and collect fruit.",
+    "desc": "Freeze opponents and collect fruit.",
     "url": "/badicecream2/index.html",
     "image": "/game-images/badicecream2.jpg"
   },
@@ -248,7 +248,7 @@
     "engine": "html",
     "icon": "🕹️",
     "color": "cyan",
-    "desc": "Fly pixel planes in this arcade shooter.",
+    "desc": "Fly pixel planes in this arcade challenge game.",
     "url": "/Bit%20Planes/index.html",
     "image": "/game-images/bit-planes.jpg"
   },
@@ -259,7 +259,7 @@
     "engine": "html",
     "icon": "🕹️",
     "color": "cyan",
-    "desc": "Fly pixel planes in this arcade shooter.",
+    "desc": "Fly pixel planes in this arcade challenge game.",
     "url": "/bitplanes/index.html",
     "image": "/game-images/bitplanes.jpg"
   },
@@ -325,7 +325,7 @@
     "engine": "html",
     "icon": "🏃",
     "color": "pink",
-    "desc": "Sneak past guards and steal the loot.",
+    "desc": "Sneak past guards and collect the items.",
     "url": "/bobtherobber/index.html",
     "image": "/game-images/bobtherobber.jpg"
   },
@@ -336,7 +336,7 @@
     "engine": "html",
     "icon": "🏃",
     "color": "pink",
-    "desc": "More heists for Bob the Robber.",
+    "desc": "More adventures for Bob.",
     "url": "/bobtherobber2/index.html",
     "image": "/game-images/bobtherobber2.jpg"
   },
@@ -413,7 +413,7 @@
     "engine": "html",
     "icon": "🌍",
     "color": "yellow",
-    "desc": "Build a viking empire and conquer.",
+    "desc": "Build a viking empire and expand.",
     "url": "/clashofvikings/index.html",
     "image": "/game-images/clashofvikings.jpg"
   },
@@ -457,7 +457,7 @@
     "engine": "html",
     "icon": "🕹️",
     "color": "cyan",
-    "desc": "Land the plane without crashing.",
+    "desc": "Land the plane safely.",
     "url": "/crazycrashlanding/index.html",
     "image": "/game-images/crazycrashlanding.jpg"
   },
@@ -479,7 +479,7 @@
     "engine": "html",
     "icon": "🕹️",
     "color": "cyan",
-    "desc": "Cross roads and rivers without dying.",
+    "desc": "Cross roads and rivers without falling.",
     "url": "/crossyroad/index.html",
     "image": "/game-images/crossyroad.jpg"
   },
@@ -523,7 +523,7 @@
     "engine": "html",
     "icon": "🚀",
     "color": "orange",
-    "desc": "Smash cars in demolition derby racing.",
+    "desc": "Compete in demolition derby racing.",
     "url": "/demolitionderbycrashracing/index.html",
     "image": "/game-images/demolitionderbycrashracing.jpg"
   },
@@ -622,7 +622,7 @@
     "engine": "html",
     "icon": "🚀",
     "color": "orange",
-    "desc": "Drive through zombie hordes.",
+    "desc": "Drive through creature waves.",
     "url": "/earntodie/index.html",
     "image": "/game-images/earntodie.jpg"
   },
@@ -666,7 +666,7 @@
     "engine": "html",
     "icon": "🚀",
     "color": "orange",
-    "desc": "Escape from the police at high speed.",
+    "desc": "Race through the city at high speed.",
     "url": "/escaperoad2/index.html",
     "image": "/game-images/escaperoad2.jpg"
   },
@@ -677,7 +677,7 @@
     "engine": "html",
     "icon": "🏃",
     "color": "pink",
-    "desc": "Use gadgets to escape from prison.",
+    "desc": "Use gadgets to find your way out of a building.",
     "url": "/escapingtheprison/index.html",
     "image": "/game-images/escapingtheprison.jpg"
   },
@@ -765,7 +765,7 @@
     "engine": "html",
     "icon": "🚀",
     "color": "orange",
-    "desc": "Survive the night in Five Nights at Freddy's 4.",
+    "desc": "Make it through the night in Five Nights at Freddy's 4.",
     "url": "/fnaf4/index.html",
     "image": "/game-images/fnaf4.jpg"
   },
@@ -798,7 +798,7 @@
     "engine": "html",
     "icon": "🚀",
     "color": "orange",
-    "desc": "Hilarious battle game with ragdoll physics.",
+    "desc": "Hilarious match game with ragdoll physics.",
     "url": "/funnybattle/index.html",
     "image": "/game-images/funnybattle.jpg"
   },
@@ -820,7 +820,7 @@
     "engine": "html",
     "icon": "🚀",
     "color": "orange",
-    "desc": "More chaotic ragdoll battle fun.",
+    "desc": "More chaotic ragdoll match fun.",
     "url": "/funnybattle2/index.html",
     "image": "/game-images/funnybattle2.jpg"
   },
@@ -831,7 +831,7 @@
     "engine": "html",
     "icon": "🚀",
     "color": "orange",
-    "desc": "Shoot waves of funny enemies.",
+    "desc": "Aim at waves of funny opponents.",
     "url": "/funnyshooter2/index.html",
     "image": "/game-images/funnyshooter2.jpg"
   },
@@ -864,7 +864,7 @@
     "engine": "html",
     "icon": "🚀",
     "color": "orange",
-    "desc": "Escape from Granny's house — again.",
+    "desc": "Find your way out of Granny's house — again.",
     "url": "/granny2/index.html",
     "image": "/game-images/granny2.jpg"
   },
@@ -886,7 +886,7 @@
     "engine": "html",
     "icon": "🚀",
     "color": "orange",
-    "desc": "Escape from Granny's creepy house.",
+    "desc": "Find your way out of Granny's house.",
     "url": "/granny/index.html",
     "image": "/game-images/granny.jpg"
   },
@@ -963,7 +963,7 @@
     "engine": "html",
     "icon": "🚀",
     "color": "orange",
-    "desc": "Shoot enemies with perfect timing.",
+    "desc": "Aim opponents with perfect timing.",
     "url": "/johnnytrigger/index.html",
     "image": "/game-images/johnnytrigger.jpg"
   },
@@ -974,7 +974,7 @@
     "engine": "html",
     "icon": "🚀",
     "color": "orange",
-    "desc": "Fight wolves as a karate pig.",
+    "desc": "Go up against wolves as a karate pig.",
     "url": "/ironsnout/index.html",
     "image": "/game-images/ironsnout.jpg"
   },
@@ -996,7 +996,7 @@
     "engine": "html",
     "icon": "🚀",
     "color": "orange",
-    "desc": "Beat up enemies with karate moves.",
+    "desc": "Beat up opponents with karate moves.",
     "url": "/karatebros/index.html",
     "image": "/game-images/karatebros.jpg"
   },
@@ -1249,7 +1249,7 @@
     "engine": "html",
     "icon": "🧩",
     "color": "accent",
-    "desc": "Park cars without crashing.",
+    "desc": "Park cars without mistakes.",
     "url": "/parkingfury2/index.html",
     "image": "/game-images/parkingfury2.jpg"
   },
@@ -1282,7 +1282,7 @@
     "engine": "html",
     "icon": "⚽",
     "color": "green",
-    "desc": "Chaotic table tennis battle.",
+    "desc": "Chaotic table tennis match.",
     "url": "/pingpongchaos/index.html",
     "image": "/game-images/pingpongchaos.jpg"
   },
@@ -1304,7 +1304,7 @@
     "engine": "html",
     "icon": "🚀",
     "color": "orange",
-    "desc": "Pico fights his way through school.",
+    "desc": "Pico makes his way through school.",
     "url": "/picosschool/index.html",
     "image": "/game-images/picosschool.jpg"
   },
@@ -1315,7 +1315,7 @@
     "engine": "html",
     "icon": "🌍",
     "color": "yellow",
-    "desc": "Defend your garden from zombies.",
+    "desc": "Defend your garden from creatures.",
     "url": "/plantsvszombies/index.html",
     "image": "/game-images/plantsvszombies.jpg"
   },
@@ -1326,7 +1326,7 @@
     "engine": "html",
     "icon": "🏃",
     "color": "pink",
-    "desc": "Help the bunny survive deadly traps.",
+    "desc": "Help the bunny through tricky traps.",
     "url": "/poorbunny/index.html",
     "image": "/game-images/poorbunny.jpg"
   },
@@ -1425,7 +1425,7 @@
     "engine": "html",
     "icon": "🏃",
     "color": "pink",
-    "desc": "Escape from a secret facility.",
+    "desc": "Find your way out of a building.",
     "url": "/riddletransfer/index.html",
     "image": "/game-images/riddletransfer.jpg"
   },
@@ -1436,7 +1436,7 @@
     "engine": "html",
     "icon": "🚀",
     "color": "orange",
-    "desc": "Shoot your opponent off the rooftop.",
+    "desc": "Knock your opponent off the rooftop.",
     "url": "/rooftopsnipers/index.html",
     "image": "/game-images/rooftopsnipers.jpg"
   },
@@ -1458,7 +1458,7 @@
     "engine": "html",
     "icon": "🏃",
     "color": "pink",
-    "desc": "Navigate deadly traps and survive.",
+    "desc": "Navigate tricky traps and keep going.",
     "url": "/shortlife/index.html",
     "image": "/game-images/shortlife.jpg"
   },
@@ -1623,7 +1623,7 @@
     "engine": "html",
     "icon": "🚀",
     "color": "orange",
-    "desc": "Fight as a stick figure warrior.",
+    "desc": "Play as a stick figure character.",
     "url": "/stickfighter/index.html",
     "image": "/game-images/stickfighter.jpg"
   },
@@ -1634,7 +1634,7 @@
     "engine": "html",
     "icon": "🌍",
     "color": "yellow",
-    "desc": "Conquer states in this strategy game.",
+    "desc": "Take over states in this strategy game.",
     "url": "/stateio/index.html",
     "image": "/game-images/stateio.jpg"
   },
@@ -1645,7 +1645,7 @@
     "engine": "html",
     "icon": "🚀",
     "color": "orange",
-    "desc": "Archer battle between stick figures.",
+    "desc": "Archer match between stick figures.",
     "url": "/stickarchersbattle/index.html",
     "image": "/game-images/stickarchersbattle.jpg"
   },
@@ -1733,7 +1733,7 @@
     "engine": "html",
     "icon": "🌍",
     "color": "yellow",
-    "desc": "Conquer territory in this strategy game.",
+    "desc": "Take over territory in this strategy game.",
     "url": "/territorialio/index.html",
     "image": "/game-images/territorialio.jpg"
   },
@@ -1744,7 +1744,7 @@
     "engine": "html",
     "icon": "🚀",
     "color": "orange",
-    "desc": "Shoot your way through the temple.",
+    "desc": "Aim your way through the temple.",
     "url": "/templeofboom/index.html",
     "image": "/game-images/templeofboom.jpg"
   },
@@ -1766,7 +1766,7 @@
     "engine": "html",
     "icon": "🚀",
     "color": "orange",
-    "desc": "Defend against waves of enemies.",
+    "desc": "Defend against waves of opponents.",
     "url": "/theyarecoming/index.html",
     "image": "/game-images/theyarecoming.jpg"
   },
@@ -1843,7 +1843,7 @@
     "engine": "html",
     "icon": "🏃",
     "color": "pink",
-    "desc": "Navigate deadly obstacle courses.",
+    "desc": "Navigate tricky obstacle courses.",
     "url": "/vex4/index.html",
     "image": "/game-images/vex4.jpg"
   },
@@ -1865,7 +1865,7 @@
     "engine": "html",
     "icon": "⚔️",
     "color": "accent",
-    "desc": "A game where you don't have to fight.",
+    "desc": "A game where you don't have to compete.",
     "url": "/UNDERTALE/index.html",
     "image": "/game-images/undertale.jpg"
   },
@@ -1909,7 +1909,7 @@
     "engine": "html",
     "icon": "🏃",
     "color": "pink",
-    "desc": "Navigate deadly Vex obstacle courses.",
+    "desc": "Navigate tricky Vex obstacle courses.",
     "url": "/vex5/index.html",
     "image": "/game-images/vex5.jpg"
   },
@@ -2063,7 +2063,7 @@
     "engine": "html",
     "icon": "🚀",
     "color": "orange",
-    "desc": "Survive endless zombie waves.",
+    "desc": "Outlast endless creature waves.",
     "url": "/zombierush/index.html",
     "image": "/game-images/zombierush.jpg"
   },
@@ -2131,6 +2131,17 @@
     "color": "cyan",
     "desc": "Racing and Drifting",
     "url": "/HappyWheels/index.html",
+    "image": "/game-images/Deadly Descent.jpeg"
+  },
+  {
+    "id": 196,
+    "title": "Bloons",
+    "type": "arcade",
+    "engine": "html",
+    "icon": "🕹️",
+    "color": "cyan",
+    "desc": "Racing and Drifting",
+    "url": "/Boon/index.html",
     "image": "/game-images/Deadly Descent.jpeg"
   }
 ]
