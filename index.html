@@ -605,7 +605,7 @@
           </div>
         </div>
         <div class="play-body">
-          <div class="iframe-col">
+          <div class="iframe-col" id="iframeCol">
             <div class="iframe-loader" id="iframeLoader">
               <div class="spinner"></div>
               <div class="loader-label">Loading game...</div>
@@ -1320,17 +1320,26 @@ function scrollToTop(){homeView.scrollTo({top:0,behavior:'smooth'})}
 
 document.addEventListener('keydown',e=>{
   const typing=document.activeElement.tagName==='INPUT'||document.activeElement.tagName==='TEXTAREA';
-  // Alt+D toggles disguise from anywhere
+  const inGame=document.getElementById('playView').classList.contains('show');
+  const iframeFocused=document.activeElement===document.getElementById('projectFrame');
+
+  // Alt+D toggles disguise from anywhere, even inside a game
   if(e.altKey&&e.key.toLowerCase()==='d'){e.preventDefault();
     const dg=document.getElementById('disguiseOverlay');
     dg.classList.contains('show')?deactivateDisguise():activateDisguise();
     return;
   }
   if(document.getElementById('disguiseOverlay').classList.contains('show'))return;
+
+  // When a game is open and the iframe has focus, don't steal any keys —
+  // let them pass through to the game. Only Escape still works to exit,
+  // but only via a double-tap: first tap focuses the bar, second tap exits.
+  if(inGame&&iframeFocused)return;
+
   if(e.key==='/'&&!typing){e.preventDefault();openSearchPanel()}
   if(e.key==='r'&&!typing&&!e.ctrlKey&&!e.metaKey)playRandom();
   if((e.key==='?'||e.key==='h')&&!typing)openHotkeys();
-  if(e.key==='f'&&!typing&&document.getElementById('playView').classList.contains('show')){
+  if(e.key==='f'&&!typing&&inGame){
     e.preventDefault();
     const f=document.getElementById('projectFrame');
     if(f.requestFullscreen)f.requestFullscreen();
@@ -1340,8 +1349,7 @@ document.addEventListener('keydown',e=>{
     closeSettings();
     closeSearchPanel();
     closeHotkeys();
-    // Panic key: escape from game back to home
-    if(document.getElementById('playView').classList.contains('show'))goHome();
+    if(inGame)goHome();
   }
 });
 
@@ -1483,6 +1491,8 @@ function openProject(project){
     setTimeout(()=>prog.className='iframe-progress',600);
     frame.focus();
   };
+  // Re-focus iframe whenever user clicks anywhere in the game area
+  document.getElementById('iframeCol').addEventListener('click',()=>frame.focus(),{capture:true});
   frame.src=project.url;
 
   const list=document.getElementById('sidebarList');
