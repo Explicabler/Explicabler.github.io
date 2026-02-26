@@ -2121,5 +2121,16 @@
     "desc": "Racing and Drifting",
     "url": "/RaceTrack/index.html",
     "image": "/game-images/Deadly Descent.jpeg"
+  },
+  {
+    "id": 196,
+    "title": "Happy Wheels",
+    "type": "arcade",
+    "engine": "html",
+    "icon": "🕹️",
+    "color": "cyan",
+    "desc": "Racing and Drifting",
+    "url": "/HappyWheels/index.html",
+    "image": "/game-images/Deadly Descent.jpeg"
   }
 ]
