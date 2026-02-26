@@ -2135,13 +2135,13 @@
   },
   {
     "id": 196,
-    "title": "Bloons",
+    "title": "Build Now",
     "type": "arcade",
     "engine": "html",
     "icon": "🕹️",
     "color": "cyan",
     "desc": "Racing and Drifting",
-    "url": "/Boon/index.html",
+    "url": "/Buildnow/index.html",
     "image": "/game-images/Deadly Descent.jpeg"
   }
 ]
