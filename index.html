@@ -1321,7 +1321,7 @@ function scrollToTop(){homeView.scrollTo({top:0,behavior:'smooth'})}
 document.addEventListener('keydown',e=>{
   const typing=document.activeElement.tagName==='INPUT'||document.activeElement.tagName==='TEXTAREA';
   const inGame=document.getElementById('playView').classList.contains('show');
-  const iframeFocused=document.activeElement===document.getElementById('projectFrame');
+  const frame=document.getElementById("projectFrame");const iframeFocused=document.activeElement===frame||(document.fullscreenElement||document.webkitFullscreenElement)===frame;
 
   // Alt+D toggles disguise from anywhere, even inside a game
   if(e.altKey&&e.key.toLowerCase()==='d'){e.preventDefault();
@@ -1543,6 +1543,15 @@ document.getElementById('fsBtn').addEventListener('click',()=>{
   if(f.requestFullscreen)f.requestFullscreen();
   else if(f.webkitRequestFullscreen)f.webkitRequestFullscreen();
 });
+
+// Whenever fullscreen changes, immediately re-focus the iframe so keys go to the game
+function onFullscreenChange(){
+  var f=document.getElementById('projectFrame');
+  var fsEl=document.fullscreenElement||document.webkitFullscreenElement;
+  if(fsEl===f){setTimeout(function(){f.focus();},100);}
+}
+document.addEventListener('fullscreenchange',onFullscreenChange);
+document.addEventListener('webkitfullscreenchange',onFullscreenChange);
 
 // Focus iframe on click so keyboard/mouse controls reach the game
 document.querySelector('.iframe-col').addEventListener('click',()=>{
