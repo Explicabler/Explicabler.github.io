@@ -2110,5 +2110,16 @@
     "desc": "Racing and Drifting",
     "url": "/Deadly Descent/index.html",
     "image": "/game-images/Deadly Descent.jpeg"
+  },
+  {
+    "id": 195,
+    "title": "Race Track",
+    "type": "arcade",
+    "engine": "html",
+    "icon": "🕹️",
+    "color": "cyan",
+    "desc": "Racing and Drifting",
+    "url": "/RaceTrack/index.html",
+    "image": "/game-images/Deadly Descent.jpeg"
   }
 ]
