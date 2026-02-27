@@ -129,9 +129,9 @@
   .play-body{display:flex;flex:1;overflow:hidden}
   .iframe-col{flex:1;display:flex;flex-direction:column;background:#000;min-width:0;position:relative}
   .iframe-loader{position:absolute;inset:0;background:#000;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:14px;z-index:10;transition:opacity .3s}
-  .iframe-loader.hidden{opacity:0;pointer-events:none;visibility:hidden;display:none}
+  .iframe-loader.hidden{opacity:0;pointer-events:none}
   .loader-label{font-size:12px;color:var(--text-3);font-weight:500}
-  .iframe-col iframe{flex:1;width:100%;border:none;pointer-events:auto;display:block}
+  .iframe-col iframe{flex:1;width:100%;border:none}
   .play-sidebar{width:200px;background:var(--surface);border-left:1px solid var(--border);overflow-y:auto;flex-shrink:0;display:flex;flex-direction:column}
   .play-sidebar::-webkit-scrollbar{width:3px}
   .play-sidebar::-webkit-scrollbar-thumb{background:var(--border)}
@@ -487,7 +487,7 @@
         <button onclick="playRandom()" title="Random game (R)">🎲 Random</button>
         <button onclick="openHotkeys()" title="Keyboard shortcuts">⌨️</button>
       </div>
-      <button class="panic-btn" onclick="activateDisguise()" title="Disguise page (Alt+D)">🛡️ Hide</button>
+      <button class="panic-btn" onclick="activateDisguise()" title="Disguise page (Ctrl+D)">🛡️ Hide</button>
     </div>
   </nav>
 
@@ -605,14 +605,14 @@
           </div>
         </div>
         <div class="play-body">
-          <div class="iframe-col" id="iframeCol">
+          <div class="iframe-col">
             <div class="iframe-loader" id="iframeLoader">
               <div class="spinner"></div>
               <div class="loader-label">Loading game...</div>
             </div>
             <div class="iframe-progress" id="iframeProgress"></div>
             <div class="panic-hint">Press Esc to go back · F to fullscreen</div>
-            <iframe id="projectFrame" src="" allowfullscreen tabindex="0" allow="pointer-lock *; fullscreen *; autoplay *; clipboard-read *; clipboard-write *; storage-access" sandbox="allow-scripts allow-same-origin allow-forms allow-pointer-lock allow-modals allow-popups allow-downloads allow-top-navigation-by-user-activation allow-popups-to-escape-sandbox allow-presentation"></iframe>
+            <iframe id="projectFrame" src="" allowfullscreen allow="pointer-lock *; fullscreen *" sandbox="allow-scripts allow-same-origin allow-forms allow-pointer-lock allow-modals allow-popups allow-downloads allow-top-navigation-by-user-activation"></iframe>
           </div>
           <aside class="play-sidebar">
             <div class="ps-head">Related Games</div>
@@ -638,7 +638,7 @@
           <div class="hk-row"><span class="hk-desc">Random game</span><span class="hk-keys"><span class="kbd">R</span></span></div>
           <div class="hk-row"><span class="hk-desc">Fullscreen game</span><span class="hk-keys"><span class="kbd">F</span></span></div>
           <div class="hk-row"><span class="hk-desc">Exit / Go back</span><span class="hk-keys"><span class="kbd">Esc</span></span></div>
-          <div class="hk-row"><span class="hk-desc">Toggle disguise</span><span class="hk-keys"><span class="kbd">Alt</span>+<span class="kbd">D</span></span></div>
+          <div class="hk-row"><span class="hk-desc">Toggle disguise</span><span class="hk-keys"><span class="kbd">Ctrl</span>+<span class="kbd">D</span></span></div>
           <div class="hk-row"><span class="hk-desc">Shortcuts help</span><span class="hk-keys"><span class="kbd">?</span></span></div>
         </div>
       </div>
@@ -832,8 +832,24 @@
           <tr><td>Geography</td><td>Case study: River erosion</td><td>Next Wed</td><td><span class="dg-badge grey">Not Started</span></td></tr>
         </tbody>
       </table>
-      <div style="margin-top:16px;font-size:12px;color:#bbb;text-align:right">Press <b>Alt + D</b> to return</div>
+      <div style="margin-top:16px;font-size:12px;color:#bbb;text-align:right">Press <b>Ctrl + D</b> to return</div>
     </div>
+  </div>
+</div>
+
+<!-- PASSWORD MODAL (shown over disguise on first Ctrl+D) -->
+<div id="pwOverlay" style="display:none;position:fixed;inset:0;z-index:100000;background:rgba(0,0,0,0.5);align-items:center;justify-content:center">
+  <div style="background:#fff;border-radius:12px;padding:28px 32px;width:320px;box-shadow:0 8px 40px rgba(0,0,0,0.25);font-family:Arial,sans-serif">
+    <div style="font-size:16px;font-weight:700;color:#202124;margin-bottom:6px">🔒 Enter Password</div>
+    <div style="font-size:13px;color:#666;margin-bottom:16px">Enter the password to access CS Hub.</div>
+    <input id="pwInput" type="password" placeholder="Password" autocomplete="off"
+      style="width:100%;box-sizing:border-box;height:38px;border:1.5px solid #d0d0d0;border-radius:7px;padding:0 12px;font-size:14px;outline:none;color:#202124"
+      onkeydown="if(event.key==='Enter')checkPassword()">
+    <div id="pwError" style="color:#d32f2f;font-size:12px;margin-top:6px;min-height:16px"></div>
+    <button onclick="checkPassword()"
+      style="margin-top:10px;width:100%;height:38px;background:#1a73e8;border:none;border-radius:7px;color:#fff;font-size:14px;font-weight:600;cursor:pointer">
+      Unlock
+    </button>
   </div>
 </div>
 
@@ -1320,26 +1336,17 @@ function scrollToTop(){homeView.scrollTo({top:0,behavior:'smooth'})}
 
 document.addEventListener('keydown',e=>{
   const typing=document.activeElement.tagName==='INPUT'||document.activeElement.tagName==='TEXTAREA';
-  const inGame=document.getElementById('playView').classList.contains('show');
-  const frame=document.getElementById("projectFrame");const iframeFocused=document.activeElement===frame||(document.fullscreenElement||document.webkitFullscreenElement)===frame;
-
-  // Alt+D toggles disguise from anywhere, even inside a game
-  if(e.altKey&&e.key.toLowerCase()==='d'){e.preventDefault();
+  // Ctrl+D toggles disguise from anywhere
+  if(e.ctrlKey&&e.key.toLowerCase()==='d'){e.preventDefault();
     const dg=document.getElementById('disguiseOverlay');
-    dg.classList.contains('show')?deactivateDisguise():activateDisguise();
+    dg.classList.contains('show')?tryDeactivateDisguise():activateDisguise();
     return;
   }
   if(document.getElementById('disguiseOverlay').classList.contains('show'))return;
-
-  // When a game is open and the iframe has focus, don't steal any keys —
-  // let them pass through to the game. Only Escape still works to exit,
-  // but only via a double-tap: first tap focuses the bar, second tap exits.
-  if(inGame&&iframeFocused)return;
-
   if(e.key==='/'&&!typing){e.preventDefault();openSearchPanel()}
   if(e.key==='r'&&!typing&&!e.ctrlKey&&!e.metaKey)playRandom();
   if((e.key==='?'||e.key==='h')&&!typing)openHotkeys();
-  if(e.key==='f'&&!typing&&inGame){
+  if(e.key==='f'&&!typing&&document.getElementById('playView').classList.contains('show')){
     e.preventDefault();
     const f=document.getElementById('projectFrame');
     if(f.requestFullscreen)f.requestFullscreen();
@@ -1349,7 +1356,8 @@ document.addEventListener('keydown',e=>{
     closeSettings();
     closeSearchPanel();
     closeHotkeys();
-    if(inGame)goHome();
+    // Panic key: escape from game back to home
+    if(document.getElementById('playView').classList.contains('show'))goHome();
   }
 });
 
@@ -1483,16 +1491,11 @@ function openProject(project){
   prog.className='iframe-progress running';
   const frame=document.getElementById('projectFrame');
   frame.onload=()=>{
-    loader.style.opacity='0';
-    loader.style.pointerEvents='none';
-    loader.style.visibility='hidden';
-    setTimeout(()=>{loader.classList.add('hidden');loader.style.opacity='';loader.style.pointerEvents='';loader.style.visibility='';},350);
+    loader.classList.add('hidden');
     prog.className='iframe-progress done';
     setTimeout(()=>prog.className='iframe-progress',600);
     frame.focus();
   };
-  // Re-focus iframe whenever user clicks anywhere in the game area
-  document.getElementById('iframeCol').addEventListener('click',()=>frame.focus(),{capture:true});
   frame.src=project.url;
 
   const list=document.getElementById('sidebarList');
@@ -1544,15 +1547,6 @@ document.getElementById('fsBtn').addEventListener('click',()=>{
   else if(f.webkitRequestFullscreen)f.webkitRequestFullscreen();
 });
 
-// Whenever fullscreen changes, immediately re-focus the iframe so keys go to the game
-function onFullscreenChange(){
-  var f=document.getElementById('projectFrame');
-  var fsEl=document.fullscreenElement||document.webkitFullscreenElement;
-  if(fsEl===f){setTimeout(function(){f.focus();},100);}
-}
-document.addEventListener('fullscreenchange',onFullscreenChange);
-document.addEventListener('webkitfullscreenchange',onFullscreenChange);
-
 // Focus iframe on click so keyboard/mouse controls reach the game
 document.querySelector('.iframe-col').addEventListener('click',()=>{
   document.getElementById('projectFrame').focus();
@@ -1569,6 +1563,10 @@ function openInBlank(gameUrl){
 // ══════════════════════════════════
 // DISGUISE
 // ══════════════════════════════════
+// ── PASSWORD ────────────────────────────────────────────
+const PW='cshub123'; // ← change this to your password
+const PW_KEY='cshub_unlocked';
+
 function activateDisguise(){
   document.getElementById('disguiseOverlay').classList.add('show');
   document.title='KnowledgeBase — Learning Resources';
@@ -1576,6 +1574,26 @@ function activateDisguise(){
 function deactivateDisguise(){
   document.getElementById('disguiseOverlay').classList.remove('show');
   applyDisguiseTitle();
+}
+function tryDeactivateDisguise(){
+  if(localStorage.getItem(PW_KEY)==='1'){deactivateDisguise();return;}
+  const ov=document.getElementById('pwOverlay');
+  ov.style.display='flex';
+  document.getElementById('pwInput').value='';
+  document.getElementById('pwError').textContent='';
+  setTimeout(()=>document.getElementById('pwInput').focus(),50);
+}
+function checkPassword(){
+  const val=document.getElementById('pwInput').value;
+  if(val===PW){
+    localStorage.setItem(PW_KEY,'1');
+    document.getElementById('pwOverlay').style.display='none';
+    deactivateDisguise();
+  }else{
+    document.getElementById('pwError').textContent='Incorrect password. Try again.';
+    document.getElementById('pwInput').value='';
+    document.getElementById('pwInput').focus();
+  }
 }
 
 // ══════════════════════════════════
@@ -1725,6 +1743,8 @@ loadBrowseState();
 applyAll();
 initSidebar();
 showWelcomeIfFirstVisit();
+// Always start on the school disguise page
+activateDisguise();
 </script>
 </body>
 </html>
