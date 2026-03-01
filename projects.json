@@ -2068,14 +2068,36 @@
     "image": "/game-images/Deadly Descent.jpeg"
   },
   {
-    "id": 196,
-    "title": "Build Now",
-    "type": "arcade",
+    "id": 198,
+    "title": "Idle Miner",
+    "type": "idle",
+    "engine": "html",
+    "icon": "\ud83d\udd79\ufe0f",
+    "color": "cyan",
+    "desc": "Racing and Drifting",
+    "url": "/IdleMiner/index.html",
+    "image": "/game-images/Deadly Descent.jpeg"
+  },
+  {
+    "id": 199,
+    "title": "Idle Game Dev",
+    "type": "idle",
     "engine": "html",
     "icon": "\ud83d\udd79\ufe0f",
     "color": "cyan",
     "desc": "Racing and Drifting",
     "url": "/Buildnow/index.html",
+    "image": "/game-images/Deadly Descent.jpeg"
+  },
+  {
+    "id": 200,
+    "title": "Idle Airline",
+    "type": "idle",
+    "engine": "html",
+    "icon": "\ud83d\udd79\ufe0f",
+    "color": "cyan",
+    "desc": "Racing and Drifting",
+    "url": "/IdleAirline/index.html",
     "image": "/game-images/Deadly Descent.jpeg"
   }
 ]
