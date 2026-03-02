@@ -1,0 +1,2525 @@
+ Volume in drive C has no label.
+ Volume Serial Number is 6858-7828
+
+ Directory of C:\Users\Dylan\Documents\GitHub\Explicabler.github.io
+
+02/03/2026  00:55    <DIR>          .
+26/02/2026  20:39    <DIR>          ..
+27/02/2026  23:52                 0 .nojekyll
+26/02/2026  20:41    <DIR>          1on1soccer
+26/02/2026  20:41    <DIR>          2 Player football
+26/02/2026  20:41    <DIR>          2048
+26/02/2026  20:41    <DIR>          agariolite
+26/02/2026  20:41    <DIR>          ageofwar
+26/02/2026  20:41    <DIR>          agesofconflict
+01/03/2026  16:11    <DIR>          AirlineTycoonIdle
+26/02/2026  20:41    <DIR>          amongus
+26/02/2026  20:41    <DIR>          angrybirdsshowdown
+26/02/2026  20:41    <DIR>          angrybirdsspace
+26/02/2026  20:41    <DIR>          awesometanks
+26/02/2026  20:41    <DIR>          awesometanks2
+26/02/2026  20:41    <DIR>          baconmaydie
+26/02/2026  20:41    <DIR>          badicecream2
+26/02/2026  20:41    <DIR>          badicecream3
+26/02/2026  20:41    <DIR>          badpiggies
+26/02/2026  20:41    <DIR>          Basket Random
+26/02/2026  20:41    <DIR>          Basketball Legends
+26/02/2026  20:41    <DIR>          basketballlegends
+26/02/2026  20:41    <DIR>          basketrandom
+26/02/2026  20:41    <DIR>          Bit Planes
+26/02/2026  20:41    <DIR>          bitplanes
+26/02/2026  20:41    <DIR>          Bloons TD 5
+26/02/2026  20:41    <DIR>          bloonsTD
+26/02/2026  20:41    <DIR>          bloonsTD3
+26/02/2026  20:41    <DIR>          bloonsTD4
+26/02/2026  20:41    <DIR>          bloxorz
+26/02/2026  20:41    <DIR>          bobtherobber
+26/02/2026  20:41    <DIR>          bobtherobber2
+26/02/2026  20:41    <DIR>          bowmasters
+26/02/2026  20:41    <DIR>          boxingrandom
+26/02/2026  20:41    <DIR>          bubbleshooter
+26/02/2026  20:41    <DIR>          Budget Minecraft
+26/02/2026  23:17    <DIR>          Buildnow
+26/02/2026  20:41    <DIR>          candycrush
+26/02/2026  20:41    <DIR>          cardrawing
+26/02/2026  20:41    <DIR>          clashofvikings
+26/02/2026  20:41    <DIR>          cleanupio
+26/02/2026  20:41    <DIR>          clusterrush
+26/02/2026  20:41    <DIR>          Cookie Clikcer
+26/02/2026  20:41    <DIR>          cookieclicker
+26/02/2026  20:41    <DIR>          crazycrashlanding
+26/02/2026  20:41    <DIR>          crazymotorcycle
+26/02/2026  20:41    <DIR>          crossyroad
+26/02/2026  20:41    <DIR>          dadish
+26/02/2026  20:41    <DIR>          dadish2
+26/02/2026  20:41    <DIR>          Deadly Descent
+26/02/2026  20:41    <DIR>          deathrun3D
+26/02/2026  20:41    <DIR>          demolitionderbycrashracing
+02/03/2026  00:55                 0 dirlist.txt
+26/02/2026  20:41    <DIR>          doodlejump
+26/02/2026  20:41    <DIR>          dreadheadparkour
+26/02/2026  20:41    <DIR>          Drive Mad
+26/02/2026  20:41    <DIR>          drivemad
+26/02/2026  20:41    <DIR>          ducklife
+26/02/2026  20:41    <DIR>          ducklife2
+26/02/2026  20:41    <DIR>          ducklife3
+26/02/2026  20:41    <DIR>          ducklife5
+26/02/2026  20:41    <DIR>          earntodie
+26/02/2026  20:41    <DIR>          eggycar
+26/02/2026  20:41    <DIR>          elasticface
+26/02/2026  20:41    <DIR>          Elements
+26/02/2026  20:41    <DIR>          escaperoad2
+26/02/2026  20:41    <DIR>          escapingtheprison
+26/02/2026  20:41    <DIR>          evilglitch
+26/02/2026  20:41    <DIR>          fancypantsadventure
+26/02/2026  20:41    <DIR>          fireboyandwatergirl
+26/02/2026  20:41    <DIR>          fireboyandwatergirl3
+26/02/2026  20:41    <DIR>          flappybird
+26/02/2026  20:41    <DIR>          floodrunner2
+26/02/2026  20:41    <DIR>          floodrunner3
+26/02/2026  20:41    <DIR>          fnaf4
+26/02/2026  20:41    <DIR>          footballbros
+26/02/2026  20:41    <DIR>          footballlegends
+26/02/2026  20:41    <DIR>          funnybattle
+26/02/2026  20:41    <DIR>          funnybattle2
+26/02/2026  20:41    <DIR>          funnyshooter2
+26/02/2026  20:41    <DIR>          game-images
+26/02/2026  20:41    <DIR>          GBA
+26/02/2026  20:41    <DIR>          geometryvibes
+26/02/2026  20:41    <DIR>          getontop
+26/02/2026  20:41    <DIR>          googlebaseball
+26/02/2026  20:41    <DIR>          googledino
+26/02/2026  20:41    <DIR>          granny
+26/02/2026  20:41    <DIR>          HappyWheels
+26/02/2026  20:41    <DIR>          helixjump
+26/02/2026  20:41    <DIR>          highwaytraffic
+26/02/2026  20:41    <DIR>          holeio
+01/03/2026  16:15    <DIR>          IdleAirline
+26/02/2026  20:41    <DIR>          idlebreakout
+01/03/2026  16:12    <DIR>          IdleGameDev
+01/03/2026  16:12    <DIR>          IdleMiner
+02/03/2026  00:44           108,842 index.html
+26/02/2026  20:41    <DIR>          ironsnout
+26/02/2026  20:41    <DIR>          johnnytrigger
+02/03/2026  00:23    <DIR>          js
+26/02/2026  20:41    <DIR>          jumpingshell
+26/02/2026  20:41    <DIR>          karatebros
+26/02/2026  20:41    <DIR>          kartbros
+26/02/2026  20:41    <DIR>          Learn to Fly 3
+26/02/2026  20:41    <DIR>          learntoflyidle
+26/02/2026  20:41    <DIR>          madalinstuntcars2
+26/02/2026  20:41    <DIR>          melonplayground
+26/02/2026  20:41    <DIR>          mergeroundracers
+26/02/2026  20:41    <DIR>          mini_metro
+26/02/2026  20:41    <DIR>          monkeymart
+26/02/2026  20:41    <DIR>          monstertracks
+26/02/2026  20:41    <DIR>          motox3m2
+26/02/2026  20:41    <DIR>          motox3m3
+26/02/2026  20:41    <DIR>          motox3mspookyland
+26/02/2026  20:41    <DIR>          motox3mwinter
+26/02/2026  20:41    <DIR>          noobminer
+26/02/2026  20:41    <DIR>          oppositeday
+26/02/2026  20:41    <DIR>          ovo
+26/02/2026  20:41    <DIR>          ovo2
+26/02/2026  20:41    <DIR>          pacman
+26/02/2026  20:41    <DIR>          papashotdoggeria
+26/02/2026  20:41    <DIR>          papaspastaria
+26/02/2026  20:41    <DIR>          papaspizzeria
+26/02/2026  20:41    <DIR>          papasscooperia
+26/02/2026  20:41    <DIR>          papassushiria
+26/02/2026  20:41    <DIR>          papastacomia
+26/02/2026  20:41    <DIR>          paperio2
+26/02/2026  20:41    <DIR>          PaperMinecraft1_15_1
+26/02/2026  20:41    <DIR>          parkingfury2
+26/02/2026  20:41    <DIR>          parkingfury3
+26/02/2026  20:41    <DIR>          picosschool
+26/02/2026  20:41    <DIR>          pingpongchaos
+26/02/2026  20:41    <DIR>          pixelspeedrun
+26/02/2026  20:41    <DIR>          plantsvszombies
+26/02/2026  20:41    <DIR>          plonky
+26/02/2026  20:41    <DIR>          poorbunny
+26/02/2026  20:41    <DIR>          pou
+26/02/2026  20:41             1,745 privacy-policy.html
+01/03/2026  16:25            53,341 projects.json
+26/02/2026  20:41    <DIR>          Race Survival Arena King
+26/02/2026  20:41    <DIR>          RaceTrack
+26/02/2026  20:41    <DIR>          ragdollsoccer
+26/02/2026  20:41             1,735 README.md
+26/02/2026  20:41    <DIR>          redball4vol1
+26/02/2026  20:41    <DIR>          retrohighway
+26/02/2026  20:41    <DIR>          riddleschool2
+26/02/2026  20:41    <DIR>          riddleschool3
+26/02/2026  20:41    <DIR>          riddletransfer
+26/02/2026  20:41    <DIR>          rooftopsnipers
+26/02/2026  20:41    <DIR>          run
+26/02/2026  20:41    <DIR>          sandgame
+26/02/2026  20:41    <DIR>          scripts
+26/02/2026  20:41    <DIR>          shortlife
+26/02/2026  20:41    <DIR>          slope
+26/02/2026  20:41    <DIR>          slope2player
+26/02/2026  20:41    <DIR>          slope3
+26/02/2026  20:41    <DIR>          slowroads
+26/02/2026  20:41    <DIR>          sm64
+26/02/2026  20:41    <DIR>          snowrider
+26/02/2026  20:41    <DIR>          soccerbros
+26/02/2026  20:41    <DIR>          soccerrandom
+26/02/2026  20:41    <DIR>          spacebarclicker
+26/02/2026  20:41    <DIR>          spacewaves
+26/02/2026  20:41    <DIR>          speedstars
+26/02/2026  20:41    <DIR>          stack
+26/02/2026  20:41    <DIR>          stacktris
+26/02/2026  20:41    <DIR>          stateio
+26/02/2026  20:41    <DIR>          stickarchersbattle
+26/02/2026  20:41    <DIR>          stickfighter
+26/02/2026  20:41    <DIR>          stickmanhook
+26/02/2026  20:41    <DIR>          subwaysurfershavana
+26/02/2026  20:41    <DIR>          tag
+26/02/2026  20:41    <DIR>          templeofboom
+26/02/2026  20:41    <DIR>          templerun2
+26/02/2026  20:41    <DIR>          territorialio
+26/02/2026  20:41    <DIR>          theimpossiblequiz
+26/02/2026  20:41    <DIR>          thereisnog
+26/02/2026  20:41    <DIR>          theyarecoming
+26/02/2026  20:41    <DIR>          thisistheonlyleveltoo
+26/02/2026  20:41    <DIR>          timeshooter3
+26/02/2026  20:41    <DIR>          tinyfishing
+26/02/2026  20:41    <DIR>          trapthecat
+26/02/2026  20:41    <DIR>          triviacrack
+26/02/2026  20:41    <DIR>          tubejumpers
+26/02/2026  20:41    <DIR>          tunnelrush
+26/02/2026  20:41    <DIR>          UNDERTALE
+26/02/2026  20:41    <DIR>          unicyclehero
+26/02/2026  20:41    <DIR>          vexx3m
+26/02/2026  20:41    <DIR>          vexx3m2
+26/02/2026  20:41    <DIR>          volleyrandom
+26/02/2026  20:41    <DIR>          wheeliebike
+26/02/2026  20:41    <DIR>          worldbox
+26/02/2026  20:41    <DIR>          worldshardestgame
+26/02/2026  20:41    <DIR>          worldshardestgame3
+26/02/2026  20:41    <DIR>          zombierush
+               6 File(s)        165,663 bytes
+
+ Directory of C:\Users\Dylan\Documents\GitHub\Explicabler.github.io\.git
+
+02/03/2026  00:55    <DIR>          ..
+02/03/2026  00:44                18 COMMIT_EDITMSG
+02/03/2026  00:08               405 config
+02/03/2026  00:08    <DIR>          cursor
+26/02/2026  20:39                73 description
+02/03/2026  00:44             1,708 FETCH_HEAD
+26/02/2026  20:41                21 HEAD
+26/02/2026  20:39    <DIR>          hooks
+02/03/2026  00:44            51,334 index
+26/02/2026  20:39    <DIR>          info
+26/02/2026  20:41    <DIR>          logs
+02/03/2026  00:44    <DIR>          objects
+27/02/2026  23:51                41 ORIG_HEAD
+26/02/2026  20:41             1,118 packed-refs
+26/02/2026  20:41    <DIR>          refs
+               8 File(s)         54,718 bytes
+
+ Directory of C:\Users\Dylan\Documents\GitHub\Explicabler.github.io\.git\cursor
+
+02/03/2026  00:08    <DIR>          .
+02/03/2026  00:08    <DIR>          crepe
+               0 File(s)              0 bytes
+
+ Directory of C:\Users\Dylan\Documents\GitHub\Explicabler.github.io\.git\cursor\crepe
+
+02/03/2026  00:08    <DIR>          .
+02/03/2026  00:08    <DIR>          ..
+02/03/2026  00:08    <DIR>          c5dd9995875b84819a81d03e24f10d51ee55bc06
+               0 File(s)              0 bytes
+
+ Directory of C:\Users\Dylan\Documents\GitHub\Explicabler.github.io\.git\cursor\crepe\c5dd9995875b84819a81d03e24f10d51ee55bc06
+
+02/03/2026  00:08    <DIR>          .
+02/03/2026  00:08    <DIR>          ..
+02/03/2026  00:08        13,130,856 index.bin
+02/03/2026  00:08                31 metadata.json
+02/03/2026  00:08         5,684,127 postings.bin
+               3 File(s)     18,815,014 bytes
+
+ Directory of C:\Users\Dylan\Documents\GitHub\Explicabler.github.io\.git\hooks
+
+26/02/2026  20:39    <DIR>          .
+26/02/2026  20:39               478 applypatch-msg.sample
+26/02/2026  20:39               896 commit-msg.sample
+26/02/2026  20:39             4,726 fsmonitor-watchman.sample
+26/02/2026  20:39               189 post-update.sample
+26/02/2026  20:39               424 pre-applypatch.sample
+26/02/2026  20:39             1,649 pre-commit.sample
+26/02/2026  20:39               416 pre-merge-commit.sample
+26/02/2026  20:39             1,374 pre-push.sample
+26/02/2026  20:39             4,898 pre-rebase.sample
+26/02/2026  20:39               544 pre-receive.sample
+26/02/2026  20:39             1,492 prepare-commit-msg.sample
+26/02/2026  20:39             2,783 push-to-checkout.sample
+26/02/2026  20:39             2,308 sendemail-validate.sample
+26/02/2026  20:39             3,650 update.sample
+              14 File(s)         25,827 bytes
+
+ Directory of C:\Users\Dylan\Documents\GitHub\Explicabler.github.io\.git\info
+
+26/02/2026  20:39    <DIR>          .
+26/02/2026  20:39               240 exclude
+               1 File(s)            240 bytes
+
+ Directory of C:\Users\Dylan\Documents\GitHub\Explicabler.github.io\.git\logs
+
+26/02/2026  20:41    <DIR>          .
+02/03/2026  00:44             4,602 HEAD
+26/02/2026  20:41    <DIR>          refs
+               1 File(s)          4,602 bytes
+
+ Directory of C:\Users\Dylan\Documents\GitHub\Explicabler.github.io\.git\logs\refs
+
+26/02/2026  20:41    <DIR>          .
+26/02/2026  20:41    <DIR>          ..
+26/02/2026  20:41    <DIR>          heads
+26/02/2026  20:41    <DIR>          remotes
+               0 File(s)              0 bytes
+
+ Directory of C:\Users\Dylan\Documents\GitHub\Explicabler.github.io\.git\logs\refs\heads
+
+26/02/2026  20:41    <DIR>          .
+26/02/2026  20:41    <DIR>          ..
+02/03/2026  00:44             4,602 main
+               1 File(s)          4,602 bytes
+
+ Directory of C:\Users\Dylan\Documents\GitHub\Explicabler.github.io\.git\logs\refs\remotes
+
+26/02/2026  20:41    <DIR>          .
+26/02/2026  20:41    <DIR>          ..
+26/02/2026  20:41    <DIR>          origin
+               0 File(s)              0 bytes
+
+ Directory of C:\Users\Dylan\Documents\GitHub\Explicabler.github.io\.git\logs\refs\remotes\origin
+
+26/02/2026  20:41    <DIR>          .
+26/02/2026  20:41    <DIR>          ..
+02/03/2026  00:44             5,378 HEAD
+02/03/2026  00:44             3,494 main
+               2 File(s)          8,872 bytes
+
+ Directory of C:\Users\Dylan\Documents\GitHub\Explicabler.github.io\.git\objects
+
+02/03/2026  00:44    <DIR>          .
+27/02/2026  23:51    <DIR>          03
+02/03/2026  00:29    <DIR>          06
+01/03/2026  16:15    <DIR>          0c
+02/03/2026  00:44    <DIR>          10
+02/03/2026  00:23    <DIR>          13
+27/02/2026  23:54    <DIR>          14
+02/03/2026  00:44    <DIR>          1a
+02/03/2026  00:23    <DIR>          20
+26/02/2026  23:18    <DIR>          23
+28/02/2026  00:03    <DIR>          24
+01/03/2026  16:25    <DIR>          25
+02/03/2026  00:23    <DIR>          27
+26/02/2026  20:41    <DIR>          2c
+26/02/2026  20:41    <DIR>          2d
+26/02/2026  23:18    <DIR>          31
+27/02/2026  23:52    <DIR>          35
+27/02/2026  23:53    <DIR>          38
+26/02/2026  21:10    <DIR>          3b
+01/03/2026  16:15    <DIR>          3c
+01/03/2026  16:15    <DIR>          40
+26/02/2026  23:25    <DIR>          41
+27/02/2026  00:05    <DIR>          47
+26/02/2026  23:59    <DIR>          4e
+26/02/2026  21:10    <DIR>          51
+26/02/2026  21:10    <DIR>          52
+26/02/2026  23:33    <DIR>          53
+01/03/2026  16:15    <DIR>          59
+27/02/2026  23:51    <DIR>          5b
+26/02/2026  23:39    <DIR>          60
+27/02/2026  00:10    <DIR>          63
+01/03/2026  16:15    <DIR>          66
+27/02/2026  23:54    <DIR>          67
+27/02/2026  00:10    <DIR>          68
+02/03/2026  00:44    <DIR>          6b
+26/02/2026  23:39    <DIR>          70
+02/03/2026  00:23    <DIR>          75
+26/02/2026  23:18    <DIR>          76
+26/02/2026  23:38    <DIR>          79
+26/02/2026  23:50    <DIR>          7d
+01/03/2026  16:25    <DIR>          86
+27/02/2026  23:51    <DIR>          8b
+27/02/2026  23:52    <DIR>          8e
+26/02/2026  20:46    <DIR>          95
+01/03/2026  16:15    <DIR>          96
+26/02/2026  23:59    <DIR>          97
+27/02/2026  00:05    <DIR>          a0
+27/02/2026  23:53    <DIR>          a1
+01/03/2026  16:15    <DIR>          a4
+27/02/2026  00:05    <DIR>          ad
+02/03/2026  00:24    <DIR>          b0
+01/03/2026  16:15    <DIR>          b2
+26/02/2026  20:46    <DIR>          b7
+01/03/2026  16:25    <DIR>          c5
+26/02/2026  20:41    <DIR>          c9
+27/02/2026  23:51    <DIR>          cb
+26/02/2026  23:33    <DIR>          cc
+02/03/2026  00:24    <DIR>          cd
+02/03/2026  00:23    <DIR>          d0
+26/02/2026  23:33    <DIR>          d3
+27/02/2026  00:10    <DIR>          da
+27/02/2026  00:05    <DIR>          dc
+26/02/2026  23:25    <DIR>          e2
+02/03/2026  00:29    <DIR>          e7
+26/02/2026  23:59    <DIR>          eb
+02/03/2026  00:29    <DIR>          f0
+26/02/2026  23:50    <DIR>          f5
+26/02/2026  23:25    <DIR>          f6
+26/02/2026  20:46    <DIR>          ff
+26/02/2026  20:39    <DIR>          info
+26/02/2026  20:41    <DIR>          pack
+               0 File(s)              0 bytes
+
+ Directory of C:\Users\Dylan\Documents\GitHub\Explicabler.github.io\.git\objects\03
+
+27/02/2026  23:51    <DIR>          .
+02/03/2026  00:44    <DIR>          ..
+27/02/2026  23:51               828 6c492000e8e645a1e7fddb2fbeea9d0efc864c
+               1 File(s)            828 bytes
+
+ Directory of C:\Users\Dylan\Documents\GitHub\Explicabler.github.io\.git\objects\06
+
+02/03/2026  00:29    <DIR>          .
+02/03/2026  00:44    <DIR>          ..
+02/03/2026  00:29               281 49f8487e5bb84cd8c157d771e60067910162d9
+26/02/2026  23:50             5,821 e580bca827e0eebe3c34d5fe8cc956f209be5f
+               2 File(s)          6,102 bytes
+
+ Directory of C:\Users\Dylan\Documents\GitHub\Explicabler.github.io\.git\objects\0c
+
+01/03/2026  16:15    <DIR>          .
+02/03/2026  00:44    <DIR>          ..
+28/02/2026  00:03             5,746 3dc8bf3a7587720f3b51a99a9633be58fcba8f
+01/03/2026  16:15                55 d5d41071ebd227a63572c5b7fe1463aa5f0b44
+27/02/2026  23:52             8,400 f480a55983e2dbb1d8017e41c41377a29daa42
+               3 File(s)         14,201 bytes
+
+ Directory of C:\Users\Dylan\Documents\GitHub\Explicabler.github.io\.git\objects\10
+
+02/03/2026  00:44    <DIR>          .
+02/03/2026  00:44    <DIR>          ..
+02/03/2026  00:44             5,765 0a4814c6ee21dc5c9a7bdb5af361d70b97110b
+               1 File(s)          5,765 bytes
+
+ Directory of C:\Users\Dylan\Documents\GitHub\Explicabler.github.io\.git\objects\13
+
+02/03/2026  00:23    <DIR>          .
+02/03/2026  00:44    <DIR>          ..
+02/03/2026  00:23             5,795 45eccbaa04b66c5fc5b0dd3a774f1153ddbf86
+               1 File(s)          5,795 bytes
+
+ Directory of C:\Users\Dylan\Documents\GitHub\Explicabler.github.io\.git\objects\14
+
+27/02/2026  23:54    <DIR>          .
+02/03/2026  00:44    <DIR>          ..
+27/02/2026  23:54               191 13bf194a77ed256a4149ae15c88815ffd3429e
+               1 File(s)            191 bytes
+
+ Directory of C:\Users\Dylan\Documents\GitHub\Explicabler.github.io\.git\objects\1a
+
+02/03/2026  00:44    <DIR>          .
+02/03/2026  00:44    <DIR>          ..
+02/03/2026  00:44               174 4172978fd196c7fc53f4fc220cfe08dd0ea3d0
+               1 File(s)            174 bytes
+
+ Directory of C:\Users\Dylan\Documents\GitHub\Explicabler.github.io\.git\objects\20
+
+02/03/2026  00:23    <DIR>          .
+02/03/2026  00:44    <DIR>          ..
+02/03/2026  00:23               208 c31ac4d0d8ed1191f64cc5f315f34033324cce
+               1 File(s)            208 bytes
+
+ Directory of C:\Users\Dylan\Documents\GitHub\Explicabler.github.io\.git\objects\23
+
+26/02/2026  23:18    <DIR>          .
+02/03/2026  00:44    <DIR>          ..
+26/02/2026  23:18                55 576b56c5b1ec5796b0189d5e524b881dc866c6
+               1 File(s)             55 bytes
+
+ Directory of C:\Users\Dylan\Documents\GitHub\Explicabler.github.io\.git\objects\24
+
+28/02/2026  00:03    <DIR>          .
+02/03/2026  00:44    <DIR>          ..
+26/02/2026  23:38             5,985 4a934b4dcfccea4fe76f8b7b7095ce45e3388e
+28/02/2026  00:03               159 640edd0dc12c65ea88820c57b7486e0feec877
+               2 File(s)          6,144 bytes
+
+ Directory of C:\Users\Dylan\Documents\GitHub\Explicabler.github.io\.git\objects\25
+
+01/03/2026  16:25    <DIR>          .
+02/03/2026  00:44    <DIR>          ..
+01/03/2026  16:25             8,454 468dc9ee94888da61e4a62b6e7ccb06b55afc7
+               1 File(s)          8,454 bytes
+
+ Directory of C:\Users\Dylan\Documents\GitHub\Explicabler.github.io\.git\objects\27
+
+02/03/2026  00:23    <DIR>          .
+02/03/2026  00:44    <DIR>          ..
+02/03/2026  00:23            28,952 86197285b97aa5ea96be0acab9fc9512f49e23
+               1 File(s)         28,952 bytes
+
+ Directory of C:\Users\Dylan\Documents\GitHub\Explicabler.github.io\.git\objects\2c
+
+26/02/2026  20:41    <DIR>          .
+02/03/2026  00:44    <DIR>          ..
+26/02/2026  20:41            26,652 d454adaead7921b64e82a70f30bacae1cc2ef7
+               1 File(s)         26,652 bytes
+
+ Directory of C:\Users\Dylan\Documents\GitHub\Explicabler.github.io\.git\objects\2d
+
+26/02/2026  20:41    <DIR>          .
+02/03/2026  00:44    <DIR>          ..
+26/02/2026  20:41               159 68afdec79612bf9c757b81a53f9f80d24e6c68
+               1 File(s)            159 bytes
+
+ Directory of C:\Users\Dylan\Documents\GitHub\Explicabler.github.io\.git\objects\31
+
+26/02/2026  23:18    <DIR>          .
+02/03/2026  00:44    <DIR>          ..
+26/02/2026  23:18             8,711 978f78c406cb8bb533bf7c98f273d5343ce920
+               1 File(s)          8,711 bytes
+
+ Directory of C:\Users\Dylan\Documents\GitHub\Explicabler.github.io\.git\objects\35
+
+27/02/2026  23:52    <DIR>          .
+02/03/2026  00:44    <DIR>          ..
+27/02/2026  23:52             5,849 d5f7b0fa4669df485b4534e5c05236e00f1b8f
+               1 File(s)          5,849 bytes
+
+ Directory of C:\Users\Dylan\Documents\GitHub\Explicabler.github.io\.git\objects\38
+
+27/02/2026  23:53    <DIR>          .
+02/03/2026  00:44    <DIR>          ..
+27/02/2026  23:53               159 609c35803c52fa080b113d6846ebfb38a497a8
+               1 File(s)            159 bytes
+
+ Directory of C:\Users\Dylan\Documents\GitHub\Explicabler.github.io\.git\objects\3b
+
+26/02/2026  21:10    <DIR>          .
+02/03/2026  00:44    <DIR>          ..
+26/02/2026  21:10            27,498 86490ea6837c09157a43d22ef817022468e26d
+               1 File(s)         27,498 bytes
+
+ Directory of C:\Users\Dylan\Documents\GitHub\Explicabler.github.io\.git\objects\3c
+
+01/03/2026  16:15    <DIR>          .
+02/03/2026  00:44    <DIR>          ..
+01/03/2026  16:15             2,998 e53c3b61619ada983c39e23d37a7f4db19be27
+               1 File(s)          2,998 bytes
+
+ Directory of C:\Users\Dylan\Documents\GitHub\Explicabler.github.io\.git\objects\40
+
+01/03/2026  16:15    <DIR>          .
+02/03/2026  00:44    <DIR>          ..
+01/03/2026  16:15                57 9088755a4fcaa157a173627121d589736ef192
+               1 File(s)             57 bytes
+
+ Directory of C:\Users\Dylan\Documents\GitHub\Explicabler.github.io\.git\objects\41
+
+26/02/2026  23:25    <DIR>          .
+02/03/2026  00:44    <DIR>          ..
+26/02/2026  23:25               174 187cbcbe1989935a325614cd4e1f12a5be6aa7
+               1 File(s)            174 bytes
+
+ Directory of C:\Users\Dylan\Documents\GitHub\Explicabler.github.io\.git\objects\47
+
+27/02/2026  00:05    <DIR>          .
+02/03/2026  00:44    <DIR>          ..
+27/02/2026  00:05               914 3134d0ebb078bc8e6f73a4af9354c4fba3fa38
+               1 File(s)            914 bytes
+
+ Directory of C:\Users\Dylan\Documents\GitHub\Explicabler.github.io\.git\objects\4e
+
+26/02/2026  23:59    <DIR>          .
+02/03/2026  00:44    <DIR>          ..
+26/02/2026  23:59             5,851 4c8cb0680b9ae78edb3d894b44087b9559c08f
+               1 File(s)          5,851 bytes
+
+ Directory of C:\Users\Dylan\Documents\GitHub\Explicabler.github.io\.git\objects\51
+
+26/02/2026  21:10    <DIR>          .
+02/03/2026  00:44    <DIR>          ..
+26/02/2026  21:10               173 4b3dcf6526de3ef6f45636bc7a97d29109e94a
+               1 File(s)            173 bytes
+
+ Directory of C:\Users\Dylan\Documents\GitHub\Explicabler.github.io\.git\objects\52
+
+26/02/2026  21:10    <DIR>          .
+02/03/2026  00:44    <DIR>          ..
+26/02/2026  21:10             6,239 372ecca540256106c7492f90e23f7eeed12f81
+               1 File(s)          6,239 bytes
+
+ Directory of C:\Users\Dylan\Documents\GitHub\Explicabler.github.io\.git\objects\53
+
+26/02/2026  23:33    <DIR>          .
+02/03/2026  00:44    <DIR>          ..
+26/02/2026  23:33               174 b8414e2be56881a209b7a4ff84461417a2a5fd
+               1 File(s)            174 bytes
+
+ Directory of C:\Users\Dylan\Documents\GitHub\Explicabler.github.io\.git\objects\59
+
+01/03/2026  16:15    <DIR>          .
+02/03/2026  00:44    <DIR>          ..
+01/03/2026  16:15             8,459 46f5fea3a2a3291ce1e3e746368d0fc30e34e4
+               1 File(s)          8,459 bytes
+
+ Directory of C:\Users\Dylan\Documents\GitHub\Explicabler.github.io\.git\objects\5b
+
+27/02/2026  23:51    <DIR>          .
+02/03/2026  00:44    <DIR>          ..
+27/02/2026  00:05                52 66914e54c363a59317da6342e355852e56bae9
+27/02/2026  23:51             5,850 e72db0aa864ea5ead3d7b8ebd2dc524be2c0ca
+               2 File(s)          5,902 bytes
+
+ Directory of C:\Users\Dylan\Documents\GitHub\Explicabler.github.io\.git\objects\60
+
+26/02/2026  23:39    <DIR>          .
+02/03/2026  00:44    <DIR>          ..
+26/02/2026  23:39               157 53048eca54330594586258ce0433930111f465
+               1 File(s)            157 bytes
+
+ Directory of C:\Users\Dylan\Documents\GitHub\Explicabler.github.io\.git\objects\63
+
+27/02/2026  00:10    <DIR>          .
+02/03/2026  00:44    <DIR>          ..
+27/02/2026  00:10             5,851 6836580982dfac87a5db67965e4076cf14a7ab
+               1 File(s)          5,851 bytes
+
+ Directory of C:\Users\Dylan\Documents\GitHub\Explicabler.github.io\.git\objects\66
+
+01/03/2026  16:15    <DIR>          .
+02/03/2026  00:44    <DIR>          ..
+01/03/2026  16:15               159 53792c7a71fa80f7009dbd3a0f8732f7e14878
+               1 File(s)            159 bytes
+
+ Directory of C:\Users\Dylan\Documents\GitHub\Explicabler.github.io\.git\objects\67
+
+27/02/2026  23:54    <DIR>          .
+02/03/2026  00:44    <DIR>          ..
+27/02/2026  23:54             5,791 cc62b62e83efac4824bd50cd65843f36ac2d72
+               1 File(s)          5,791 bytes
+
+ Directory of C:\Users\Dylan\Documents\GitHub\Explicabler.github.io\.git\objects\68
+
+27/02/2026  00:10    <DIR>          .
+02/03/2026  00:44    <DIR>          ..
+27/02/2026  00:10               177 f4d2ba8bf6e32f92dc080cd8cb894ffe0780db
+               1 File(s)            177 bytes
+
+ Directory of C:\Users\Dylan\Documents\GitHub\Explicabler.github.io\.git\objects\6b
+
+02/03/2026  00:44    <DIR>          .
+02/03/2026  00:44    <DIR>          ..
+02/03/2026  00:44            30,350 748f1385e8a772fa6b73f4326c306c3e9acdea
+               1 File(s)         30,350 bytes
+
+ Directory of C:\Users\Dylan\Documents\GitHub\Explicabler.github.io\.git\objects\70
+
+26/02/2026  23:39    <DIR>          .
+02/03/2026  00:44    <DIR>          ..
+26/02/2026  23:39             5,819 1ef9c94c767a88e9354ce2414c0c08654509e6
+               1 File(s)          5,819 bytes
+
+ Directory of C:\Users\Dylan\Documents\GitHub\Explicabler.github.io\.git\objects\75
+
+02/03/2026  00:23    <DIR>          .
+02/03/2026  00:44    <DIR>          ..
+02/03/2026  00:23               255 9c3c4dc023065fa43c7fa0ee5c4d97b21aeda1
+               1 File(s)            255 bytes
+
+ Directory of C:\Users\Dylan\Documents\GitHub\Explicabler.github.io\.git\objects\76
+
+26/02/2026  23:18    <DIR>          .
+02/03/2026  00:44    <DIR>          ..
+26/02/2026  23:18               277 a3e0d2acdad8d45d5b07a1df96ba3d185e9542
+               1 File(s)            277 bytes
+
+ Directory of C:\Users\Dylan\Documents\GitHub\Explicabler.github.io\.git\objects\79
+
+26/02/2026  23:38    <DIR>          .
+02/03/2026  00:44    <DIR>          ..
+26/02/2026  23:38               158 ea198242468fc9452a327013578a3c42e189e2
+               1 File(s)            158 bytes
+
+ Directory of C:\Users\Dylan\Documents\GitHub\Explicabler.github.io\.git\objects\7d
+
+26/02/2026  23:50    <DIR>          .
+02/03/2026  00:44    <DIR>          ..
+26/02/2026  23:50            28,005 606bc0c0643428097fc547101cdb71b7aecb8f
+               1 File(s)         28,005 bytes
+
+ Directory of C:\Users\Dylan\Documents\GitHub\Explicabler.github.io\.git\objects\86
+
+01/03/2026  16:25    <DIR>          .
+02/03/2026  00:44    <DIR>          ..
+01/03/2026  16:25             5,850 153ee1ae1ed4180a16923f4d4e898cfeff7608
+               1 File(s)          5,850 bytes
+
+ Directory of C:\Users\Dylan\Documents\GitHub\Explicabler.github.io\.git\objects\8b
+
+27/02/2026  23:51    <DIR>          .
+02/03/2026  00:44    <DIR>          ..
+27/02/2026  23:53            28,196 765defc1b05367f52bee295d35ee78f14adf46
+               1 File(s)         28,196 bytes
+
+ Directory of C:\Users\Dylan\Documents\GitHub\Explicabler.github.io\.git\objects\8e
+
+27/02/2026  23:52    <DIR>          .
+02/03/2026  00:44    <DIR>          ..
+27/02/2026  23:52               176 bc504601465ae52a7f92fa0904c9cda75fb48b
+               1 File(s)            176 bytes
+
+ Directory of C:\Users\Dylan\Documents\GitHub\Explicabler.github.io\.git\objects\95
+
+26/02/2026  20:46    <DIR>          .
+02/03/2026  00:44    <DIR>          ..
+26/02/2026  20:46            27,427 2cfaa42045ff559c3c6ca205aaf3647e14c28f
+               1 File(s)         27,427 bytes
+
+ Directory of C:\Users\Dylan\Documents\GitHub\Explicabler.github.io\.git\objects\96
+
+01/03/2026  16:15    <DIR>          .
+02/03/2026  00:44    <DIR>          ..
+01/03/2026  16:15             5,854 5948fc7f724f1cde5133e4a9761b90aba95d40
+               1 File(s)          5,854 bytes
+
+ Directory of C:\Users\Dylan\Documents\GitHub\Explicabler.github.io\.git\objects\97
+
+26/02/2026  23:59    <DIR>          .
+02/03/2026  00:44    <DIR>          ..
+26/02/2026  23:59               364 ead80f0454f6abda3e0079d068f27572063b8a
+               1 File(s)            364 bytes
+
+ Directory of C:\Users\Dylan\Documents\GitHub\Explicabler.github.io\.git\objects\a0
+
+27/02/2026  00:05    <DIR>          .
+02/03/2026  00:44    <DIR>          ..
+26/02/2026  23:18             6,268 a8475d2eb486dc291e72ff3c167e10b66046fb
+27/02/2026  00:05             5,851 b408945cb4144b3f8bf091f1afccd9fed10636
+               2 File(s)         12,119 bytes
+
+ Directory of C:\Users\Dylan\Documents\GitHub\Explicabler.github.io\.git\objects\a1
+
+27/02/2026  23:53    <DIR>          .
+02/03/2026  00:44    <DIR>          ..
+27/02/2026  23:53             5,836 e5e036b6c9661c5c8e874252da198530fdb8f9
+               1 File(s)          5,836 bytes
+
+ Directory of C:\Users\Dylan\Documents\GitHub\Explicabler.github.io\.git\objects\a4
+
+01/03/2026  16:15    <DIR>          .
+02/03/2026  00:44    <DIR>          ..
+01/03/2026  16:15                55 df5547c0772c6ee77dedde2ffecca328a88ae4
+               1 File(s)             55 bytes
+
+ Directory of C:\Users\Dylan\Documents\GitHub\Explicabler.github.io\.git\objects\ad
+
+27/02/2026  00:05    <DIR>          .
+02/03/2026  00:44    <DIR>          ..
+26/02/2026  20:41             6,237 4af5b7113f99a0d3be0af1af6a9283cf6b3a83
+27/02/2026  00:05                55 b83c1b9f9c5ae1c572af94f9bdc465daf2bf1e
+               2 File(s)          6,292 bytes
+
+ Directory of C:\Users\Dylan\Documents\GitHub\Explicabler.github.io\.git\objects\b0
+
+02/03/2026  00:24    <DIR>          .
+02/03/2026  00:44    <DIR>          ..
+02/03/2026  00:24             5,766 aaef7f36fec4f11c085b97f2a752a62cf7466e
+               1 File(s)          5,766 bytes
+
+ Directory of C:\Users\Dylan\Documents\GitHub\Explicabler.github.io\.git\objects\b2
+
+01/03/2026  16:15    <DIR>          .
+02/03/2026  00:44    <DIR>          ..
+01/03/2026  16:15             1,665 c17ab3c8e1267d95fbb6e8cfb3a550a091bf1a
+               1 File(s)          1,665 bytes
+
+ Directory of C:\Users\Dylan\Documents\GitHub\Explicabler.github.io\.git\objects\b7
+
+26/02/2026  20:46    <DIR>          .
+02/03/2026  00:44    <DIR>          ..
+26/02/2026  20:46               174 e116440c69b22ab30145abe362f35c411a8547
+               1 File(s)            174 bytes
+
+ Directory of C:\Users\Dylan\Documents\GitHub\Explicabler.github.io\.git\objects\c5
+
+01/03/2026  16:25    <DIR>          .
+02/03/2026  00:44    <DIR>          ..
+01/03/2026  16:15               686 78e841a7e15d9e20c8bcfedca98b3afeb688c5
+01/03/2026  16:25               177 dd9995875b84819a81d03e24f10d51ee55bc06
+               2 File(s)            863 bytes
+
+ Directory of C:\Users\Dylan\Documents\GitHub\Explicabler.github.io\.git\objects\c9
+
+26/02/2026  20:41    <DIR>          .
+02/03/2026  00:44    <DIR>          ..
+26/02/2026  20:41             8,708 5a2223b82f45e76dad6551b6d8eeb4068fe349
+               1 File(s)          8,708 bytes
+
+ Directory of C:\Users\Dylan\Documents\GitHub\Explicabler.github.io\.git\objects\cb
+
+27/02/2026  23:51    <DIR>          .
+02/03/2026  00:44    <DIR>          ..
+27/02/2026  23:51               829 5bf57392442670eebd87c241389ed5f6dfca69
+               1 File(s)            829 bytes
+
+ Directory of C:\Users\Dylan\Documents\GitHub\Explicabler.github.io\.git\objects\cc
+
+26/02/2026  23:33    <DIR>          .
+02/03/2026  00:44    <DIR>          ..
+26/02/2026  23:33            27,840 985f877c57e71d158073b882a42895d9e66f64
+               1 File(s)         27,840 bytes
+
+ Directory of C:\Users\Dylan\Documents\GitHub\Explicabler.github.io\.git\objects\cd
+
+02/03/2026  00:24    <DIR>          .
+02/03/2026  00:44    <DIR>          ..
+02/03/2026  00:24               213 c76e3426bb090907456eae588891989cb021c6
+               1 File(s)            213 bytes
+
+ Directory of C:\Users\Dylan\Documents\GitHub\Explicabler.github.io\.git\objects\d0
+
+02/03/2026  00:23    <DIR>          .
+02/03/2026  00:44    <DIR>          ..
+26/02/2026  23:59                52 83da732622e5a75f8da32561228e6a6626bee9
+02/03/2026  00:23             5,851 f530eeaeff0eb85bf2d9237126efe0b904a9cb
+               2 File(s)          5,903 bytes
+
+ Directory of C:\Users\Dylan\Documents\GitHub\Explicabler.github.io\.git\objects\d3
+
+26/02/2026  23:33    <DIR>          .
+02/03/2026  00:44    <DIR>          ..
+26/02/2026  23:33             6,269 d0edb5e3c53cb942bf05b13a84315afa81228c
+               1 File(s)          6,269 bytes
+
+ Directory of C:\Users\Dylan\Documents\GitHub\Explicabler.github.io\.git\objects\da
+
+27/02/2026  00:10    <DIR>          .
+02/03/2026  00:44    <DIR>          ..
+27/02/2026  00:10             8,399 6058d3834a5ba794d1921e7b2ee3fb349d086a
+               1 File(s)          8,399 bytes
+
+ Directory of C:\Users\Dylan\Documents\GitHub\Explicabler.github.io\.git\objects\dc
+
+27/02/2026  00:05    <DIR>          .
+02/03/2026  00:44    <DIR>          ..
+27/02/2026  00:05               174 f614824c977f6bacc6fe853a7b72942af84edd
+               1 File(s)            174 bytes
+
+ Directory of C:\Users\Dylan\Documents\GitHub\Explicabler.github.io\.git\objects\e2
+
+26/02/2026  23:25    <DIR>          .
+02/03/2026  00:44    <DIR>          ..
+26/02/2026  23:25            27,618 5c21816ecc81de58da78700f45c73016ec0a23
+               1 File(s)         27,618 bytes
+
+ Directory of C:\Users\Dylan\Documents\GitHub\Explicabler.github.io\.git\objects\e7
+
+02/03/2026  00:29    <DIR>          .
+02/03/2026  00:44    <DIR>          ..
+26/02/2026  23:18               160 2e71a1e48042d4a1cf8aaf08d8df37e2419651
+02/03/2026  00:29            29,806 56f62ac9d7518e2d51b463217963e5e96835b6
+               2 File(s)         29,966 bytes
+
+ Directory of C:\Users\Dylan\Documents\GitHub\Explicabler.github.io\.git\objects\eb
+
+26/02/2026  23:59    <DIR>          .
+02/03/2026  00:44    <DIR>          ..
+26/02/2026  23:59               172 0972cd79f83d126c46c8601655291d5bd5478b
+26/02/2026  23:59                55 ec14b62bfe8ec0a7d8ff7bc5fdbe66a75bf7bf
+               2 File(s)            227 bytes
+
+ Directory of C:\Users\Dylan\Documents\GitHub\Explicabler.github.io\.git\objects\f0
+
+02/03/2026  00:29    <DIR>          .
+02/03/2026  00:44    <DIR>          ..
+02/03/2026  00:29             5,766 9e8858bfa2d174cd3d7e1111d9aa431ffe562a
+               1 File(s)          5,766 bytes
+
+ Directory of C:\Users\Dylan\Documents\GitHub\Explicabler.github.io\.git\objects\f5
+
+26/02/2026  23:50    <DIR>          .
+02/03/2026  00:44    <DIR>          ..
+26/02/2026  23:50               174 e15a76d18714842926e3741279dcfa649375a1
+               1 File(s)            174 bytes
+
+ Directory of C:\Users\Dylan\Documents\GitHub\Explicabler.github.io\.git\objects\f6
+
+26/02/2026  23:25    <DIR>          .
+02/03/2026  00:44    <DIR>          ..
+26/02/2026  23:25             6,268 c3efcd6ee04b04b9ec7560206a054e85dd1047
+               1 File(s)          6,268 bytes
+
+ Directory of C:\Users\Dylan\Documents\GitHub\Explicabler.github.io\.git\objects\ff
+
+26/02/2026  20:46    <DIR>          .
+02/03/2026  00:44    <DIR>          ..
+26/02/2026  20:46             6,240 6b5686070a335c9d90ffe025ed738db4f0320a
+               1 File(s)          6,240 bytes
+
+ Directory of C:\Users\Dylan\Documents\GitHub\Explicabler.github.io\.git\objects\info
+
+26/02/2026  20:39    <DIR>          .
+02/03/2026  00:44    <DIR>          ..
+               0 File(s)              0 bytes
+
+ Directory of C:\Users\Dylan\Documents\GitHub\Explicabler.github.io\.git\objects\pack
+
+26/02/2026  20:41    <DIR>          .
+02/03/2026  00:44    <DIR>          ..
+26/02/2026  20:41            23,332 pack-102f3b195f8fdabb861a8a9746367c4bb61676dc.idx
+27/02/2026  23:53     1,767,341,112 pack-102f3b195f8fdabb861a8a9746367c4bb61676dc.pack
+26/02/2026  20:41             3,232 pack-102f3b195f8fdabb861a8a9746367c4bb61676dc.rev
+               3 File(s)  1,767,367,676 bytes
+
+ Directory of C:\Users\Dylan\Documents\GitHub\Explicabler.github.io\.git\refs
+
+26/02/2026  20:41    <DIR>          .
+02/03/2026  00:44    <DIR>          heads
+26/02/2026  20:41    <DIR>          remotes
+26/02/2026  20:39    <DIR>          tags
+               0 File(s)              0 bytes
+
+ Directory of C:\Users\Dylan\Documents\GitHub\Explicabler.github.io\.git\refs\heads
+
+02/03/2026  00:44    <DIR>          .
+26/02/2026  20:41    <DIR>          ..
+02/03/2026  00:44                41 main
+               1 File(s)             41 bytes
+
+ Directory of C:\Users\Dylan\Documents\GitHub\Explicabler.github.io\.git\refs\remotes
+
+26/02/2026  20:41    <DIR>          .
+26/02/2026  20:41    <DIR>          ..
+02/03/2026  00:44    <DIR>          origin
+               0 File(s)              0 bytes
+
+ Directory of C:\Users\Dylan\Documents\GitHub\Explicabler.github.io\.git\refs\remotes\origin
+
+02/03/2026  00:44    <DIR>          .
+26/02/2026  20:41    <DIR>          ..
+02/03/2026  00:44                30 HEAD
+02/03/2026  00:44                41 main
+               2 File(s)             71 bytes
+
+ Directory of C:\Users\Dylan\Documents\GitHub\Explicabler.github.io\.git\refs\tags
+
+26/02/2026  20:39    <DIR>          .
+26/02/2026  20:41    <DIR>          ..
+               0 File(s)              0 bytes
+
+ Directory of C:\Users\Dylan\Documents\GitHub\Explicabler.github.io\1on1soccer
+
+26/02/2026  20:41    <DIR>          .
+02/03/2026  00:55    <DIR>          ..
+26/02/2026  20:41         7,204,081 index.html
+26/02/2026  20:41               196 meta.json
+               2 File(s)      7,204,277 bytes
+
+ Directory of C:\Users\Dylan\Documents\GitHub\Explicabler.github.io\2 Player football
+
+26/02/2026  20:41    <DIR>          .
+02/03/2026  00:55    <DIR>          ..
+26/02/2026  20:41             4,322 game.js
+26/02/2026  20:41               635 index.html
+               2 File(s)          4,957 bytes
+
+ Directory of C:\Users\Dylan\Documents\GitHub\Explicabler.github.io\2048
+
+26/02/2026  20:41    <DIR>          .
+02/03/2026  00:55    <DIR>          ..
+26/02/2026  20:41            48,070 index.html
+               1 File(s)         48,070 bytes
+
+ Directory of C:\Users\Dylan\Documents\GitHub\Explicabler.github.io\agariolite
+
+26/02/2026  20:41    <DIR>          .
+02/03/2026  00:55    <DIR>          ..
+26/02/2026  20:41           107,976 index.html
+               1 File(s)        107,976 bytes
+
+ Directory of C:\Users\Dylan\Documents\GitHub\Explicabler.github.io\ageofwar
+
+26/02/2026  20:41    <DIR>          .
+02/03/2026  00:55    <DIR>          ..
+26/02/2026  20:41        11,642,972 index.html
+               1 File(s)     11,642,972 bytes
+
+ Directory of C:\Users\Dylan\Documents\GitHub\Explicabler.github.io\agesofconflict
+
+26/02/2026  20:41    <DIR>          .
+02/03/2026  00:55    <DIR>          ..
+26/02/2026  20:41        16,215,681 index.html
+               1 File(s)     16,215,681 bytes
+
+ Directory of C:\Users\Dylan\Documents\GitHub\Explicabler.github.io\AirlineTycoonIdle
+
+01/03/2026  16:11    <DIR>          .
+02/03/2026  00:55    <DIR>          ..
+01/03/2026  16:11             1,216 index.html
+               1 File(s)          1,216 bytes
+
+ Directory of C:\Users\Dylan\Documents\GitHub\Explicabler.github.io\amongus
+
+26/02/2026  20:41    <DIR>          .
+02/03/2026  00:55    <DIR>          ..
+26/02/2026  20:41         7,870,934 index.html
+               1 File(s)      7,870,934 bytes
+
+ Directory of C:\Users\Dylan\Documents\GitHub\Explicabler.github.io\angrybirdsshowdown
+
+26/02/2026  20:41    <DIR>          .
+02/03/2026  00:55    <DIR>          ..
+26/02/2026  20:41        25,880,092 index.html
+               1 File(s)     25,880,092 bytes
+
+ Directory of C:\Users\Dylan\Documents\GitHub\Explicabler.github.io\angrybirdsspace
+
+26/02/2026  20:41    <DIR>          .
+02/03/2026  00:55    <DIR>          ..
+26/02/2026  20:41        21,413,260 index.html
+               1 File(s)     21,413,260 bytes
+
+ Directory of C:\Users\Dylan\Documents\GitHub\Explicabler.github.io\awesometanks
+
+26/02/2026  20:41    <DIR>          .
+02/03/2026  00:55    <DIR>          ..
+26/02/2026  20:41         9,825,735 index.html
+               1 File(s)      9,825,735 bytes
+
+ Directory of C:\Users\Dylan\Documents\GitHub\Explicabler.github.io\awesometanks2
+
+26/02/2026  20:41    <DIR>          .
+02/03/2026  00:55    <DIR>          ..
+26/02/2026  20:41        13,004,752 index.html
+               1 File(s)     13,004,752 bytes
+
+ Directory of C:\Users\Dylan\Documents\GitHub\Explicabler.github.io\baconmaydie
+
+26/02/2026  20:41    <DIR>          .
+02/03/2026  00:55    <DIR>          ..
+26/02/2026  20:41         6,131,936 index.html
+               1 File(s)      6,131,936 bytes
+
+ Directory of C:\Users\Dylan\Documents\GitHub\Explicabler.github.io\badicecream2
+
+26/02/2026  20:41    <DIR>          .
+02/03/2026  00:55    <DIR>          ..
+26/02/2026  20:41         4,314,143 index.html
+               1 File(s)      4,314,143 bytes
+
+ Directory of C:\Users\Dylan\Documents\GitHub\Explicabler.github.io\badicecream3
+
+26/02/2026  20:41    <DIR>          .
+02/03/2026  00:55    <DIR>          ..
+26/02/2026  20:41         5,070,075 index.html
+               1 File(s)      5,070,075 bytes
+
+ Directory of C:\Users\Dylan\Documents\GitHub\Explicabler.github.io\badpiggies
+
+26/02/2026  20:41    <DIR>          .
+02/03/2026  00:55    <DIR>          ..
+26/02/2026  20:41        10,002,320 index.html
+               1 File(s)     10,002,320 bytes
+
+ Directory of C:\Users\Dylan\Documents\GitHub\Explicabler.github.io\Basket Random
+
+26/02/2026  20:41    <DIR>          .
+02/03/2026  00:55    <DIR>          ..
+26/02/2026  20:41                59 desktop.ini
+26/02/2026  20:41         5,058,176 index.html
+26/02/2026  20:41            16,220 meta.json
+               3 File(s)      5,074,455 bytes
+
+ Directory of C:\Users\Dylan\Documents\GitHub\Explicabler.github.io\Basketball Legends
+
+26/02/2026  20:41    <DIR>          .
+02/03/2026  00:55    <DIR>          ..
+26/02/2026  20:41                64 desktop.ini
+26/02/2026  20:41         8,135,367 index.html
+26/02/2026  20:41            21,634 meta.json
+               3 File(s)      8,157,065 bytes
+
+ Directory of C:\Users\Dylan\Documents\GitHub\Explicabler.github.io\basketballlegends
+
+26/02/2026  20:41    <DIR>          .
+02/03/2026  00:55    <DIR>          ..
+26/02/2026  20:41         8,135,367 index.html
+               1 File(s)      8,135,367 bytes
+
+ Directory of C:\Users\Dylan\Documents\GitHub\Explicabler.github.io\basketrandom
+
+26/02/2026  20:41    <DIR>          .
+02/03/2026  00:55    <DIR>          ..
+26/02/2026  20:41         5,058,176 index.html
+               1 File(s)      5,058,176 bytes
+
+ Directory of C:\Users\Dylan\Documents\GitHub\Explicabler.github.io\Bit Planes
+
+26/02/2026  20:41    <DIR>          .
+02/03/2026  00:55    <DIR>          ..
+26/02/2026  20:41           758,102 index.html
+26/02/2026  20:41             7,491 meta.json
+               2 File(s)        765,593 bytes
+
+ Directory of C:\Users\Dylan\Documents\GitHub\Explicabler.github.io\bitplanes
+
+26/02/2026  20:41    <DIR>          .
+02/03/2026  00:55    <DIR>          ..
+26/02/2026  20:41           758,102 index.html
+               1 File(s)        758,102 bytes
+
+ Directory of C:\Users\Dylan\Documents\GitHub\Explicabler.github.io\Bloons TD 5
+
+26/02/2026  20:41    <DIR>          .
+02/03/2026  00:55    <DIR>          ..
+26/02/2026  20:41                57 desktop.ini
+26/02/2026  20:41             2,375 index.html
+26/02/2026  20:41            24,645 meta.json
+               3 File(s)         27,077 bytes
+
+ Directory of C:\Users\Dylan\Documents\GitHub\Explicabler.github.io\bloonsTD
+
+26/02/2026  20:41    <DIR>          .
+02/03/2026  00:55    <DIR>          ..
+26/02/2026  20:41         7,512,645 index.html
+               1 File(s)      7,512,645 bytes
+
+ Directory of C:\Users\Dylan\Documents\GitHub\Explicabler.github.io\bloonsTD3
+
+26/02/2026  20:41    <DIR>          .
+02/03/2026  00:55    <DIR>          ..
+26/02/2026  20:41         8,665,053 index.html
+               1 File(s)      8,665,053 bytes
+
+ Directory of C:\Users\Dylan\Documents\GitHub\Explicabler.github.io\bloonsTD4
+
+26/02/2026  20:41    <DIR>          .
+02/03/2026  00:55    <DIR>          ..
+26/02/2026  20:41        11,144,336 index.html
+               1 File(s)     11,144,336 bytes
+
+ Directory of C:\Users\Dylan\Documents\GitHub\Explicabler.github.io\bloxorz
+
+26/02/2026  20:41    <DIR>          .
+02/03/2026  00:55    <DIR>          ..
+26/02/2026  20:41         9,824,603 index.html
+               1 File(s)      9,824,603 bytes
+
+ Directory of C:\Users\Dylan\Documents\GitHub\Explicabler.github.io\bobtherobber
+
+26/02/2026  20:41    <DIR>          .
+02/03/2026  00:55    <DIR>          ..
+26/02/2026  20:41        19,089,584 index.html
+               1 File(s)     19,089,584 bytes
+
+ Directory of C:\Users\Dylan\Documents\GitHub\Explicabler.github.io\bobtherobber2
+
+26/02/2026  20:41    <DIR>          .
+02/03/2026  00:55    <DIR>          ..
+26/02/2026  20:41        12,404,083 index.html
+               1 File(s)     12,404,083 bytes
+
+ Directory of C:\Users\Dylan\Documents\GitHub\Explicabler.github.io\bowmasters
+
+26/02/2026  20:41    <DIR>          .
+02/03/2026  00:55    <DIR>          ..
+26/02/2026  20:41        27,568,668 index.html
+               1 File(s)     27,568,668 bytes
+
+ Directory of C:\Users\Dylan\Documents\GitHub\Explicabler.github.io\boxingrandom
+
+26/02/2026  20:41    <DIR>          .
+02/03/2026  00:55    <DIR>          ..
+26/02/2026  20:41         4,675,009 index.html
+               1 File(s)      4,675,009 bytes
+
+ Directory of C:\Users\Dylan\Documents\GitHub\Explicabler.github.io\bubbleshooter
+
+26/02/2026  20:41    <DIR>          .
+02/03/2026  00:55    <DIR>          ..
+26/02/2026  20:41         7,076,553 index.html
+               1 File(s)      7,076,553 bytes
+
+ Directory of C:\Users\Dylan\Documents\GitHub\Explicabler.github.io\Budget Minecraft
+
+26/02/2026  20:41    <DIR>          .
+02/03/2026  00:55    <DIR>          ..
+26/02/2026  20:41                62 desktop.ini
+26/02/2026  20:41            20,294 game.js
+26/02/2026  20:41             1,512 index.html
+26/02/2026  20:41             3,227 style.css
+               4 File(s)         25,095 bytes
+
+ Directory of C:\Users\Dylan\Documents\GitHub\Explicabler.github.io\Buildnow
+
+26/02/2026  23:17    <DIR>          .
+02/03/2026  00:55    <DIR>          ..
+26/02/2026  23:12               471 index.html
+               1 File(s)            471 bytes
+
+ Directory of C:\Users\Dylan\Documents\GitHub\Explicabler.github.io\candycrush
+
+26/02/2026  20:41    <DIR>          .
+02/03/2026  00:55    <DIR>          ..
+26/02/2026  20:41         4,528,477 index.html
+               1 File(s)      4,528,477 bytes
+
+ Directory of C:\Users\Dylan\Documents\GitHub\Explicabler.github.io\cardrawing
+
+26/02/2026  20:41    <DIR>          .
+02/03/2026  00:55    <DIR>          ..
+26/02/2026  20:41        17,968,202 index.html
+               1 File(s)     17,968,202 bytes
+
+ Directory of C:\Users\Dylan\Documents\GitHub\Explicabler.github.io\clashofvikings
+
+26/02/2026  20:41    <DIR>          .
+02/03/2026  00:55    <DIR>          ..
+26/02/2026  20:41         3,789,093 index.html
+               1 File(s)      3,789,093 bytes
+
+ Directory of C:\Users\Dylan\Documents\GitHub\Explicabler.github.io\cleanupio
+
+26/02/2026  20:41    <DIR>          .
+02/03/2026  00:55    <DIR>          ..
+26/02/2026  20:41        17,957,510 index.html
+               1 File(s)     17,957,510 bytes
+
+ Directory of C:\Users\Dylan\Documents\GitHub\Explicabler.github.io\clusterrush
+
+26/02/2026  20:41    <DIR>          .
+02/03/2026  00:55    <DIR>          ..
+26/02/2026  20:41        16,052,302 index.html
+               1 File(s)     16,052,302 bytes
+
+ Directory of C:\Users\Dylan\Documents\GitHub\Explicabler.github.io\Cookie Clikcer
+
+26/02/2026  20:41    <DIR>          .
+02/03/2026  00:55    <DIR>          ..
+26/02/2026  20:41               499 ajax.js
+26/02/2026  20:41             3,143 base64.js
+26/02/2026  20:41            11,373 dungeons.js
+26/02/2026  20:41    <DIR>          img
+26/02/2026  20:41             4,725 index.html
+26/02/2026  20:41           154,055 main.js
+26/02/2026  20:41               375 README.md
+26/02/2026  20:41            16,691 style.css
+               7 File(s)        190,861 bytes
+
+ Directory of C:\Users\Dylan\Documents\GitHub\Explicabler.github.io\Cookie Clikcer\img
+
+26/02/2026  20:41    <DIR>          .
+26/02/2026  20:41    <DIR>          ..
+26/02/2026  20:41               860 alchemylab.png
+26/02/2026  20:41               549 alchemylabBackground.png
+26/02/2026  20:41               891 alchemylabIcon.png
+26/02/2026  20:41               570 alteredGrandma.png
+26/02/2026  20:41               605 antiGrandma.png
+26/02/2026  20:41               729 antimattercondenser.png
+26/02/2026  20:41             1,130 antimattercondenserBackground.png
+26/02/2026  20:41               956 antimattercondenserIcon.png
+26/02/2026  20:41            54,979 bgBlue.jpg
+26/02/2026  20:41               598 blackGradient.png
+26/02/2026  20:41            15,061 chocolateMilkWave.png
+26/02/2026  20:41            49,834 control.png
+26/02/2026  20:41            34,676 cookieShower1.png
+26/02/2026  20:41            63,651 cookieShower2.png
+26/02/2026  20:41            85,331 cookieShower3.png
+26/02/2026  20:41               689 cosmicGrandma.png
+26/02/2026  20:41               640 cursor.png
+26/02/2026  20:41               448 cursoricon.png
+26/02/2026  20:41             1,783 darkNoise.png
+26/02/2026  20:41               514 factory.png
+26/02/2026  20:41             1,328 factoryBackground.png
+26/02/2026  20:41               704 factoryIcon.png
+26/02/2026  20:41               835 farm.png
+26/02/2026  20:41               849 farmBackground.png
+26/02/2026  20:41               655 farmerGrandma.png
+26/02/2026  20:41               944 farmIcon.png
+26/02/2026  20:41             4,136 goldCookie.png
+26/02/2026  20:41               613 grandma.png
+26/02/2026  20:41               877 grandmaBackground.png
+26/02/2026  20:41             1,271 grandmaIcon.png
+26/02/2026  20:41            21,437 grandmas1.jpg
+26/02/2026  20:41            17,325 grandmas2.jpg
+26/02/2026  20:41            26,945 grandmas3.jpg
+26/02/2026  20:41               666 grandmasGrandma.png
+26/02/2026  20:41            18,895 icons.png
+26/02/2026  20:41            97,753 imperfectCookie.png
+26/02/2026  20:41               131 infoBG.png
+26/02/2026  20:41               313 infoBGfade.png
+26/02/2026  20:41            13,041 mapBG.jpg
+26/02/2026  20:41               703 mapIcons.png
+26/02/2026  20:41               634 mapTiles.png
+26/02/2026  20:41             2,708 marshmallows.png
+26/02/2026  20:41             6,829 milk.png
+26/02/2026  20:41            20,283 milkWave.png
+26/02/2026  20:41               741 mine.png
+26/02/2026  20:41             1,108 mineBackground.png
+26/02/2026  20:41               783 mineIcon.png
+26/02/2026  20:41               681 minerGrandma.png
+26/02/2026  20:41               325 money.png
+26/02/2026  20:41               431 mysteriousHero.png
+26/02/2026  20:41               610 mysteriousOpponent.png
+26/02/2026  20:41             7,235 panelHorizontal.png
+26/02/2026  20:41             7,790 panelVertical.png
+26/02/2026  20:41           102,964 perfectCookie.png
+26/02/2026  20:41             1,061 portal.png
+26/02/2026  20:41             4,468 portalBackground.png
+26/02/2026  20:41             1,160 portalIcon.png
+26/02/2026  20:41            15,272 raspberryWave.png
+26/02/2026  20:41             7,072 shine.png
+26/02/2026  20:41               568 shipment.png
+26/02/2026  20:41               960 shipmentBackground.png
+26/02/2026  20:41               860 shipmentIcon.png
+26/02/2026  20:41            15,618 smallCookies.png
+26/02/2026  20:41            18,490 storeTile.jpg
+26/02/2026  20:41               813 timemachine.png
+26/02/2026  20:41             1,232 timemachineBackground.png
+26/02/2026  20:41               601 timemachineIcon.png
+26/02/2026  20:41               533 transmutedGrandma.png
+26/02/2026  20:41               948 upgradeFrame.png
+26/02/2026  20:41               589 workerGrandma.png
+26/02/2026  20:41             4,266 wrathCookie.png
+              71 File(s)        751,548 bytes
+
+ Directory of C:\Users\Dylan\Documents\GitHub\Explicabler.github.io\cookieclicker
+
+26/02/2026  20:41    <DIR>          .
+02/03/2026  00:55    <DIR>          ..
+26/02/2026  20:41         7,652,705 index.html
+               1 File(s)      7,652,705 bytes
+
+ Directory of C:\Users\Dylan\Documents\GitHub\Explicabler.github.io\crazycrashlanding
+
+26/02/2026  20:41    <DIR>          .
+02/03/2026  00:55    <DIR>          ..
+26/02/2026  20:41        32,836,262 index.html
+               1 File(s)     32,836,262 bytes
+
+ Directory of C:\Users\Dylan\Documents\GitHub\Explicabler.github.io\crazymotorcycle
+
+26/02/2026  20:41    <DIR>          .
+02/03/2026  00:55    <DIR>          ..
+26/02/2026  20:41        16,700,332 index.html
+               1 File(s)     16,700,332 bytes
+
+ Directory of C:\Users\Dylan\Documents\GitHub\Explicabler.github.io\crossyroad
+
+26/02/2026  20:41    <DIR>          .
+02/03/2026  00:55    <DIR>          ..
+26/02/2026  20:41         3,250,987 index.html
+               1 File(s)      3,250,987 bytes
+
+ Directory of C:\Users\Dylan\Documents\GitHub\Explicabler.github.io\dadish
+
+26/02/2026  20:41    <DIR>          .
+02/03/2026  00:55    <DIR>          ..
+26/02/2026  20:41         8,875,531 index.html
+               1 File(s)      8,875,531 bytes
+
+ Directory of C:\Users\Dylan\Documents\GitHub\Explicabler.github.io\dadish2
+
+26/02/2026  20:41    <DIR>          .
+02/03/2026  00:55    <DIR>          ..
+26/02/2026  20:41         8,952,834 index.html
+               1 File(s)      8,952,834 bytes
+
+ Directory of C:\Users\Dylan\Documents\GitHub\Explicabler.github.io\Deadly Descent
+
+26/02/2026  20:41    <DIR>          .
+02/03/2026  00:55    <DIR>          ..
+26/02/2026  20:41            35,153 index.html
+               1 File(s)         35,153 bytes
+
+ Directory of C:\Users\Dylan\Documents\GitHub\Explicabler.github.io\deathrun3D
+
+26/02/2026  20:41    <DIR>          .
+02/03/2026  00:55    <DIR>          ..
+26/02/2026  20:41         8,437,080 index.html
+               1 File(s)      8,437,080 bytes
+
+ Directory of C:\Users\Dylan\Documents\GitHub\Explicabler.github.io\demolitionderbycrashracing
+
+26/02/2026  20:41    <DIR>          .
+02/03/2026  00:55    <DIR>          ..
+26/02/2026  20:41        29,012,934 index.html
+               1 File(s)     29,012,934 bytes
+
+ Directory of C:\Users\Dylan\Documents\GitHub\Explicabler.github.io\doodlejump
+
+26/02/2026  20:41    <DIR>          .
+02/03/2026  00:55    <DIR>          ..
+26/02/2026  20:41           423,484 index.html
+               1 File(s)        423,484 bytes
+
+ Directory of C:\Users\Dylan\Documents\GitHub\Explicabler.github.io\dreadheadparkour
+
+26/02/2026  20:41    <DIR>          .
+02/03/2026  00:55    <DIR>          ..
+26/02/2026  20:41         8,041,093 index.html
+               1 File(s)      8,041,093 bytes
+
+ Directory of C:\Users\Dylan\Documents\GitHub\Explicabler.github.io\Drive Mad
+
+26/02/2026  20:41    <DIR>          .
+02/03/2026  00:55    <DIR>          ..
+26/02/2026  20:41             3,815 index.html
+26/02/2026  20:41            12,019 meta.json
+               2 File(s)         15,834 bytes
+
+ Directory of C:\Users\Dylan\Documents\GitHub\Explicabler.github.io\drivemad
+
+26/02/2026  20:41    <DIR>          .
+02/03/2026  00:55    <DIR>          ..
+26/02/2026  20:41         5,000,525 index.html
+               1 File(s)      5,000,525 bytes
+
+ Directory of C:\Users\Dylan\Documents\GitHub\Explicabler.github.io\ducklife
+
+26/02/2026  20:41    <DIR>          .
+02/03/2026  00:55    <DIR>          ..
+26/02/2026  20:41         8,514,800 index.html
+               1 File(s)      8,514,800 bytes
+
+ Directory of C:\Users\Dylan\Documents\GitHub\Explicabler.github.io\ducklife2
+
+26/02/2026  20:41    <DIR>          .
+02/03/2026  00:55    <DIR>          ..
+26/02/2026  20:41         9,340,008 index.html
+               1 File(s)      9,340,008 bytes
+
+ Directory of C:\Users\Dylan\Documents\GitHub\Explicabler.github.io\ducklife3
+
+26/02/2026  20:41    <DIR>          .
+02/03/2026  00:55    <DIR>          ..
+26/02/2026  20:41        14,855,224 index.html
+               1 File(s)     14,855,224 bytes
+
+ Directory of C:\Users\Dylan\Documents\GitHub\Explicabler.github.io\ducklife5
+
+26/02/2026  20:41    <DIR>          .
+02/03/2026  00:55    <DIR>          ..
+26/02/2026  20:41        14,093,620 index.html
+               1 File(s)     14,093,620 bytes
+
+ Directory of C:\Users\Dylan\Documents\GitHub\Explicabler.github.io\earntodie
+
+26/02/2026  20:41    <DIR>          .
+02/03/2026  00:55    <DIR>          ..
+26/02/2026  20:41        12,082,273 index.html
+               1 File(s)     12,082,273 bytes
+
+ Directory of C:\Users\Dylan\Documents\GitHub\Explicabler.github.io\eggycar
+
+26/02/2026  20:41    <DIR>          .
+02/03/2026  00:55    <DIR>          ..
+26/02/2026  20:41         6,784,643 index.html
+               1 File(s)      6,784,643 bytes
+
+ Directory of C:\Users\Dylan\Documents\GitHub\Explicabler.github.io\elasticface
+
+26/02/2026  20:41    <DIR>          .
+02/03/2026  00:55    <DIR>          ..
+26/02/2026  20:41           655,803 index.html
+               1 File(s)        655,803 bytes
+
+ Directory of C:\Users\Dylan\Documents\GitHub\Explicabler.github.io\Elements
+
+26/02/2026  20:41    <DIR>          .
+02/03/2026  00:55    <DIR>          ..
+26/02/2026  20:41    <DIR>          2 Player football
+26/02/2026  20:41                54 desktop.ini
+26/02/2026  20:41             9,847 index.html
+               2 File(s)          9,901 bytes
+
+ Directory of C:\Users\Dylan\Documents\GitHub\Explicabler.github.io\Elements\2 Player football
+
+26/02/2026  20:41    <DIR>          .
+26/02/2026  20:41    <DIR>          ..
+26/02/2026  20:41             4,322 game.js
+26/02/2026  20:41               635 index.html
+               2 File(s)          4,957 bytes
+
+ Directory of C:\Users\Dylan\Documents\GitHub\Explicabler.github.io\escaperoad2
+
+26/02/2026  20:41    <DIR>          .
+02/03/2026  00:55    <DIR>          ..
+26/02/2026  20:41        33,569,947 index.html
+               1 File(s)     33,569,947 bytes
+
+ Directory of C:\Users\Dylan\Documents\GitHub\Explicabler.github.io\escapingtheprison
+
+26/02/2026  20:41    <DIR>          .
+02/03/2026  00:55    <DIR>          ..
+26/02/2026  20:41        19,784,328 index.html
+               1 File(s)     19,784,328 bytes
+
+ Directory of C:\Users\Dylan\Documents\GitHub\Explicabler.github.io\evilglitch
+
+26/02/2026  20:41    <DIR>          .
+02/03/2026  00:55    <DIR>          ..
+26/02/2026  20:41            33,094 index.html
+               1 File(s)         33,094 bytes
+
+ Directory of C:\Users\Dylan\Documents\GitHub\Explicabler.github.io\fancypantsadventure
+
+26/02/2026  20:41    <DIR>          .
+02/03/2026  00:55    <DIR>          ..
+26/02/2026  20:41         9,097,203 index.html
+               1 File(s)      9,097,203 bytes
+
+ Directory of C:\Users\Dylan\Documents\GitHub\Explicabler.github.io\fireboyandwatergirl
+
+26/02/2026  20:41    <DIR>          .
+02/03/2026  00:55    <DIR>          ..
+26/02/2026  20:41         9,279,226 index.html
+               1 File(s)      9,279,226 bytes
+
+ Directory of C:\Users\Dylan\Documents\GitHub\Explicabler.github.io\fireboyandwatergirl3
+
+26/02/2026  20:41    <DIR>          .
+02/03/2026  00:55    <DIR>          ..
+26/02/2026  20:41         9,490,868 index.html
+               1 File(s)      9,490,868 bytes
+
+ Directory of C:\Users\Dylan\Documents\GitHub\Explicabler.github.io\flappybird
+
+26/02/2026  20:41    <DIR>          .
+02/03/2026  00:55    <DIR>          ..
+26/02/2026  20:41         4,401,739 index.html
+               1 File(s)      4,401,739 bytes
+
+ Directory of C:\Users\Dylan\Documents\GitHub\Explicabler.github.io\floodrunner2
+
+26/02/2026  20:41    <DIR>          .
+02/03/2026  00:55    <DIR>          ..
+26/02/2026  20:41         9,256,621 index.html
+               1 File(s)      9,256,621 bytes
+
+ Directory of C:\Users\Dylan\Documents\GitHub\Explicabler.github.io\floodrunner3
+
+26/02/2026  20:41    <DIR>          .
+02/03/2026  00:55    <DIR>          ..
+26/02/2026  20:41        11,491,069 index.html
+               1 File(s)     11,491,069 bytes
+
+ Directory of C:\Users\Dylan\Documents\GitHub\Explicabler.github.io\fnaf4
+
+26/02/2026  20:41    <DIR>          .
+02/03/2026  00:55    <DIR>          ..
+26/02/2026  20:41        23,274,513 index.html
+               1 File(s)     23,274,513 bytes
+
+ Directory of C:\Users\Dylan\Documents\GitHub\Explicabler.github.io\footballbros
+
+26/02/2026  20:41    <DIR>          .
+02/03/2026  00:55    <DIR>          ..
+26/02/2026  20:41        17,513,036 index.html
+               1 File(s)     17,513,036 bytes
+
+ Directory of C:\Users\Dylan\Documents\GitHub\Explicabler.github.io\footballlegends
+
+26/02/2026  20:41    <DIR>          .
+02/03/2026  00:55    <DIR>          ..
+26/02/2026  20:41         3,645,783 index.html
+               1 File(s)      3,645,783 bytes
+
+ Directory of C:\Users\Dylan\Documents\GitHub\Explicabler.github.io\funnybattle
+
+26/02/2026  20:41    <DIR>          .
+02/03/2026  00:55    <DIR>          ..
+26/02/2026  20:41        10,725,722 index.html
+               1 File(s)     10,725,722 bytes
+
+ Directory of C:\Users\Dylan\Documents\GitHub\Explicabler.github.io\funnybattle2
+
+26/02/2026  20:41    <DIR>          .
+02/03/2026  00:55    <DIR>          ..
+26/02/2026  20:41        15,470,520 index.html
+               1 File(s)     15,470,520 bytes
+
+ Directory of C:\Users\Dylan\Documents\GitHub\Explicabler.github.io\funnyshooter2
+
+26/02/2026  20:41    <DIR>          .
+02/03/2026  00:55    <DIR>          ..
+26/02/2026  20:41        46,417,172 index.html
+               1 File(s)     46,417,172 bytes
+
+ Directory of C:\Users\Dylan\Documents\GitHub\Explicabler.github.io\game-images
+
+26/02/2026  20:41    <DIR>          .
+02/03/2026  00:55    <DIR>          ..
+26/02/2026  20:41            44,426 1-5.jpg
+26/02/2026  20:41            71,951 1-8.jpg
+26/02/2026  20:41            14,094 1on1soccer.jpg
+26/02/2026  20:41            55,153 1v1-lol.jpg
+26/02/2026  20:41            47,155 2-player-football.jpg
+26/02/2026  20:41            13,180 2048.jpg
+26/02/2026  20:41            21,494 agariolite.jpg
+26/02/2026  20:41            75,599 ageofwar.jpg
+26/02/2026  20:41            58,540 agesofconflict.jpg
+26/02/2026  20:41            45,963 alpha-1-2-6.jpg
+26/02/2026  20:41            10,710 amongus.jpg
+26/02/2026  20:41            83,874 angrybirdsshowdown.jpg
+26/02/2026  20:41            45,256 angrybirdsspace.jpg
+26/02/2026  20:41            10,498 awesometanks.jpg
+26/02/2026  20:41            10,498 awesometanks2.jpg
+26/02/2026  20:41            31,925 baconmaydie.jpg
+26/02/2026  20:41            51,203 badicecream2.jpg
+26/02/2026  20:41            83,093 badicecream3.jpg
+26/02/2026  20:41            45,094 badpiggies.jpg
+26/02/2026  20:41            42,408 basket-random.jpg
+26/02/2026  20:41            22,920 basketball-legends.jpg
+26/02/2026  20:41            67,046 basketballlegends.jpg
+26/02/2026  20:41            59,493 basketrandom.jpg
+26/02/2026  20:41            31,465 beta-1-3.jpg
+26/02/2026  20:41            41,054 bit-planes.jpg
+26/02/2026  20:41            21,539 bitplanes.jpg
+26/02/2026  20:41            86,353 bloons-td-5.jpg
+26/02/2026  20:41            12,587 bloonstd.jpg
+26/02/2026  20:41             5,951 bloonstd3.jpg
+26/02/2026  20:41            92,081 bloonstd4.jpg
+26/02/2026  20:41            25,912 bloxorz.jpg
+26/02/2026  20:41            54,126 bobtherobber.jpg
+26/02/2026  20:41            18,762 bobtherobber2.jpg
+26/02/2026  20:41            41,368 bowmasters.jpg
+26/02/2026  20:41            63,931 boxingrandom.jpg
+26/02/2026  20:41            44,313 bubbleshooter.jpg
+26/02/2026  20:41            46,418 budget-minecraft.jpg
+26/02/2026  20:41            90,804 candycrush.jpg
+26/02/2026  20:41            11,589 cardrawing.jpg
+26/02/2026  20:41            49,134 clashofvikings.jpg
+26/02/2026  20:41            30,412 cleanupio.jpg
+26/02/2026  20:41             9,254 clusterrush.jpg
+26/02/2026  20:41            49,636 cookieclicker.jpg
+26/02/2026  20:41            40,070 crazycrashlanding.jpg
+26/02/2026  20:41            11,526 crazymotorcycle.jpg
+26/02/2026  20:41            52,443 crossyroad.jpg
+26/02/2026  20:41            49,568 dadish.jpg
+26/02/2026  20:41            22,933 dadish2.jpg
+26/02/2026  20:41             4,718 deathrun3d.jpg
+26/02/2026  20:41            44,403 demolitionderbycrashracing.jpg
+26/02/2026  20:41            39,211 doodlejump.jpg
+26/02/2026  20:41            44,587 dreadheadparkour.jpg
+26/02/2026  20:41            39,328 drive-mad.jpg
+26/02/2026  20:41            28,519 drivemad.jpg
+26/02/2026  20:41             8,680 ducklife.jpg
+26/02/2026  20:41            46,221 ducklife2.jpg
+26/02/2026  20:41            28,152 ducklife3.jpg
+26/02/2026  20:41            18,478 ducklife5.jpg
+26/02/2026  20:41            33,563 earntodie.jpg
+26/02/2026  20:41            71,495 eggycar.jpg
+26/02/2026  20:41            18,288 elasticface.jpg
+26/02/2026  20:41            31,632 elements.jpg
+26/02/2026  20:41             7,687 escaperoad2.jpg
+26/02/2026  20:41            69,830 escapingtheprison.jpg
+26/02/2026  20:41            14,090 evilglitch.jpg
+26/02/2026  20:41            30,041 fancypantsadventure.jpg
+26/02/2026  20:41            53,974 fireboyandwatergirl.jpg
+26/02/2026  20:41            30,804 fireboyandwatergirl3.jpg
+26/02/2026  20:41            48,300 flappybird.jpg
+26/02/2026  20:41             4,569 floodrunner2.jpg
+26/02/2026  20:41             4,569 floodrunner3.jpg
+26/02/2026  20:41            66,794 fnaf4.jpg
+26/02/2026  20:41            86,581 footballbros.jpg
+26/02/2026  20:41            40,708 footballlegends.jpg
+26/02/2026  20:41            17,036 funnybattle.jpg
+26/02/2026  20:41            33,888 funnybattle2.jpg
+26/02/2026  20:41            33,888 funnyshooter2.jpg
+26/02/2026  20:41            54,617 geometryvibes.jpg
+26/02/2026  20:41            23,963 getontop.jpg
+26/02/2026  20:41             8,339 googlebaseball.jpg
+26/02/2026  20:41            14,288 googledino.jpg
+26/02/2026  20:41            32,992 granny.jpg
+26/02/2026  20:41            19,183 granny2.jpg
+26/02/2026  20:41            31,789 helixjump.jpg
+26/02/2026  20:41            12,045 highwaytraffic.jpg
+26/02/2026  20:41            70,073 holeio.jpg
+26/02/2026  20:41            23,194 idlebreakout.jpg
+26/02/2026  20:41            14,833 indev.jpg
+26/02/2026  20:41             9,132 ironsnout.jpg
+26/02/2026  20:41            64,532 johnnytrigger.jpg
+26/02/2026  20:41            12,181 jumpingshell.jpg
+26/02/2026  20:41            27,675 karatebros.jpg
+26/02/2026  20:41            57,551 kartbros.jpg
+26/02/2026  20:41            32,877 learn-to-fly-3.jpg
+26/02/2026  20:41            23,331 learntoflyidle.jpg
+26/02/2026  20:41            62,841 madalinstuntcars2.jpg
+26/02/2026  20:41            23,382 melonplayground.jpg
+26/02/2026  20:41            88,120 mergeroundracers.jpg
+26/02/2026  20:41            35,352 mini-metro.jpg
+26/02/2026  20:41            31,028 monkeymart.jpg
+26/02/2026  20:41             8,592 monstertracks.jpg
+26/02/2026  20:41            56,169 motox3m2.jpg
+26/02/2026  20:41            41,762 motox3m3.jpg
+26/02/2026  20:41            37,008 motox3mspookyland.jpg
+26/02/2026  20:41             6,983 motox3mwinter.jpg
+26/02/2026  20:41            61,658 noobminer.jpg
+26/02/2026  20:41            46,259 oppositeday.jpg
+26/02/2026  20:41            10,944 ovo.jpg
+26/02/2026  20:41            16,829 ovo2.jpg
+26/02/2026  20:41            45,062 pacman.jpg
+26/02/2026  20:41            67,599 papashotdoggeria.jpg
+26/02/2026  20:41            42,558 papaspastaria.jpg
+26/02/2026  20:41            15,168 papassushiria.jpg
+26/02/2026  20:41            42,558 papastacomia.jpg
+26/02/2026  20:41            25,814 paperio2.jpg
+26/02/2026  20:41            16,026 paperminecraft1-15-1.jpg
+26/02/2026  20:41            62,097 parkingfury2.jpg
+26/02/2026  20:41            78,922 parkingfury3.jpg
+26/02/2026  20:41            34,092 pet-rock-simulator-1-4-1-smaller.jpg
+26/02/2026  20:41             7,122 picosschool.jpg
+26/02/2026  20:41             8,069 pingpongchaos.jpg
+26/02/2026  20:41             5,978 pixelspeedrun.jpg
+26/02/2026  20:41            34,238 plantsvszombies.jpg
+26/02/2026  20:41            82,578 plonky.jpg
+26/02/2026  20:41            62,221 poorbunny.jpg
+26/02/2026  20:41            95,841 pou.jpg
+26/02/2026  20:41           223,420 RaceSurvivalArenaKing.jpeg
+26/02/2026  20:41            11,879 ragdollsoccer.jpg
+26/02/2026  20:41             6,496 redball4vol1.jpg
+26/02/2026  20:41            30,018 retrohighway.jpg
+26/02/2026  20:41            24,854 riddleschool2.jpg
+26/02/2026  20:41            19,680 riddleschool3.jpg
+26/02/2026  20:41            14,333 riddletransfer.jpg
+26/02/2026  20:41            42,695 rooftopsnipers.jpg
+26/02/2026  20:41            59,118 run.jpg
+26/02/2026  20:41            89,380 sandgame.jpg
+26/02/2026  20:41             9,482 shortlife.jpg
+26/02/2026  20:41            29,232 slope.jpg
+26/02/2026  20:41            21,821 slope2player.jpg
+26/02/2026  20:41            27,650 slope3.jpg
+26/02/2026  20:41            57,034 slowroads.jpg
+26/02/2026  20:41            77,524 sm64.jpg
+26/02/2026  20:41            49,352 snowrider.jpg
+26/02/2026  20:41            73,005 soccerbros.jpg
+26/02/2026  20:41            49,890 soccerrandom.jpg
+26/02/2026  20:41             6,414 spacebarclicker.jpg
+26/02/2026  20:41            21,358 spacewaves.jpg
+26/02/2026  20:41            18,358 speedstars.jpg
+26/02/2026  20:41            28,907 stack.jpg
+26/02/2026  20:41            37,466 stacktris.jpg
+26/02/2026  20:41            31,501 stateio.jpg
+26/02/2026  20:41            10,938 stickarchersbattle.jpg
+26/02/2026  20:41            70,957 stickfighter.jpg
+26/02/2026  20:41            22,358 stickmanhook.jpg
+26/02/2026  20:41             3,846 subwaysurfershavana.jpg
+26/02/2026  20:41            39,177 superstarcar.jpg
+26/02/2026  20:41            91,877 tag.jpg
+26/02/2026  20:41            34,165 taproad.jpg
+26/02/2026  20:41            13,528 templeofboom.jpg
+26/02/2026  20:41           103,677 templerun2.jpg
+26/02/2026  20:41            60,144 territorialio.jpg
+26/02/2026  20:41            36,435 theimpossiblequiz.jpg
+26/02/2026  20:41            54,191 thereisnog.jpg
+26/02/2026  20:41            28,897 theyarecoming.jpg
+26/02/2026  20:41             7,354 thisistheonlyleveltoo.jpg
+26/02/2026  20:41            17,746 timeshooter3.jpg
+26/02/2026  20:41             7,722 tinyfishing.jpg
+26/02/2026  20:41            56,877 trapthecat.jpg
+26/02/2026  20:41            76,615 triviacrack.jpg
+26/02/2026  20:41            34,321 tubejumpers.jpg
+26/02/2026  20:41            34,321 tunnelrush.jpg
+26/02/2026  20:41            35,158 undertale.jpg
+26/02/2026  20:41            12,555 unicyclehero.jpg
+26/02/2026  20:41            30,235 vex4.jpg
+26/02/2026  20:41            46,738 vex5.jpg
+26/02/2026  20:41            42,948 vex6.jpg
+26/02/2026  20:41            47,617 vex7.jpg
+26/02/2026  20:41            27,786 vex8.jpg
+26/02/2026  20:41            41,657 vexx3m.jpg
+26/02/2026  20:41            41,657 vexx3m2.jpg
+26/02/2026  20:41             2,791 volleyrandom.jpg
+26/02/2026  20:41            30,052 wheeliebike.jpg
+26/02/2026  20:41            21,843 wheely.jpg
+26/02/2026  20:41            44,510 wheely4.jpg
+26/02/2026  20:41            47,595 wheely5.jpg
+26/02/2026  20:41            28,715 wheely6.jpg
+26/02/2026  20:41            45,077 wheely8.jpg
+26/02/2026  20:41            12,658 wordleunlimited.jpg
+26/02/2026  20:41            20,988 worldbox.jpg
+26/02/2026  20:41            27,434 worldshardestgame.jpg
+26/02/2026  20:41            22,169 worldshardestgame3.jpg
+26/02/2026  20:41            49,740 zombierush.jpg
+             192 File(s)      7,346,237 bytes
+
+ Directory of C:\Users\Dylan\Documents\GitHub\Explicabler.github.io\GBA
+
+26/02/2026  20:41    <DIR>          .
+02/03/2026  00:55    <DIR>          ..
+26/02/2026  20:41            25,813 index.html
+26/02/2026  20:41               191 README.md
+               2 File(s)         26,004 bytes
+
+ Directory of C:\Users\Dylan\Documents\GitHub\Explicabler.github.io\geometryvibes
+
+26/02/2026  20:41    <DIR>          .
+02/03/2026  00:55    <DIR>          ..
+26/02/2026  20:41        25,800,494 index.html
+               1 File(s)     25,800,494 bytes
+
+ Directory of C:\Users\Dylan\Documents\GitHub\Explicabler.github.io\getontop
+
+26/02/2026  20:41    <DIR>          .
+02/03/2026  00:55    <DIR>          ..
+26/02/2026  20:41         1,558,989 index.html
+               1 File(s)      1,558,989 bytes
+
+ Directory of C:\Users\Dylan\Documents\GitHub\Explicabler.github.io\googlebaseball
+
+26/02/2026  20:41    <DIR>          .
+02/03/2026  00:55    <DIR>          ..
+26/02/2026  20:41         2,951,578 index.html
+               1 File(s)      2,951,578 bytes
+
+ Directory of C:\Users\Dylan\Documents\GitHub\Explicabler.github.io\googledino
+
+26/02/2026  20:41    <DIR>          .
+02/03/2026  00:55    <DIR>          ..
+26/02/2026  20:41           118,542 index.html
+               1 File(s)        118,542 bytes
+
+ Directory of C:\Users\Dylan\Documents\GitHub\Explicabler.github.io\granny
+
+26/02/2026  20:41    <DIR>          .
+02/03/2026  00:55    <DIR>          ..
+26/02/2026  20:41        58,316,213 index.html
+               1 File(s)     58,316,213 bytes
+
+ Directory of C:\Users\Dylan\Documents\GitHub\Explicabler.github.io\HappyWheels
+
+26/02/2026  20:41    <DIR>          .
+02/03/2026  00:55    <DIR>          ..
+26/02/2026  20:41             3,974 index.html
+               1 File(s)          3,974 bytes
+
+ Directory of C:\Users\Dylan\Documents\GitHub\Explicabler.github.io\helixjump
+
+26/02/2026  20:41    <DIR>          .
+02/03/2026  00:55    <DIR>          ..
+26/02/2026  20:41        10,506,916 index.html
+               1 File(s)     10,506,916 bytes
+
+ Directory of C:\Users\Dylan\Documents\GitHub\Explicabler.github.io\highwaytraffic
+
+26/02/2026  20:41    <DIR>          .
+02/03/2026  00:55    <DIR>          ..
+26/02/2026  20:41        36,836,868 index.html
+               1 File(s)     36,836,868 bytes
+
+ Directory of C:\Users\Dylan\Documents\GitHub\Explicabler.github.io\holeio
+
+26/02/2026  20:41    <DIR>          .
+02/03/2026  00:55    <DIR>          ..
+26/02/2026  20:41        24,734,339 index.html
+               1 File(s)     24,734,339 bytes
+
+ Directory of C:\Users\Dylan\Documents\GitHub\Explicabler.github.io\IdleAirline
+
+01/03/2026  16:15    <DIR>          .
+02/03/2026  00:55    <DIR>          ..
+01/03/2026  16:11             1,216 index.html
+               1 File(s)          1,216 bytes
+
+ Directory of C:\Users\Dylan\Documents\GitHub\Explicabler.github.io\idlebreakout
+
+26/02/2026  20:41    <DIR>          .
+02/03/2026  00:55    <DIR>          ..
+26/02/2026  20:41         2,052,938 index.html
+               1 File(s)      2,052,938 bytes
+
+ Directory of C:\Users\Dylan\Documents\GitHub\Explicabler.github.io\IdleGameDev
+
+01/03/2026  16:12    <DIR>          .
+02/03/2026  00:55    <DIR>          ..
+01/03/2026  16:11             5,347 index.html
+               1 File(s)          5,347 bytes
+
+ Directory of C:\Users\Dylan\Documents\GitHub\Explicabler.github.io\IdleMiner
+
+01/03/2026  16:12    <DIR>          .
+02/03/2026  00:55    <DIR>          ..
+01/03/2026  16:11             7,396 index.html
+               1 File(s)          7,396 bytes
+
+ Directory of C:\Users\Dylan\Documents\GitHub\Explicabler.github.io\ironsnout
+
+26/02/2026  20:41    <DIR>          .
+02/03/2026  00:55    <DIR>          ..
+26/02/2026  20:41         5,951,082 index.html
+               1 File(s)      5,951,082 bytes
+
+ Directory of C:\Users\Dylan\Documents\GitHub\Explicabler.github.io\johnnytrigger
+
+26/02/2026  20:41    <DIR>          .
+02/03/2026  00:55    <DIR>          ..
+26/02/2026  20:41         1,427,482 index.html
+               1 File(s)      1,427,482 bytes
+
+ Directory of C:\Users\Dylan\Documents\GitHub\Explicabler.github.io\js
+
+02/03/2026  00:23    <DIR>          .
+02/03/2026  00:55    <DIR>          ..
+               0 File(s)              0 bytes
+
+ Directory of C:\Users\Dylan\Documents\GitHub\Explicabler.github.io\jumpingshell
+
+26/02/2026  20:41    <DIR>          .
+02/03/2026  00:55    <DIR>          ..
+26/02/2026  20:41         3,253,052 index.html
+               1 File(s)      3,253,052 bytes
+
+ Directory of C:\Users\Dylan\Documents\GitHub\Explicabler.github.io\karatebros
+
+26/02/2026  20:41    <DIR>          .
+02/03/2026  00:55    <DIR>          ..
+26/02/2026  20:41        11,328,655 index.html
+               1 File(s)     11,328,655 bytes
+
+ Directory of C:\Users\Dylan\Documents\GitHub\Explicabler.github.io\kartbros
+
+26/02/2026  20:41    <DIR>          .
+02/03/2026  00:55    <DIR>          ..
+26/02/2026  20:41        31,165,013 index.html
+               1 File(s)     31,165,013 bytes
+
+ Directory of C:\Users\Dylan\Documents\GitHub\Explicabler.github.io\Learn to Fly 3
+
+26/02/2026  20:41    <DIR>          .
+02/03/2026  00:55    <DIR>          ..
+26/02/2026  20:41                60 desktop.ini
+26/02/2026  20:41             3,956 index.html
+26/02/2026  20:41            15,243 meta.json
+               3 File(s)         19,259 bytes
+
+ Directory of C:\Users\Dylan\Documents\GitHub\Explicabler.github.io\learntoflyidle
+
+26/02/2026  20:41    <DIR>          .
+02/03/2026  00:55    <DIR>          ..
+26/02/2026  20:41        11,034,577 index.html
+               1 File(s)     11,034,577 bytes
+
+ Directory of C:\Users\Dylan\Documents\GitHub\Explicabler.github.io\madalinstuntcars2
+
+26/02/2026  20:41    <DIR>          .
+02/03/2026  00:55    <DIR>          ..
+26/02/2026  20:41        52,470,296 index.html
+               1 File(s)     52,470,296 bytes
+
+ Directory of C:\Users\Dylan\Documents\GitHub\Explicabler.github.io\melonplayground
+
+26/02/2026  20:41    <DIR>          .
+02/03/2026  00:55    <DIR>          ..
+26/02/2026  20:41        21,587,127 index.html
+               1 File(s)     21,587,127 bytes
+
+ Directory of C:\Users\Dylan\Documents\GitHub\Explicabler.github.io\mergeroundracers
+
+26/02/2026  20:41    <DIR>          .
+02/03/2026  00:55    <DIR>          ..
+26/02/2026  20:41         5,027,270 index.html
+               1 File(s)      5,027,270 bytes
+
+ Directory of C:\Users\Dylan\Documents\GitHub\Explicabler.github.io\mini_metro
+
+26/02/2026  20:41    <DIR>          .
+02/03/2026  00:55    <DIR>          ..
+26/02/2026  20:41        12,857,858 index.html
+               1 File(s)     12,857,858 bytes
+
+ Directory of C:\Users\Dylan\Documents\GitHub\Explicabler.github.io\monkeymart
+
+26/02/2026  20:41    <DIR>          .
+02/03/2026  00:55    <DIR>          ..
+26/02/2026  20:41        14,043,119 index.html
+               1 File(s)     14,043,119 bytes
+
+ Directory of C:\Users\Dylan\Documents\GitHub\Explicabler.github.io\monstertracks
+
+26/02/2026  20:41    <DIR>          .
+02/03/2026  00:55    <DIR>          ..
+26/02/2026  20:41         3,505,443 index.html
+               1 File(s)      3,505,443 bytes
+
+ Directory of C:\Users\Dylan\Documents\GitHub\Explicabler.github.io\motox3m2
+
+26/02/2026  20:41    <DIR>          .
+02/03/2026  00:55    <DIR>          ..
+26/02/2026  20:41         9,851,434 index.html
+               1 File(s)      9,851,434 bytes
+
+ Directory of C:\Users\Dylan\Documents\GitHub\Explicabler.github.io\motox3m3
+
+26/02/2026  20:41    <DIR>          .
+02/03/2026  00:55    <DIR>          ..
+26/02/2026  20:41        10,594,405 index.html
+               1 File(s)     10,594,405 bytes
+
+ Directory of C:\Users\Dylan\Documents\GitHub\Explicabler.github.io\motox3mspookyland
+
+26/02/2026  20:41    <DIR>          .
+02/03/2026  00:55    <DIR>          ..
+26/02/2026  20:41         5,946,258 index.html
+               1 File(s)      5,946,258 bytes
+
+ Directory of C:\Users\Dylan\Documents\GitHub\Explicabler.github.io\motox3mwinter
+
+26/02/2026  20:41    <DIR>          .
+02/03/2026  00:55    <DIR>          ..
+26/02/2026  20:41         7,994,665 index.html
+               1 File(s)      7,994,665 bytes
+
+ Directory of C:\Users\Dylan\Documents\GitHub\Explicabler.github.io\noobminer
+
+26/02/2026  20:41    <DIR>          .
+02/03/2026  00:55    <DIR>          ..
+26/02/2026  20:41         2,600,003 index.html
+               1 File(s)      2,600,003 bytes
+
+ Directory of C:\Users\Dylan\Documents\GitHub\Explicabler.github.io\oppositeday
+
+26/02/2026  20:41    <DIR>          .
+02/03/2026  00:55    <DIR>          ..
+26/02/2026  20:41           168,147 index.html
+               1 File(s)        168,147 bytes
+
+ Directory of C:\Users\Dylan\Documents\GitHub\Explicabler.github.io\ovo
+
+26/02/2026  20:41    <DIR>          .
+02/03/2026  00:55    <DIR>          ..
+26/02/2026  20:41         7,278,536 index.html
+               1 File(s)      7,278,536 bytes
+
+ Directory of C:\Users\Dylan\Documents\GitHub\Explicabler.github.io\ovo2
+
+26/02/2026  20:41    <DIR>          .
+02/03/2026  00:55    <DIR>          ..
+26/02/2026  20:41         2,419,059 index.html
+               1 File(s)      2,419,059 bytes
+
+ Directory of C:\Users\Dylan\Documents\GitHub\Explicabler.github.io\pacman
+
+26/02/2026  20:41    <DIR>          .
+02/03/2026  00:55    <DIR>          ..
+26/02/2026  20:41         3,364,667 index.html
+               1 File(s)      3,364,667 bytes
+
+ Directory of C:\Users\Dylan\Documents\GitHub\Explicabler.github.io\papashotdoggeria
+
+26/02/2026  20:41    <DIR>          .
+02/03/2026  00:55    <DIR>          ..
+26/02/2026  20:41        18,471,481 index.html
+               1 File(s)     18,471,481 bytes
+
+ Directory of C:\Users\Dylan\Documents\GitHub\Explicabler.github.io\papaspastaria
+
+26/02/2026  20:41    <DIR>          .
+02/03/2026  00:55    <DIR>          ..
+26/02/2026  20:41        21,471,157 index.html
+               1 File(s)     21,471,157 bytes
+
+ Directory of C:\Users\Dylan\Documents\GitHub\Explicabler.github.io\papaspizzeria
+
+26/02/2026  20:41    <DIR>          .
+02/03/2026  00:55    <DIR>          ..
+26/02/2026  20:41        10,594,161 index.html
+               1 File(s)     10,594,161 bytes
+
+ Directory of C:\Users\Dylan\Documents\GitHub\Explicabler.github.io\papasscooperia
+
+26/02/2026  20:41    <DIR>          .
+02/03/2026  00:55    <DIR>          ..
+26/02/2026  20:41        34,498,853 index.html
+               1 File(s)     34,498,853 bytes
+
+ Directory of C:\Users\Dylan\Documents\GitHub\Explicabler.github.io\papassushiria
+
+26/02/2026  20:41    <DIR>          .
+02/03/2026  00:55    <DIR>          ..
+26/02/2026  20:41        27,659,133 index.html
+               1 File(s)     27,659,133 bytes
+
+ Directory of C:\Users\Dylan\Documents\GitHub\Explicabler.github.io\papastacomia
+
+26/02/2026  20:41    <DIR>          .
+02/03/2026  00:55    <DIR>          ..
+26/02/2026  20:41        13,996,893 index.html
+               1 File(s)     13,996,893 bytes
+
+ Directory of C:\Users\Dylan\Documents\GitHub\Explicabler.github.io\paperio2
+
+26/02/2026  20:41    <DIR>          .
+02/03/2026  00:55    <DIR>          ..
+26/02/2026  20:41           649,595 index.html
+               1 File(s)        649,595 bytes
+
+ Directory of C:\Users\Dylan\Documents\GitHub\Explicabler.github.io\PaperMinecraft1_15_1
+
+26/02/2026  20:41    <DIR>          .
+02/03/2026  00:55    <DIR>          ..
+26/02/2026  20:41        33,134,753 index.html
+               1 File(s)     33,134,753 bytes
+
+ Directory of C:\Users\Dylan\Documents\GitHub\Explicabler.github.io\parkingfury2
+
+26/02/2026  20:41    <DIR>          .
+02/03/2026  00:55    <DIR>          ..
+26/02/2026  20:41         8,566,823 index.html
+               1 File(s)      8,566,823 bytes
+
+ Directory of C:\Users\Dylan\Documents\GitHub\Explicabler.github.io\parkingfury3
+
+26/02/2026  20:41    <DIR>          .
+02/03/2026  00:55    <DIR>          ..
+26/02/2026  20:41         8,825,394 index.html
+               1 File(s)      8,825,394 bytes
+
+ Directory of C:\Users\Dylan\Documents\GitHub\Explicabler.github.io\picosschool
+
+26/02/2026  20:41    <DIR>          .
+02/03/2026  00:55    <DIR>          ..
+26/02/2026  20:41         9,556,224 index.html
+               1 File(s)      9,556,224 bytes
+
+ Directory of C:\Users\Dylan\Documents\GitHub\Explicabler.github.io\pingpongchaos
+
+26/02/2026  20:41    <DIR>          .
+02/03/2026  00:55    <DIR>          ..
+26/02/2026  20:41        11,190,038 index.html
+               1 File(s)     11,190,038 bytes
+
+ Directory of C:\Users\Dylan\Documents\GitHub\Explicabler.github.io\pixelspeedrun
+
+26/02/2026  20:41    <DIR>          .
+02/03/2026  00:55    <DIR>          ..
+26/02/2026  20:41         1,101,700 index.html
+               1 File(s)      1,101,700 bytes
+
+ Directory of C:\Users\Dylan\Documents\GitHub\Explicabler.github.io\plantsvszombies
+
+26/02/2026  20:41    <DIR>          .
+02/03/2026  00:55    <DIR>          ..
+26/02/2026  20:41        21,035,421 index.html
+               1 File(s)     21,035,421 bytes
+
+ Directory of C:\Users\Dylan\Documents\GitHub\Explicabler.github.io\plonky
+
+26/02/2026  20:41    <DIR>          .
+02/03/2026  00:55    <DIR>          ..
+26/02/2026  20:41         5,381,242 index.html
+               1 File(s)      5,381,242 bytes
+
+ Directory of C:\Users\Dylan\Documents\GitHub\Explicabler.github.io\poorbunny
+
+26/02/2026  20:41    <DIR>          .
+02/03/2026  00:55    <DIR>          ..
+26/02/2026  20:41         5,970,262 index.html
+               1 File(s)      5,970,262 bytes
+
+ Directory of C:\Users\Dylan\Documents\GitHub\Explicabler.github.io\pou
+
+26/02/2026  20:41    <DIR>          .
+02/03/2026  00:55    <DIR>          ..
+26/02/2026  20:41        11,540,408 index.html
+               1 File(s)     11,540,408 bytes
+
+ Directory of C:\Users\Dylan\Documents\GitHub\Explicabler.github.io\Race Survival Arena King
+
+26/02/2026  20:41    <DIR>          .
+02/03/2026  00:55    <DIR>          ..
+26/02/2026  20:41               643 index.html
+26/02/2026  20:41            20,189 race-survival-arena-king.js
+26/02/2026  20:41             1,779 style.css
+               3 File(s)         22,611 bytes
+
+ Directory of C:\Users\Dylan\Documents\GitHub\Explicabler.github.io\RaceTrack
+
+26/02/2026  20:41    <DIR>          .
+02/03/2026  00:55    <DIR>          ..
+26/02/2026  20:41        31,517,537 index.html
+               1 File(s)     31,517,537 bytes
+
+ Directory of C:\Users\Dylan\Documents\GitHub\Explicabler.github.io\ragdollsoccer
+
+26/02/2026  20:41    <DIR>          .
+02/03/2026  00:55    <DIR>          ..
+26/02/2026  20:41        22,470,151 index.html
+               1 File(s)     22,470,151 bytes
+
+ Directory of C:\Users\Dylan\Documents\GitHub\Explicabler.github.io\redball4vol1
+
+26/02/2026  20:41    <DIR>          .
+02/03/2026  00:55    <DIR>          ..
+26/02/2026  20:41        19,172,089 index.html
+               1 File(s)     19,172,089 bytes
+
+ Directory of C:\Users\Dylan\Documents\GitHub\Explicabler.github.io\retrohighway
+
+26/02/2026  20:41    <DIR>          .
+02/03/2026  00:55    <DIR>          ..
+26/02/2026  20:41         4,963,215 index.html
+               1 File(s)      4,963,215 bytes
+
+ Directory of C:\Users\Dylan\Documents\GitHub\Explicabler.github.io\riddleschool2
+
+26/02/2026  20:41    <DIR>          .
+02/03/2026  00:55    <DIR>          ..
+26/02/2026  20:41         8,799,396 index.html
+               1 File(s)      8,799,396 bytes
+
+ Directory of C:\Users\Dylan\Documents\GitHub\Explicabler.github.io\riddleschool3
+
+26/02/2026  20:41    <DIR>          .
+02/03/2026  00:55    <DIR>          ..
+26/02/2026  20:41        17,074,156 index.html
+               1 File(s)     17,074,156 bytes
+
+ Directory of C:\Users\Dylan\Documents\GitHub\Explicabler.github.io\riddletransfer
+
+26/02/2026  20:41    <DIR>          .
+02/03/2026  00:55    <DIR>          ..
+26/02/2026  20:41        27,665,348 index.html
+               1 File(s)     27,665,348 bytes
+
+ Directory of C:\Users\Dylan\Documents\GitHub\Explicabler.github.io\rooftopsnipers
+
+26/02/2026  20:41    <DIR>          .
+02/03/2026  00:55    <DIR>          ..
+26/02/2026  20:41        15,178,986 index.html
+               1 File(s)     15,178,986 bytes
+
+ Directory of C:\Users\Dylan\Documents\GitHub\Explicabler.github.io\run
+
+26/02/2026  20:41    <DIR>          .
+02/03/2026  00:55    <DIR>          ..
+26/02/2026  20:41         8,895,959 index.html
+               1 File(s)      8,895,959 bytes
+
+ Directory of C:\Users\Dylan\Documents\GitHub\Explicabler.github.io\sandgame
+
+26/02/2026  20:41    <DIR>          .
+02/03/2026  00:55    <DIR>          ..
+26/02/2026  20:41            60,330 index.html
+               1 File(s)         60,330 bytes
+
+ Directory of C:\Users\Dylan\Documents\GitHub\Explicabler.github.io\scripts
+
+26/02/2026  20:41    <DIR>          .
+02/03/2026  00:55    <DIR>          ..
+26/02/2026  20:41               573 auto-metadata.mjs
+               1 File(s)            573 bytes
+
+ Directory of C:\Users\Dylan\Documents\GitHub\Explicabler.github.io\shortlife
+
+26/02/2026  20:41    <DIR>          .
+02/03/2026  00:55    <DIR>          ..
+26/02/2026  20:41        21,869,256 index.html
+               1 File(s)     21,869,256 bytes
+
+ Directory of C:\Users\Dylan\Documents\GitHub\Explicabler.github.io\slope
+
+26/02/2026  20:41    <DIR>          .
+02/03/2026  00:55    <DIR>          ..
+26/02/2026  20:41        25,985,729 index.html
+               1 File(s)     25,985,729 bytes
+
+ Directory of C:\Users\Dylan\Documents\GitHub\Explicabler.github.io\slope2player
+
+26/02/2026  20:41    <DIR>          .
+02/03/2026  00:55    <DIR>          ..
+26/02/2026  20:41        10,274,852 index.html
+               1 File(s)     10,274,852 bytes
+
+ Directory of C:\Users\Dylan\Documents\GitHub\Explicabler.github.io\slope3
+
+26/02/2026  20:41    <DIR>          .
+02/03/2026  00:55    <DIR>          ..
+26/02/2026  20:41        33,822,053 index.html
+               1 File(s)     33,822,053 bytes
+
+ Directory of C:\Users\Dylan\Documents\GitHub\Explicabler.github.io\slowroads
+
+26/02/2026  20:41    <DIR>          .
+02/03/2026  00:55    <DIR>          ..
+26/02/2026  20:41        16,961,096 index.html
+               1 File(s)     16,961,096 bytes
+
+ Directory of C:\Users\Dylan\Documents\GitHub\Explicabler.github.io\sm64
+
+26/02/2026  20:41    <DIR>          .
+02/03/2026  00:55    <DIR>          ..
+26/02/2026  20:41         8,376,864 index.html
+               1 File(s)      8,376,864 bytes
+
+ Directory of C:\Users\Dylan\Documents\GitHub\Explicabler.github.io\snowrider
+
+26/02/2026  20:41    <DIR>          .
+02/03/2026  00:55    <DIR>          ..
+26/02/2026  20:41        19,841,778 index.html
+               1 File(s)     19,841,778 bytes
+
+ Directory of C:\Users\Dylan\Documents\GitHub\Explicabler.github.io\soccerbros
+
+26/02/2026  20:41    <DIR>          .
+02/03/2026  00:55    <DIR>          ..
+26/02/2026  20:41        13,094,977 index.html
+               1 File(s)     13,094,977 bytes
+
+ Directory of C:\Users\Dylan\Documents\GitHub\Explicabler.github.io\soccerrandom
+
+26/02/2026  20:41    <DIR>          .
+02/03/2026  00:55    <DIR>          ..
+26/02/2026  20:41         2,675,207 index.html
+               1 File(s)      2,675,207 bytes
+
+ Directory of C:\Users\Dylan\Documents\GitHub\Explicabler.github.io\spacebarclicker
+
+26/02/2026  20:41    <DIR>          .
+02/03/2026  00:55    <DIR>          ..
+26/02/2026  20:41           108,774 index.html
+               1 File(s)        108,774 bytes
+
+ Directory of C:\Users\Dylan\Documents\GitHub\Explicabler.github.io\spacewaves
+
+26/02/2026  20:41    <DIR>          .
+02/03/2026  00:55    <DIR>          ..
+26/02/2026  20:41        14,644,555 index.html
+               1 File(s)     14,644,555 bytes
+
+ Directory of C:\Users\Dylan\Documents\GitHub\Explicabler.github.io\speedstars
+
+26/02/2026  20:41    <DIR>          .
+02/03/2026  00:55    <DIR>          ..
+26/02/2026  20:41        20,209,788 index.html
+               1 File(s)     20,209,788 bytes
+
+ Directory of C:\Users\Dylan\Documents\GitHub\Explicabler.github.io\stack
+
+26/02/2026  20:41    <DIR>          .
+02/03/2026  00:55    <DIR>          ..
+26/02/2026  20:41           629,890 index.html
+               1 File(s)        629,890 bytes
+
+ Directory of C:\Users\Dylan\Documents\GitHub\Explicabler.github.io\stacktris
+
+26/02/2026  20:41    <DIR>          .
+02/03/2026  00:55    <DIR>          ..
+26/02/2026  20:41         3,747,835 index.html
+               1 File(s)      3,747,835 bytes
+
+ Directory of C:\Users\Dylan\Documents\GitHub\Explicabler.github.io\stateio
+
+26/02/2026  20:41    <DIR>          .
+02/03/2026  00:55    <DIR>          ..
+26/02/2026  20:41         4,696,284 index.html
+               1 File(s)      4,696,284 bytes
+
+ Directory of C:\Users\Dylan\Documents\GitHub\Explicabler.github.io\stickarchersbattle
+
+26/02/2026  20:41    <DIR>          .
+02/03/2026  00:55    <DIR>          ..
+26/02/2026  20:41         4,459,507 index.html
+               1 File(s)      4,459,507 bytes
+
+ Directory of C:\Users\Dylan\Documents\GitHub\Explicabler.github.io\stickfighter
+
+26/02/2026  20:41    <DIR>          .
+02/03/2026  00:55    <DIR>          ..
+26/02/2026  20:41         6,044,774 index.html
+               1 File(s)      6,044,774 bytes
+
+ Directory of C:\Users\Dylan\Documents\GitHub\Explicabler.github.io\stickmanhook
+
+26/02/2026  20:41    <DIR>          .
+02/03/2026  00:55    <DIR>          ..
+26/02/2026  20:41         4,633,495 index.html
+               1 File(s)      4,633,495 bytes
+
+ Directory of C:\Users\Dylan\Documents\GitHub\Explicabler.github.io\subwaysurfershavana
+
+26/02/2026  20:41    <DIR>          .
+02/03/2026  00:55    <DIR>          ..
+26/02/2026  20:41        35,386,706 index.html
+               1 File(s)     35,386,706 bytes
+
+ Directory of C:\Users\Dylan\Documents\GitHub\Explicabler.github.io\tag
+
+26/02/2026  20:41    <DIR>          .
+02/03/2026  00:55    <DIR>          ..
+26/02/2026  20:41         4,199,359 index.html
+               1 File(s)      4,199,359 bytes
+
+ Directory of C:\Users\Dylan\Documents\GitHub\Explicabler.github.io\templeofboom
+
+26/02/2026  20:41    <DIR>          .
+02/03/2026  00:55    <DIR>          ..
+26/02/2026  20:41         6,346,499 index.html
+               1 File(s)      6,346,499 bytes
+
+ Directory of C:\Users\Dylan\Documents\GitHub\Explicabler.github.io\templerun2
+
+26/02/2026  20:41    <DIR>          .
+02/03/2026  00:55    <DIR>          ..
+26/02/2026  20:41        18,769,641 index.html
+               1 File(s)     18,769,641 bytes
+
+ Directory of C:\Users\Dylan\Documents\GitHub\Explicabler.github.io\territorialio
+
+26/02/2026  20:41    <DIR>          .
+02/03/2026  00:55    <DIR>          ..
+26/02/2026  20:41         1,437,721 index.html
+               1 File(s)      1,437,721 bytes
+
+ Directory of C:\Users\Dylan\Documents\GitHub\Explicabler.github.io\theimpossiblequiz
+
+26/02/2026  20:41    <DIR>          .
+02/03/2026  00:55    <DIR>          ..
+26/02/2026  20:41        18,041,212 index.html
+               1 File(s)     18,041,212 bytes
+
+ Directory of C:\Users\Dylan\Documents\GitHub\Explicabler.github.io\thereisnog
+
+26/02/2026  20:41    <DIR>          .
+02/03/2026  00:55    <DIR>          ..
+26/02/2026  20:41         6,763,354 index.html
+               1 File(s)      6,763,354 bytes
+
+ Directory of C:\Users\Dylan\Documents\GitHub\Explicabler.github.io\theyarecoming
+
+26/02/2026  20:41    <DIR>          .
+02/03/2026  00:55    <DIR>          ..
+26/02/2026  20:41        27,739,411 index.html
+               1 File(s)     27,739,411 bytes
+
+ Directory of C:\Users\Dylan\Documents\GitHub\Explicabler.github.io\thisistheonlyleveltoo
+
+26/02/2026  20:41    <DIR>          .
+02/03/2026  00:55    <DIR>          ..
+26/02/2026  20:41         9,374,368 index.html
+               1 File(s)      9,374,368 bytes
+
+ Directory of C:\Users\Dylan\Documents\GitHub\Explicabler.github.io\timeshooter3
+
+26/02/2026  20:41    <DIR>          .
+02/03/2026  00:55    <DIR>          ..
+26/02/2026  20:41        11,750,779 index.html
+               1 File(s)     11,750,779 bytes
+
+ Directory of C:\Users\Dylan\Documents\GitHub\Explicabler.github.io\tinyfishing
+
+26/02/2026  20:41    <DIR>          .
+02/03/2026  00:55    <DIR>          ..
+26/02/2026  20:41         2,452,290 index.html
+               1 File(s)      2,452,290 bytes
+
+ Directory of C:\Users\Dylan\Documents\GitHub\Explicabler.github.io\trapthecat
+
+26/02/2026  20:41    <DIR>          .
+02/03/2026  00:55    <DIR>          ..
+26/02/2026  20:41            76,414 index.html
+               1 File(s)         76,414 bytes
+
+ Directory of C:\Users\Dylan\Documents\GitHub\Explicabler.github.io\triviacrack
+
+26/02/2026  20:41    <DIR>          .
+02/03/2026  00:55    <DIR>          ..
+26/02/2026  20:41         2,648,870 index.html
+               1 File(s)      2,648,870 bytes
+
+ Directory of C:\Users\Dylan\Documents\GitHub\Explicabler.github.io\tubejumpers
+
+26/02/2026  20:41    <DIR>          .
+02/03/2026  00:55    <DIR>          ..
+26/02/2026  20:41        10,988,595 index.html
+               1 File(s)     10,988,595 bytes
+
+ Directory of C:\Users\Dylan\Documents\GitHub\Explicabler.github.io\tunnelrush
+
+26/02/2026  20:41    <DIR>          .
+02/03/2026  00:55    <DIR>          ..
+26/02/2026  20:41        17,360,488 index.html
+               1 File(s)     17,360,488 bytes
+
+ Directory of C:\Users\Dylan\Documents\GitHub\Explicabler.github.io\UNDERTALE
+
+26/02/2026  20:41    <DIR>          .
+02/03/2026  00:55    <DIR>          ..
+26/02/2026  20:41        47,883,395 index.html
+               1 File(s)     47,883,395 bytes
+
+ Directory of C:\Users\Dylan\Documents\GitHub\Explicabler.github.io\unicyclehero
+
+26/02/2026  20:41    <DIR>          .
+02/03/2026  00:55    <DIR>          ..
+26/02/2026  20:41         2,573,728 index.html
+               1 File(s)      2,573,728 bytes
+
+ Directory of C:\Users\Dylan\Documents\GitHub\Explicabler.github.io\vexx3m
+
+26/02/2026  20:41    <DIR>          .
+02/03/2026  00:55    <DIR>          ..
+26/02/2026  20:41        10,255,429 index.html
+               1 File(s)     10,255,429 bytes
+
+ Directory of C:\Users\Dylan\Documents\GitHub\Explicabler.github.io\vexx3m2
+
+26/02/2026  20:41    <DIR>          .
+02/03/2026  00:55    <DIR>          ..
+26/02/2026  20:41        12,721,688 index.html
+               1 File(s)     12,721,688 bytes
+
+ Directory of C:\Users\Dylan\Documents\GitHub\Explicabler.github.io\volleyrandom
+
+26/02/2026  20:41    <DIR>          .
+02/03/2026  00:55    <DIR>          ..
+26/02/2026  20:41         3,853,392 index.html
+               1 File(s)      3,853,392 bytes
+
+ Directory of C:\Users\Dylan\Documents\GitHub\Explicabler.github.io\wheeliebike
+
+26/02/2026  20:41    <DIR>          .
+02/03/2026  00:55    <DIR>          ..
+26/02/2026  20:41         2,135,516 index.html
+               1 File(s)      2,135,516 bytes
+
+ Directory of C:\Users\Dylan\Documents\GitHub\Explicabler.github.io\worldbox
+
+26/02/2026  20:41    <DIR>          .
+02/03/2026  00:55    <DIR>          ..
+26/02/2026  20:41                54 desktop.ini
+26/02/2026  20:41           234,314 index.html
+               2 File(s)        234,368 bytes
+
+ Directory of C:\Users\Dylan\Documents\GitHub\Explicabler.github.io\worldshardestgame
+
+26/02/2026  20:41    <DIR>          .
+02/03/2026  00:55    <DIR>          ..
+26/02/2026  20:41         7,797,079 index.html
+               1 File(s)      7,797,079 bytes
+
+ Directory of C:\Users\Dylan\Documents\GitHub\Explicabler.github.io\worldshardestgame3
+
+26/02/2026  20:41    <DIR>          .
+02/03/2026  00:55    <DIR>          ..
+26/02/2026  20:41         8,672,736 index.html
+               1 File(s)      8,672,736 bytes
+
+ Directory of C:\Users\Dylan\Documents\GitHub\Explicabler.github.io\zombierush
+
+26/02/2026  20:41    <DIR>          .
+02/03/2026  00:55    <DIR>          ..
+26/02/2026  20:41         2,827,151 index.html
+               1 File(s)      2,827,151 bytes
+
+     Total Files Listed:
+             596 File(s)  3,819,886,792 bytes
+             819 Dir(s)  76,565,213,184 bytes free
