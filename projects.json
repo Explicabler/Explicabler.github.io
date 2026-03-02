@@ -2000,5 +2000,38 @@
     "desc": "",
     "url": "/papasscooperia/index.html",
     "image": "/game-images/papasscooperia.jpg"
+  },
+  {
+    "id": 214,
+    "title": "Mario Kart 64",
+    "type": "arcade",
+    "engine": "html",
+    "icon": "🎮",
+    "color": "accent",
+    "desc": "",
+    "url": "/MarioKart 64/index.html",
+    "image": "/game-images/MarioKart 64.jpg"
+  },
+  {
+    "id": 215,
+    "title": "Rooftop Snipers",
+    "type": "action",
+    "engine": "html",
+    "icon": "🎮",
+    "color": "accent",
+    "desc": "",
+    "url": "/Rooftop Snipers/index.html",
+    "image": "/game-images/rooftopsnipers.jpg"
+  },
+  {
+    "id": 216,
+    "title": "Tanuki Sunset",
+    "type": "arcade",
+    "engine": "html",
+    "icon": "🎮",
+    "color": "accent",
+    "desc": "",
+    "url": "/Tanuki Sunset/index.html",
+    "image": "/game-images/Tanuki Sunset.jpg"
   }
 ]
