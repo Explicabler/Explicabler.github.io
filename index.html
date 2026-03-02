@@ -1271,9 +1271,13 @@ function renderGrid(items){
   document.getElementById('sectionTitle').textContent=searchQuery?'Search Results':(CAT_NAMES[activeType]||activeType);
   document.getElementById('sectionCount').textContent=items.length+' game'+(items.length!==1?'s':'');
 
+  // Fetch stats in one request to avoid lag (updates cards after render)
+  preloadStatsForIds(items.map(p=>p.id));
+
   items.forEach((p,i)=>{
     const card=document.createElement('div');
     card.className='game-card';card.style.animationDelay=Math.min(i*30,300)+'ms';
+    card.dataset.pid=String(p.id);
     const thumb=document.createElement('div');
     if(p.image){
       thumb.className='card-thumb';
@@ -1347,11 +1351,29 @@ function loadLocalStats(){try{return JSON.parse(localStorage.getItem('cshub_loca
 function saveLocalStats(obj){localStorage.setItem('cshub_local_stats',JSON.stringify(obj))}
 
 async function countApiGet(key){
+  try{
+    const res=await fetch('/api/stats/get?key='+encodeURIComponent(key));
+    if(res.ok){
+      const data=await res.json();
+      if(typeof data.value==='number')return data.value;
+    }
+  }catch(e){}
   const s=loadLocalStats();
   return typeof s[key]==='number'?s[key]:0;
 }
 
 async function countApiUpdate(key,amount){
+  try{
+    const res=await fetch('/api/stats/update',{
+      method:'POST',
+      headers:{'Content-Type':'application/json'},
+      body:JSON.stringify({key,amount})
+    });
+    if(res.ok){
+      const data=await res.json();
+      if(typeof data.value==='number')return data.value;
+    }
+  }catch(e){}
   const s=loadLocalStats();
   const cur=typeof s[key]==='number'?s[key]:0;
   let next=cur+amount;
@@ -1361,15 +1383,41 @@ async function countApiUpdate(key,amount){
   return next;
 }
 
+async function countApiBulkGet(keys){
+  try{
+    const res=await fetch('/api/stats/bulk?keys='+encodeURIComponent(keys.join(',')));
+    if(res.ok){
+      const data=await res.json();
+      if(data && data.values && typeof data.values==='object')return data.values;
+    }
+  }catch(e){}
+  const s=loadLocalStats();
+  const out={};
+  keys.forEach(k=>{out[k]=typeof s[k]==='number'?s[k]:0;});
+  return out;
+}
+
 async function ensureProjectStatsLoaded(id){
   if(globalPlays[id]!==undefined&&globalRatings[id])return;
-  const [plays,up,down]=await Promise.all([
-    countApiGet('plays-'+id),
-    countApiGet('rating-up-'+id),
-    countApiGet('rating-down-'+id)
-  ]);
-  globalPlays[id]=plays;
-  globalRatings[id]={up,down};
+  const values=await countApiBulkGet(['plays-'+id,'rating-up-'+id,'rating-down-'+id]);
+  globalPlays[id]=values['plays-'+id]||0;
+  globalRatings[id]={up:values['rating-up-'+id]||0,down:values['rating-down-'+id]||0};
+}
+
+async function preloadStatsForIds(ids){
+  const keys=[];
+  ids.forEach(id=>{
+    keys.push('plays-'+id,'rating-up-'+id,'rating-down-'+id);
+  });
+  const values=await countApiBulkGet(keys);
+  ids.forEach(id=>{
+    globalPlays[id]=values['plays-'+id]||0;
+    globalRatings[id]={up:values['rating-up-'+id]||0,down:values['rating-down-'+id]||0};
+  });
+  document.querySelectorAll('.game-card[data-pid]').forEach(card=>{
+    const pid=Number(card.dataset.pid);
+    if(Number.isFinite(pid))updateCardStatsEl(card,pid);
+  });
 }
 function formatCount(v){
   v=typeof v==='number'&&isFinite(v)?v:0;
