@@ -224,6 +224,8 @@
   .rate-controls{display:flex;align-items:center;gap:6px}
   .rate-btn{border:1px solid var(--border);background:var(--surface2);color:var(--text-2);border-radius:6px;padding:2px 7px;font-size:11px;cursor:pointer}
   .rate-btn.active{border-color:var(--green);color:var(--green)}
+  .rating-plays{font-variant-numeric:tabular-nums}
+  .rate-count{min-width:1.6em;text-align:right;font-variant-numeric:tabular-nums}
 
   /* ─── SCROLL TO TOP ───────────────────── */
   .scroll-top{position:fixed;bottom:24px;right:24px;width:38px;height:38px;background:var(--accent);border:none;border-radius:50%;display:flex;align-items:center;justify-content:center;color:#fff;cursor:pointer;z-index:400;opacity:0;transform:translateY(12px) scale(.8);transition:all .2s;pointer-events:none;box-shadow:0 4px 16px rgba(124,106,247,.5)}
@@ -853,7 +855,6 @@
   </div>
 </div>
 
-<script src="js/backend.js"></script>
 <script>
 // ══════════════════════════════════
 // THEMES
@@ -1216,6 +1217,7 @@ function renderGrid(items){
     const badge=document.createElement('span');badge.className='card-badge '+(p.engine==='unity'?'badge-unity':'badge-html');badge.textContent=p.engine==='unity'?'Unity':'HTML5';thumb.appendChild(badge);
     const body=document.createElement('div');body.className='card-body';
     body.innerHTML='<div class="card-title">'+esc(p.title)+'</div>'+(p.desc?'<div class="card-desc">'+esc(p.desc)+'</div>':'')+'<div class="card-meta"><span class="meta-tag type-tag">'+esc(p.type||'game')+'</span></div>';
+    buildCardStats(card,body,p);
     card.appendChild(thumb);card.appendChild(body);
     card.addEventListener('click',()=>openProject(p));
     grid.appendChild(card);
@@ -1268,23 +1270,98 @@ function getPlays(){return globalPlays}
 function getRatings(){return globalRatings}
 function getUserRatings(){try{return JSON.parse(localStorage.getItem('cshub_user_ratings')||'{}')}catch(e){return {}}}
 
+function loadLocalStats(){try{return JSON.parse(localStorage.getItem('cshub_local_stats')||'{}')}catch(e){return {}}}
+function saveLocalStats(obj){localStorage.setItem('cshub_local_stats',JSON.stringify(obj))}
+
 async function countApiGet(key){
-  return window.CSHubBackend.getStat(key);
+  const s=loadLocalStats();
+  return typeof s[key]==='number'?s[key]:0;
 }
 
 async function countApiUpdate(key,amount){
-  return window.CSHubBackend.updateStat(key,amount);
+  const s=loadLocalStats();
+  const cur=typeof s[key]==='number'?s[key]:0;
+  let next=cur+amount;
+  if(next<0)next=0;
+  s[key]=next;
+  saveLocalStats(s);
+  return next;
 }
 
 async function ensureProjectStatsLoaded(id){
   if(globalPlays[id]!==undefined&&globalRatings[id])return;
   const [plays,up,down]=await Promise.all([
-    globalPlays[id]!==undefined?Promise.resolve(globalPlays[id]):countApiGet('plays-'+id),
-    globalRatings[id]?.up!==undefined?Promise.resolve(globalRatings[id].up):countApiGet('rating-up-'+id),
-    globalRatings[id]?.down!==undefined?Promise.resolve(globalRatings[id].down):countApiGet('rating-down-'+id)
+    countApiGet('plays-'+id),
+    countApiGet('rating-up-'+id),
+    countApiGet('rating-down-'+id)
   ]);
   globalPlays[id]=plays;
   globalRatings[id]={up,down};
+}
+function formatCount(v){
+  v=typeof v==='number'&&isFinite(v)?v:0;
+  if(v>=1_000_000)return(v/1_000_000).toFixed(1).replace(/\.0$/,'')+'M';
+  if(v>=1_000)return(v/1_000).toFixed(1).replace(/\.0$/,'')+'k';
+  return String(v);
+}
+function updateCardStatsEl(card,id){
+  const playsMap=getPlays(),ratingsMap=getRatings();
+  const plays=playsMap[id]||0;
+  const r=ratingsMap[id]||{up:0,down:0};
+  const playsEl=card.querySelector('.rating-plays');
+  const upEl=card.querySelector('.rate-count-up');
+  const downEl=card.querySelector('.rate-count-down');
+  if(playsEl)playsEl.textContent=formatCount(plays)+' play'+(plays===1?'':'s');
+  if(upEl)upEl.textContent=formatCount(r.up||0);
+  if(downEl)downEl.textContent=formatCount(r.down||0);
+  const userRatings=getUserRatings();
+  const vote=userRatings[id];
+  const upBtn=card.querySelector('.rate-btn[data-vote="up"]');
+  const downBtn=card.querySelector('.rate-btn[data-vote="down"]');
+  if(upBtn)upBtn.classList.toggle('active',vote==='up');
+  if(downBtn)downBtn.classList.toggle('active',vote==='down');
+}
+function buildCardStats(card,body,project){
+  const row=document.createElement('div');
+  row.className='rating-row';
+  const playsSpan=document.createElement('span');
+  playsSpan.className='rating-plays';
+  playsSpan.textContent='Loading stats…';
+  const controls=document.createElement('div');
+  controls.className='rate-controls';
+  const upBtn=document.createElement('button');
+  upBtn.className='rate-btn';
+  upBtn.dataset.vote='up';
+  upBtn.textContent='👍';
+  const upCount=document.createElement('span');
+  upCount.className='rate-count rate-count-up';
+  upCount.textContent='0';
+  const downBtn=document.createElement('button');
+  downBtn.className='rate-btn';
+  downBtn.dataset.vote='down';
+  downBtn.textContent='👎';
+  const downCount=document.createElement('span');
+  downCount.className='rate-count rate-count-down';
+  downCount.textContent='0';
+  controls.appendChild(upBtn);
+  controls.appendChild(upCount);
+  controls.appendChild(downBtn);
+  controls.appendChild(downCount);
+  row.appendChild(playsSpan);
+  row.appendChild(controls);
+  body.appendChild(row);
+  ensureProjectStatsLoaded(project.id).then(()=>updateCardStatsEl(card,project.id));
+  updateCardStatsEl(card,project.id);
+  upBtn.addEventListener('click',async e=>{
+    e.stopPropagation();
+    await rateGame(project.id,'up');
+    updateCardStatsEl(card,project.id);
+  });
+  downBtn.addEventListener('click',async e=>{
+    e.stopPropagation();
+    await rateGame(project.id,'down');
+    updateCardStatsEl(card,project.id);
+  });
 }
 function setEngineFilter(){currentEngine=document.getElementById('engineSelect').value;filter();saveBrowseState();}
 function setCollectionFilter(){activeCollection=document.getElementById('collectionSelect').value;filter();saveBrowseState();}
@@ -1539,6 +1616,7 @@ function goHome(){
   document.getElementById('homeView').style.display='flex';
   document.title='CS Hub';
   currentProject=null;
+  filter();
 }
 
 document.getElementById('fsBtn').addEventListener('click',()=>{
