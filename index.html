@@ -43,7 +43,7 @@
   /* SIDEBAR */
   .sidebar{width:210px;background:var(--surface);border-right:1px solid var(--border);display:flex;flex-direction:column;flex-shrink:0;overflow-y:auto;padding:16px 10px;gap:2px}
   .sidebar::-webkit-scrollbar{display:none}
-  .sb-label{font-size:10px;font-weight:700;color:var(--text-3);letter-spacing:1px;text-transform:uppercase;padding:8px 10px 4px}
+  .sb-label{font-size:10px;font-weight:700;color:var(--text-2);letter-spacing:1px;text-transform:uppercase;padding:8px 10px 4px}
   .sb-item{display:flex;align-items:center;gap:10px;padding:8px 10px;border-radius:8px;cursor:pointer;border:1px solid transparent;transition:all .12s;color:var(--text-2);font-size:13px;font-weight:500}
   .sb-item:hover{background:var(--surface2);color:var(--text)}
   .sb-item.active{background:var(--accent-dim);border-color:rgba(124,106,247,.3);color:var(--text)}
@@ -73,7 +73,7 @@
   #homeView::-webkit-scrollbar-thumb{background:var(--border);border-radius:3px}
   .section-header{display:flex;align-items:center;justify-content:space-between;margin-bottom:4px}
   .section-title{font-size:15px;font-weight:700;color:var(--text)}
-  .section-count{font-size:12px;color:var(--text-3);font-weight:500}
+  .section-count{font-size:13px;color:var(--text-2);font-weight:600}
   .loading-state{display:none;flex-direction:column;align-items:center;justify-content:center;gap:14px;padding:80px 20px;flex:1}
   .loading-state.show{display:flex}
   .spinner{width:28px;height:28px;border:2px solid var(--border);border-top-color:var(--accent);border-radius:50%;animation:spin .6s linear infinite}
@@ -226,6 +226,10 @@
   .rate-btn.active{border-color:var(--green);color:var(--green)}
   .rating-plays{font-variant-numeric:tabular-nums}
   .rate-count{min-width:1.6em;text-align:right;font-variant-numeric:tabular-nums}
+  button:focus-visible,.nav-logo:focus-visible,.sb-item:focus-visible,.chip:focus-visible,.icon-btn:focus-visible,.panic-btn:focus-visible,.fav-btn:focus-visible,.play-fav-btn:focus-visible,.rate-btn:focus-visible,.scroll-top:focus-visible{
+    outline:2px solid var(--accent);
+    outline-offset:2px;
+  }
 
   /* ─── SCROLL TO TOP ───────────────────── */
   .scroll-top{position:fixed;bottom:24px;right:24px;width:38px;height:38px;background:var(--accent);border:none;border-radius:50%;display:flex;align-items:center;justify-content:center;color:#fff;cursor:pointer;z-index:400;opacity:0;transform:translateY(12px) scale(.8);transition:all .2s;pointer-events:none;box-shadow:0 4px 16px rgba(124,106,247,.5)}
@@ -260,6 +264,9 @@
   .accent-custom-wrap:hover .accent-custom-btn{border-color:var(--text-2)}
   .accent-custom-wrap.active .accent-custom-btn{border-color:#fff;box-shadow:0 0 0 2px var(--accent)}
   .play-timer{font-size:11px;font-weight:700;color:var(--text-3);font-variant-numeric:tabular-nums;letter-spacing:.5px;padding:4px 8px;background:var(--surface2);border:1px solid var(--border);border-radius:6px;white-space:nowrap}
+  .empty-suggestions{display:flex;flex-wrap:wrap;gap:6px;margin-top:6px}
+  .empty-suggestion-card{border:1px solid var(--border);background:var(--surface2);color:var(--text-2);border-radius:6px;padding:4px 8px;font-size:11px;cursor:pointer;white-space:nowrap}
+  .empty-suggestion-card:hover{border-color:var(--accent);color:var(--accent)}
 
   /* ─── HOTKEY BADGE ────────────────────── */
   .kbd{display:inline-flex;align-items:center;justify-content:min-content;min-width:18px;height:18px;padding:0 4px;background:var(--surface3);border:1px solid var(--border);border-radius:4px;font-size:9px;font-weight:700;color:var(--text-3);font-family:'DM Sans',sans-serif;letter-spacing:.2px}
@@ -463,6 +470,24 @@
   /* ─── PANIC BUTTON ────────────────────── */
   .panic-btn{display:flex;align-items:center;gap:5px;height:32px;padding:0 11px;background:rgba(240,86,86,.12);border:1px solid rgba(240,86,86,.35);border-radius:8px;color:#f05656;font-family:'DM Sans',sans-serif;font-size:12px;font-weight:700;cursor:pointer;transition:all .15s;white-space:nowrap;flex-shrink:0}
   .panic-btn:hover{background:rgba(240,86,86,.22);border-color:#f05656}
+  @media(max-width:600px){
+    .nav-btn-group button{
+      padding:0 8px;
+      font-size:0;
+    }
+    .nav-btn-group button::before{
+      content:attr(data-icon);
+      font-size:14px;
+    }
+    .panic-btn{
+      font-size:0;
+      padding:0 10px;
+    }
+    .panic-btn::before{
+      content:'🛡️';
+      font-size:16px;
+    }
+  }
 </style>
 </head>
 <body>
@@ -472,11 +497,11 @@
     <button id="sidebarToggle" onclick="toggleSidebar()" title="Toggle sidebar" style="width:32px;height:32px;display:flex;align-items:center;justify-content:center;background:var(--surface2);border:1px solid var(--border);border-radius:7px;color:var(--text-2);cursor:pointer;transition:all .12s;flex-shrink:0">
       <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
     </button>
-    <a class="nav-logo" href="#">
+    <a class="nav-logo" href="#" aria-label="CS Hub home">
       <div class="logo-icon">🎮</div>
       <span class="logo-text">CS Hub</span>
     </a>
-    <button class="nav-search-btn" onclick="openSearchPanel()" title="Search games (/)">
+    <button class="nav-search-btn" onclick="openSearchPanel()" title="Search games (/)" aria-label="Search games">
       <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35"/></svg>
       <span>Search games...</span>
       <span class="kbd" style="margin-left:auto">/</span>
@@ -484,12 +509,12 @@
     <!-- hidden input kept for state sync -->
     <input type="text" id="searchInput" style="display:none" autocomplete="off"/>
     <div class="nav-right">
-      <span class="nav-count" id="navCount"></span>
+      <span class="nav-count" id="navCount" aria-live="polite"></span>
       <div class="nav-btn-group">
-        <button onclick="playRandom()" title="Random game (R)">🎲 Random</button>
-        <button onclick="openHotkeys()" title="Keyboard shortcuts">⌨️</button>
+        <button onclick="playRandom()" title="Random game (R)" aria-label="Play a random game" data-icon="🎲">🎲 Random</button>
+        <button onclick="openHotkeys()" title="Keyboard shortcuts" aria-label="Show keyboard shortcuts" data-icon="⌨️">⌨️ Hotkeys</button>
       </div>
-      <button class="panic-btn" onclick="activateDisguise()" title="Disguise page (Ctrl+D)">🛡️ Hide</button>
+      <button class="panic-btn" onclick="activateDisguise()" title="Disguise page (Ctrl+D)" aria-label="Hide CS Hub behind a school-style dashboard">🛡️ Hide</button>
     </div>
   </nav>
 
@@ -575,18 +600,20 @@
           <div class="empty-icon">🎮</div>
           <div class="empty-title">No games found</div>
           <div class="empty-sub">Try a different search or category</div>
-          <button class="empty-reset" onclick="resetBrowseState()">Reset filters</button>
+          <button class="empty-reset" onclick="resetBrowseState()">Clear filters &amp; show all</button>
+          <div class="empty-suggestions-title" id="emptySuggestionsTitle" style="display:none;margin-top:12px;font-size:11px;color:var(--text-3);font-weight:600">Or try one of these:</div>
+          <div class="empty-suggestions" id="emptySuggestions"></div>
         </div>
       </div>
 
       <!-- SCROLL TO TOP -->
-      <button class="scroll-top" id="scrollTopBtn" onclick="scrollToTop()" title="Back to top">
+      <button class="scroll-top" id="scrollTopBtn" onclick="scrollToTop()" title="Back to top" aria-label="Back to top">
         <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M18 15l-6-6-6 6"/></svg>
       </button>
 
       <div id="playView">
         <div class="play-bar">
-          <button class="back-btn" onclick="goHome()">
+          <button class="back-btn" onclick="goHome()" aria-label="Back to game list">
             <svg width="12" height="12" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M19 12H5M12 5l-7 7 7 7"/></svg>Back
           </button>
           <div class="now-playing-dot"></div>
@@ -594,14 +621,14 @@
           <span class="play-type-badge" id="playType"></span>
           <div class="play-bar-right">
             <span class="play-timer" id="playTimer">0:00</span>
-            <button class="play-fav-btn" id="playFavBtn" onclick="togglePlayFav()">
+            <button class="play-fav-btn" id="playFavBtn" onclick="togglePlayFav()" aria-label="Toggle favourite for this game">
               <svg width="12" height="12" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z"/></svg>
               Favourite
             </button>
-            <button class="blank-btn" onclick="openInBlank()">
+            <button class="blank-btn" onclick="openInBlank()" aria-label="Open this game in a blank tab">
               <svg width="11" height="11" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>Blank Tab
             </button>
-            <button class="icon-btn" id="fsBtn" title="Fullscreen (F)">
+            <button class="icon-btn" id="fsBtn" title="Fullscreen (F)" aria-label="Toggle fullscreen">
               <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M8 3H5a2 2 0 00-2 2v3m18 0V5a2 2 0 00-2-2h-3m0 18h3a2 2 0 002-2v-3M3 16v3a2 2 0 002 2h3"/></svg>
             </button>
           </div>
@@ -665,7 +692,7 @@
           <span style="font-size:22px;flex-shrink:0">💻</span>
           <div>
             <div style="font-size:13px;font-weight:700;color:var(--text);margin-bottom:4px">On a Chromebook?</div>
-            <div style="font-size:12px;color:var(--text-2);line-height:1.6">Go to <strong style="color:var(--text)">Settings → Enable About:Blank</strong> to help bypass content filters and keep the site hidden.</div>
+            <div style="font-size:12px;color:var(--text-2);line-height:1.6">Go to <strong style="color:var(--text)">Settings → Enable About:Blank</strong> to keep games in a separate, distraction‑free tab for quick breaks.</div>
           </div>
         </div>
         <div style="font-size:12px;color:var(--text-3);line-height:1.6;padding:0 2px">
@@ -734,21 +761,21 @@
           <div class="setting-row">
             <div class="setting-row-info">
               <div class="setting-label">Open games in Blank Tab</div>
-              <div class="setting-desc">Games open in an about:blank tab — hides the URL from content filters</div>
+              <div class="setting-desc">Games open in an about:blank tab — keeps play in a separate, distraction‑free window</div>
             </div>
             <label class="toggle"><input type="checkbox" id="togBlank" onchange="setSetting('blankTab',this.checked)"><span class="toggle-track"></span></label>
           </div>
           <div class="setting-row">
             <div class="setting-row-info">
               <div class="setting-label">Auto Blank on Load</div>
-              <div class="setting-desc">Automatically wraps the whole site in about:blank each session</div>
+              <div class="setting-desc">Automatically opens CS Hub inside an about:blank wrapper at the start of each session</div>
             </div>
             <label class="toggle"><input type="checkbox" id="togAutoBlank" onchange="setSetting('autoBlank',this.checked)"><span class="toggle-track"></span></label>
           </div>
           <div class="setting-row">
             <div class="setting-row-info">
               <div class="setting-label">Disguise Tab Title</div>
-              <div class="setting-desc">Shows "KnowledgeBase — Learning Resources" in the browser tab instead of CS Hub</div>
+              <div class="setting-desc">Shows a school‑style title in the browser tab instead of "CS Hub"</div>
             </div>
             <label class="toggle"><input type="checkbox" id="togDisguiseTitle" onchange="setSetting('disguiseTitle',this.checked)"><span class="toggle-track"></span></label>
           </div>
@@ -1194,6 +1221,30 @@ function renderGrid(items){
     empty.classList.add('show');
     if(activeType==='favourites'){document.querySelector('.empty-icon').textContent='❤️';document.querySelector('.empty-title').textContent='No favourites yet';document.querySelector('.empty-sub').textContent='Heart a game to save it here'}
     else{document.querySelector('.empty-icon').textContent='🎮';document.querySelector('.empty-title').textContent='No games found';document.querySelector('.empty-sub').textContent='Try a different search or category'}
+    const sugWrap=document.getElementById('emptySuggestions');
+    const sugTitle=document.getElementById('emptySuggestionsTitle');
+    if(sugWrap&&sugTitle){
+      sugWrap.innerHTML='';
+      let pool=PROJECTS;
+      if(activeType!=='all'&&activeType!=='favourites'){
+        pool=PROJECTS.filter(p=>p.type===activeType);
+      }
+      if(!pool.length)pool=PROJECTS;
+      const picks=pool.slice(0,3);
+      if(picks.length){
+        sugTitle.style.display='';
+        picks.forEach(p=>{
+          const btn=document.createElement('button');
+          btn.type='button';
+          btn.className='empty-suggestion-card';
+          btn.textContent=p.title;
+          btn.addEventListener('click',()=>openProject(p));
+          sugWrap.appendChild(btn);
+        });
+      }else{
+        sugTitle.style.display='none';
+      }
+    }
     return;
   }
   empty.classList.remove('show');
@@ -1230,11 +1281,13 @@ function addFavBtn(thumb,p){
   btn.className='fav-btn'+(isFav(p.id)?' faved':'');
   btn.title=isFav(p.id)?'Remove from favourites':'Add to favourites';
   btn.innerHTML='<svg width="13" height="13" fill="none" stroke="#fff" stroke-width="2" viewBox="0 0 24 24"><path d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z"/></svg>';
+  btn.setAttribute('aria-label',isFav(p.id)?'Remove from favourites':'Add to favourites');
   btn.addEventListener('click',e=>{
     e.stopPropagation();
     const faved=toggleFav(p.id);
     btn.classList.toggle('faved',faved);
     btn.title=faved?'Remove from favourites':'Add to favourites';
+    btn.setAttribute('aria-label',faved?'Remove from favourites':'Add to favourites');
     updateCounts();
     showToast(faved?'❤️ Added to favourites':'Removed from favourites');
     if(activeType==='favourites')filter();
@@ -1332,6 +1385,7 @@ function buildCardStats(card,body,project){
   const upBtn=document.createElement('button');
   upBtn.className='rate-btn';
   upBtn.dataset.vote='up';
+  upBtn.setAttribute('aria-label','Like this game');
   upBtn.textContent='👍';
   const upCount=document.createElement('span');
   upCount.className='rate-count rate-count-up';
@@ -1339,6 +1393,7 @@ function buildCardStats(card,body,project){
   const downBtn=document.createElement('button');
   downBtn.className='rate-btn';
   downBtn.dataset.vote='down';
+  downBtn.setAttribute('aria-label','Dislike this game');
   downBtn.textContent='👎';
   const downCount=document.createElement('span');
   downCount.className='rate-count rate-count-down';
