@@ -1214,6 +1214,26 @@ function updateCounts(){
   document.getElementById('navCount').textContent=PROJECTS.length+' games';
 }
 
+// ══════════════════════════════════
+// AUTO SCREENSHOT THUMBNAILS
+// ══════════════════════════════════
+const _ssCache={};
+function fetchScreenshot(p,imgEl,fb){
+  const key=p.url;
+  if(_ssCache[key]===null)return;
+  if(_ssCache[key]){imgEl.src=_ssCache[key];return;}
+  // Use Microlink to auto-screenshot the game's page
+  const target=encodeURIComponent(location.origin+p.url);
+  fetch('https://api.microlink.io?url='+target+'&screenshot=true&meta=false&embed=screenshot.url&waitFor=2000')
+    .then(r=>r.json())
+    .then(data=>{
+      const url=data?.data?.screenshot?.url||data?.screenshot?.url||null;
+      _ssCache[key]=url||null;
+      if(url){imgEl.src=url;}
+    })
+    .catch(()=>{_ssCache[key]=null;});
+}
+
 function renderGrid(items){
   const grid=document.getElementById('gameGrid'),empty=document.getElementById('emptyState');
   grid.innerHTML='';
@@ -1261,8 +1281,17 @@ function renderGrid(items){
       img.onerror=()=>{thumb.innerHTML='';thumb.className='card-thumb bg-'+(p.color||'accent');const fb=document.createElement('span');fb.className='thumb-fallback col-'+(p.color||'accent');fb.textContent=p.icon||'🎮';thumb.appendChild(fb);addOverlay(thumb);addFavBtn(thumb,p)};
       thumb.appendChild(img);lazyObserve(img);
     }else{
+      // Show emoji immediately, then replace with auto-screenshot if available
       thumb.className='card-thumb bg-'+(p.color||'accent');
+      thumb.style.position='relative';
       const fb=document.createElement('span');fb.className='thumb-fallback col-'+(p.color||'accent');fb.textContent=p.icon||'🎮';thumb.appendChild(fb);
+      const autoImg=document.createElement('img');
+      autoImg.alt=p.title;
+      autoImg.style.cssText='position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:none;border-radius:0';
+      autoImg.onload=()=>{fb.style.display='none';autoImg.style.display='block';thumb.style.background='#000';};
+      autoImg.onerror=()=>{autoImg.remove();};
+      thumb.appendChild(autoImg);
+      fetchScreenshot(p,autoImg,fb);
     }
     addOverlay(thumb);addFavBtn(thumb,p);
     const badge=document.createElement('span');badge.className='card-badge '+(p.engine==='unity'?'badge-unity':'badge-html');badge.textContent=p.engine==='unity'?'Unity':'HTML5';thumb.appendChild(badge);
