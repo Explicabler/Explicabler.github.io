@@ -1491,16 +1491,53 @@ function buildCardStats(card,body,project){
 function setEngineFilter(){currentEngine=document.getElementById('engineSelect').value;filter();saveBrowseState();}
 function setCollectionFilter(){activeCollection=document.getElementById('collectionSelect').value;filter();saveBrowseState();}
 
-function filter(){
+let _filterToken=0;
+function wilsonScore(up,down){
+  up=Number(up)||0;down=Number(down)||0;
+  const n=up+down;
+  if(n<=0)return-1;
+  const z=1.96;
+  const phat=up/n;
+  return(phat+(z*z)/(2*n)-z*Math.sqrt((phat*(1-phat)+(z*z)/(4*n))/n))/(1+(z*z)/n);
+}
+
+async function preloadStatsForIdsBatched(ids){
+  const batchSize=300; // 300 ids => 900 keys (server guard stays happy)
+  for(let i=0;i<ids.length;i+=batchSize){
+    const slice=ids.slice(i,i+batchSize);
+    await preloadStatsForIds(slice);
+  }
+}
+
+async function filter(){
+  const token=++_filterToken;
   let f=PROJECTS;
   if(activeType==='favourites'){const ids=getFavs();f=ids.map(id=>PROJECTS.find(p=>p.id===id)).filter(Boolean)}
   else if(activeType!=='all')f=f.filter(p=>p.type===activeType);
   if(currentEngine!=='all')f=f.filter(p=>(p.engine||'html')===currentEngine);
   f=f.filter(collectionMatch);
   if(searchQuery){const q=searchQuery.toLowerCase();f=f.filter(p=>fuzzyMatch(p.title,q)||fuzzyMatch(p.type||'',q)||fuzzyMatch(p.desc||'',q));}
+  const needsStats=(currentSort==='mostPlayed'||currentSort==='bestRated');
+  if(needsStats){
+    await preloadStatsForIdsBatched(f.map(p=>p.id));
+    if(token!==_filterToken)return;
+  }
   if(currentSort==='az')f=[...f].sort((a,b)=>a.title.localeCompare(b.title));
   else if(currentSort==='za')f=[...f].sort((a,b)=>b.title.localeCompare(a.title));
   else if(currentSort==='newest')f=[...f].sort((a,b)=>b.id-a.id);
+  else if(currentSort==='mostPlayed'){
+    const plays=getPlays();
+    f=[...f].sort((a,b)=>(plays[b.id]||0)-(plays[a.id]||0)||a.title.localeCompare(b.title));
+  }else if(currentSort==='bestRated'){
+    const ratings=getRatings();
+    f=[...f].sort((a,b)=>{
+      const ra=ratings[a.id]||{up:0,down:0};
+      const rb=ratings[b.id]||{up:0,down:0};
+      const sa=wilsonScore(ra.up,ra.down);
+      const sb=wilsonScore(rb.up,rb.down);
+      return (sb-sa) || ((rb.up+rb.down)-(ra.up+ra.down)) || a.title.localeCompare(b.title);
+    });
+  }
   renderGrid(f);
 }
 
