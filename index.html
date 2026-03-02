@@ -226,6 +226,7 @@
   .rate-btn.active{border-color:var(--green);color:var(--green)}
   .rating-plays{font-variant-numeric:tabular-nums}
   .rate-count{min-width:1.6em;text-align:right;font-variant-numeric:tabular-nums}
+  .rating-label{margin-top:4px;font-size:10px;color:var(--text-2);font-weight:600}
   button:focus-visible,.nav-logo:focus-visible,.sb-item:focus-visible,.chip:focus-visible,.icon-btn:focus-visible,.panic-btn:focus-visible,.fav-btn:focus-visible,.play-fav-btn:focus-visible,.rate-btn:focus-visible,.scroll-top:focus-visible{
     outline:2px solid var(--accent);
     outline-offset:2px;
@@ -522,6 +523,9 @@
     <aside class="sidebar">
       <div class="sb-label">Browse</div>
       <div class="sb-item active" data-type="all"><span class="sb-icon">🏠</span><span class="sb-name">All Games</span><span class="sb-badge" id="count-all">0</span></div>
+      <div class="sb-item" data-type="trending"><span class="sb-icon">🔥</span><span class="sb-name">Trending</span><span class="sb-badge" id="count-trending">0</span></div>
+      <div class="sb-item" data-type="mostPlayed"><span class="sb-icon">📈</span><span class="sb-name">Most Played</span><span class="sb-badge" id="count-mostPlayed">0</span></div>
+      <div class="sb-item" data-type="topRated"><span class="sb-icon">⭐</span><span class="sb-name">Top Rated</span><span class="sb-badge" id="count-topRated">0</span></div>
       <div class="sb-item" data-type="favourites"><span class="sb-icon">❤️</span><span class="sb-name">Favourites</span><span class="sb-badge" id="count-favourites">0</span></div>
       <div class="sb-divider"></div>
       <div class="sb-label">Categories</div>
@@ -541,6 +545,9 @@
       <div class="filter-bar" id="filterBar">
         <div class="filter-pill" id="filterPill"></div>
         <button class="chip active" data-type="all">All <span class="chip-count" id="fc-all">0</span></button>
+        <button class="chip" data-type="trending">🔥 Trending <span class="chip-count" id="fc-trending">0</span></button>
+        <button class="chip" data-type="mostPlayed">📈 Most played <span class="chip-count" id="fc-mostPlayed">0</span></button>
+        <button class="chip" data-type="topRated">⭐ Top rated <span class="chip-count" id="fc-topRated">0</span></button>
         <button class="chip" data-type="sport">⚽ Sports <span class="chip-count" id="fc-sport">0</span></button>
         <button class="chip" data-type="simulation">🌍 Sim <span class="chip-count" id="fc-simulation">0</span></button>
         <button class="chip" data-type="interactive">🔬 Interactive <span class="chip-count" id="fc-interactive">0</span></button>
@@ -592,6 +599,7 @@
               <option value="az">A → Z</option>
               <option value="za">Z → A</option>
               <option value="newest">Newest</option>
+              <option value="trending">Trending</option>
               <option value="mostPlayed">Most played</option>
               <option value="bestRated">Best rated</option>
             </select>
@@ -1126,8 +1134,23 @@ function renderRecents(){
 // ══════════════════════════════════
 // PROJECTS
 // ══════════════════════════════════
-const TYPE_KEYS=['all','favourites','sport','simulation','interactive','puzzle','platformer','arcade','action','rpg'];
-const CAT_NAMES={all:'All Games',favourites:'Favourites',sport:'Sports',simulation:'Simulation',interactive:'Interactive',puzzle:'Puzzle',platformer:'Platformer',arcade:'Arcade',action:'Action',rpg:'RPG'};
+const TYPE_KEYS=['all','trending','mostPlayed','topRated','favourites','sport','simulation','interactive','puzzle','platformer','arcade','action','rpg'];
+const HIGHLIGHT_TYPES=['trending','mostPlayed','topRated'];
+const CAT_NAMES={
+  all:'All Games',
+  trending:'Trending',
+  mostPlayed:'Most Played',
+  topRated:'Top Rated',
+  favourites:'Favourites',
+  sport:'Sports',
+  simulation:'Simulation',
+  interactive:'Interactive',
+  puzzle:'Puzzle',
+  platformer:'Platformer',
+  arcade:'Arcade',
+  action:'Action',
+  rpg:'RPG'
+};
 
 function getDefaults(){return[
   {id:1,title:"Football Sim",type:"sport",engine:"html",icon:"⚽",color:"green",desc:"Interactive football simulation.",url:"/Football/index.html"},
@@ -1146,7 +1169,7 @@ function loadBrowseState(){
   try{
     const saved=JSON.parse(localStorage.getItem('cshub_browse')||'{}');
     if(TYPE_KEYS.includes(saved.type))activeType=saved.type;
-    if(['default','az','za','newest','mostPlayed','bestRated'].includes(saved.sort))currentSort=saved.sort;
+    if(['default','az','za','newest','trending','mostPlayed','bestRated'].includes(saved.sort))currentSort=saved.sort;
     if(['all','html','unity'].includes(saved.engine))currentEngine=saved.engine;
     if(['all','quick','puzzle','classic'].includes(saved.collection))activeCollection=saved.collection;
     if(typeof saved.query==='string')searchQuery=saved.query.trim();
@@ -1208,6 +1231,7 @@ function updateCounts(){
   TYPE_KEYS.forEach(type=>{
     let n;
     if(type==='all')n=PROJECTS.length;
+    else if(type==='trending'||type==='mostPlayed'||type==='topRated')n=PROJECTS.length;
     else if(type==='favourites')n=favIds.filter(id=>PROJECTS.find(p=>p.id===id)).length;
     else n=PROJECTS.filter(p=>p.type===type).length;
     const s=document.getElementById('count-'+type),f=document.getElementById('fc-'+type);
@@ -1273,8 +1297,8 @@ function renderGrid(items){
   document.getElementById('sectionTitle').textContent=searchQuery?'Search Results':(CAT_NAMES[activeType]||activeType);
   document.getElementById('sectionCount').textContent=items.length+' game'+(items.length!==1?'s':'');
 
-  // Fetch stats in one request to avoid lag (updates cards after render)
-  preloadStatsForIds(items.map(p=>p.id));
+  // Fetch stats in batched requests to avoid lag / key limits
+  preloadStatsForIdsBatched(items.map(p=>p.id));
 
   items.forEach((p,i)=>{
     const card=document.createElement('div');
@@ -1416,9 +1440,9 @@ async function preloadStatsForIds(ids){
     globalPlays[id]=values['plays-'+id]||0;
     globalRatings[id]={up:values['rating-up-'+id]||0,down:values['rating-down-'+id]||0};
   });
-  document.querySelectorAll('.game-card[data-pid]').forEach(card=>{
-    const pid=Number(card.dataset.pid);
-    if(Number.isFinite(pid))updateCardStatsEl(card,pid);
+  ids.forEach(id=>{
+    const card=document.querySelector('.game-card[data-pid="'+id+'"]');
+    if(card)updateCardStatsEl(card,id);
   });
 }
 function formatCount(v){
@@ -1434,9 +1458,20 @@ function updateCardStatsEl(card,id){
   const playsEl=card.querySelector('.rating-plays');
   const upEl=card.querySelector('.rate-count-up');
   const downEl=card.querySelector('.rate-count-down');
+  const labelEl=card.querySelector('.rating-label');
   if(playsEl)playsEl.textContent=formatCount(plays)+' play'+(plays===1?'':'s');
   if(upEl)upEl.textContent=formatCount(r.up||0);
   if(downEl)downEl.textContent=formatCount(r.down||0);
+  if(labelEl){
+    const up=Number(r.up)||0,down=Number(r.down)||0;
+    const total=up+down;
+    if(total<=0){
+      labelEl.textContent='Rating: —';
+    }else{
+      const pct=Math.round((up/total)*100);
+      labelEl.textContent='Rating: '+pct+'% ('+total+' vote'+(total===1?'':'s')+')';
+    }
+  }
   const userRatings=getUserRatings();
   const vote=userRatings[id];
   const upBtn=card.querySelector('.rate-btn[data-vote="up"]');
@@ -1475,6 +1510,10 @@ function buildCardStats(card,body,project){
   row.appendChild(playsSpan);
   row.appendChild(controls);
   body.appendChild(row);
+  const label=document.createElement('div');
+  label.className='rating-label';
+  label.textContent='Rating: —';
+  body.appendChild(label);
   ensureProjectStatsLoaded(project.id).then(()=>updateCardStatsEl(card,project.id));
   updateCardStatsEl(card,project.id);
   upBtn.addEventListener('click',async e=>{
