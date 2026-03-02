@@ -1531,6 +1531,25 @@ function setEngineFilter(){currentEngine=document.getElementById('engineSelect')
 function setCollectionFilter(){activeCollection=document.getElementById('collectionSelect').value;filter();saveBrowseState();}
 
 let _filterToken=0;
+let _trendingCache=null;
+let _trendingCacheAt=0;
+
+async function getTrendingScores(days=7){
+  const now=Date.now();
+  if(_trendingCache && (now-_trendingCacheAt)<30000 && _trendingCache.days===days) return _trendingCache.scores;
+  try{
+    const res=await fetch('/api/stats/trending?days='+days);
+    if(res.ok){
+      const data=await res.json();
+      const scores=data && data.scores && typeof data.scores==='object'?data.scores:{};
+      _trendingCache={days, scores};
+      _trendingCacheAt=now;
+      return scores;
+    }
+  }catch(e){}
+  return {};
+}
+
 function wilsonScore(up,down){
   up=Number(up)||0;down=Number(down)||0;
   const n=up+down;
@@ -1552,10 +1571,15 @@ async function filter(){
   const token=++_filterToken;
   let f=PROJECTS;
   if(activeType==='favourites'){const ids=getFavs();f=ids.map(id=>PROJECTS.find(p=>p.id===id)).filter(Boolean)}
-  else if(activeType!=='all')f=f.filter(p=>p.type===activeType);
+  else if(activeType!=='all'&&!HIGHLIGHT_TYPES.includes(activeType))f=f.filter(p=>p.type===activeType);
   if(currentEngine!=='all')f=f.filter(p=>(p.engine||'html')===currentEngine);
   f=f.filter(collectionMatch);
   if(searchQuery){const q=searchQuery.toLowerCase();f=f.filter(p=>fuzzyMatch(p.title,q)||fuzzyMatch(p.type||'',q)||fuzzyMatch(p.desc||'',q));}
+  if(activeType==='trending')currentSort='trending';
+  if(activeType==='mostPlayed')currentSort='mostPlayed';
+  if(activeType==='topRated')currentSort='bestRated';
+  document.getElementById('sortSelect').value=currentSort;
+
   const needsStats=(currentSort==='mostPlayed'||currentSort==='bestRated');
   if(needsStats){
     await preloadStatsForIdsBatched(f.map(p=>p.id));
@@ -1564,6 +1588,11 @@ async function filter(){
   if(currentSort==='az')f=[...f].sort((a,b)=>a.title.localeCompare(b.title));
   else if(currentSort==='za')f=[...f].sort((a,b)=>b.title.localeCompare(a.title));
   else if(currentSort==='newest')f=[...f].sort((a,b)=>b.id-a.id);
+  else if(currentSort==='trending'){
+    const scores=await getTrendingScores(7);
+    if(token!==_filterToken)return;
+    f=[...f].sort((a,b)=>(Number(scores[b.id]||0)-Number(scores[a.id]||0))||b.id-a.id);
+  }
   else if(currentSort==='mostPlayed'){
     const plays=getPlays();
     f=[...f].sort((a,b)=>(plays[b.id]||0)-(plays[a.id]||0)||a.title.localeCompare(b.title));
