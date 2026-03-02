@@ -1146,7 +1146,7 @@ function loadBrowseState(){
   try{
     const saved=JSON.parse(localStorage.getItem('cshub_browse')||'{}');
     if(TYPE_KEYS.includes(saved.type))activeType=saved.type;
-    if(['default','az','za','newest'].includes(saved.sort))currentSort=saved.sort;
+    if(['default','az','za','newest','mostPlayed','bestRated'].includes(saved.sort))currentSort=saved.sort;
     if(['all','html','unity'].includes(saved.engine))currentEngine=saved.engine;
     if(['all','quick','puzzle','classic'].includes(saved.collection))activeCollection=saved.collection;
     if(typeof saved.query==='string')searchQuery=saved.query.trim();
