@@ -641,7 +641,7 @@
             </div>
             <div class="iframe-progress" id="iframeProgress"></div>
             <div class="panic-hint">Press Esc to go back · F to fullscreen</div>
-            <iframe id="projectFrame" src="" allowfullscreen allow="pointer-lock *; fullscreen *" sandbox="allow-scripts allow-same-origin allow-forms allow-pointer-lock allow-modals allow-popups allow-downloads allow-top-navigation-by-user-activation"></iframe>
+            <iframe id="projectFrame" src="" allowfullscreen allow="fullscreen; pointer-lock; gamepad; autoplay"></iframe>
           </div>
           <aside class="play-sidebar">
             <div class="ps-head">Related Games</div>
@@ -1698,6 +1698,7 @@ document.getElementById('fsBtn').addEventListener('click',()=>{
   const f=document.getElementById('projectFrame');
   if(f.requestFullscreen)f.requestFullscreen();
   else if(f.webkitRequestFullscreen)f.webkitRequestFullscreen();
+  f.focus();
 });
 
 // Focus iframe on click so keyboard/mouse controls reach the game
