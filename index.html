@@ -1281,17 +1281,8 @@ function renderGrid(items){
       img.onerror=()=>{thumb.innerHTML='';thumb.className='card-thumb bg-'+(p.color||'accent');const fb=document.createElement('span');fb.className='thumb-fallback col-'+(p.color||'accent');fb.textContent=p.icon||'🎮';thumb.appendChild(fb);addOverlay(thumb);addFavBtn(thumb,p)};
       thumb.appendChild(img);lazyObserve(img);
     }else{
-      // Show emoji immediately, then replace with auto-screenshot if available
       thumb.className='card-thumb bg-'+(p.color||'accent');
-      thumb.style.position='relative';
       const fb=document.createElement('span');fb.className='thumb-fallback col-'+(p.color||'accent');fb.textContent=p.icon||'🎮';thumb.appendChild(fb);
-      const autoImg=document.createElement('img');
-      autoImg.alt=p.title;
-      autoImg.style.cssText='position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:none;border-radius:0';
-      autoImg.onload=()=>{fb.style.display='none';autoImg.style.display='block';thumb.style.background='#000';};
-      autoImg.onerror=()=>{autoImg.remove();};
-      thumb.appendChild(autoImg);
-      fetchScreenshot(p,autoImg,fb);
     }
     addOverlay(thumb);addFavBtn(thumb,p);
     const badge=document.createElement('span');badge.className='card-badge '+(p.engine==='unity'?'badge-unity':'badge-html');badge.textContent=p.engine==='unity'?'Unity':'HTML5';thumb.appendChild(badge);
@@ -1352,41 +1343,22 @@ function getPlays(){return globalPlays}
 function getRatings(){return globalRatings}
 function getUserRatings(){try{return JSON.parse(localStorage.getItem('cshub_user_ratings')||'{}')}catch(e){return {}}}
 
+function loadLocalStats(){try{return JSON.parse(localStorage.getItem('cshub_local_stats')||'{}')}catch(e){return {}}}
+function saveLocalStats(obj){localStorage.setItem('cshub_local_stats',JSON.stringify(obj))}
+
 async function countApiGet(key){
-  try{
-    const res=await fetch('/api/stats/get?key='+encodeURIComponent(key));
-    if(res.ok){
-      const data=await res.json();
-      if(typeof data.value==='number')return data.value;
-    }
-  }catch(e){}
-  return 0;
+  const s=loadLocalStats();
+  return typeof s[key]==='number'?s[key]:0;
 }
 
 async function countApiUpdate(key,amount){
-  try{
-    const res=await fetch('/api/stats/update',{
-      method:'POST',
-      headers:{'Content-Type':'application/json'},
-      body:JSON.stringify({key,amount})
-    });
-    if(res.ok){
-      const data=await res.json();
-      if(typeof data.value==='number')return data.value;
-    }
-  }catch(e){}
-  // Fallback: best-effort local increment per session
-  const map=key.startsWith('plays-')?globalPlays:globalRatings;
-  if(map){
-    const id=key.split('-').pop();
-    if(key.startsWith('plays-')){
-      const nId=Number(id);
-      map[nId]=(map[nId]||0)+amount;
-      if(map[nId]<0)map[nId]=0;
-      return map[nId];
-    }
-  }
-  return 0;
+  const s=loadLocalStats();
+  const cur=typeof s[key]==='number'?s[key]:0;
+  let next=cur+amount;
+  if(next<0)next=0;
+  s[key]=next;
+  saveLocalStats(s);
+  return next;
 }
 
 async function ensureProjectStatsLoaded(id){
